@@ -6,87 +6,7 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://13757539485.github.io/note/android_flutter/</loc>
-         <lastmod>2023-03-16</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://13757539485.github.io/note/android_framework/</loc>
-         <lastmod>2023-03-16</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://13757539485.github.io/note/android_github/</loc>
-         <lastmod>2023-03-16</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://13757539485.github.io/note/android_java/</loc>
-         <lastmod>2023-03-16</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://13757539485.github.io/note/android_kotlin/</loc>
-         <lastmod>2023-03-16</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://13757539485.github.io/note/android_ndk/</loc>
-         <lastmod>2023-03-16</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://13757539485.github.io/note/android_os/</loc>
-         <lastmod>2023-03-16</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://13757539485.github.io/note/android_performance/</loc>
-         <lastmod>2023-03-16</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://13757539485.github.io/note/android_root/</loc>
-         <lastmod>2023-03-16</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://13757539485.github.io/note/android_ui/</loc>
-         <lastmod>2023-03-16</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://13757539485.github.io/note/android_wechat/</loc>
-         <lastmod>2023-03-16</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://13757539485.github.io/note/linux_blog/</loc>
-         <lastmod>2023-03-16</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://13757539485.github.io/note/linux_install/</loc>
-         <lastmod>2023-03-16</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://13757539485.github.io/note/linux_software/</loc>
-         <lastmod>2023-03-16</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://13757539485.github.io/note/mac_install/</loc>
-         <lastmod>2023-03-16</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://13757539485.github.io/note/mac_software/</loc>
-         <lastmod>2023-03-16</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://13757539485.github.io/note/mkdocs/</loc>
+         <loc>https://13757539485.github.io/note/excel/</loc>
          <lastmod>2023-03-16</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -96,17 +16,117 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://13757539485.github.io/note/window_blog/</loc>
+         <loc>https://13757539485.github.io/note/android/android_flutter/</loc>
          <lastmod>2023-03-16</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://13757539485.github.io/note/window_install/</loc>
+         <loc>https://13757539485.github.io/note/android/android_framework/</loc>
          <lastmod>2023-03-16</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://13757539485.github.io/note/window_software/</loc>
+         <loc>https://13757539485.github.io/note/android/android_github/</loc>
+         <lastmod>2023-03-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://13757539485.github.io/note/android/android_java/</loc>
+         <lastmod>2023-03-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://13757539485.github.io/note/android/android_kotlin/</loc>
+         <lastmod>2023-03-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://13757539485.github.io/note/android/android_ndk/</loc>
+         <lastmod>2023-03-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://13757539485.github.io/note/android/android_os/</loc>
+         <lastmod>2023-03-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://13757539485.github.io/note/android/android_performance/</loc>
+         <lastmod>2023-03-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://13757539485.github.io/note/android/android_root/</loc>
+         <lastmod>2023-03-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://13757539485.github.io/note/android/android_ui/</loc>
+         <lastmod>2023-03-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://13757539485.github.io/note/android/android_wechat/</loc>
+         <lastmod>2023-03-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://13757539485.github.io/note/linux/deepin_install/</loc>
+         <lastmod>2023-03-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://13757539485.github.io/note/linux/linux_command/</loc>
+         <lastmod>2023-03-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://13757539485.github.io/note/linux/linux_software/</loc>
+         <lastmod>2023-03-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://13757539485.github.io/note/linux/ubuntu_install/</loc>
+         <lastmod>2023-03-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://13757539485.github.io/note/mac/mac_install/</loc>
+         <lastmod>2023-03-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://13757539485.github.io/note/mac/mac_software/</loc>
+         <lastmod>2023-03-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://13757539485.github.io/note/mac/mac_swift/</loc>
+         <lastmod>2023-03-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://13757539485.github.io/note/window/window_inner_android/</loc>
+         <lastmod>2023-03-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://13757539485.github.io/note/window/window_install/</loc>
+         <lastmod>2023-03-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://13757539485.github.io/note/window/window_software/</loc>
+         <lastmod>2023-03-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://13757539485.github.io/note/window/window_vmware/</loc>
+         <lastmod>2023-03-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://13757539485.github.io/note/window/window_wsl2/</loc>
          <lastmod>2023-03-16</lastmod>
          <changefreq>daily</changefreq>
     </url>
