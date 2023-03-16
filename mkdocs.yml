@@ -34,7 +34,6 @@ nav:
 theme: 
   name: material
   language: zh
-  custom_dir: docs/custom_theme
   palette:
     primary: 'Light Blue'
     accent: 'Light Blue'
