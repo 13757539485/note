@@ -1,0 +1,84 @@
+site_name: 我的笔记
+site_url: https://13757539485.github.io/mkdocs/
+
+nav: 
+- 目录: 
+    - Android: 
+      - 学习笔记: 
+        - Java基础: android_java.md
+        - Kotlin基础: android_kotlin.md
+        - 高级UI: android_ui.md
+        - Framework: android_framework.md
+        - 性能优化: android_performance.md
+        - 开源框架: android_github.md
+        - NDK: android_ndk.md
+        - Flutter: android_flutter.md
+        - 小程序: android_wechat.md
+      - 玩机家族:
+        - OS大全: android_os.md
+        - Root面具: android_root.md
+    - Window: 
+      - 系统安装: window_install.md
+      - 常见软件: window_software.md
+      - 实用教程: window_blog.md
+    - Linux: 
+      - 推荐系统: linux_install.md
+      - 常见软件: linux_software.md
+      - 实用教程: linux_blog.md
+    - mac: 
+      - 黑苹果: mac_install.md
+      - 使用软件: mac_software.md
+    - mkdocs部署: mkdocs.md
+    - python部署: python.md
+- 关于: about.md
+
+theme: 
+  name: material
+  language: zh
+  custom_dir: docs/custom_theme
+  palette:
+    primary: 'Light Blue'
+    accent: 'Light Blue'
+  features:
+    - navigation.tabs
+  font:
+    text: Microsoft YaHei
+    code: Courier New
+
+markdown_extensions:
+  - admonition
+  - codehilite:
+      guess_lang: false
+      linenums: false
+  - toc:
+      permalink: true
+  - footnotes
+  - meta
+  - def_list
+  - pymdownx.arithmatex
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.critic
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_generator: !!python/name:pymdownx.emoji.to_png
+      #emoji_generator: !!python/name:pymdownx.emoji.to_svg
+      #emoji_generator: !!python/name:pymdownx.emoji.to_png_sprite
+      #emoji_generator: !!python/name:pymdownx.emoji.to_svg_sprite
+      #emoji_generator: !!python/name:pymdownx.emoji.to_awesome
+      #emoji_generator: !!python/name:pymdownx.emoji.to_alt
+  - pymdownx.inlinehilite
+  - pymdownx.magiclink
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences
+  - pymdownx.tasklist
+  - pymdownx.tilde
+
+extra:
+  search:
+    language: 'en,zh,jp'
+
+plugins:
+  - search
