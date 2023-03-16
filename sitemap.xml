@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-         <loc>https://13757539485.github.io/note/about/</loc>
+         <loc>https://13757539485.github.io/note/</loc>
          <lastmod>2023-03-16</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -72,11 +72,6 @@
     </url>
     <url>
          <loc>https://13757539485.github.io/note/linux_software/</loc>
-         <lastmod>2023-03-16</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://13757539485.github.io/note/mac_blog/</loc>
          <lastmod>2023-03-16</lastmod>
          <changefreq>daily</changefreq>
     </url>
