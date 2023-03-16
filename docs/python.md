@@ -24,3 +24,14 @@ python -V
 pip -V
 ```
 
+## linux
+python一般默认自带，生成一下软链接即可
+```
+sudo ln -s /usr/bin/python3.10 /usr/bin/python
+```
+- 其中/usr/bin/python3.10可通过which python3按Tab键查看
+
+安装pip
+```
+sudo apt install pip
+```

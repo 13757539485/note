@@ -2,43 +2,61 @@ site_name: 我的笔记
 site_url: https://13757539485.github.io/note/
 
 nav: 
-- Android:
+- Android系统:
     - 学习笔记: 
-        - Java基础: android_java.md
-        - Kotlin基础: android_kotlin.md
-        - 高级UI: android_ui.md
-        - Framework: android_framework.md
-        - 性能优化: android_performance.md
-        - 开源框架: android_github.md
-        - NDK: android_ndk.md
-        - Flutter: android_flutter.md
-        - 小程序: android_wechat.md
+        - Java基础: android/android_java.md
+        - Kotlin基础: android/android_kotlin.md
+        - 高级UI: android/android_ui.md
+        - Framework: android/android_framework.md
+        - 性能优化: android/android_performance.md
+        - 开源框架: android/android_github.md
+        - NDK: android/android_ndk.md
+        - Flutter: android/android_flutter.md
+        - 小程序: android/android_wechat.md
     - 玩机家族:
-        - OS大全: android_os.md
-        - Root面具: android_root.md
-- Window: 
-    - 系统安装: window_install.md
-    - 常见软件: window_software.md
-    - 实用教程: window_blog.md
-- Linux: 
-    - 推荐系统: linux_install.md
-    - 常见软件: linux_software.md
-    - 实用教程: linux_blog.md
-- mac: 
-    - 黑苹果: mac_install.md
-    - 使用软件: mac_software.md
-- 关于: 
-    - mkdocs部署: mkdocs.md
+        - OS大全: android/android_os.md
+        - Root面具: android/android_root.md
+- Window系统: 
+    - 系统安装: window/window_install.md
+    - 常见软件: window/window_software.md
+    - 实用教程: 
+        - VMWare安装: window/window_vmware.md
+        - WSL2: window/window_wsl2.md
+        - Android子系统: window/window_inner_android.md
+- Linux系统: 
+    - 推荐系统: 
+        - ubuntu: linux/ubuntu_install.md
+        - deepin: linux/deepin_install.md
+    - 常见软件: linux/linux_software.md
+    - 实用教程: 
+        - 常用命令: linux/linux_command.md
+- mac系统: 
+    - 黑苹果: mac/mac_install.md
+    - 使用软件: mac/mac_software.md
+- 常见开发环境: 
     - python部署: python.md
-
+- 办公: 
+    - Excel: excel.md
 theme: 
   name: material
   language: zh
   palette:
-    primary: 'Light Blue'
-    accent: 'Light Blue'
+    - scheme: default
+      primary: light blue
+      accent: cyan
+      toggle:
+        icon: material/brightness-7 
+        name: 开启深色模式
+    - scheme: slate
+      primary: light grey 
+      accent: cyan
+      toggle:
+        icon: material/brightness-4
+        name: 关闭深色模式
   features:
     - navigation.tabs
+    - search.suggest   # 搜索输入一些字母时推荐补全整个单词
+    - search.highlight   # 搜索出的文章关键词加入高亮
   font:
     text: Microsoft YaHei
     code: Courier New
@@ -77,6 +95,12 @@ markdown_extensions:
 extra:
   search:
     language: 'en,zh,jp'
+  generator: false  #删除页脚显示“使用 MkDocs 材料制造”
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/13757539485
 
 plugins:
   - search
+
+copyright: Copyright &copy; 2023俞梨 # 左下角的版权声明
