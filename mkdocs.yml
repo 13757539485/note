@@ -1,10 +1,9 @@
 site_name: 我的笔记
-site_url: https://13757539485.github.io/mkdocs/
+site_url: https://13757539485.github.io/note/
 
 nav: 
-- 目录: 
-    - Android: 
-      - 学习笔记: 
+- Android:
+    - 学习笔记: 
         - Java基础: android_java.md
         - Kotlin基础: android_kotlin.md
         - 高级UI: android_ui.md
@@ -14,23 +13,23 @@ nav:
         - NDK: android_ndk.md
         - Flutter: android_flutter.md
         - 小程序: android_wechat.md
-      - 玩机家族:
+    - 玩机家族:
         - OS大全: android_os.md
         - Root面具: android_root.md
-    - Window: 
-      - 系统安装: window_install.md
-      - 常见软件: window_software.md
-      - 实用教程: window_blog.md
-    - Linux: 
-      - 推荐系统: linux_install.md
-      - 常见软件: linux_software.md
-      - 实用教程: linux_blog.md
-    - mac: 
-      - 黑苹果: mac_install.md
-      - 使用软件: mac_software.md
+- Window: 
+    - 系统安装: window_install.md
+    - 常见软件: window_software.md
+    - 实用教程: window_blog.md
+- Linux: 
+    - 推荐系统: linux_install.md
+    - 常见软件: linux_software.md
+    - 实用教程: linux_blog.md
+- mac: 
+    - 黑苹果: mac_install.md
+    - 使用软件: mac_software.md
+- 关于: 
     - mkdocs部署: mkdocs.md
     - python部署: python.md
-- 关于: about.md
 
 theme: 
   name: material
