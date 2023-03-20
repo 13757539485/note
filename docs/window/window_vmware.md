@@ -77,12 +77,12 @@ sudo smbpasswd -a hfc(当前系统用户)
 sudo /etc/init.d/smbd restart
 ```
 win10开启smb共享服务
-![smb](img/smb.png)
+![smb](../img/smb.png)
 Win+R，输入gpedit.msc ,打开组策略，修改以下配置后重启电脑
-![smb_network](img/smb_network.png)
+![smb_network](../img/smb_network.png)
 若开启hyper-v需要关闭，否则影响模拟器使用
 关闭方式：
 管理员运行终端输入bcdedit /set  hypervisorlaunchtype OFF(恢复AUTO)
 Win+R输入services.msc，将HV主机服务禁用
-![hyper_service](img/hyper_service.png)
+![hyper_service](../img/hyper_service.png)
 重启电脑生效
