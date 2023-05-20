@@ -1,5 +1,5 @@
 site_name: 我的笔记
-site_url: https://13757539485.github.io/note/
+site_url: https://hfc-3850130.gitee.io/note/
 
 nav: 
 - Android系统:
@@ -23,6 +23,7 @@ nav:
         - VMWare安装: window/window_vmware.md
         - WSL2: window/window_wsl2.md
         - Android子系统: window/window_inner_android.md
+        - Win11相关: window/window_win11.md
 - Linux系统: 
     - 推荐系统: 
         - ubuntu: linux/ubuntu_install.md
