@@ -4,7 +4,8 @@ site_url: https://13757539485.github.io/note/
 nav: 
 - Android系统:
     - 学习笔记: 
-        - Java基础: android/android_java.md
+        - Java基础: 
+           - Java虚拟机: android/java_jvm.md
         - Kotlin基础: android/android_kotlin.md
         - 高级UI: android/android_ui.md
         - Framework: android/android_framework.md
@@ -34,8 +35,13 @@ nav:
 - mac系统: 
     - 黑苹果: mac/mac_install.md
     - 使用软件: mac/mac_software.md
+    - SwiftUI: mac/mac_swift.md
+- OpenHarmony系统:
+    - 源码编译: ohos/ohos_build.md
+    - ArkUI开发: ohos/arkui.md
 - 常见开发环境: 
     - python部署: python.md
+    - git部署: git_github.md
 - 办公: 
     - Excel: excel.md
 theme: 

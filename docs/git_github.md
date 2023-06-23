@@ -65,12 +65,13 @@ ssh-keygen -t rsa -C "邮箱"
 3)添加远程地址
 
 ![github_download](img/github_download.png)
+
 git remote add origin git@github.com:13757539485/AndroidForAll.git
 
 4)提交本地代码
 
 Android Studio新建项目
-
+```
 git branch -a
 
 复制远程分支 remotes/origin/master
@@ -82,19 +83,19 @@ git add .
 git commit -m "project init"
 
 git push  (remotes/origin/master master)
-
+```
 5)创建远程分支
-
+```
 git checkout -b xxx
 
 git push origin xxx:xxx
-
+```
 6)删除远程分支
-
+```
 git push origin --delete xxx
-
+```
 #### 其他命令
-
+```
 git fetch
 
 git diff --cached
@@ -106,21 +107,21 @@ git tag
 git config --global commit.template  [模板文件名]
 
 git config --global core.editor  [编辑器名字] 如C:/windows/notepad.exe
-
+```
 #### 查看配置信息
 
 查看系统config
-
+```
 git config --system --list（一般没有）
-
+```
 查看当前用户（global）配置，相当于全局
-
+```
 git config --global --list
-
+```
 查看当前仓库配置信息，相当于作用于这个仓库
-
+```
 git config --local --list
-
+```
 #### 配置别名
 
 如设置status简写st
@@ -141,12 +142,12 @@ git config --global alias.last 'log -1'
 
 [user]
 
-email = liyu@grandstream.cn
+email = 1875287386@qq.com
 
-name = liyu
+name = yuli
 [core]
 
-editor = vim
+editor = vi
 [commit]
 
 template = /home/yuli/CommitTemplate
@@ -170,34 +171,36 @@ st = status
 ---
 
 Window上git diff出现^M问题
-
+```
 git config --global core.autocrlf true
+```
 git tag使用
-
+```
 git tag -l查看所有tag
-
+```
 创建tag：
-
+```
 git tag tagName 或者
 
 git tag -a tagName -m "备注信息"
-
+```
 提交tag：
-
+```
 git push origin tagName
-
+```
 删除tag
-
+```
 git tag -d tagName
-
+```
 特定commit添加tag
-
+```
 git tag tagName  commit_id
-
+```
 指定tag上修改代码：
-
+```
 git checkout -b branch_name tagName
-
+```
 修改后提交
-
+```
 git push --set-upstream origin branch_name
+```
