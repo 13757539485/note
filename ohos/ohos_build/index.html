@@ -1371,8 +1371,7 @@
   <h1>源码编译</h1>
 
 <h4 id="wsl2">WSL2配置<a class="headerlink" href="#wsl2" title="Permanent link">&para;</a></h4>
-<p><a href="../../window/window_wsl2/">wsl2环境配置</a></p>
-<p>1.打开Microsoft store搜索ubuntu，推荐使用ubuntu-20.04，下载后如果出现乱码则安装update_x64.msi(wsl2中)</p>
+<p>1.打开Microsoft store搜索ubuntu，推荐使用ubuntu-20.04，下载后如果出现乱码则安装update_x64.msi(wsl2中)，如果wsl2还未配置则先<a href="../../window/window_wsl2/">wsl2环境配置</a></p>
 <p>2.设置root密码
 <div class="highlight"><pre><span></span><code>sudo passwd root
 </code></pre></div></p>
@@ -1402,15 +1401,7 @@ git config --global credential.helper store
 chmod a+x /usr/local/bin/repo
 pip3 install -i https://pypi.tuna.tsinghua.edu.cn/simple requests
 </code></pre></div></p>
-<p>8.配置交换swap内存
-<div class="highlight"><pre><span></span><code>sudo fallocate -l 10G /swapfile
-sudo chmod 600 /swapfile
-sudo mkswap /swapfile
-sudo swapon /swapfile
-echo &#39;/swapfile swap swap defaults 0 0&#39; | sudo tee -a /etc/fstab
-free -h：可查看
-</code></pre></div></p>
-<p>9.按照wsl迁移</p>
+<p>8.按照wsl迁移到其他磁盘(可跳过)</p>
 <h4 id="_1">官网相关<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h4>
 <p>源码文档： <a href="https://gitee.com/openharmony/docs">https://gitee.com/openharmony/docs</a></p>
 <p>开发者文档： <a href="http://docs.openharmony.cn/pages/v4.0/zh-cn/OpenHarmony-Overview_zh.md/">http://docs.openharmony.cn/pages/v4.0/zh-cn/OpenHarmony-Overview_zh.md/</a></p>
@@ -1428,7 +1419,9 @@ repo forall -c &#39;git lfs pull&#39;
 <div class="highlight"><pre><span></span><code>./build/build_scripts/env_setup.sh
 sudo apt install libxinerama-dev libxcursor-dev libxrandr-dev libxi-dev
 </code></pre></div>
-预编译工具下载：
+如果env_setup.sh执行没效果，则打开此脚本文件删除或注释掉这句代码
+result2=$(echo $SHELL | grep "zsh")</p>
+<p>预编译工具下载：
 <div class="highlight"><pre><span></span><code>./build/prebuilts_download.sh
 </code></pre></div>
 64位：
@@ -1442,7 +1435,7 @@ sudo apt install libxinerama-dev libxcursor-dev libxrandr-dev libxi-dev
 <p><a href="https://blog.csdn.net/nanzhanfei/article/details/121951919">https://blog.csdn.net/nanzhanfei/article/details/121951919</a></p>
 <h4 id="_5">其他使用网站<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h4>
 <p>daily构建版本</p>
-<p><a href="http://ci.openharmony.cn/dailys/dailybuilds">http://ci.openharmony.cn/dailys/dailybuilds</a></p>
+<p><a href="http://ci.openharmony.cn">http://ci.openharmony.cn</a></p>
 
 
 
