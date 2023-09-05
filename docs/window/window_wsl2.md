@@ -47,6 +47,32 @@ D:ubuntuback\ubuntu22.04.tar 镜像所在位置
 ```
 ubuntu2204.exe config --default-user yuli
 ```
+
+配置交换swap内存
+
+1.真正的ubuntu中
+```
+sudo fallocate -l 10G /swapfile
+sudo chmod 600 /swapfile
+sudo mkswap /swapfile
+sudo swapon /swapfile
+echo '/swapfile swap swap defaults 0 0' | sudo tee -a /etc/fstab
+free -h：可查看
+```
+wsl形式的ubuntu中
+
+文件管理器地址输入：%UserProfile%，回车打开.wslconfig(若无此文件则新建)，配置需要的参数
+```
+[wsl2]
+memory=16GB
+swap=10GB
+swapfile=D:\\ubuntu2004\\wsl-swap.vhdx
+nestedVirtualization=true
+```
+更多配置查看：
+
+https://learn.microsoft.com/en-us/windows/wsl/wsl-config#wslconfig
+
 释放空间：
 ```
 wsl --shutdown

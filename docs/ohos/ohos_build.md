@@ -1,7 +1,6 @@
 #### WSL2配置
-[wsl2环境配置](../window/window_wsl2.md)
 
-1.打开Microsoft store搜索ubuntu，推荐使用ubuntu-20.04，下载后如果出现乱码则安装update_x64.msi(wsl2中)
+1.打开Microsoft store搜索ubuntu，推荐使用ubuntu-20.04，下载后如果出现乱码则安装update_x64.msi(wsl2中)，如果wsl2还未配置则先[wsl2环境配置](../window/window_wsl2.md)
 
 2.设置root密码
 ```
@@ -44,17 +43,7 @@ chmod a+x /usr/local/bin/repo
 pip3 install -i https://pypi.tuna.tsinghua.edu.cn/simple requests
 ```
 
-8.配置交换swap内存
-```
-sudo fallocate -l 10G /swapfile
-sudo chmod 600 /swapfile
-sudo mkswap /swapfile
-sudo swapon /swapfile
-echo '/swapfile swap swap defaults 0 0' | sudo tee -a /etc/fstab
-free -h：可查看
-```
-
-9.按照wsl迁移
+8.按照wsl迁移到其他磁盘(可跳过)
 #### 官网相关
 
 源码文档： https://gitee.com/openharmony/docs
@@ -79,6 +68,9 @@ repo forall -c 'git lfs pull'
 ./build/build_scripts/env_setup.sh
 sudo apt install libxinerama-dev libxcursor-dev libxrandr-dev libxi-dev
 ```
+如果env_setup.sh执行没效果，则打开此脚本文件删除或注释掉这句代码
+result2=$(echo $SHELL | grep "zsh")
+
 预编译工具下载：
 ```
 ./build/prebuilts_download.sh
@@ -100,4 +92,4 @@ https://blog.csdn.net/nanzhanfei/article/details/121951919
 #### 其他使用网站
 daily构建版本
 
-http://ci.openharmony.cn/dailys/dailybuilds
+http://ci.openharmony.cn
