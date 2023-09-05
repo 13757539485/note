@@ -11,13 +11,17 @@
         <link rel="canonical" href="https://13757539485.github.io/note/android/android_compose/">
       
       
+        <link rel="prev" href="../android_github/">
+      
+      
+        <link rel="next" href="../android_ndk/">
       
       <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.14">
     
     
       
-        <title>Android compose - 我的笔记</title>
+        <title>Jetpack Compose - 我的笔记</title>
       
     
     
@@ -102,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Android compose
+              Jetpack Compose
             
           </span>
         </div>
@@ -190,6 +194,8 @@
         
   
   
+    
+  
 
 
   
@@ -206,7 +212,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../java_jvm/" class="md-tabs__link">
+      <a href="../java_jvm/" class="md-tabs__link md-tabs__link--active">
         Android系统
       </a>
     </li>
@@ -358,14 +364,16 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" checked>
       
       
       
@@ -374,7 +382,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_1">
           <span class="md-nav__icon md-icon"></span>
           Android系统
@@ -385,14 +393,16 @@
               
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_1" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_1" checked>
       
       
       
@@ -401,7 +411,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_1_label" aria-expanded="false">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_1_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_1_1">
           <span class="md-nav__icon md-icon"></span>
           学习笔记
@@ -521,6 +531,97 @@
       <a href="../android_github/" class="md-nav__link">
         开源框架
       </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Jetpack Compose
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Jetpack Compose
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#jetpack-compose" class="md-nav__link">
+    Jetpack Compose
+  </a>
+  
+    <nav class="md-nav" aria-label="Jetpack Compose">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    函数修饰符
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    组件
+  </a>
+  
+    <nav class="md-nav" aria-label="组件">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#modifier" class="md-nav__link">
+    Modifier修饰符
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#slots-api" class="md-nav__link">
+    Slots API
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1293,7 +1394,7 @@
                   
 
 
-  <h1>Android compose</h1>
+  <h1>Jetpack Compose</h1>
 
 <h2 id="jetpack-compose">Jetpack Compose<a class="headerlink" href="#jetpack-compose" title="Permanent link">&para;</a></h2>
 <h3 id="_1">函数修饰符<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
@@ -1324,19 +1425,57 @@ fun ${Function_Name}Preview() {${Function_Name}()
 }
 #end
 </code></pre></div>
-<p>组件对比
-| Android  | Compose  | 
-|  ----  | ----  |
-|  Button  | Button  |
-|  TextView  | <a href="../compose/compose_text/">Text</a>  |
-|  EditText  | TextField  |
-|  ImageView  | Image  |
-|  LinearLayout(h)  | Row  |
-|  LinearLayout(v)  | Column  |
-|  FrameLayout  | Box  |
-|  RecyclerView(v)  | LazyColumn  |
-|  RecyclerView(h)  | LazyRow  |
-|  Snackbar  | Snackbar  |</p>
+<p>组件对比</p>
+<table>
+<thead>
+<tr>
+<th>Android</th>
+<th>Compose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Button</td>
+<td>Button</td>
+</tr>
+<tr>
+<td>TextView</td>
+<td><a href="../compose/compose_text/">Text</a></td>
+</tr>
+<tr>
+<td>EditText</td>
+<td>TextField</td>
+</tr>
+<tr>
+<td>ImageView</td>
+<td>Image</td>
+</tr>
+<tr>
+<td>LinearLayout(h)</td>
+<td>Row</td>
+</tr>
+<tr>
+<td>LinearLayout(v)</td>
+<td>Column</td>
+</tr>
+<tr>
+<td>FrameLayout</td>
+<td>Box</td>
+</tr>
+<tr>
+<td>RecyclerView(v)</td>
+<td>LazyColumn</td>
+</tr>
+<tr>
+<td>RecyclerView(h)</td>
+<td>LazyRow</td>
+</tr>
+<tr>
+<td>Snackbar</td>
+<td>Snackbar</td>
+</tr>
+</tbody>
+</table>
 <h4 id="modifier">Modifier修饰符<a class="headerlink" href="#modifier" title="Permanent link">&para;</a></h4>
 <h4 id="slots-api">Slots API<a class="headerlink" href="#slots-api" title="Permanent link">&para;</a></h4>
 <p>CompositionLocalProvider

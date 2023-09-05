@@ -68,6 +68,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -515,6 +520,20 @@
     <li class="md-nav__item">
       <a href="../../android_github/" class="md-nav__link">
         开源框架
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../android_compose/" class="md-nav__link">
+        Jetpack Compose
       </a>
     </li>
   
@@ -1220,6 +1239,112 @@
   
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    文字内容
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    文字颜色
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    文字大小
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    文字粗细
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    文字样式
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    字体
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    文字间距
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    文字装饰
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    文字位置
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    行高
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    文字行数以及裁剪
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    文字样式可设置很多属性，包括以上以及额外的缩进等
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    文字可选择
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    可点击文本(富文本)
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1235,7 +1360,97 @@
 
   <h1>Compose text</h1>
 
-
+<h3 id="_1">文字内容<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="n">Text</span><span class="p">(</span><span class="n">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;app_name&quot;</span><span class="p">)</span>
+<span class="n">Text</span><span class="p">(</span><span class="n">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">stringResource</span><span class="p">(</span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">R</span><span class="p">.</span><span class="na">string</span><span class="p">.</span><span class="na">app_name</span><span class="p">))</span>
+</code></pre></div>
+<h3 id="_2">文字颜色<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="n">color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Color</span><span class="p">.</span><span class="na">Blue</span>
+<span class="n">color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Color</span><span class="p">(</span><span class="m">0</span><span class="n">XFFFFFF00</span><span class="p">)</span>
+<span class="n">color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Color</span><span class="p">(</span><span class="m">1F</span><span class="p">,</span><span class="w"> </span><span class="m">1F</span><span class="p">,</span><span class="w"> </span><span class="m">0F</span><span class="p">,</span><span class="w"> </span><span class="m">1f</span><span class="p">)</span>
+<span class="n">color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Color</span><span class="p">(</span><span class="m">255</span><span class="p">,</span><span class="w"> </span><span class="m">255</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="n">xFF</span><span class="p">)</span>
+<span class="n">color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">colorResource</span><span class="p">(</span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">R</span><span class="p">.</span><span class="na">color</span><span class="p">.</span><span class="na">black</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="_3">文字大小<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="n">fontSize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">16.</span><span class="n">sp</span>
+<span class="n">fontSize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">TextUnit</span><span class="p">(</span><span class="m">22f</span><span class="p">,</span><span class="w"> </span><span class="n">TextUnitType</span><span class="p">.</span><span class="na">Sp</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="_4">文字粗细<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="n">fontWeight</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">FontWeight</span><span class="p">.</span><span class="na">Bold</span>
+</code></pre></div>
+<h3 id="_5">文字样式<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="n">fontStyle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">FontStyle</span><span class="p">.</span><span class="na">Normal</span>
+<span class="n">fontStyle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">FontStyle</span><span class="p">.</span><span class="na">Italic</span>
+</code></pre></div>
+<h3 id="_6">字体<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="n">fontFamily</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">FontFamily</span><span class="p">.</span><span class="na">SansSerif</span>
+</code></pre></div>
+<h3 id="_7">文字间距<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="n">letterSpacing</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">10.</span><span class="n">sp</span>
+</code></pre></div>
+<h3 id="_8">文字装饰<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="n">textDecoration</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">TextDecoration</span><span class="p">.</span><span class="na">Underline</span><span class="c1">//下划线</span>
+<span class="n">textDecoration</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">TextDecoration</span><span class="p">.</span><span class="na">combine</span><span class="p">(</span><span class="n">listOf</span><span class="p">(</span>
+<span class="w">            </span><span class="n">TextDecoration</span><span class="p">.</span><span class="na">LineThrough</span><span class="p">,</span><span class="c1">//删除线</span>
+<span class="w">            </span><span class="n">TextDecoration</span><span class="p">.</span><span class="na">Underline</span><span class="c1">//下划线</span>
+<span class="w">        </span><span class="p">))</span><span class="c1">//同时存在</span>
+</code></pre></div>
+<h3 id="_9">文字位置<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="n">textAlign</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">TextAlign</span><span class="p">.</span><span class="na">Center</span>
+</code></pre></div>
+<h3 id="_10">行高<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="n">lineHeight</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">15.</span><span class="n">sp</span>
+</code></pre></div>
+<h3 id="_11">文字行数以及裁剪<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="n">overflow</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">TextOverflow</span><span class="p">.</span><span class="na">Clip</span>
+<span class="n">maxLines</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span>
+</code></pre></div>
+<h3 id="_12">文字样式可设置很多属性，包括以上以及额外的缩进等<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="n">style</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">TextStyle</span><span class="p">()</span>
+</code></pre></div>
+<h3 id="_13">文字可选择<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="n">SelectionContainer</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">Text</span><span class="p">()</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="_14">可点击文本(富文本)<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h3>
+<p>案例：用户协议和隐私政策点击超链接
+<div class="highlight"><pre><span></span><code><span class="kd">val</span><span class="w"> </span><span class="nv">annoStr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">buildAnnotatedString</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">append</span><span class="p">(</span><span class="s">&quot;点击登录代码同意&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="n">pushStringAnnotation</span><span class="p">(</span><span class="s">&quot;protocol&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;https://www.baidu.com&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="n">withStyle</span><span class="p">(</span>
+<span class="w">        </span><span class="n">SpanStyle</span><span class="p">(</span>
+<span class="w">            </span><span class="n">color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Color</span><span class="p">.</span><span class="na">Blue</span><span class="p">,</span>
+<span class="w">            </span><span class="n">textDecoration</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">TextDecoration</span><span class="p">.</span><span class="na">Underline</span>
+<span class="w">        </span><span class="p">)</span>
+<span class="w">    </span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">append</span><span class="p">(</span><span class="s">&quot;用户协议&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="n">pop</span><span class="p">()</span>
+<span class="w">    </span><span class="n">append</span><span class="p">(</span><span class="s">&quot;和&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="n">pushStringAnnotation</span><span class="p">(</span><span class="s">&quot;private&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;https://developer.android.google.cn/jetpack/compose&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="n">withStyle</span><span class="p">(</span>
+<span class="w">        </span><span class="n">SpanStyle</span><span class="p">(</span>
+<span class="w">            </span><span class="n">color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Color</span><span class="p">.</span><span class="na">Blue</span><span class="p">,</span>
+<span class="w">            </span><span class="n">textDecoration</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">TextDecoration</span><span class="p">.</span><span class="na">Underline</span>
+<span class="w">        </span><span class="p">)</span>
+<span class="w">    </span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">append</span><span class="p">(</span><span class="s">&quot;隐私政策&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="n">pop</span><span class="p">()</span>
+<span class="p">}</span>
+<span class="kd">var</span><span class="w"> </span><span class="nv">showStr</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">remember</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">mutableStateOf</span><span class="p">(</span><span class="s">&quot;&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="n">Column</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">ClickableText</span><span class="p">(</span><span class="n">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">annoStr</span><span class="p">,</span><span class="w"> </span><span class="n">onClick</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">position</span><span class="w"> </span><span class="o">-&gt;</span>
+<span class="w">        </span><span class="n">showStr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">annoStr</span><span class="p">.</span><span class="na">getStringAnnotations</span><span class="p">(</span><span class="s">&quot;protocol&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">position</span><span class="p">,</span><span class="w"> </span><span class="n">position</span><span class="p">)</span>
+<span class="w">            </span><span class="p">.</span><span class="na">firstOrNull</span><span class="p">()</span><span class="o">?.</span><span class="na">item</span><span class="w"> </span><span class="o">?:</span><span class="w"> </span><span class="n">annoStr</span><span class="p">.</span><span class="na">getStringAnnotations</span><span class="p">(</span><span class="s">&quot;private&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">position</span><span class="p">,</span><span class="w"> </span><span class="n">position</span><span class="p">)</span>
+<span class="w">            </span><span class="p">.</span><span class="na">firstOrNull</span><span class="p">()</span><span class="o">?.</span><span class="na">item</span><span class="w"> </span><span class="o">?:</span><span class="w"> </span><span class="s">&quot;&quot;</span>
+<span class="w">    </span><span class="p">})</span>
+<span class="w">    </span><span class="n">Text</span><span class="p">(</span><span class="n">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">showStr</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></p>
 
 
 
