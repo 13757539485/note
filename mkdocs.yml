@@ -11,6 +11,7 @@ nav:
         - Framework: android/android_framework.md
         - 性能优化: android/android_performance.md
         - 开源框架: android/android_github.md
+        - Jetpack Compose: android/android_compose.md
         - NDK: android/android_ndk.md
         - Flutter: android/android_flutter.md
         - 小程序: android/android_wechat.md

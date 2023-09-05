@@ -33,7 +33,8 @@ fun ${Function_Name}Preview() {${Function_Name}()
 ```
 
 组件对比
-| Android  | Compose  | 
+
+| Android  | Compose  |
 |  ----  | ----  |
 |  Button  | Button  |
 |  TextView  | [Text](./compose/compose_text.md)  |
