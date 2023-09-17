@@ -1,5 +1,3 @@
-## Jetpack Compose
-
 ### 函数修饰符
 [函数修饰符介绍](./compose/compose_annotation.md)
 
@@ -55,3 +53,6 @@ fun ${Function_Name}Preview() {${Function_Name}()
 
 CompositionLocalProvider
 Scaffold
+
+#### 优化
+[Laziness优化](./compose/compose_laziness.md)

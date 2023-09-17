@@ -4,17 +4,32 @@ site_url: https://13757539485.github.io/note/
 nav: 
 - Android系统:
     - 学习笔记: 
-        - Java基础: 
-           - Java虚拟机: android/java_jvm.md
-        - Kotlin基础: android/android_kotlin.md
+        - Java: 
+           - 基础: android/java/java_basic.md
+           - 虚拟机: android/java/java_jvm.md
+           - 线程: android/java/java_thread.md
+           - 泛型: android/java/java_genericity.md
+           - 反射: android/java/java_reflex.md
+        - Kotlin: 
+           - 入门: android/kotlin/kotlin_basic.md
+           - 函数: android/kotlin/kotlin_function.md
+           - 操作符与关键字: android/kotlin/kotlin_op.md
+           - 集合: android/kotlin/kotlin_collection.md
+           - 类: android/kotlin/kotlin_class.md
+           - 实战应用: android/kotlin/kotlin_code.md
+           - 原理: android/kotlin/kotlin_principle.md
+        - 数据结构: android/java/java_collection.md
+        - 设计模式: android/design_mode.md
         - 高级UI: android/android_ui.md
         - Framework: android/android_framework.md
         - 性能优化: android/android_performance.md
         - 开源框架: android/android_github.md
-        - Jetpack Compose: android/android_compose.md
-        - NDK: android/android_ndk.md
+        - 开发模式: android/android_dev_mode.md
+        - Apk相关: android/android_build_apk.md
+        - Compose: android/android_compose.md
+        # - NDK: android/android_ndk.md
         - Flutter: android/android_flutter.md
-        - 小程序: android/android_wechat.md
+        # - 小程序: android/android_wechat.md
     - 玩机家族:
         - OS大全: android/android_os.md
         - Root面具: android/android_root.md
