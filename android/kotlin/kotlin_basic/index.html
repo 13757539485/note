@@ -8,25 +8,27 @@
       
       
       
-        <link rel="canonical" href="https://13757539485.github.io/note/android/java_jvm/">
+        <link rel="canonical" href="https://13757539485.github.io/note/android/kotlin/kotlin_basic/">
       
       
+        <link rel="prev" href="../../java/java_reflex/">
       
-        <link rel="next" href="../android_kotlin/">
       
-      <link rel="icon" href="../../assets/images/favicon.png">
+        <link rel="next" href="../kotlin_function/">
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.14">
     
     
       
-        <title>Java虚拟机 - 我的笔记</title>
+        <title>入门 - 我的笔记</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.85bb2934.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.85bb2934.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.a6bdf11c.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.a6bdf11c.min.css">
       
       
 
@@ -42,7 +44,7 @@
       
     
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -71,7 +73,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#jdkjrejvm" class="md-skip">
+        <a href="#_1" class="md-skip">
           跳转至
         </a>
       
@@ -85,7 +87,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="页眉">
-    <a href="../.." title="我的笔记" class="md-header__button md-logo" aria-label="我的笔记" data-md-component="logo">
+    <a href="../../.." title="我的笔记" class="md-header__button md-logo" aria-label="我的笔记" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -104,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Java虚拟机
+              入门
             
           </span>
         </div>
@@ -210,7 +212,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="./" class="md-tabs__link md-tabs__link--active">
+      <a href="../../java/java_basic/" class="md-tabs__link md-tabs__link--active">
         Android系统
       </a>
     </li>
@@ -230,7 +232,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../window/window_install/" class="md-tabs__link">
+      <a href="../../../window/window_install/" class="md-tabs__link">
         Window系统
       </a>
     </li>
@@ -251,7 +253,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../linux/ubuntu_install/" class="md-tabs__link">
+      <a href="../../../linux/ubuntu_install/" class="md-tabs__link">
         Linux系统
       </a>
     </li>
@@ -269,7 +271,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../mac/mac_install/" class="md-tabs__link">
+      <a href="../../../mac/mac_install/" class="md-tabs__link">
         mac系统
       </a>
     </li>
@@ -285,7 +287,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../ohos/ohos_build/" class="md-tabs__link">
+      <a href="../../../ohos/ohos_build/" class="md-tabs__link">
         OpenHarmony系统
       </a>
     </li>
@@ -301,7 +303,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../python/" class="md-tabs__link">
+      <a href="../../../python/" class="md-tabs__link">
         常见开发环境
       </a>
     </li>
@@ -317,7 +319,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../excel/" class="md-tabs__link">
+      <a href="../../../excel/" class="md-tabs__link">
         办公
       </a>
     </li>
@@ -345,7 +347,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="我的笔记" class="md-nav__button md-logo" aria-label="我的笔记" data-md-component="logo">
+    <a href="../../.." title="我的笔记" class="md-nav__button md-logo" aria-label="我的笔记" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -420,6 +422,110 @@
               
   
   
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_1_1" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_1_1" id="__nav_1_1_1_label" tabindex="0">
+          Java
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_1_1_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_1_1_1">
+          <span class="md-nav__icon md-icon"></span>
+          Java
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java/java_basic/" class="md-nav__link">
+        基础
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java/java_jvm/" class="md-nav__link">
+        虚拟机
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java/java_thread/" class="md-nav__link">
+        线程
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java/java_genericity/" class="md-nav__link">
+        泛型
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java/java_reflex/" class="md-nav__link">
+        反射
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
     
   
   
@@ -429,19 +535,19 @@
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_1_1" checked>
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_1_2" checked>
       
       
       
-        <label class="md-nav__link" for="__nav_1_1_1" id="__nav_1_1_1_label" tabindex="0">
-          Java基础
+        <label class="md-nav__link" for="__nav_1_1_2" id="__nav_1_1_2_label" tabindex="0">
+          Kotlin
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_1_1_1_label" aria-expanded="true">
-        <label class="md-nav__title" for="__nav_1_1_1">
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_1_1_2_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_1_1_2">
           <span class="md-nav__icon md-icon"></span>
-          Java基础
+          Kotlin
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -459,12 +565,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          Java虚拟机
+          入门
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Java虚拟机
+        入门
       </a>
       
         
@@ -481,49 +587,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#jdkjrejvm" class="md-nav__link">
-    JDK、JRE、JVM
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#jvm" class="md-nav__link">
-    Jvm的内存区域
-  </a>
-  
-    <nav class="md-nav" aria-label="Jvm的内存区域">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
-    虚拟机栈
+    简介
   </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    程序计数器
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    本地方法
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#jvm_1" class="md-nav__link">
-    深入理解JVM内存
+  <a href="#fieldproperty" class="md-nav__link">
+    field和property
   </a>
   
 </li>
@@ -532,6 +604,90 @@
   
 </nav>
       
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kotlin_function/" class="md-nav__link">
+        函数
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kotlin_op/" class="md-nav__link">
+        操作符与关键字
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kotlin_collection/" class="md-nav__link">
+        集合
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kotlin_class/" class="md-nav__link">
+        类
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kotlin_code/" class="md-nav__link">
+        实战应用
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kotlin_principle/" class="md-nav__link">
+        原理
+      </a>
     </li>
   
 
@@ -550,8 +706,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../android_kotlin/" class="md-nav__link">
-        Kotlin基础
+      <a href="../../java/java_collection/" class="md-nav__link">
+        数据结构
       </a>
     </li>
   
@@ -564,7 +720,21 @@
   
   
     <li class="md-nav__item">
-      <a href="../android_ui/" class="md-nav__link">
+      <a href="../../design_mode/" class="md-nav__link">
+        设计模式
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../android_ui/" class="md-nav__link">
         高级UI
       </a>
     </li>
@@ -578,7 +748,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../android_framework/" class="md-nav__link">
+      <a href="../../android_framework/" class="md-nav__link">
         Framework
       </a>
     </li>
@@ -592,7 +762,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../android_performance/" class="md-nav__link">
+      <a href="../../android_performance/" class="md-nav__link">
         性能优化
       </a>
     </li>
@@ -606,7 +776,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../android_github/" class="md-nav__link">
+      <a href="../../android_github/" class="md-nav__link">
         开源框架
       </a>
     </li>
@@ -620,8 +790,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../android_compose/" class="md-nav__link">
-        Jetpack Compose
+      <a href="../../android_dev_mode/" class="md-nav__link">
+        开发模式
       </a>
     </li>
   
@@ -634,8 +804,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../android_ndk/" class="md-nav__link">
-        NDK
+      <a href="../../android_build_apk/" class="md-nav__link">
+        Apk相关
       </a>
     </li>
   
@@ -648,22 +818,22 @@
   
   
     <li class="md-nav__item">
-      <a href="../android_flutter/" class="md-nav__link">
+      <a href="../../android_compose/" class="md-nav__link">
+        Compose
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../android_flutter/" class="md-nav__link">
         Flutter
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../android_wechat/" class="md-nav__link">
-        小程序
       </a>
     </li>
   
@@ -710,7 +880,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../android_os/" class="md-nav__link">
+      <a href="../../android_os/" class="md-nav__link">
         OS大全
       </a>
     </li>
@@ -724,7 +894,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../android_root/" class="md-nav__link">
+      <a href="../../android_root/" class="md-nav__link">
         Root面具
       </a>
     </li>
@@ -780,7 +950,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../window/window_install/" class="md-nav__link">
+      <a href="../../../window/window_install/" class="md-nav__link">
         系统安装
       </a>
     </li>
@@ -794,7 +964,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../window/window_software/" class="md-nav__link">
+      <a href="../../../window/window_software/" class="md-nav__link">
         常见软件
       </a>
     </li>
@@ -835,7 +1005,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../window/window_vmware/" class="md-nav__link">
+      <a href="../../../window/window_vmware/" class="md-nav__link">
         VMWare安装
       </a>
     </li>
@@ -849,7 +1019,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../window/window_wsl2/" class="md-nav__link">
+      <a href="../../../window/window_wsl2/" class="md-nav__link">
         WSL2
       </a>
     </li>
@@ -863,7 +1033,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../window/window_inner_android/" class="md-nav__link">
+      <a href="../../../window/window_inner_android/" class="md-nav__link">
         Android子系统
       </a>
     </li>
@@ -877,7 +1047,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../window/window_win11/" class="md-nav__link">
+      <a href="../../../window/window_win11/" class="md-nav__link">
         Window11相关
       </a>
     </li>
@@ -960,7 +1130,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../linux/ubuntu_install/" class="md-nav__link">
+      <a href="../../../linux/ubuntu_install/" class="md-nav__link">
         ubuntu
       </a>
     </li>
@@ -974,7 +1144,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../linux/deepin_install/" class="md-nav__link">
+      <a href="../../../linux/deepin_install/" class="md-nav__link">
         deepin
       </a>
     </li>
@@ -995,7 +1165,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../linux/linux_software/" class="md-nav__link">
+      <a href="../../../linux/linux_software/" class="md-nav__link">
         常见软件
       </a>
     </li>
@@ -1036,7 +1206,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../linux/linux_command/" class="md-nav__link">
+      <a href="../../../linux/linux_command/" class="md-nav__link">
         常用命令
       </a>
     </li>
@@ -1092,7 +1262,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../mac/mac_install/" class="md-nav__link">
+      <a href="../../../mac/mac_install/" class="md-nav__link">
         黑苹果
       </a>
     </li>
@@ -1106,7 +1276,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../mac/mac_software/" class="md-nav__link">
+      <a href="../../../mac/mac_software/" class="md-nav__link">
         使用软件
       </a>
     </li>
@@ -1120,7 +1290,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../mac/mac_swift/" class="md-nav__link">
+      <a href="../../../mac/mac_swift/" class="md-nav__link">
         SwiftUI
       </a>
     </li>
@@ -1169,7 +1339,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ohos/ohos_build/" class="md-nav__link">
+      <a href="../../../ohos/ohos_build/" class="md-nav__link">
         源码编译
       </a>
     </li>
@@ -1183,7 +1353,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ohos/arkui/" class="md-nav__link">
+      <a href="../../../ohos/arkui/" class="md-nav__link">
         ArkUI开发
       </a>
     </li>
@@ -1232,7 +1402,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../python/" class="md-nav__link">
+      <a href="../../../python/" class="md-nav__link">
         python部署
       </a>
     </li>
@@ -1246,7 +1416,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../git_github/" class="md-nav__link">
+      <a href="../../../git_github/" class="md-nav__link">
         git部署
       </a>
     </li>
@@ -1295,7 +1465,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../excel/" class="md-nav__link">
+      <a href="../../../excel/" class="md-nav__link">
         Excel
       </a>
     </li>
@@ -1334,49 +1504,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#jdkjrejvm" class="md-nav__link">
-    JDK、JRE、JVM
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#jvm" class="md-nav__link">
-    Jvm的内存区域
-  </a>
-  
-    <nav class="md-nav" aria-label="Jvm的内存区域">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
-    虚拟机栈
+    简介
   </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    程序计数器
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    本地方法
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#jvm_1" class="md-nav__link">
-    深入理解JVM内存
+  <a href="#fieldproperty" class="md-nav__link">
+    field和property
   </a>
   
 </li>
@@ -1396,92 +1532,39 @@
                   
 
 
-  <h1>Java虚拟机</h1>
+  <h1>入门</h1>
 
-<h3 id="jdkjrejvm">JDK、JRE、JVM<a class="headerlink" href="#jdkjrejvm" title="Permanent link">&para;</a></h3>
-<p><img alt="jvm2" src="../../img/jvm2.png" /></p>
-<p>jdk包含jre和jvm</p>
-<p>jdk提供工具：java、javac、javap等工具</p>
-<p>jre包含java类库和jvm</p>
-<p>jvm是一种规范，Classloader用来加载class，然后使用解析器翻译代码</p>
-<p>jvm是用c++语言编写</p>
-<p>解释执行：用c++解释器去解析class中的代码，所以经过翻译速度会慢一点</p>
-<p>JIT执行：class代码翻译成汇编码(codecache)，速度相对比较快</p>
-<p>jvm只接收字节码(class)和开发语言无关性(kotlin,groovy等最终转成字节码即可)，跨平台(不同操作系统有对应JDK)</p>
-<p>只要符合jvm规范可以自行开发jvm</p>
-<h3 id="jvm">Jvm的内存区域<a class="headerlink" href="#jvm" title="Permanent link">&para;</a></h3>
-<p>执行java程序时会把内存分为五个区域：虚拟机栈、本地方法栈、方法区、堆、程序计数器</p>
-<p><img alt="jvm3" src="../../img/jvm4.png" /></p>
-<p>运行时数据区根据线程划分：线程共享区和线程私有区</p>
-<p><img alt="jvm3" src="../../img/jvm3.png" /></p>
-<p>线程共享区(被所有线程共享，有且只有一份)：方法区和堆</p>
-<p>线程私有区：多个线程</p>
-<p>除了运行时数据区还有直接内存(没有被虚拟化的内存，比如系统内存8G，jvm虚拟化了5G，剩余3G被称为直接内存)</p>
-<p>方法区：运行时常量</p>
-<p>线程：虚拟机栈、本地方法栈和程序计数器</p>
-<hr />
-<h4 id="_1">虚拟机栈<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h4>
-<p>1.大小取决于平台，查询链接</p>
-<p><a href="https://docs.oracle.com/javase/8/docs/technotes/tools/unix/java.html">https://docs.oracle.com/javase/8/docs/technotes/tools/unix/java.html</a></p>
-<p>-Xsssize</p>
-<p>64位系统都是1M</p>
-<p>即每个线程至少1M大小，可通过以下方式减小大小优化系统内存紧张</p>
-<p>-Xss1m</p>
-<p>-Xss1024k</p>
-<p>-Xss1048576</p>
-<p>2.用来存放当前线程运行方法所有的数据、指令、返回地址，由于是栈结构，所以先进后出，调用时入栈，完成时出栈</p>
-<p>比如方法main调用A，即A在main上面，每个方法会产生一个栈帧</p>
-<p>栈溢出：调用方法数量总大小超过1M导致抛出的异常，常见死递归</p>
-<p>栈帧：局部变量表，操作数栈，动态连接，完成出口</p>
-<p>局部变量表：存放局部变量(java的八大基本数据类型、对象引用、returnAddress类型)</p>
-<p>操作数栈：存放方法执行的操作数，操作的元素可以是任意java数据类型</p>
-<p>动态连接：java语言特性多态相关</p>
-<p>完成出口(返回地址)：调用程序计数器的地址作为返回</p>
-<ul>
-<li>正常返回：恢复上层方法的局部变量表和操作数栈；把返回值(如果有)压入调用着栈帧的操作数栈中；调整程序计数器的值指向方法调用指令后的一条指令</li>
-<li>异常返回：由异常处理表&lt;非栈帧中的&gt;来确定</li>
-</ul>
-<h4 id="_2">程序计数器<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h4>
-<p>指向当前线程正在执行的字节码行号(指令地址)，占用很少内存，唯一不会造成OOM的内存区域</p>
-<p><strong>运行流程</strong>
-<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">JvmTest</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">work</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
-<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">6</span><span class="p">;</span>
-<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">z</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">y</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">14</span><span class="p">;</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">z</span><span class="p">;</span>
-<span class="w">    </span><span class="p">}</span>
-
-<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="n">JvmTest</span><span class="w"> </span><span class="n">test</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">JvmTest</span><span class="p">();</span>
-<span class="w">        </span><span class="n">test</span><span class="p">.</span><span class="na">work</span><span class="p">();</span>
-<span class="w">    </span><span class="p">}</span>
+<h3 id="_1">简介<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
+<p><a href="https://book.kotlincn.net/">官网</a></p>
+<p>判断静态语言、动态语言？</p>
+<p>静态语言是编译期能校验数据类型，如java
+<div class="highlight"><pre><span></span><code><span class="n">String</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;xx&quot;</span><span class="p">;</span>
+<span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="c1">//报错</span>
+</code></pre></div></p>
+<p>如kotlin
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nv">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;xxx&quot;</span>
+<span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="c1">//报错</span>
+</code></pre></div></p>
+<p>基本数据类型</p>
+<p>Byte,Short,Int,Long,Float,Double,Char,String,Boolean</p>
+<p>kotlin只有引用类型，在编译后会转化成java的基本数据类型</p>
+<p>val表示只读变量</p>
+<p>常量const修饰，不能写在函数里面，因为常量是编译时就需要确定，而函数是运行时才被调用
+<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">msg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;msg&quot;</span>
+<span class="kd">fun</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;info&quot;</span>
 <span class="p">}</span>
 </code></pre></div>
-执行javap -v JvmTest.class后得到字节码(work方法部分)
-<img alt="jvm1" src="../../img/jvm1.png" /></p>
-<p>重点总结：</p>
-<ul>
-<li>执行main方法时会执行main线程</li>
-<li>主要展示虚拟机栈和程序计数器</li>
-<li>iconst_3：3对应的是数值3</li>
-<li>istore_1：1对应的是偏移值</li>
-<li>iload_1：1对应的是偏移值</li>
-<li>bipush: int值超过5以后使用，会占用更大空间，所有偏移量占用了2个(图中没有3和9的原因)</li>
-<li>程序计数器和栈帧并不是一一对应，只有一个，程序计数器对每个栈帧计数时都是从0开始，但虚拟机栈只会执行顶部栈帧，所以程序计数器不会重复混乱现象</li>
-<li>每次使用数据都需要经过操作数栈，存入变量表、计算操作、返回数据等</li>
-<li>如果是static方法则没有this(0位置)</li>
-</ul>
-<p>具体演示流程如动图</p>
-<p><img alt="栈帧执行对内存区域的影响" src="../../other/%E6%A0%88%E5%B8%A7%E6%89%A7%E8%A1%8C%E5%AF%B9%E5%86%85%E5%AD%98%E5%8C%BA%E5%9F%9F%E7%9A%84%E5%BD%B1%E5%93%8D.gif" /></p>
-<p>更多指令可通过以下网站查看说明</p>
-<p><a href="https://cloud.tencent.com/developer/article/1333540">https://cloud.tencent.com/developer/article/1333540</a></p>
-<h4 id="_3">本地方法<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h4>
-<p>java中无法直接操作线程，通过本地方法栈(native方法)，结构类似于虚拟机栈，但程序计数器无法记录</p>
-<p><strong>unsafe类</strong></p>
-<p>直接申请内存相关，需要手动管理，跳过JVM的垃圾回收</p>
-<p>ByteBuffer.allocateDirect()方式申请内存会自动释放</p>
-<h3 id="jvm_1">深入理解JVM内存<a class="headerlink" href="#jvm_1" title="Permanent link">&para;</a></h3>
+表达式是有返回值的</p>
+<p>java中的if是语句而kotlin中的是表达式</p>
+<p>range表达式</p>
+<p>in 12..89</p>
+<p>when表达式相当于java中的switch</p>
+<p>String模版使用${}方式，其中{}部分场景可省略</p>
+<h3 id="fieldproperty">field和property<a class="headerlink" href="#fieldproperty" title="Permanent link">&para;</a></h3>
+<p><a href="../../java/java_basic/">Java</a>中可以单独申明字段，但kotlin中不行，只能什么属性</p>
+<p>原因是kotlin必须使用var或val申明，且会自动生成get/set方法，而属性=字段+get/set</p>
+<p>get方法不能被private修饰</p>
 
 
 
@@ -1533,10 +1616,10 @@
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "search.suggest", "search.highlight"], "search": "../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "search.suggest", "search.highlight"], "search": "../../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.b4d07000.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.b4d07000.min.js"></script>
       
     
   </body>

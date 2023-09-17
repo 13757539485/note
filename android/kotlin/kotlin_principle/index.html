@@ -8,27 +8,27 @@
       
       
       
-        <link rel="canonical" href="https://13757539485.github.io/note/android/android_kotlin/">
+        <link rel="canonical" href="https://13757539485.github.io/note/android/kotlin/kotlin_principle/">
       
       
-        <link rel="prev" href="../java_jvm/">
+        <link rel="prev" href="../kotlin_code/">
       
       
-        <link rel="next" href="../android_ui/">
+        <link rel="next" href="../../java/java_collection/">
       
-      <link rel="icon" href="../../assets/images/favicon.png">
+      <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.14">
     
     
       
-        <title>Kotlin基础 - 我的笔记</title>
+        <title>原理 - 我的笔记</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.85bb2934.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.85bb2934.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.a6bdf11c.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.a6bdf11c.min.css">
       
       
 
@@ -44,7 +44,7 @@
       
     
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -72,6 +72,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#by-lazy" class="md-skip">
+          跳转至
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -82,7 +87,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="页眉">
-    <a href="../.." title="我的笔记" class="md-header__button md-logo" aria-label="我的笔记" data-md-component="logo">
+    <a href="../../.." title="我的笔记" class="md-header__button md-logo" aria-label="我的笔记" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -101,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Kotlin基础
+              原理
             
           </span>
         </div>
@@ -207,7 +212,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../java_jvm/" class="md-tabs__link md-tabs__link--active">
+      <a href="../../java/java_basic/" class="md-tabs__link md-tabs__link--active">
         Android系统
       </a>
     </li>
@@ -227,7 +232,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../window/window_install/" class="md-tabs__link">
+      <a href="../../../window/window_install/" class="md-tabs__link">
         Window系统
       </a>
     </li>
@@ -248,7 +253,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../linux/ubuntu_install/" class="md-tabs__link">
+      <a href="../../../linux/ubuntu_install/" class="md-tabs__link">
         Linux系统
       </a>
     </li>
@@ -266,7 +271,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../mac/mac_install/" class="md-tabs__link">
+      <a href="../../../mac/mac_install/" class="md-tabs__link">
         mac系统
       </a>
     </li>
@@ -282,7 +287,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../ohos/ohos_build/" class="md-tabs__link">
+      <a href="../../../ohos/ohos_build/" class="md-tabs__link">
         OpenHarmony系统
       </a>
     </li>
@@ -298,7 +303,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../python/" class="md-tabs__link">
+      <a href="../../../python/" class="md-tabs__link">
         常见开发环境
       </a>
     </li>
@@ -314,7 +319,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../excel/" class="md-tabs__link">
+      <a href="../../../excel/" class="md-tabs__link">
         办公
       </a>
     </li>
@@ -342,7 +347,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="我的笔记" class="md-nav__button md-logo" aria-label="我的笔记" data-md-component="logo">
+    <a href="../../.." title="我的笔记" class="md-nav__button md-logo" aria-label="我的笔记" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -429,14 +434,14 @@
       
       
         <label class="md-nav__link" for="__nav_1_1_1" id="__nav_1_1_1_label" tabindex="0">
-          Java基础
+          Java
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_1_1_1_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_1_1_1">
           <span class="md-nav__icon md-icon"></span>
-          Java基础
+          Java
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -446,8 +451,64 @@
   
   
     <li class="md-nav__item">
-      <a href="../java_jvm/" class="md-nav__link">
-        Java虚拟机
+      <a href="../../java/java_basic/" class="md-nav__link">
+        基础
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java/java_jvm/" class="md-nav__link">
+        虚拟机
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java/java_thread/" class="md-nav__link">
+        线程
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java/java_genericity/" class="md-nav__link">
+        泛型
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java/java_reflex/" class="md-nav__link">
+        反射
       </a>
     </li>
   
@@ -468,16 +529,37 @@
     
   
   
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-      <a href="./" class="md-nav__link md-nav__link--active">
-        Kotlin基础
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_1_2" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_1_2" id="__nav_1_1_2_label" tabindex="0">
+          Kotlin
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_1_1_2_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_1_1_2">
+          <span class="md-nav__icon md-icon"></span>
+          Kotlin
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kotlin_basic/" class="md-nav__link">
+        入门
       </a>
-      
     </li>
   
 
@@ -489,7 +571,170 @@
   
   
     <li class="md-nav__item">
-      <a href="../android_ui/" class="md-nav__link">
+      <a href="../kotlin_function/" class="md-nav__link">
+        函数
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kotlin_op/" class="md-nav__link">
+        操作符与关键字
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kotlin_collection/" class="md-nav__link">
+        集合
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kotlin_class/" class="md-nav__link">
+        类
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kotlin_code/" class="md-nav__link">
+        实战应用
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          原理
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        原理
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#by-lazy" class="md-nav__link">
+    by lazy
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    枚举
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java/java_collection/" class="md-nav__link">
+        数据结构
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../design_mode/" class="md-nav__link">
+        设计模式
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../android_ui/" class="md-nav__link">
         高级UI
       </a>
     </li>
@@ -503,7 +748,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../android_framework/" class="md-nav__link">
+      <a href="../../android_framework/" class="md-nav__link">
         Framework
       </a>
     </li>
@@ -517,7 +762,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../android_performance/" class="md-nav__link">
+      <a href="../../android_performance/" class="md-nav__link">
         性能优化
       </a>
     </li>
@@ -531,7 +776,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../android_github/" class="md-nav__link">
+      <a href="../../android_github/" class="md-nav__link">
         开源框架
       </a>
     </li>
@@ -545,8 +790,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../android_compose/" class="md-nav__link">
-        Jetpack Compose
+      <a href="../../android_dev_mode/" class="md-nav__link">
+        开发模式
       </a>
     </li>
   
@@ -559,8 +804,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../android_ndk/" class="md-nav__link">
-        NDK
+      <a href="../../android_build_apk/" class="md-nav__link">
+        Apk相关
       </a>
     </li>
   
@@ -573,22 +818,22 @@
   
   
     <li class="md-nav__item">
-      <a href="../android_flutter/" class="md-nav__link">
+      <a href="../../android_compose/" class="md-nav__link">
+        Compose
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../android_flutter/" class="md-nav__link">
         Flutter
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../android_wechat/" class="md-nav__link">
-        小程序
       </a>
     </li>
   
@@ -635,7 +880,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../android_os/" class="md-nav__link">
+      <a href="../../android_os/" class="md-nav__link">
         OS大全
       </a>
     </li>
@@ -649,7 +894,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../android_root/" class="md-nav__link">
+      <a href="../../android_root/" class="md-nav__link">
         Root面具
       </a>
     </li>
@@ -705,7 +950,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../window/window_install/" class="md-nav__link">
+      <a href="../../../window/window_install/" class="md-nav__link">
         系统安装
       </a>
     </li>
@@ -719,7 +964,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../window/window_software/" class="md-nav__link">
+      <a href="../../../window/window_software/" class="md-nav__link">
         常见软件
       </a>
     </li>
@@ -760,7 +1005,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../window/window_vmware/" class="md-nav__link">
+      <a href="../../../window/window_vmware/" class="md-nav__link">
         VMWare安装
       </a>
     </li>
@@ -774,7 +1019,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../window/window_wsl2/" class="md-nav__link">
+      <a href="../../../window/window_wsl2/" class="md-nav__link">
         WSL2
       </a>
     </li>
@@ -788,7 +1033,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../window/window_inner_android/" class="md-nav__link">
+      <a href="../../../window/window_inner_android/" class="md-nav__link">
         Android子系统
       </a>
     </li>
@@ -802,7 +1047,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../window/window_win11/" class="md-nav__link">
+      <a href="../../../window/window_win11/" class="md-nav__link">
         Window11相关
       </a>
     </li>
@@ -885,7 +1130,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../linux/ubuntu_install/" class="md-nav__link">
+      <a href="../../../linux/ubuntu_install/" class="md-nav__link">
         ubuntu
       </a>
     </li>
@@ -899,7 +1144,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../linux/deepin_install/" class="md-nav__link">
+      <a href="../../../linux/deepin_install/" class="md-nav__link">
         deepin
       </a>
     </li>
@@ -920,7 +1165,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../linux/linux_software/" class="md-nav__link">
+      <a href="../../../linux/linux_software/" class="md-nav__link">
         常见软件
       </a>
     </li>
@@ -961,7 +1206,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../linux/linux_command/" class="md-nav__link">
+      <a href="../../../linux/linux_command/" class="md-nav__link">
         常用命令
       </a>
     </li>
@@ -1017,7 +1262,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../mac/mac_install/" class="md-nav__link">
+      <a href="../../../mac/mac_install/" class="md-nav__link">
         黑苹果
       </a>
     </li>
@@ -1031,7 +1276,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../mac/mac_software/" class="md-nav__link">
+      <a href="../../../mac/mac_software/" class="md-nav__link">
         使用软件
       </a>
     </li>
@@ -1045,7 +1290,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../mac/mac_swift/" class="md-nav__link">
+      <a href="../../../mac/mac_swift/" class="md-nav__link">
         SwiftUI
       </a>
     </li>
@@ -1094,7 +1339,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ohos/ohos_build/" class="md-nav__link">
+      <a href="../../../ohos/ohos_build/" class="md-nav__link">
         源码编译
       </a>
     </li>
@@ -1108,7 +1353,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ohos/arkui/" class="md-nav__link">
+      <a href="../../../ohos/arkui/" class="md-nav__link">
         ArkUI开发
       </a>
     </li>
@@ -1157,7 +1402,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../python/" class="md-nav__link">
+      <a href="../../../python/" class="md-nav__link">
         python部署
       </a>
     </li>
@@ -1171,7 +1416,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../git_github/" class="md-nav__link">
+      <a href="../../../git_github/" class="md-nav__link">
         git部署
       </a>
     </li>
@@ -1220,7 +1465,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../excel/" class="md-nav__link">
+      <a href="../../../excel/" class="md-nav__link">
         Excel
       </a>
     </li>
@@ -1252,6 +1497,28 @@
   
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#by-lazy" class="md-nav__link">
+    by lazy
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    枚举
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1265,9 +1532,39 @@
                   
 
 
-  <h1>Kotlin基础</h1>
+  <h1>原理</h1>
 
+<h3 id="by-lazy">by lazy<a class="headerlink" href="#by-lazy" title="Permanent link">&para;</a></h3>
+<p>委托的必要条件是有get/setValue函数以及operator
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">interface</span><span class="w"> </span><span class="nc">Lazy</span><span class="o">&lt;</span><span class="k">out</span><span class="w"> </span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">value</span><span class="p">:</span><span class="w"> </span><span class="n">T</span>
 
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">isInitialized</span><span class="p">():</span><span class="w"> </span><span class="kt">Boolean</span>
+<span class="p">}</span>
+
+<span class="kd">public</span><span class="w"> </span><span class="kd">actual</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">lazy</span><span class="p">(</span><span class="n">initializer</span><span class="p">:</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">T</span><span class="p">):</span><span class="w"> </span><span class="n">Lazy</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SynchronizedLazyImpl</span><span class="p">(</span><span class="n">initializer</span><span class="p">)</span>
+</code></pre></div></p>
+<p>无论是Lazy还是SynchronizedLazyImpl都没有看到get/setValue函数以及operator</p>
+<p>真正实现在拓展函数中
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">inline</span><span class="w"> </span><span class="kd">operator</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">Lazy</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">.</span><span class="na">getValue</span><span class="p">(</span><span class="n">thisRef</span><span class="p">:</span><span class="w"> </span><span class="kt">Any?</span><span class="p">,</span><span class="w"> </span><span class="n">property</span><span class="p">:</span><span class="w"> </span><span class="n">KProperty</span><span class="o">&lt;*&gt;</span><span class="p">):</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">value</span>
+</code></pre></div>
+lazy还有一个重载函数
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">actual</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">lazy</span><span class="p">(</span><span class="n">mode</span><span class="p">:</span><span class="w"> </span><span class="n">LazyThreadSafetyMode</span><span class="p">,</span><span class="w"> </span><span class="n">initializer</span><span class="p">:</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">T</span><span class="p">):</span><span class="w"> </span><span class="n">Lazy</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="o">=</span>
+<span class="w">    </span><span class="k">when</span><span class="w"> </span><span class="p">(</span><span class="n">mode</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">LazyThreadSafetyMode</span><span class="p">.</span><span class="na">SYNCHRONIZED</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">SynchronizedLazyImpl</span><span class="p">(</span><span class="n">initializer</span><span class="p">)</span>
+<span class="w">        </span><span class="n">LazyThreadSafetyMode</span><span class="p">.</span><span class="na">PUBLICATION</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">SafePublicationLazyImpl</span><span class="p">(</span><span class="n">initializer</span><span class="p">)</span>
+<span class="w">        </span><span class="n">LazyThreadSafetyMode</span><span class="p">.</span><span class="na">NONE</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">UnsafeLazyImpl</span><span class="p">(</span><span class="n">initializer</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+</code></pre></div>
+其中SynchronizedLazyImpl使用synchronized+双重校验保证线程安全，代码块只会调用1次</p>
+<p>SafePublicationLazyImpl是使用CS操作保证线程安全，可能会调用多次代码块，但数值只取第一次</p>
+<p>LazyThreadSafetyMode不保证线程安全</p>
+<h3 id="_1">枚举<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
+<p>枚举只能继承接口不能继承类的原因</p>
+<p>通过反编译可以看到枚举其实是个Class继承于java/lang/Enum，而对于java来说是单继承规则</p>
+<p>优化点：</p>
+<p>1.枚举有两个属性name和ordinal，其中ordinal一般开发者使用不到，当需要使用到枚举的数值时，建议手动添加字段去记录</p>
+<p>2.当枚举需要使用数值关联时，使用EnumMap和EnumSet</p>
 
 
 
@@ -1319,10 +1616,10 @@
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "search.suggest", "search.highlight"], "search": "../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "search.suggest", "search.highlight"], "search": "../../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.b4d07000.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.b4d07000.min.js"></script>
       
     
   </body>

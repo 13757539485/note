@@ -1,0 +1,2195 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://13757539485.github.io/note/android/kotlin/kotlin_class/">
+      
+      
+        <link rel="prev" href="../kotlin_collection/">
+      
+      
+        <link rel="next" href="../kotlin_code/">
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.14">
+    
+    
+      
+        <title>类 - 我的笔记</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.85bb2934.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.a6bdf11c.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Microsoft+YaHei:300,300i,400,400i,700,700i%7CCourier+New:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Microsoft YaHei";--md-code-font:"Courier New"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="light-blue" data-md-color-accent="cyan">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../.." title="我的笔记" class="md-header__button md-logo" aria-label="我的笔记" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            我的笔记
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              类
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+          
+            
+            
+            
+            <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="light-blue" data-md-color-accent="cyan"  aria-label="开启深色模式"  type="radio" name="__palette" id="__palette_1">
+            
+              <label class="md-header__button md-icon" title="开启深色模式" for="__palette_2" hidden>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+              </label>
+            
+          
+            
+            
+            
+            <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="light-grey" data-md-color-accent="cyan"  aria-label="关闭深色模式"  type="radio" name="__palette" id="__palette_2">
+            
+              <label class="md-header__button md-icon" title="关闭深色模式" for="__palette_1" hidden>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+              </label>
+            
+          
+        </form>
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../java/java_basic/" class="md-tabs__link md-tabs__link--active">
+        Android系统
+      </a>
+    </li>
+  
+
+  
+
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../window/window_install/" class="md-tabs__link">
+        Window系统
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../linux/ubuntu_install/" class="md-tabs__link">
+        Linux系统
+      </a>
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../mac/mac_install/" class="md-tabs__link">
+        mac系统
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../ohos/ohos_build/" class="md-tabs__link">
+        OpenHarmony系统
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../python/" class="md-tabs__link">
+        常见开发环境
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../excel/" class="md-tabs__link">
+        办公
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="我的笔记" class="md-nav__button md-logo" aria-label="我的笔记" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    我的笔记
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+          Android系统
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          Android系统
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_1" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_1" id="__nav_1_1_label" tabindex="0">
+          学习笔记
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_1_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_1_1">
+          <span class="md-nav__icon md-icon"></span>
+          学习笔记
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_1_1" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_1_1" id="__nav_1_1_1_label" tabindex="0">
+          Java
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_1_1_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_1_1_1">
+          <span class="md-nav__icon md-icon"></span>
+          Java
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java/java_basic/" class="md-nav__link">
+        基础
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java/java_jvm/" class="md-nav__link">
+        虚拟机
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java/java_thread/" class="md-nav__link">
+        线程
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java/java_genericity/" class="md-nav__link">
+        泛型
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java/java_reflex/" class="md-nav__link">
+        反射
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_1_2" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_1_2" id="__nav_1_1_2_label" tabindex="0">
+          Kotlin
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_1_1_2_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_1_1_2">
+          <span class="md-nav__icon md-icon"></span>
+          Kotlin
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kotlin_basic/" class="md-nav__link">
+        入门
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kotlin_function/" class="md-nav__link">
+        函数
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kotlin_op/" class="md-nav__link">
+        操作符与关键字
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kotlin_collection/" class="md-nav__link">
+        集合
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          类
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        类
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    初识类
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    主构造函数
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#init" class="md-nav__link">
+    init代码块
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    次构造函数
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    继承
+  </a>
+  
+    <nav class="md-nav" aria-label="继承">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#is" class="md-nav__link">
+    is
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#as" class="md-nav__link">
+    as
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#object" class="md-nav__link">
+    object关键字
+  </a>
+  
+    <nav class="md-nav" aria-label="object关键字">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    单例
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#object-x" class="md-nav__link">
+    匿名对象(object : X())
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#companion-object" class="md-nav__link">
+    伴生对象(companion object)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    嵌套类(静态内部类)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inner-class" class="md-nav__link">
+    内部类(inner class)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-class" class="md-nav__link">
+    数据类(data class)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enum-class" class="md-nav__link">
+    枚举(enum class)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sealed-class" class="md-nav__link">
+    密封类(sealed class)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    拷贝
+  </a>
+  
+    <nav class="md-nav" aria-label="拷贝">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    浅拷贝
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    深拷贝
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kotlin_code/" class="md-nav__link">
+        实战应用
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kotlin_principle/" class="md-nav__link">
+        原理
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java/java_collection/" class="md-nav__link">
+        数据结构
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../design_mode/" class="md-nav__link">
+        设计模式
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../android_ui/" class="md-nav__link">
+        高级UI
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../android_framework/" class="md-nav__link">
+        Framework
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../android_performance/" class="md-nav__link">
+        性能优化
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../android_github/" class="md-nav__link">
+        开源框架
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../android_dev_mode/" class="md-nav__link">
+        开发模式
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../android_build_apk/" class="md-nav__link">
+        Apk相关
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../android_compose/" class="md-nav__link">
+        Compose
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../android_flutter/" class="md-nav__link">
+        Flutter
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_2" id="__nav_1_2_label" tabindex="0">
+          玩机家族
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_1_2">
+          <span class="md-nav__icon md-icon"></span>
+          玩机家族
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../android_os/" class="md-nav__link">
+        OS大全
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../android_root/" class="md-nav__link">
+        Root面具
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          Window系统
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Window系统
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../window/window_install/" class="md-nav__link">
+        系统安装
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../window/window_software/" class="md-nav__link">
+        常见软件
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+          实用教程
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          实用教程
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../window/window_vmware/" class="md-nav__link">
+        VMWare安装
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../window/window_wsl2/" class="md-nav__link">
+        WSL2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../window/window_inner_android/" class="md-nav__link">
+        Android子系统
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../window/window_win11/" class="md-nav__link">
+        Window11相关
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          Linux系统
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Linux系统
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+          推荐系统
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_1">
+          <span class="md-nav__icon md-icon"></span>
+          推荐系统
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../linux/ubuntu_install/" class="md-nav__link">
+        ubuntu
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../linux/deepin_install/" class="md-nav__link">
+        deepin
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../linux/linux_software/" class="md-nav__link">
+        常见软件
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+          实用教程
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_3">
+          <span class="md-nav__icon md-icon"></span>
+          实用教程
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../linux/linux_command/" class="md-nav__link">
+        常用命令
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+          mac系统
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          mac系统
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../mac/mac_install/" class="md-nav__link">
+        黑苹果
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../mac/mac_software/" class="md-nav__link">
+        使用软件
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../mac/mac_swift/" class="md-nav__link">
+        SwiftUI
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+          OpenHarmony系统
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          OpenHarmony系统
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ohos/ohos_build/" class="md-nav__link">
+        源码编译
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ohos/arkui/" class="md-nav__link">
+        ArkUI开发
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+          常见开发环境
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          常见开发环境
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../python/" class="md-nav__link">
+        python部署
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../git_github/" class="md-nav__link">
+        git部署
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+          办公
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          办公
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../excel/" class="md-nav__link">
+        Excel
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    初识类
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    主构造函数
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#init" class="md-nav__link">
+    init代码块
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    次构造函数
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    继承
+  </a>
+  
+    <nav class="md-nav" aria-label="继承">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#is" class="md-nav__link">
+    is
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#as" class="md-nav__link">
+    as
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#object" class="md-nav__link">
+    object关键字
+  </a>
+  
+    <nav class="md-nav" aria-label="object关键字">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    单例
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#object-x" class="md-nav__link">
+    匿名对象(object : X())
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#companion-object" class="md-nav__link">
+    伴生对象(companion object)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    嵌套类(静态内部类)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inner-class" class="md-nav__link">
+    内部类(inner class)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-class" class="md-nav__link">
+    数据类(data class)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enum-class" class="md-nav__link">
+    枚举(enum class)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sealed-class" class="md-nav__link">
+    密封类(sealed class)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    拷贝
+  </a>
+  
+    <nav class="md-nav" aria-label="拷贝">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    浅拷贝
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    深拷贝
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  <h1>类</h1>
+
+<h3 id="_1">初识类<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
+<p>声明属性默认会有get，set方法，可进行修改如下
+<div class="highlight"><pre><span></span><code><span class="kd">class</span><span class="w"> </span><span class="nc">MyClass</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nv">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;AFREE&quot;</span>
+<span class="w">        </span><span class="k">get</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">field</span><span class="p">.</span><span class="na">lowercase</span><span class="p">()</span>
+<span class="w">        </span><span class="k">set</span><span class="p">(</span><span class="n">value</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">field</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;[</span><span class="si">$</span><span class="n">value</span><span class="s">]&quot;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="p">}</span>
+<span class="n">MyClass</span><span class="p">().</span><span class="na">name</span><span class="c1">//获取</span>
+<span class="n">MyClass</span><span class="p">().</span><span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;xxx&quot;</span><span class="c1">//赋值</span>
+</code></pre></div></p>
+<h3 id="_2">主构造函数<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<p><div class="highlight"><pre><span></span><code><span class="kd">class</span><span class="w"> </span><span class="nc">MyClass</span><span class="p">(</span><span class="n">_pwd</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="c1">//参数是临时类型</span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nv">pwd</span><span class="p">:</span><span class="w"> </span><span class="kt">String?</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_pwd</span>
+<span class="w">    </span><span class="kd">fun</span><span class="w"> </span><span class="nf">getAge</span><span class="p">():</span><span class="w"> </span><span class="kt">String</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">pwd</span><span class="o">?.</span><span class="na">run</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">ifBlank</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="s">&quot;is blank&quot;</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="o">?:</span><span class="w"> </span><span class="s">&quot;is null&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+以上pwd参数是类java写法，kt一般以下写法
+<div class="highlight"><pre><span></span><code><span class="kd">class</span><span class="w"> </span><span class="nc">MyClass</span><span class="p">(</span><span class="kd">var</span><span class="w"> </span><span class="nv">pwd</span><span class="p">:</span><span class="w"> </span><span class="kt">String?</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="p">}</span>
+</code></pre></div>
+如果是var则自动生成get、set方法，如果是val则只有get方法</p>
+<h3 id="init">init代码块<a class="headerlink" href="#init" title="Permanent link">&para;</a></h3>
+<p>init是主构造调用时触发，而次构造必须调用主构造函数</p>
+<h3 id="_3">次构造函数<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<p><div class="highlight"><pre><span></span><code><span class="kd">class</span><span class="w"> </span><span class="nc">MyClass</span><span class="p">(</span><span class="n">pwd</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">init</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;主构造被调用，密码：</span><span class="si">$</span><span class="n">pwd</span><span class="s">&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">constructor</span><span class="p">()</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="k">this</span><span class="p">(</span><span class="s">&quot;mini&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;123&quot;</span><span class="p">){</span>
+<span class="w">        </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;我是次构造1&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">constructor</span><span class="p">(</span><span class="n">userName</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span><span class="p">,</span><span class="w"> </span><span class="n">pwd</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span><span class="p">)</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="k">this</span><span class="p">(</span><span class="n">userName</span><span class="p">){</span>
+<span class="w">        </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;我是次构造2&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+<span class="kd">fun</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">MyClass</span><span class="p">()</span>
+<span class="p">}</span>
+</code></pre></div>
+constructor都是次构造</p>
+<p><font color="#dd0000">注：init中能拿到主构造中的参数，无论是否是临时属性</font></p>
+<p>执行顺序</p>
+<p>类成员和init块同时生成，取决于编写顺序</p>
+<h3 id="_4">继承<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<p>类和函数编译后默认是final修饰无法继承，使用open关键字即可移除final
+<div class="highlight"><pre><span></span><code><span class="kd">open</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nc">Person</span><span class="p">{</span>
+<span class="w">    </span><span class="kd">open</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">showName</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;我是Person&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">class</span><span class="w"> </span><span class="nc">Student</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Person</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">override</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">showName</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;我是Student&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="kd">fun</span><span class="w"> </span><span class="nf">study</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;我爱学习&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></p>
+<h4 id="is">is<a class="headerlink" href="#is" title="Permanent link">&para;</a></h4>
+<p>判断类型相当于java的instanceOf</p>
+<h4 id="as">as<a class="headerlink" href="#as" title="Permanent link">&para;</a></h4>
+<p>转化类型，强转
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">p</span><span class="p">:</span><span class="w"> </span><span class="n">Person</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Student</span><span class="p">()</span>
+<span class="c1">//    (p as Student).study()</span>
+<span class="w">    </span><span class="n">p</span><span class="p">.</span><span class="na">study</span><span class="p">()</span>
+</code></pre></div>
+如果没有第二行代码，第三行代码会报错，或者可以
+<div class="highlight"><pre><span></span><code><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">p</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">Student</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">p</span><span class="p">.</span><span class="na">study</span><span class="p">()</span>
+<span class="p">}</span>
+</code></pre></div>
+kt的根父类Any相当于java的Object</p>
+<p>Any类只提供标准，看不到源码具体实现，由各个平台处理</p>
+<h3 id="object">object关键字<a class="headerlink" href="#object" title="Permanent link">&para;</a></h3>
+<h4 id="_5">单例<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h4>
+<p>表示的类将变成单例对象
+<div class="highlight"><pre><span></span><code><span class="kd">object</span><span class="w"> </span><span class="nc">Student</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Person</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="p">}</span>
+<span class="n">Student</span><span class="p">.</span><span class="na">study</span><span class="p">()</span>
+</code></pre></div>
+<font color="#dd0000">注：构造函数将会被私有化</font></p>
+<h4 id="object-x">匿名对象(object : X())<a class="headerlink" href="#object-x" title="Permanent link">&para;</a></h4>
+<p><div class="highlight"><pre><span></span><code><span class="kd">val</span><span class="w"> </span><span class="nv">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">object</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="nc">Person</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">override</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">showName</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">println</span><span class="p">()</span>
+<span class="p">}</span>
+<span class="n">p</span><span class="p">.</span><span class="na">showName</span><span class="p">()</span>
+</code></pre></div>
+注：kt里面只能这样写，如果是java接口可以省略object，如java中的Runnable接口
+<div class="highlight"><pre><span></span><code><span class="n">Runnable</span><span class="w"> </span><span class="p">{</span><span class="w"> </span>
+
+<span class="p">}</span>
+</code></pre></div></p>
+<h4 id="companion-object">伴生对象(companion object)<a class="headerlink" href="#companion-object" title="Permanent link">&para;</a></h4>
+<p>只会初始化一次，可以利用代替java中的静态常量、静态方法
+<div class="highlight"><pre><span></span><code><span class="kd">companion</span><span class="w"> </span><span class="kd">object</span><span class="w"> </span><span class="nc">my</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">NAME</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="w"> </span><span class="c1">// 常量</span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nv">AGE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="c1">// 静态变量</span>
+<span class="w">    </span><span class="kd">fun</span><span class="w"> </span><span class="nf">hello</span><span class="p">(){}</span><span class="w"> </span><span class="c1">// 静态方法</span>
+<span class="p">}</span>
+</code></pre></div>
+编译后会生成一个静态内部类，my表示自定义名字(一般不写)</p>
+<h3 id="_6">嵌套类(静态内部类)<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<p><div class="highlight"><pre><span></span><code><span class="kd">fun</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">A</span><span class="p">.</span><span class="na">B</span><span class="p">().</span><span class="na">b</span><span class="p">()</span>
+<span class="p">}</span>
+
+<span class="kd">class</span><span class="w"> </span><span class="nc">A</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">class</span><span class="w"> </span><span class="nc">B</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">fun</span><span class="w"> </span><span class="nf">b</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;b&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<font color="#dd0000">注：B无法访问A中的内容</font></p>
+<p><font color="#dd0000">原因：编译后会生成静态内部类，所以无法访问非静态内容</font></p>
+<h3 id="inner-class">内部类(inner class)<a class="headerlink" href="#inner-class" title="Permanent link">&para;</a></h3>
+<p><div class="highlight"><pre><span></span><code><span class="kd">fun</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">A</span><span class="p">().</span><span class="na">B</span><span class="p">().</span><span class="na">b</span><span class="p">()</span>
+<span class="p">}</span>
+
+<span class="kd">class</span><span class="w"> </span><span class="nc">A</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;&quot;</span>
+<span class="w">    </span><span class="kd">inner</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nc">B</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">fun</span><span class="w"> </span><span class="nf">b</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;</span><span class="si">$</span><span class="n">a</span><span class="s">&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+编译后就是java的内部类</p>
+<h3 id="data-class">数据类(data class)<a class="headerlink" href="#data-class" title="Permanent link">&para;</a></h3>
+<p>和普通类区别：</p>
+<p>普通类编译后只会生成get set方法和构造方法</p>
+<p>数据类额外会生成equals，hasCode，copy，component1(解构)，toString</p>
+<p><font color="#dd0000">注：数据类生成时只生成主构造的属性，忽略其他属性</font></p>
+<p>使用场景：
+1.服务器返回响应的bean，必须要有主构造且参数至少一个，必须使用var或val修饰参数，不能使用其他修饰符修饰类，如open，inner等</p>
+<p>2.需要用到toString，copy等场景</p>
+<p><font color="#dd0000">注：默认生成的hashcode和toStirng都是按照构造函数里的参数</font>
+<div class="highlight"><pre><span></span><code><span class="kd">data</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nc">MyClass</span><span class="p">(</span><span class="kd">var</span><span class="w"> </span><span class="nv">id</span><span class="p">:</span><span class="w"> </span><span class="kt">String?</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nv">name</span><span class="p">:</span><span class="w"> </span><span class="kt">String?</span><span class="o">=</span><span class="w"> </span><span class="kc">null</span>
+<span class="p">}</span>
+</code></pre></div>
+以上只会根据id生成hashCode和toString</p>
+<h3 id="enum-class">枚举(enum class)<a class="headerlink" href="#enum-class" title="Permanent link">&para;</a></h3>
+<p>也是class
+<div class="highlight"><pre><span></span><code><span class="kd">fun</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="n">Week</span><span class="p">.</span><span class="na">Monday</span><span class="p">)</span><span class="w"> </span><span class="c1">// Monday</span>
+<span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="n">Week</span><span class="p">.</span><span class="na">Friday</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">Week</span><span class="p">)</span><span class="w"> </span><span class="c1">//true</span>
+<span class="p">}</span>
+
+<span class="kd">enum</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nc">Week</span><span class="p">{</span>
+<span class="w">    </span><span class="n">Monday</span><span class="p">,</span>
+<span class="w">    </span><span class="n">Tuesday</span><span class="p">,</span>
+<span class="w">    </span><span class="n">Wednesday</span><span class="p">,</span>
+<span class="w">    </span><span class="n">Thursday</span><span class="p">,</span>
+<span class="w">    </span><span class="n">Friday</span><span class="p">,</span>
+<span class="w">    </span><span class="n">Saturday</span><span class="p">,</span>
+<span class="w">    </span><span class="n">Sunday</span>
+<span class="p">}</span>
+</code></pre></div>
+kt中枚举一般用法
+<div class="highlight"><pre><span></span><code><span class="kd">fun</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">Clock</span><span class="p">.</span><span class="na">DATA_OLD</span><span class="p">.</span><span class="na">showClock</span><span class="p">()</span>
+<span class="w">    </span><span class="n">Clock</span><span class="p">.</span><span class="na">DATA_NOW</span><span class="p">.</span><span class="na">showClock</span><span class="p">()</span>
+<span class="w">    </span><span class="n">Clock</span><span class="p">.</span><span class="na">DATA_OLD</span><span class="p">.</span><span class="na">updateClock</span><span class="p">(</span><span class="n">SimpleClock</span><span class="p">(</span><span class="s">&quot;2000&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;16:25&quot;</span><span class="p">))</span>
+<span class="w">    </span><span class="n">Clock</span><span class="p">.</span><span class="na">DATA_NOW</span><span class="p">.</span><span class="na">updateClock</span><span class="p">(</span><span class="n">SimpleClock</span><span class="p">(</span><span class="s">&quot;2050&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;17:58&quot;</span><span class="p">))</span>
+<span class="p">}</span>
+
+<span class="kd">enum</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nc">Clock</span><span class="p">(</span><span class="kd">var</span><span class="w"> </span><span class="nv">clock</span><span class="p">:</span><span class="w"> </span><span class="n">SimpleClock</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">DATA_OLD</span><span class="p">(</span><span class="n">SimpleClock</span><span class="p">(</span><span class="s">&quot;1990&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;22:15&quot;</span><span class="p">)),</span>
+<span class="w">    </span><span class="n">DATA_NOW</span><span class="p">(</span><span class="n">SimpleClock</span><span class="p">(</span><span class="s">&quot;2022&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;12:28&quot;</span><span class="p">));</span>
+
+<span class="w">    </span><span class="kd">fun</span><span class="w"> </span><span class="nf">updateClock</span><span class="p">(</span><span class="n">updateClock</span><span class="p">:</span><span class="w"> </span><span class="n">SimpleClock</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">clock</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">updateClock</span>
+<span class="w">        </span><span class="n">showClock</span><span class="p">()</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">fun</span><span class="w"> </span><span class="nf">showClock</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">println</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">clock</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">data</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nc">SimpleClock</span><span class="p">(</span><span class="kd">var</span><span class="w"> </span><span class="nv">data</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span><span class="p">,</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="nv">time</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span><span class="p">)</span>
+</code></pre></div>
+其中如DATA_OLD就是枚举本身，调用主构造赋值</p>
+<p>枚举和when结合是可以不写else，<font color="#dd0000">但需要穷举所有枚举值(kt1.6以后会编译不通过)</font>
+<div class="highlight"><pre><span></span><code><span class="kd">class</span><span class="w"> </span><span class="nc">WeekTest</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">fun</span><span class="w"> </span><span class="nf">switch</span><span class="p">(</span><span class="n">week</span><span class="p">:</span><span class="w"> </span><span class="n">Week</span><span class="p">)</span><span class="w"> </span><span class="o">=</span>
+<span class="w">        </span><span class="k">when</span><span class="w"> </span><span class="p">(</span><span class="n">week</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">Week</span><span class="p">.</span><span class="na">Monday</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s">&quot;Monday&quot;</span>
+<span class="w">            </span><span class="n">Week</span><span class="p">.</span><span class="na">Tuesday</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s">&quot;Tuesday&quot;</span>
+<span class="w">            </span><span class="n">Week</span><span class="p">.</span><span class="na">Wednesday</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s">&quot;Wednesday&quot;</span>
+<span class="w">            </span><span class="n">Week</span><span class="p">.</span><span class="na">Thursday</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s">&quot;Thursday&quot;</span>
+<span class="w">            </span><span class="n">Week</span><span class="p">.</span><span class="na">Friday</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s">&quot;Friday&quot;</span>
+<span class="w">            </span><span class="n">Week</span><span class="p">.</span><span class="na">Saturday</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s">&quot;Saturday&quot;</span>
+<span class="w">            </span><span class="n">Week</span><span class="p">.</span><span class="na">Sunday</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s">&quot;Sunday&quot;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="p">}</span>
+<span class="n">println</span><span class="p">(</span><span class="n">WeekTest</span><span class="p">().</span><span class="na">switch</span><span class="p">(</span><span class="n">Week</span><span class="p">.</span><span class="na">Monday</span><span class="p">))</span>
+</code></pre></div></p>
+<h3 id="sealed-class">密封类(sealed class)<a class="headerlink" href="#sealed-class" title="Permanent link">&para;</a></h3>
+<p>密封类使用sealed修饰，主要用来解决使用when时不写else，在when时可使用is判断，实现上述逻辑
+<div class="highlight"><pre><span></span><code><span class="kd">fun</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="n">WeekTest</span><span class="p">().</span><span class="na">switch</span><span class="p">(</span><span class="n">Week</span><span class="p">.</span><span class="na">Monday</span><span class="p">))</span>
+<span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="n">WeekTest</span><span class="p">().</span><span class="na">switch</span><span class="p">(</span><span class="n">Week</span><span class="p">.</span><span class="na">Sunday</span><span class="p">(</span><span class="s">&quot;10:55&quot;</span><span class="p">)))</span>
+<span class="p">}</span>
+
+<span class="kd">class</span><span class="w"> </span><span class="nc">WeekTest</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">fun</span><span class="w"> </span><span class="nf">switch</span><span class="p">(</span><span class="n">week</span><span class="p">:</span><span class="w"> </span><span class="n">Week</span><span class="p">)</span><span class="w"> </span><span class="o">=</span>
+<span class="w">        </span><span class="k">when</span><span class="w"> </span><span class="p">(</span><span class="n">week</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">is</span><span class="w"> </span><span class="n">Week</span><span class="p">.</span><span class="na">Monday</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s">&quot;Monday&quot;</span>
+<span class="w">            </span><span class="k">is</span><span class="w"> </span><span class="n">Week</span><span class="p">.</span><span class="na">Tuesday</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s">&quot;Tuesday&quot;</span>
+<span class="w">            </span><span class="k">is</span><span class="w"> </span><span class="n">Week</span><span class="p">.</span><span class="na">Wednesday</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s">&quot;Wednesday&quot;</span>
+<span class="w">            </span><span class="k">is</span><span class="w"> </span><span class="n">Week</span><span class="p">.</span><span class="na">Thursday</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s">&quot;Thursday&quot;</span>
+<span class="w">            </span><span class="k">is</span><span class="w"> </span><span class="n">Week</span><span class="p">.</span><span class="na">Friday</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s">&quot;Friday&quot;</span>
+<span class="w">            </span><span class="k">is</span><span class="w"> </span><span class="n">Week</span><span class="p">.</span><span class="na">Saturday</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s">&quot;Saturday&quot;</span>
+<span class="w">            </span><span class="k">is</span><span class="w"> </span><span class="n">Week</span><span class="p">.</span><span class="na">Sunday</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s">&quot;Sunday: </span><span class="si">${</span><span class="n">week</span><span class="p">.</span><span class="na">time</span><span class="si">}</span><span class="s">&quot;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">sealed</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nc">Week</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">object</span><span class="w"> </span><span class="nc">Monday</span><span class="p">:</span><span class="w"> </span><span class="n">Week</span><span class="p">()</span><span class="c1">//单例，必须继承本类</span>
+<span class="w">    </span><span class="kd">object</span><span class="w"> </span><span class="nc">Tuesday</span><span class="p">:</span><span class="w"> </span><span class="n">Week</span><span class="p">()</span>
+<span class="w">    </span><span class="kd">object</span><span class="w"> </span><span class="nc">Wednesday</span><span class="p">:</span><span class="w"> </span><span class="n">Week</span><span class="p">()</span>
+<span class="w">    </span><span class="kd">object</span><span class="w"> </span><span class="nc">Thursday</span><span class="p">:</span><span class="w"> </span><span class="n">Week</span><span class="p">()</span>
+<span class="w">    </span><span class="kd">object</span><span class="w"> </span><span class="nc">Friday</span><span class="p">:</span><span class="w"> </span><span class="n">Week</span><span class="p">()</span>
+<span class="w">    </span><span class="kd">object</span><span class="w"> </span><span class="nc">Saturday</span><span class="p">:</span><span class="w"> </span><span class="n">Week</span><span class="p">()</span>
+<span class="w">    </span><span class="kd">class</span><span class="w"> </span><span class="nc">Sunday</span><span class="p">(</span><span class="kd">val</span><span class="w"> </span><span class="nv">time</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span><span class="p">):</span><span class="w"> </span><span class="n">Week</span><span class="p">()</span><span class="c1">//可以非单例，因为有参数</span>
+<span class="p">}</span>
+</code></pre></div></p>
+<h3 id="_7">拷贝<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<h4 id="_8">浅拷贝<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h4>
+<p>即两个对象指向同一地址，当其中某一个对象的属性内容修改后，另一个对象也同步变化，举例：</p>
+<p>1.java中clone方法和kotlin中data数据类的copy都是浅拷贝</p>
+<p>2.list或其他集合add，addAll或构造方法初始化都是浅拷贝</p>
+<p>3.System.arraycopy()也是浅拷贝</p>
+<h4 id="_9">深拷贝<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h4>
+<p>两个对象地址不同且数据变化互不影响，基本数据类型和String不在深拷贝考虑</p>
+<p>实现思路大致有几种</p>
+<p>1.如果是普通class，如果是java重写clone，如果是kotlin需要继承Cloneable再重写clone，对引用属性进行创建对象赋值，kt为例
+<div class="highlight"><pre><span></span><code><span class="kd">class</span><span class="w"> </span><span class="nc">C</span><span class="p">(</span><span class="kd">var</span><span class="w"> </span><span class="nv">d</span><span class="p">:</span><span class="w"> </span><span class="n">D</span><span class="p">):</span><span class="w"> </span><span class="n">Cloneable</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">override</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">clone</span><span class="p">():</span><span class="w"> </span><span class="kt">Any</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">C</span><span class="p">(</span><span class="n">D</span><span class="p">(</span><span class="n">d</span><span class="p">.</span><span class="na">age</span><span class="p">))</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">class</span><span class="w"> </span><span class="nc">D</span><span class="p">(</span><span class="kd">var</span><span class="w"> </span><span class="nv">age</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="p">)</span>
+</code></pre></div></p>
+<p>2.kt直接使用data class
+<div class="highlight"><pre><span></span><code><span class="kd">data</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nc">A</span><span class="p">(</span><span class="kd">var</span><span class="w"> </span><span class="nv">name</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span><span class="p">,</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="nv">b</span><span class="p">:</span><span class="w"> </span><span class="n">B</span><span class="p">)</span>
+<span class="kd">data</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nc">B</span><span class="p">(</span><span class="kd">var</span><span class="w"> </span><span class="nv">age</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="err">）</span>
+
+<span class="kd">val</span><span class="w"> </span><span class="nv">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">A</span><span class="p">(</span><span class="s">&quot;3&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">B</span><span class="p">(</span><span class="m">4</span><span class="p">))</span>
+<span class="n">a</span><span class="p">.</span><span class="na">copy</span><span class="p">(</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;4&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">B</span><span class="p">(</span><span class="m">5</span><span class="p">))</span>
+</code></pre></div></p>
+<p>3.使用自定义interface
+<div class="highlight"><pre><span></span><code><span class="kd">interface</span><span class="w"> </span><span class="nc">DeepCopyable</span><span class="o">&lt;</span><span class="k">out</span><span class="w"> </span><span class="n">R</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">fun</span><span class="w"> </span><span class="nf">deepCopyFun</span><span class="p">():</span><span class="w"> </span><span class="n">R</span>
+<span class="p">}</span>
+<span class="kd">data</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nc">A</span><span class="p">(</span><span class="kd">var</span><span class="w"> </span><span class="nv">name</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span><span class="p">,</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="nv">b</span><span class="p">:</span><span class="w"> </span><span class="n">B</span><span class="p">)</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">DeepCopyable</span><span class="o">&lt;</span><span class="n">B</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">override</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">deepCopyFun</span><span class="p">():</span><span class="w"> </span><span class="n">B</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">B</span><span class="p">(</span><span class="n">b</span><span class="p">.</span><span class="na">age</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="kd">data</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nc">B</span><span class="p">(</span><span class="kd">var</span><span class="w"> </span><span class="nv">age</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="p">)</span>
+</code></pre></div></p>
+<p>4.如果是序列化类，可以进行序列化和反序列化进行拷贝
+<div class="highlight"><pre><span></span><code><span class="kd">fun</span><span class="w"> </span><span class="o">&lt;</span><span class="n">T</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Any</span><span class="o">&gt;</span><span class="w"> </span><span class="n">T</span><span class="p">.</span><span class="nf">deepCopy</span><span class="p">():</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">cls</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="o">::</span><span class="kd">class</span>
+<span class="w">    </span><span class="nc">if</span><span class="w"> </span><span class="p">(</span><span class="n">cls</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">Serializable</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">cls</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">Parcelable</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">val</span><span class="w"> </span><span class="nv">byteArrayOutputStream</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ByteArrayOutputStream</span><span class="p">()</span>
+<span class="w">        </span><span class="kd">val</span><span class="w"> </span><span class="nv">outputStream</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ObjectOutputStream</span><span class="p">(</span><span class="n">byteArrayOutputStream</span><span class="p">)</span>
+<span class="w">        </span><span class="n">outputStream</span><span class="p">.</span><span class="na">writeObject</span><span class="p">(</span><span class="k">this</span><span class="p">)</span>
+
+<span class="w">        </span><span class="n">outputStream</span><span class="p">.</span><span class="na">close</span><span class="p">()</span>
+<span class="w">        </span><span class="n">byteArrayOutputStream</span><span class="p">.</span><span class="na">close</span><span class="p">()</span>
+
+<span class="w">        </span><span class="kd">val</span><span class="w"> </span><span class="nv">byteArrayInputStream</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ByteArrayInputStream</span><span class="p">(</span><span class="n">byteArrayOutputStream</span><span class="p">.</span><span class="na">toByteArray</span><span class="p">())</span>
+<span class="w">        </span><span class="kd">val</span><span class="w"> </span><span class="nv">inputStream</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ObjectInputStream</span><span class="p">(</span><span class="n">byteArrayInputStream</span><span class="p">)</span>
+<span class="w">        </span><span class="kd">val</span><span class="w"> </span><span class="nv">copiedList</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">inputStream</span><span class="p">.</span><span class="na">readObject</span><span class="p">()</span>
+
+<span class="w">        </span><span class="n">inputStream</span><span class="p">.</span><span class="na">close</span><span class="p">()</span>
+<span class="w">        </span><span class="n">byteArrayInputStream</span><span class="p">.</span><span class="na">close</span><span class="p">()</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">copiedList</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">T</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="k">this</span>
+<span class="p">}</span>
+</code></pre></div></p>
+<p>5.kt对于data或者自定义接口的class，可以使用反射+拓展函数</p>
+<p>依赖kotlin反射api
+<div class="highlight"><pre><span></span><code><span class="n">implementation</span><span class="w"> </span><span class="s2">&quot;org.jetbrains.kotlin:kotlin-reflect:$kotlin_version&quot;</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="kd">fun</span><span class="w"> </span><span class="o">&lt;</span><span class="n">T</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Any</span><span class="o">&gt;</span><span class="w"> </span><span class="n">T</span><span class="p">.</span><span class="nf">deepCopy</span><span class="p">():</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">cls</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="o">::</span><span class="kd">class</span>
+<span class="w">    </span><span class="nc">if</span><span class="w"> </span><span class="p">(</span><span class="n">cls</span><span class="p">.</span><span class="na">isData</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">val</span><span class="w"> </span><span class="nv">dataClassCopyMethod</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cls</span><span class="p">.</span><span class="na">java</span><span class="p">.</span><span class="na">declaredMethods</span><span class="p">.</span><span class="na">first</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">copyMethod</span><span class="w"> </span><span class="o">-&gt;</span>
+<span class="w">            </span><span class="n">copyMethod</span><span class="p">.</span><span class="na">name</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">&quot;copy&quot;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="kd">val</span><span class="w"> </span><span class="nv">params</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cls</span><span class="p">.</span><span class="na">primaryConstructor</span><span class="o">?.</span><span class="na">parameters</span><span class="o">?.</span><span class="na">map</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">parameter</span><span class="w"> </span><span class="o">-&gt;</span>
+<span class="w">            </span><span class="kd">val</span><span class="w"> </span><span class="nv">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="k">this</span><span class="o">::</span><span class="kd">class</span><span class="w"> </span><span class="nc">as</span><span class="w"> </span><span class="n">KClass</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">).</span><span class="na">memberProperties</span><span class="p">.</span><span class="na">first</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nb">it</span><span class="p">.</span><span class="na">name</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">parameter</span><span class="p">.</span><span class="na">name</span>
+<span class="w">            </span><span class="p">}.</span><span class="na">get</span><span class="p">(</span><span class="k">this</span><span class="p">)</span>
+
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">value</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">DeepCopyable</span><span class="o">&lt;*&gt;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="n">value</span><span class="p">.</span><span class="na">deepCopyFun</span><span class="p">()</span>
+<span class="w">            </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">value</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">value</span><span class="o">::</span><span class="n">class</span><span class="p">.</span><span class="na">isData</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="n">value</span><span class="p">.</span><span class="na">deepCopy</span><span class="p">()</span>
+<span class="w">            </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="n">value</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span><span class="o">?.</span><span class="na">toTypedArray</span><span class="p">()</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">params</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">dataClassCopyMethod</span><span class="p">.</span><span class="na">invoke</span><span class="p">(</span><span class="k">this</span><span class="p">)</span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">dataClassCopyMethod</span><span class="p">.</span><span class="na">invoke</span><span class="p">(</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="n">params</span><span class="p">)</span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">T</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="k">this</span>
+<span class="p">}</span>
+</code></pre></div></p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2023俞梨
+    </div>
+  
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/13757539485" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "search.suggest", "search.highlight"], "search": "../../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.b4d07000.min.js"></script>
+      
+    
+  </body>
+</html>
