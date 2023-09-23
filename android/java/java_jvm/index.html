@@ -1137,7 +1137,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../android_hitfix.md" class="md-nav__link">
+      <a href="../../android_hotfix/" class="md-nav__link">
         插件化技术
       </a>
     </li>
@@ -2355,7 +2355,7 @@
 <p>堆内存分三代，新⽣代，⽼年代，持久代</p>
 <h4 id="_5">⽅法区<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h4>
 <p>被虚拟机加载的类信息、常量、静态变量等</p>
-<h4 id="_6">直接内存<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h4>
+<h4 id="_6"><a id="d_mem">直接内存</a><a class="headerlink" href="#_6" title="Permanent link">&para;</a></h4>
 <p>NIO中的DirectByteBuffer，会自己释放</p>
 <p><strong>unsafe类</strong></p>
 <p>直接申请内存相关，需要手动管理，跳过JVM的垃圾回收(不会自动释放)</p>
@@ -2466,7 +2466,7 @@
 <p>构造方法执行</p>
 <h3 id="_16">对象的访问定位<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h3>
 <p>句柄方式访问对象、直接指针方式访问对象(快，主流虚拟机采用方案)</p>
-<h3 id="_17">判断对象存活<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h3>
+<h3 id="_17"><a id="obj_live">判断对象存活</a><a class="headerlink" href="#_17" title="Permanent link">&para;</a></h3>
 <p>引用计数算法：在对象头标记被引用次数，无法解决循环引用(python通过另启线程解决)</p>
 <p>根可达性分析：GC roots(RootSet)，目前JVM实现方式，从GC roots作为起点向下搜索路径成为引用链，存在即可达</p>
 <p>常见GC roots：静态变量、线程栈变量(局部变量)、常量池、JNI指针</p>
@@ -2558,7 +2558,7 @@
 <span class="p">}</span>
 </code></pre></div></p>
 <h5 id="phantomreference">虚引用PhantomReference<a class="headerlink" href="#phantomreference" title="Permanent link">&para;</a></h5>
-<p>(技师，一不小心就找不到了)：<a href="#直接内存">直接内存</a>中有Cleaner类继承虚引用，主要用来跟踪对象垃圾回收的活动</p>
+<p>(技师，一不小心就找不到了)：<a href="#d_mem">直接内存</a>中有Cleaner类继承虚引用，主要用来跟踪对象垃圾回收的活动</p>
 <h3 id="_20">对象分配策略<a class="headerlink" href="#_20" title="Permanent link">&para;</a></h3>
 <p>几乎所有对象都是在堆中分配，并不是100%</p>
 <h4 id="_21">虚拟机优化技术<a class="headerlink" href="#_21" title="Permanent link">&para;</a></h4>

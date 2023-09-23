@@ -11,13 +11,17 @@
         <link rel="canonical" href="https://13757539485.github.io/note/android/android_hotfix/">
       
       
+        <link rel="prev" href="../android_performance/">
+      
+      
+        <link rel="next" href="../android_github/">
       
       <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.14">
     
     
       
-        <title>Android hotfix - 我的笔记</title>
+        <title>插件化技术 - 我的笔记</title>
       
     
     
@@ -102,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Android hotfix
+              插件化技术
             
           </span>
         </div>
@@ -190,6 +194,8 @@
         
   
   
+    
+  
 
 
   
@@ -206,7 +212,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../java/java_basic/" class="md-tabs__link">
+      <a href="../java/java_basic/" class="md-tabs__link md-tabs__link--active">
         Android系统
       </a>
     </li>
@@ -358,14 +364,16 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" checked>
       
       
       
@@ -374,7 +382,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_1">
           <span class="md-nav__icon md-icon"></span>
           Android系统
@@ -385,14 +393,16 @@
               
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_1" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_1" checked>
       
       
       
@@ -401,7 +411,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_1_label" aria-expanded="false">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_1_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_1_1">
           <span class="md-nav__icon md-icon"></span>
           学习笔记
@@ -718,11 +728,61 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../android_hitfix.md" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          插件化技术
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         插件化技术
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    插件化必备知识点
+  </a>
+  
+    <nav class="md-nav" aria-label="插件化必备知识点">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#classloader" class="md-nav__link">
+    ClassLoader以及双亲委托
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1466,6 +1526,19 @@
     插件化必备知识点
   </a>
   
+    <nav class="md-nav" aria-label="插件化必备知识点">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#classloader" class="md-nav__link">
+    ClassLoader以及双亲委托
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -1483,7 +1556,7 @@
                   
 
 
-  <h1>Android hotfix</h1>
+  <h1>插件化技术</h1>
 
 <h3 id="_1">插件化必备知识点<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
 <ol>
@@ -1496,6 +1569,50 @@
 <li>ClassLoader以及双亲委托</li>
 <li>反射</li>
 </ol>
+<h4 id="classloader">ClassLoader以及双亲委托<a class="headerlink" href="#classloader" title="Permanent link">&para;</a></h4>
+<p>Android4.4含以下：</p>
+<ul>
+<li>DexClassLoader：加载jar、apk、dex，可以从指定目录中加载</li>
+<li>PathClassLoader：只能加载已安装到系统中的apk文件，即/data/app目录</li>
+</ul>
+<p>Android5.0-Android8.0：</p>
+<ul>
+<li>DexClassLoader：不变</li>
+<li>PathClassLoader：和DexClassLoader基本相同，除了无法进行dex2oat操作</li>
+</ul>
+<p>Android8.0以上：完全一致</p>
+<p>双亲委托机制：类加载时优先请求父类加载器加载，找不到指定类时才由子类加载器尝试加载</p>
+<p>加载步骤：缓存加载--父类加载器加载--自己加载
+<div class="highlight"><pre><span></span><code><span class="kd">protected</span><span class="w"> </span><span class="n">Class</span><span class="o">&lt;?&gt;</span><span class="w"> </span><span class="n">loadClass</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="n">resolve</span><span class="p">)</span>
+<span class="w">        </span><span class="kd">throws</span><span class="w"> </span><span class="n">ClassNotFoundException</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="c1">// 缓存加载</span>
+<span class="w">    </span><span class="n">Class</span><span class="o">&lt;?&gt;</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">findLoadedClass</span><span class="p">(</span><span class="n">name</span><span class="p">);</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">c</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">parent</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">parent</span><span class="p">.</span><span class="na">loadClass</span><span class="p">(</span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="kc">false</span><span class="p">);</span><span class="w"> </span><span class="c1">// 父类加载器加载</span>
+<span class="w">            </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">findBootstrapClassOrNull</span><span class="p">(</span><span class="n">name</span><span class="p">);</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">ClassNotFoundException</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">c</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="c1">// 自己尝试加载</span>
+<span class="w">            </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">findClass</span><span class="p">(</span><span class="n">name</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">c</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+双亲委托机制的作用
+1. 防止重复加载
+2. 安全，保证系统类不能被篡改</p>
+<p>打破双亲委托机制：自定义类加载器</p>
+<p>创建类继承于ClassLoader，重写loadClass方法，实现findClass方法</p>
+<p>Android应用场景：插件化开发、热更新</p>
+<p>类加载可以通过Class.forName("")</p>
 
 
 
