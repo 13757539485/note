@@ -23,7 +23,7 @@ nav:
         - 高级UI: android/android_ui.md
         - Framework: android/android_framework.md
         - 性能优化: android/android_performance.md
-        - 插件化技术: android/android_hitfix.md
+        - 插件化技术: android/android_hotfix.md
         - 开源框架: android/android_github.md
         - 开发模式: android/android_dev_mode.md
         - Apk相关: android/android_build_apk.md

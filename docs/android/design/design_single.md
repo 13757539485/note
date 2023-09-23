@@ -1,14 +1,14 @@
-### 懒汉式(双重校验)
+### <a id="lazy_instance">懒汉式(双重校验)</a>
 ```java
-public class MySingleton {
-    private static MySingleton INSTANCE;
-    private MySingleton() {
+public class Singleton {
+    private static Singleton INSTANCE;
+    private Singleton() {
     }
-    public static MySingleton getInstance() {
+    public static Singleton getInstance() {
         if (INSTANCE == null) {
-            synchronized (MySingleton.class) {
+            synchronized (Singleton.class) {
                 if (INSTANCE == null) {
-                    INSTANCE = new MySingleton();
+                    INSTANCE = new Singleton();
                 }
             }
         }
