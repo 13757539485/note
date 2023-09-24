@@ -213,12 +213,14 @@ ThreadPoolExecutor.DiscardOldestPolicy：拒绝后会抛弃任务队列
 实现RejectedExecutionHandler接口
 
 实现方式
+
 1. newSingleThreadExecutor：一个线程的线程池，存活时间无限，缓存到LinkedBlockingQueue，适合一个任务一个任务执行的场景
 2. newCachedThreadPool：缓存到SynchronousQueue是同步队列，适合执行很多短期异步的场景
 3. newFixedThreadPool: 创建可容纳固定数量的线程池，存活时间是无限，适合长期执行的场景
 4. newScheduledThreadPool：创建固定大小的线程池，缓存到DelayedWorkQueue，适合周期性执行的场景
 
 ThreadPoolExecutor的参数
+
 1. corePoolSize：线程池中的常驻核心线程数
 2. maximumPoolSize：线程池能够容纳同时执行的最大线程数，必须大于等于1
 3. keepAliveTime：空闲线程的存活时间
