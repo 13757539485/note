@@ -7,7 +7,6 @@ nav:
         - Java: 
            - 基础: android/java/java_basic.md
            - 虚拟机: android/java/java_jvm.md
-           - 线程: android/java/java_thread.md
            - 泛型: android/java/java_genericity.md
            - 反射: android/java/java_reflex.md
         - Kotlin: 
@@ -20,9 +19,22 @@ nav:
            - 原理: android/kotlin/kotlin_principle.md
         - 数据结构: android/java/java_collection.md
         - 设计模式: android/design_mode.md
-        - 高级UI: android/android_ui.md
-        - Framework: android/android_framework.md
-        - 性能优化: android/android_performance.md
+        - 并发编程:
+           - 基础概念: android/java/java_base.md
+           - 线程: android/java/java_thread.md
+           - 线程安全: android/java/java_safe.md
+           - 锁: android/java/java_lock.md
+        - 网络编程: 
+           - 网络基础: android/network/net_base.md
+           - 抓包工具: android/network/net_charles.md
+        - 高级UI: 
+           - RecycleView: android/ui/ui_recyclerview.md
+           - View: android/android_ui.md
+        - Framework:
+           - IPC通信: android/fws/fws_process.md
+        - 性能优化: 
+           - 图片相关: android/performance/android_bitmap.md
+           - 数据结构: android/performance/android_datastructure.md
         - 插件化技术: android/android_hotfix.md
         - 开源框架: android/android_github.md
         - 开发模式: android/android_dev_mode.md
@@ -59,8 +71,9 @@ nav:
 - 常见开发环境: 
     - python部署: python.md
     - git部署: git_github.md
-- 办公: 
+- 其他学习: 
     - Excel: excel.md
+    - Markdown: markdown.md
 theme: 
   name: material
   language: zh

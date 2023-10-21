@@ -249,7 +249,7 @@ Tools-Class Browser
 
 java.lang.OutOfMemory: Metaspace 方法区
 
-java.lang.OutOfMemory: Java heap spack 堆
+java.lang.OutOfMemory: Java heap space 堆
 
 java.lang.OutOfMemory: Direct buffer memory 直接内存
 
