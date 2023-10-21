@@ -11,13 +11,17 @@
         <link rel="canonical" href="https://13757539485.github.io/note/android/fws/fws_process/">
       
       
+        <link rel="prev" href="../../android_ui/">
+      
+      
+        <link rel="next" href="../../performance/android_bitmap/">
       
       <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.14">
     
     
       
-        <title>Fws process - 我的笔记</title>
+        <title>IPC通信 - 我的笔记</title>
       
     
     
@@ -102,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Fws process
+              IPC通信
             
           </span>
         </div>
@@ -190,6 +194,8 @@
         
   
   
+    
+  
 
 
   
@@ -206,7 +212,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../java/java_basic/" class="md-tabs__link">
+      <a href="../../java/java_basic/" class="md-tabs__link md-tabs__link--active">
         Android系统
       </a>
     </li>
@@ -314,7 +320,7 @@
   
     <li class="md-tabs__item">
       <a href="../../../excel/" class="md-tabs__link">
-        办公
+        其他学习
       </a>
     </li>
   
@@ -358,14 +364,16 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" checked>
       
       
       
@@ -374,7 +382,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_1">
           <span class="md-nav__icon md-icon"></span>
           Android系统
@@ -385,14 +393,16 @@
               
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_1" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_1" checked>
       
       
       
@@ -401,7 +411,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_1_label" aria-expanded="false">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_1_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_1_1">
           <span class="md-nav__icon md-icon"></span>
           学习笔记
@@ -457,20 +467,6 @@
     <li class="md-nav__item">
       <a href="../../java/java_jvm/" class="md-nav__link">
         虚拟机
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../java/java_thread/" class="md-nav__link">
-        线程
       </a>
     </li>
   
@@ -677,9 +673,472 @@
   
   
   
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_1_5" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_1_5" id="__nav_1_1_5_label" tabindex="0">
+          并发编程
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_1_1_5_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_1_1_5">
+          <span class="md-nav__icon md-icon"></span>
+          并发编程
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java/java_base/" class="md-nav__link">
+        基础概念
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java/java_thread/" class="md-nav__link">
+        线程
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java/java_safe/" class="md-nav__link">
+        线程安全
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java/java_lock/" class="md-nav__link">
+        锁
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_1_6" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_1_6" id="__nav_1_1_6_label" tabindex="0">
+          网络编程
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_1_1_6_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_1_1_6">
+          <span class="md-nav__icon md-icon"></span>
+          网络编程
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../network/net_base/" class="md-nav__link">
+        网络基础
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../network/net_charles/" class="md-nav__link">
+        抓包工具
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_1_7" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_1_7" id="__nav_1_1_7_label" tabindex="0">
+          高级UI
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_1_1_7_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_1_1_7">
+          <span class="md-nav__icon md-icon"></span>
+          高级UI
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ui/ui_recyclerview/" class="md-nav__link">
+        RecycleView
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
     <li class="md-nav__item">
       <a href="../../android_ui/" class="md-nav__link">
-        高级UI
+        View
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_1_8" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_1_8" id="__nav_1_1_8_label" tabindex="0">
+          Framework
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_1_1_8_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_1_1_8">
+          <span class="md-nav__icon md-icon"></span>
+          Framework
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          IPC通信
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        IPC通信
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    进程间通信方案
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    管道
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    信号
+  </a>
+  
+    <nav class="md-nav" aria-label="信号">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    应用场景
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    信号量
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    共享内存
+  </a>
+  
+    <nav class="md-nav" aria-label="共享内存">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    应用场景
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    消息队列
+  </a>
+  
+    <nav class="md-nav" aria-label="消息队列">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    应用场景
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#socket" class="md-nav__link">
+    Socket
+  </a>
+  
+    <nav class="md-nav" aria-label="Socket">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    应用场景
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#binder" class="md-nav__link">
+    Binder
+  </a>
+  
+    <nav class="md-nav" aria-label="Binder">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    应用场景
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ipc" class="md-nav__link">
+    传统IPC原理
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#binder_1" class="md-nav__link">
+    Binder原理
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#android" class="md-nav__link">
+    Android中的进程
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_1_9" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_1_9" id="__nav_1_1_9_label" tabindex="0">
+          性能优化
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_1_1_9_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_1_1_9">
+          <span class="md-nav__icon md-icon"></span>
+          性能优化
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../performance/android_bitmap/" class="md-nav__link">
+        图片相关
       </a>
     </li>
   
@@ -692,23 +1151,16 @@
   
   
     <li class="md-nav__item">
-      <a href="../../android_framework/" class="md-nav__link">
-        Framework
+      <a href="../../performance/android_datastructure/" class="md-nav__link">
+        数据结构
       </a>
     </li>
   
 
             
           
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../android_performance/" class="md-nav__link">
-        性能优化
-      </a>
+        </ul>
+      </nav>
     </li>
   
 
@@ -1406,14 +1858,14 @@
       
       
         <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
-          办公
+          其他学习
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_7">
           <span class="md-nav__icon md-icon"></span>
-          办公
+          其他学习
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -1425,6 +1877,20 @@
     <li class="md-nav__item">
       <a href="../../../excel/" class="md-nav__link">
         Excel
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../markdown/" class="md-nav__link">
+        Markdown
       </a>
     </li>
   
@@ -1618,7 +2084,7 @@
                   
 
 
-  <h1>Fws process</h1>
+  <h1>IPC通信</h1>
 
 <h3 id="_1">进程间通信方案<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
 <p>管道、信号、信号量、内存共享、socket、binder、消息队列</p>
@@ -1626,6 +2092,7 @@
 <p>虚拟内存分为用户空间和内核空间，彼此隔离</p>
 <p>用户空间：程序代码运行的地方</p>
 <p>内核空间：内核代码运行的地方，所有进程共享</p>
+<p>进程间通信的本质：内存拷贝</p>
 <h3 id="_2">管道<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
 <p>unix最古老的进程间通信方式，由内核管理一个固定大小的缓冲区，一端连接进程的输出，另一端连接进程的输入</p>
 <p>限制</p>
@@ -1672,6 +2139,7 @@
 <p>传输效率低，开销大</p>
 <h4 id="_10">应用场景<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h4>
 <p>Zygote进程使用LocalSocket接收启动应用的通知</p>
+<p>更多<a href="../../network/net_base/#socket">Socket知识</a></p>
 <h3 id="binder">Binder<a class="headerlink" href="#binder" title="Permanent link">&para;</a></h3>
 <h4 id="_11">应用场景<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h4>
 <p>Android中system_server与上层app交互、Intent、ContentProvider、AIDL、Broadcast、Messager等</p>

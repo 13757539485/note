@@ -11,10 +11,10 @@
         <link rel="canonical" href="https://13757539485.github.io/note/android/java/java_thread/">
       
       
-        <link rel="prev" href="../java_jvm/">
+        <link rel="prev" href="../java_base/">
       
       
-        <link rel="next" href="../java_genericity/">
+        <link rel="next" href="../java_safe/">
       
       <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.14">
@@ -320,7 +320,7 @@
   
     <li class="md-tabs__item">
       <a href="../../../excel/" class="md-tabs__link">
-        办公
+        其他学习
       </a>
     </li>
   
@@ -422,16 +422,14 @@
               
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_1_1" checked>
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_1_1" >
       
       
       
@@ -440,7 +438,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_1_1_1_label" aria-expanded="true">
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_1_1_1_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_1_1_1">
           <span class="md-nav__icon md-icon"></span>
           Java
@@ -470,312 +468,6 @@
       <a href="../java_jvm/" class="md-nav__link">
         虚拟机
       </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-    
-  
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          线程
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
-        线程
-      </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="目录">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    线程
-  </a>
-  
-    <nav class="md-nav" aria-label="线程">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    线程安全
-  </a>
-  
-    <nav class="md-nav" aria-label="线程安全">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    表现
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    解决方向
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#cas" class="md-nav__link">
-    CAS
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#synchronized" class="md-nav__link">
-    Synchronized
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#semaphore" class="md-nav__link">
-    Semaphore类
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#lock" class="md-nav__link">
-    Lock类
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    对象锁
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#volatile" class="md-nav__link">
-    volatile
-  </a>
-  
-    <nav class="md-nav" aria-label="volatile">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    可⻅性
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
-    有序性
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
-    原⼦性
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#volatile_1" class="md-nav__link">
-    懒汉双重校验和volatile
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#synchronized-vs-volatile" class="md-nav__link">
-    synchronized vs volatile
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#synchronized-vs-lock" class="md-nav__link">
-    synchronized vs lock
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#sleep" class="md-nav__link">
-    Sleep
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#sleepwait" class="md-nav__link">
-    sleep和wait的区别
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
-    公平锁和非公平锁
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
-    并发工具类
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#transient" class="md-nav__link">
-    transient关键字
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_11" class="md-nav__link">
-    线程池
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#threadlocal" class="md-nav__link">
-    ThreadLocal
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_12" class="md-nav__link">
-    同步、异步、阻塞、非阻塞
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#interruptedisinterrupted" class="md-nav__link">
-    interrupted和isInterrupted⽅法的区别
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_13" class="md-nav__link">
-    锁的分类
-  </a>
-  
-    <nav class="md-nav" aria-label="锁的分类">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#vs" class="md-nav__link">
-    乐观锁vs悲观锁
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#vs_1" class="md-nav__link">
-    独享锁vs共享锁
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#vs_2" class="md-nav__link">
-    互斥锁vs读写锁
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_14" class="md-nav__link">
-    可重入锁
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#vs_3" class="md-nav__link">
-    公平锁vs非公平锁
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_15" class="md-nav__link">
-    分段锁
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_16" class="md-nav__link">
-    偏向锁/轻量级锁/重量级锁
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_17" class="md-nav__link">
-    自旋锁
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -980,10 +672,393 @@
               
   
   
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_1_5" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_1_5" id="__nav_1_1_5_label" tabindex="0">
+          并发编程
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_1_1_5_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_1_1_5">
+          <span class="md-nav__icon md-icon"></span>
+          并发编程
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../java_base/" class="md-nav__link">
+        基础概念
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          线程
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        线程
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    生命周期
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    启动线程的方式
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    停止线程
+  </a>
+  
+    <nav class="md-nav" aria-label="停止线程">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#interruptedisinterrupted" class="md-nav__link">
+    interrupted和isInterrupted⽅法的区别
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#startrun" class="md-nav__link">
+    start和run方法
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#join" class="md-nav__link">
+    join方法
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    线程优先级
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    守护线程
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../java_safe/" class="md-nav__link">
+        线程安全
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../java_lock/" class="md-nav__link">
+        锁
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_1_6" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_1_6" id="__nav_1_1_6_label" tabindex="0">
+          网络编程
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_1_1_6_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_1_1_6">
+          <span class="md-nav__icon md-icon"></span>
+          网络编程
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../network/net_base/" class="md-nav__link">
+        网络基础
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../network/net_charles/" class="md-nav__link">
+        抓包工具
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_1_7" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_1_7" id="__nav_1_1_7_label" tabindex="0">
+          高级UI
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_1_1_7_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_1_1_7">
+          <span class="md-nav__icon md-icon"></span>
+          高级UI
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ui/ui_recyclerview/" class="md-nav__link">
+        RecycleView
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
   
     <li class="md-nav__item">
       <a href="../../android_ui/" class="md-nav__link">
-        高级UI
+        View
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_1_8" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_1_8" id="__nav_1_1_8_label" tabindex="0">
+          Framework
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_1_1_8_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_1_1_8">
+          <span class="md-nav__icon md-icon"></span>
+          Framework
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fws/fws_process/" class="md-nav__link">
+        IPC通信
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_1_9" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_1_9" id="__nav_1_1_9_label" tabindex="0">
+          性能优化
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_1_1_9_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_1_1_9">
+          <span class="md-nav__icon md-icon"></span>
+          性能优化
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../performance/android_bitmap/" class="md-nav__link">
+        图片相关
       </a>
     </li>
   
@@ -996,23 +1071,16 @@
   
   
     <li class="md-nav__item">
-      <a href="../../android_framework/" class="md-nav__link">
-        Framework
+      <a href="../../performance/android_datastructure/" class="md-nav__link">
+        数据结构
       </a>
     </li>
   
 
             
           
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../android_performance/" class="md-nav__link">
-        性能优化
-      </a>
+        </ul>
+      </nav>
     </li>
   
 
@@ -1710,14 +1778,14 @@
       
       
         <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
-          办公
+          其他学习
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_7">
           <span class="md-nav__icon md-icon"></span>
-          办公
+          其他学习
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -1729,6 +1797,20 @@
     <li class="md-nav__item">
       <a href="../../../excel/" class="md-nav__link">
         Excel
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../markdown/" class="md-nav__link">
+        Markdown
       </a>
     </li>
   
@@ -1767,263 +1849,63 @@
       
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
-    线程
+    生命周期
   </a>
   
-    <nav class="md-nav" aria-label="线程">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
-    线程安全
+    启动线程的方式
   </a>
   
-    <nav class="md-nav" aria-label="线程安全">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
-    表现
+    停止线程
   </a>
   
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    解决方向
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#cas" class="md-nav__link">
-    CAS
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#synchronized" class="md-nav__link">
-    Synchronized
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#semaphore" class="md-nav__link">
-    Semaphore类
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#lock" class="md-nav__link">
-    Lock类
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    对象锁
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#volatile" class="md-nav__link">
-    volatile
-  </a>
-  
-    <nav class="md-nav" aria-label="volatile">
+    <nav class="md-nav" aria-label="停止线程">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    可⻅性
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
-    有序性
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
-    原⼦性
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#volatile_1" class="md-nav__link">
-    懒汉双重校验和volatile
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#synchronized-vs-volatile" class="md-nav__link">
-    synchronized vs volatile
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#synchronized-vs-lock" class="md-nav__link">
-    synchronized vs lock
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#sleep" class="md-nav__link">
-    Sleep
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#sleepwait" class="md-nav__link">
-    sleep和wait的区别
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
-    公平锁和非公平锁
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
-    并发工具类
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#transient" class="md-nav__link">
-    transient关键字
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_11" class="md-nav__link">
-    线程池
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#threadlocal" class="md-nav__link">
-    ThreadLocal
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_12" class="md-nav__link">
-    同步、异步、阻塞、非阻塞
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#interruptedisinterrupted" class="md-nav__link">
     interrupted和isInterrupted⽅法的区别
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#_13" class="md-nav__link">
-    锁的分类
-  </a>
-  
-    <nav class="md-nav" aria-label="锁的分类">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#vs" class="md-nav__link">
-    乐观锁vs悲观锁
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#vs_1" class="md-nav__link">
-    独享锁vs共享锁
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#vs_2" class="md-nav__link">
-    互斥锁vs读写锁
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_14" class="md-nav__link">
-    可重入锁
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#vs_3" class="md-nav__link">
-    公平锁vs非公平锁
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_15" class="md-nav__link">
-    分段锁
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_16" class="md-nav__link">
-    偏向锁/轻量级锁/重量级锁
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_17" class="md-nav__link">
-    自旋锁
-  </a>
-  
-</li>
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#startrun" class="md-nav__link">
+    start和run方法
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#join" class="md-nav__link">
+    join方法
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    线程优先级
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    守护线程
+  </a>
   
 </li>
       
@@ -2044,8 +1926,8 @@
 
   <h1>线程</h1>
 
-<h3 id="_1">线程<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
-<p>生命周期：新建，运⾏，阻塞，等待，计时等待、终⽌
+<h3 id="_1">生命周期<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
+<p>新建，运⾏，阻塞，等待，计时等待、终⽌</p>
 <div class="highlight"><pre><span></span><code><span class="kd">class</span> <span class="nc">ThreadState</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">Runnable</span><span class="w"> </span><span class="p">{</span>
 
 <span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">synchronized</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">waitForASecond</span><span class="p">()</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">InterruptedException</span><span class="w"> </span><span class="p">{</span>
@@ -2090,267 +1972,53 @@
 <span class="nl">等待线程</span><span class="p">:</span><span class="n">WAITING</span>
 <span class="nl">唤醒线程</span><span class="p">:</span><span class="n">BLOCKED</span>
 <span class="n">终</span><span class="err">⽌</span><span class="n">线程</span><span class="p">:</span><span class="n">TERMINATED</span>
-</code></pre></div></p>
-<h4 id="_2">线程安全<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h4>
-<h5 id="_3">表现<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h5>
-<p><a href="#primitive">原⼦性</a>、<a href="#possibility">可⻅性</a>、<a href="#order">有序性</a></p>
-<h5 id="_4">解决方向<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h5>
-<p>1.不可变</p>
-<p>final关键字修饰的类或数据不可修改，如String类，Integer类</p>
-<p>2.线程封闭</p>
-<p>Ad-hoc 线程封闭、ThreadLocal、堆栈封闭</p>
-<p>3.同步</p>
-<p>悲观锁和乐观锁(⾮阻塞同步)</p>
-<p>悲观锁：synchronized、Lock(ReentrantReadWriteLock/ReentrantLock)、可见性</p>
-<p>乐观锁：CAS、volatile、有序性、原子性</p>
-<h4 id="cas">CAS<a class="headerlink" href="#cas" title="Permanent link">&para;</a></h4>
-<p>乐观锁，比较与交换的无锁算法，非阻塞同步</p>
-<p>缺点：循环时间长话开销大，ABA问题(数据中途被修改过)，不能保证多个共享变量的原子性</p>
-<h4 id="synchronized">Synchronized<a class="headerlink" href="#synchronized" title="Permanent link">&para;</a></h4>
-<p>保证互斥的，⼀块代码不能同时被两个线程访问，能保证可见性、有序性、原子性</p>
-<h4 id="semaphore">Semaphore类<a class="headerlink" href="#semaphore" title="Permanent link">&para;</a></h4>
-<p>进⾏并发控制，限制访问⼀个资源（或代码块）的线程数⽬。当设定的线程数⽬是1时，并发其实就退化到了互斥</p>
-<h4 id="lock">Lock类<a class="headerlink" href="#lock" title="Permanent link">&para;</a></h4>
-<p>可以取代Object的notify和wait</p>
-<h4 id="_5">对象锁<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h4>
-<p>Synchronized+Object的Notify和wait⼀起构成了同步</p>
-<h4 id="volatile">volatile<a class="headerlink" href="#volatile" title="Permanent link">&para;</a></h4>
-<p>轻量级的synchronized，是⼀个变量修饰符，只能⽤来修饰变量，能保证缓存一致性</p>
-<p>缓存⼀致性协议：每个处理器通过嗅探在总线上传播的数据来检查⾃⼰缓存的值是否过期，当处理器发现缓存⾏对应的内存地址被修改，就会将当前处理器的缓存⾏设置成⽆效状态，当处理器要对这个数据进⾏修改操作的时候，会强制重新从系统内存⾥把数据读到处理器缓存⾥</p>
-<h5 id="_6"><a id="possibility">可⻅性</a><a class="headerlink" href="#_6" title="Permanent link">&para;</a></h5>
-<p>指当多个线程访问同⼀个变量时，⼀个线程修改了这个变量的值，其他线程能够⽴即看得到修改的值</p>
-<p>volatile保证可见性：被其修饰的变量在被修改后可以⽴即同步到主内存，被其修饰的变量在每次使⽤之前都从主内存刷新</p>
-<h5 id="_7"><a id="order">有序性</a><a class="headerlink" href="#_7" title="Permanent link">&para;</a></h5>
-<p>指程序执⾏的顺序按照代码的先后顺序执⾏（happens-before原则）</p>
-<p>volatile保证有序性：禁⽌指令重排优化等，保证代码的程序会严格按照代码的先后顺序执⾏</p>
-<h5 id="_8"><a id="primitive">原⼦性</a><a class="headerlink" href="#_8" title="Permanent link">&para;</a></h5>
-<p>指⼀个操作是不可中断的，要全部执⾏完成，要不就都不执⾏，同一时刻只能有一个线程来对它进行操作</p>
-<p><font color="#dd0000">volatile无法保证原⼦性：</font>保证原⼦性需要通过字节码指令monitorenter和monitorexit，volatile和这两个指令之间是没有任何关系的</p>
-<p><div class="highlight"><pre><span></span><code><span class="kd">private</span><span class="w"> </span><span class="kd">volatile</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<span class="n">i</span><span class="o">++</span><span class="p">;</span>
 </code></pre></div>
-线程A和线程B同时修改i++时为啥会有问题？</p>
-<p>线程A在i++时i变成1，会立即刷新主内存使得线程B的i值无效重写从主内存读取，按理不会出现异常</p>
-<p>理解</p>
-<p>1、线程读取i</p>
-<p>2、temp = i + 1</p>
-<p>3、i = temp</p>
-<p>当 i=0 的时候A,B两个线程同时读入了 i 的值， 然后A线程执行了temp = i + 1的操作，然后B线程也执行了temp = i + 1的操作，此时A，B两个线程保存的 i 的值都是0，temp的值都是1，然后A线程执行了 i = temp的操作，此时i的值会立即刷新到主存并通知其他线程保存的 i 值失效，此时B线程需要重新读取 i 的值那么此时B线程保存的 i 就是1，同时B线程保存的temp还仍然是1，然后B线程执行 i=temp，所以导致了计算结果比预期少了1</p>
-<h4 id="volatile_1">懒汉双重校验和volatile<a class="headerlink" href="#volatile_1" title="Permanent link">&para;</a></h4>
-<p><a href="../../design/design_single/#lazy_instance">懒汉式</a>
-既然synchronized保证了有序性那为啥还需要volatile?</p>
-<p>synchronized只能保证让闭包里代码同一时间只有一个线程执行，当线程A执行INSTANCE = new Singleton()时，分为开辟空间创建对象、调用构造方法、赋值给INSTANCE三步，由于虚拟机指令重排机制导致后面两步可能顺序颠倒，所以当线程B走到if (INSTANCE == null) {时不为null</p>
-<h4 id="synchronized-vs-volatile">synchronized vs volatile<a class="headerlink" href="#synchronized-vs-volatile" title="Permanent link">&para;</a></h4>
-<table>
-<thead>
-<tr>
-<th></th>
-<th>synchronized</th>
-<th>volatile</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>使用</td>
-<td>变量、方法、类、同步代码块等</td>
-<td>变量</td>
-</tr>
-<tr>
-<td>线程阻塞</td>
-<td>可能会</td>
-<td>不会</td>
-</tr>
-<tr>
-<td>性能</td>
-<td>有锁，略低</td>
-<td>优于前者</td>
-</tr>
-<tr>
-<td>保证</td>
-<td>有序、可见、原子</td>
-<td>有序、可见</td>
-</tr>
-<tr>
-<td>原理</td>
-<td>加锁(monitorenter指令)释放锁(monitorexit指令)保证原子性，内存屏障保证有序、可见性</td>
-<td>内存屏障保证有序、可见性</td>
-</tr>
-</tbody>
-</table>
-<h4 id="synchronized-vs-lock">synchronized vs lock<a class="headerlink" href="#synchronized-vs-lock" title="Permanent link">&para;</a></h4>
-<table>
-<thead>
-<tr>
-<th></th>
-<th>synchronized</th>
-<th>Lock接口</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>使用</td>
-<td>关键字</td>
-<td>类</td>
-</tr>
-<tr>
-<td>锁状态</td>
-<td>不可判断</td>
-<td>可判断</td>
-</tr>
-<tr>
-<td>锁类型</td>
-<td>可重入，不可中断，<a href="#fairUnfair">非公平锁</a></td>
-<td>可重入，可中断，<a href="#fairUnfair">公/非公平锁</a></td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr>
-<th>存在层次</th>
-<th>volatile关键字</th>
-<th>synchronized关键字</th>
-<th>Lock接⼝</th>
-<th>Atomic变量</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="#primitive">原⼦性</a></td>
-<td>⽆法保障</td>
-<td>可以保障</td>
-<td>可以保障</td>
-<td>可以保障</td>
-</tr>
-<tr>
-<td><a href="#possibility">可⻅性</a></td>
-<td>可以保障</td>
-<td>可以保障</td>
-<td>可以保障</td>
-<td>可以保障</td>
-</tr>
-<tr>
-<td><a href="#order">有序性</a></td>
-<td>⼀定程度保障</td>
-<td>可以保障</td>
-<td>可以保障</td>
-<td>⽆法保障</td>
-</tr>
-</tbody>
-</table>
-<p>4.工具类</p>
-<p>同步容器（已过时） 同步容器的⼯具有Vector、HashTable、Collections.synchroniedXXX()</p>
-<p>并发容器（JUC） ConcurrentHashMap、CopyOnWriteArrayList</p>
-<p>JUC同步器 AQS</p>
-<h4 id="sleep">Sleep<a class="headerlink" href="#sleep" title="Permanent link">&para;</a></h4>
-<p>Thread.Sleep(0)的作⽤，触发操作系统⽴刻重新进⾏⼀次CPU竞争</p>
-<h4 id="sleepwait">sleep和wait的区别<a class="headerlink" href="#sleepwait" title="Permanent link">&para;</a></h4>
-<p>1、sleep是Thread的静态⽅法，wait是Object的⽅法，任何对象实例都能调⽤。</p>
-<p>2、sleep不会释放锁，它也不需要占⽤锁。wait会释放锁，但调⽤它的前提是当前线程占有锁(即代码要在synchronized中)。</p>
-<p>3、它们都可以被interrupt⽅法中断</p>
-<table>
-<thead>
-<tr>
-<th></th>
-<th>sleep</th>
-<th>wait</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>同步</td>
-<td>无限制</td>
-<td>synchronized中使用</td>
-</tr>
-<tr>
-<td>作用对象</td>
-<td>定义在Thread中，作用域当前线程</td>
-<td>定义在Object中，作用于本身</td>
-</tr>
-<tr>
-<td>释放锁</td>
-<td>否</td>
-<td>是</td>
-</tr>
-<tr>
-<td>唤醒条件</td>
-<td>超时或调用interrupt方法</td>
-<td>其他线程调用notify或notifyAll</td>
-</tr>
-<tr>
-<td>方法属性</td>
-<td>实例方法</td>
-<td>静态⽅法</td>
-</tr>
-</tbody>
-</table>
-<h4 id="_9"><a id="fairUnfair">公平锁和非公平锁</a><a class="headerlink" href="#_9" title="Permanent link">&para;</a></h4>
-<table>
-<thead>
-<tr>
-<th></th>
-<th>公平锁</th>
-<th>非公平锁</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>定义</td>
-<td>多个线程排队申请锁</td>
-<td>多个线程都尝试获得锁，先占先得</td>
-</tr>
-<tr>
-<td>优点</td>
-<td>所有线程都能获得锁</td>
-<td>减少cpu唤醒开销，吞吐效率变高</td>
-</tr>
-<tr>
-<td>缺点</td>
-<td>除了第一个线程，后续线程会阻塞导致增加cpu唤醒开销变大，吞吐效率变低</td>
-<td>有可能导致某些线程一直无法获得锁</td>
-</tr>
-</tbody>
-</table>
-<p>ReentrantLock默认是非公平锁，ReentrantLock(true)为公平锁，分别对应NonfairSync和FairSync</p>
-<h4 id="_10">并发工具类<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h4>
-<p>CountDownLatch、CyclicBarrier</p>
-<h3 id="transient">transient关键字<a class="headerlink" href="#transient" title="Permanent link">&para;</a></h3>
-<p>是成员变量不被序列化，被static修饰的成员变量无效，需要实现Serializable接⼝，如果实现Externalizable接⼝则也无效，需要自行在readExternal方法里处理(手动设置null)</p>
-<h3 id="_11">线程池<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
-<p>ThreadPoolExecutor</p>
-<p>拒绝策略</p>
-<p>ThreadPoolExecutor.DiscardPolicy：不会抛异常也不会执⾏</p>
-<p>ThreadPoolExecutor.AbortPolicy：默认策略，拒绝后抛异常</p>
-<p>ThreadPoolExecutor.CallerRunsPolicy：拒绝后直接执行run，可能会阻塞主线程</p>
-<p>ThreadPoolExecutor.DiscardOldestPolicy：拒绝后会抛弃任务队列
-中最旧的任务</p>
-<p>自定义策略</p>
-<p>实现RejectedExecutionHandler接口</p>
-<p>实现方式</p>
-<ol>
-<li>newSingleThreadExecutor：一个线程的线程池，存活时间无限，缓存到LinkedBlockingQueue，适合一个任务一个任务执行的场景</li>
-<li>newCachedThreadPool：缓存到SynchronousQueue是同步队列，适合执行很多短期异步的场景</li>
-<li>newFixedThreadPool: 创建可容纳固定数量的线程池，存活时间是无限，适合长期执行的场景</li>
-<li>newScheduledThreadPool：创建固定大小的线程池，缓存到DelayedWorkQueue，适合周期性执行的场景</li>
-</ol>
-<p>ThreadPoolExecutor的参数</p>
-<ol>
-<li>corePoolSize：线程池中的常驻核心线程数</li>
-<li>maximumPoolSize：线程池能够容纳同时执行的最大线程数，必须大于等于1</li>
-<li>keepAliveTime：空闲线程的存活时间</li>
-<li>unit：keepAliveTime的单位</li>
-<li>workQueue：任务队列，被提交但尚未被执行的任务</li>
-<li>threadFactory：生成线程池中工作线程池的线程工厂，用于创建线程一般默认即可</li>
-<li>handler：拒绝策略，当队列满了并且工作线程大于等于线程池最大线程数maximumPoolSize时处理方式</li>
-</ol>
-<h3 id="threadlocal">ThreadLocal<a class="headerlink" href="#threadlocal" title="Permanent link">&para;</a></h3>
-<p>线程级别变量，并发模式下是绝对安全的变量</p>
-<h3 id="_12">同步、异步、阻塞、非阻塞<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h3>
-<p>同步和异步、阻塞和非阻塞本质上是一对相对的概念。</p>
-<p>在进程通信这个层面，同步和异步针对的是发送方而言，取决于将数据写到内核缓冲区进程的行为，继续等待发送则为同步，反之即为异步。</p>
-<p>在进程通信这个层面，阻塞非阻塞针对的是接收方而言，取决于将内核中的数据能否立即拷贝到用户空间，如果不能直接拷贝则为阻塞，反之则为非阻塞</p>
-<p>同步异步是输入到结果需不需要等待决定，阻塞和非阻塞是是一种状态由的等待结果时是否可以做其他事情决定</p>
-<h3 id="interruptedisinterrupted">interrupted和isInterrupted⽅法的区别<a class="headerlink" href="#interruptedisinterrupted" title="Permanent link">&para;</a></h3>
+<h3 id="_2">启动线程的方式<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<p>两种方式，Thread源码中明确指出</p>
+<p>方式一：
+<div class="highlight"><pre><span></span><code><span class="kd">class</span><span class="w"> </span><span class="nc">PrimeThread</span><span class="p">(</span><span class="kd">private</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">minPrime</span><span class="p">:</span><span class="w"> </span><span class="kt">Long</span><span class="p">)</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Thread</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">override</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">run</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">println</span><span class="p">(</span><span class="n">minPrime</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+<span class="n">PrimeThread</span><span class="p">(</span><span class="m">1000L</span><span class="p">).</span><span class="na">start</span><span class="p">()</span>
+</code></pre></div></p>
+<p>方式二：
+<div class="highlight"><pre><span></span><code><span class="kd">class</span><span class="w"> </span><span class="nc">PrimeRun</span><span class="p">(</span><span class="kd">private</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">minPrime</span><span class="p">:</span><span class="w"> </span><span class="kt">Long</span><span class="p">)</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Runnable</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">override</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">run</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">println</span><span class="p">(</span><span class="n">minPrime</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+<span class="n">Thread</span><span class="p">(</span><span class="n">PrimeRun</span><span class="p">(</span><span class="m">1000L</span><span class="p">)).</span><span class="na">start</span><span class="p">()</span>
+</code></pre></div></p>
+<p>Thread和Runnable的区别：Thread是线程的唯一抽象，Runnable只是业务逻辑的抽象</p>
+<h3 id="_3">停止线程<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<p>API中的suspend、resume、stop不建议使用(已被标记过时)，容易引发死锁，原因是线程不会释放中有的资源如锁，并且不会给予释放资源的机会</p>
+<p>线程工作是协作式，即只是通知</p>
+<p>isInterrupted：判断线程是否被中断</p>
+<p>interrupt()：实例方法用来打断线程，只是发出中断请求，并不会立即停止线程</p>
+<p>interrupted()：static方法，判断线程是否被中断</p>
+<p><div class="highlight"><pre><span></span><code><span class="kd">fun</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">thread</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">PrimeThread</span><span class="p">()</span>
+<span class="w">    </span><span class="n">thread</span><span class="p">.</span><span class="na">start</span><span class="p">()</span>
+<span class="w">    </span><span class="n">Thread</span><span class="p">.</span><span class="na">sleep</span><span class="p">(</span><span class="m">20</span><span class="p">)</span>
+<span class="w">    </span><span class="n">thread</span><span class="p">.</span><span class="na">interrupt</span><span class="p">()</span>
+<span class="p">}</span>
+
+<span class="kd">class</span><span class="w"> </span><span class="nc">PrimeThread</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Thread</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">override</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">run</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">val</span><span class="w"> </span><span class="nv">threadName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">currentThread</span><span class="p">().</span><span class="na">name</span>
+<span class="w">        </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;</span><span class="si">$</span><span class="n">threadName</span><span class="s">, status: </span><span class="si">$</span><span class="n">isInterrupted</span><span class="s">&quot;</span><span class="p">)</span>
+<span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">isInterrupted</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">//while (!interrupted()) {</span>
+<span class="w">            </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;isInterrupted: </span><span class="si">$</span><span class="n">isInterrupted</span><span class="s">&quot;</span><span class="p">)</span><span class="c1">//false</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;end isInterrupted: </span><span class="si">$</span><span class="n">isInterrupted</span><span class="s">&quot;</span><span class="p">)</span><span class="c1">//true</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+调用interrupted()区别是会将isInterrupted设置成false</p>
+<h4 id="interruptedisinterrupted">interrupted和isInterrupted⽅法的区别<a class="headerlink" href="#interruptedisinterrupted" title="Permanent link">&para;</a></h4>
 <p><div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">interrupted</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="n">Thread</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">currentThread</span><span class="p">();</span>
 <span class="w">    </span><span class="kt">boolean</span><span class="w"> </span><span class="n">interrupted</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">t</span><span class="p">.</span><span class="na">interrupted</span><span class="p">;</span>
@@ -2365,33 +2033,105 @@
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="na">interrupted</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
-interrupted是静态方法，用来中断当前线程</p>
-<p>isInterrupted是实例方法，用来判断线程是否中端</p>
-<h3 id="_13">锁的分类<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h3>
-<h4 id="vs">乐观锁vs悲观锁<a class="headerlink" href="#vs" title="Permanent link">&para;</a></h4>
-<p>乐观锁：不加锁更新数据时会判断是否被修改，如被修改会发送自旋，java.util.concurret.atomic包下的原子变量类，基于CAS实现</p>
-<p>悲观锁：获取数据时都会上锁，synchronized</p>
-<h4 id="vs_1">独享锁vs共享锁<a class="headerlink" href="#vs_1" title="Permanent link">&para;</a></h4>
-<p>独享锁：锁只能被一个线程所持有，ReentrantLock</p>
-<p>共享锁：锁能被多个线程所持有，ReadWriteLock中读锁是共享锁，写锁是独享锁</p>
-<h4 id="vs_2">互斥锁vs读写锁<a class="headerlink" href="#vs_2" title="Permanent link">&para;</a></h4>
-<p>广义说法</p>
-<p>互斥锁：具体实现ReentrantLock</p>
-<p>读写锁：具体实现ReadWriteLock</p>
-<h4 id="_14">可重入锁<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h4>
-<p><div class="highlight"><pre><span></span><code><span class="kd">synchronized</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">A</span><span class="p">(){}</span>
-<span class="kd">synchronized</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">B</span><span class="p">(){}</span>
+sleep、join方法会抛出InterruptedException，抛出后会将isInterrupted设置成true，开发者可以通过捕获异常来重新中断</p>
+<h3 id="startrun">start和run方法<a class="headerlink" href="#startrun" title="Permanent link">&para;</a></h3>
+<p>run：普通方法</p>
+<p>start：正真意义的启动线程的方法</p>
+<div class="highlight"><pre><span></span><code><span class="kd">fun</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">thread</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">PrimeThread</span><span class="p">()</span>
+<span class="w">    </span><span class="n">thread</span><span class="p">.</span><span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;PrimeThread&quot;</span>
+<span class="w">    </span><span class="n">thread</span><span class="p">.</span><span class="na">run</span><span class="p">()</span><span class="c1">//thread: main</span>
+<span class="w">    </span><span class="n">thread</span><span class="p">.</span><span class="na">start</span><span class="p">()</span><span class="c1">//thread: PrimeThread</span>
+<span class="p">}</span>
+
+<span class="kd">class</span><span class="w"> </span><span class="nc">PrimeThread</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Thread</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">override</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">run</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;thread: </span><span class="si">${</span><span class="n">currentThread</span><span class="p">().</span><span class="na">name</span><span class="si">}</span><span class="s">&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
 </code></pre></div>
-此处锁的是对象，即对于同一个对象不能同时调用A、B方法，如果不可重入，A方法获得锁后还没释放锁之前，B也能获得锁，导致死锁</p>
-<h4 id="vs_3"><a href="#公平锁和非公平锁">公平锁vs非公平锁</a><a class="headerlink" href="#vs_3" title="Permanent link">&para;</a></h4>
-<h4 id="_15">分段锁<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h4>
-<p>是一种设计，ConcurrentHashMap分段锁封装为Segment</p>
-<h4 id="_16">偏向锁/轻量级锁/重量级锁<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h4>
-<p>指锁的状态，偏向锁指一段同步代码一直被一个线程访问</p>
-<p>轻量级锁：偏向锁被另一个线程访问后升级，其他线程通过自旋尝试获取锁，不会阻塞</p>
-<p>重量级锁：轻量级锁时，另一个线程自旋一定次数后无法获得锁就进入阻塞</p>
-<h4 id="_17">自旋锁<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h4>
-<p>尝试获取锁的线程不会立即阻塞，采取循环的方式获取锁，减少线程上下文切换的消耗，缺点是消耗cpu</p>
+<h3 id="join">join方法<a class="headerlink" href="#join" title="Permanent link">&para;</a></h3>
+<p>保证两个线程顺序执行
+<div class="highlight"><pre><span></span><code><span class="kd">fun</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">run1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">PrimeRun1</span><span class="p">()</span>
+<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">th1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Thread</span><span class="p">(</span><span class="n">run1</span><span class="p">)</span>
+<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">run</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">PrimeRun</span><span class="p">(</span><span class="n">th1</span><span class="p">)</span>
+<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">th</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Thread</span><span class="p">(</span><span class="n">run</span><span class="p">)</span>
+<span class="w">    </span><span class="n">th</span><span class="p">.</span><span class="na">start</span><span class="p">()</span>
+<span class="w">    </span><span class="n">th1</span><span class="p">.</span><span class="na">start</span><span class="p">()</span>
+<span class="p">}</span>
+
+<span class="kd">class</span><span class="w"> </span><span class="nc">PrimeRun</span><span class="p">(</span><span class="kd">private</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="nv">thread</span><span class="p">:</span><span class="w"> </span><span class="n">Thread?)</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Runnable</span><span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">override</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">run</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">thread</span><span class="o">?.</span><span class="na">join</span><span class="p">()</span>
+<span class="w">        </span><span class="n">Thread</span><span class="p">.</span><span class="na">sleep</span><span class="p">(</span><span class="m">2</span><span class="p">)</span>
+<span class="w">        </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;run&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+<span class="kd">class</span><span class="w"> </span><span class="nc">PrimeRun1</span><span class="p">:</span><span class="w"> </span><span class="n">Runnable</span><span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">override</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">run</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Thread</span><span class="p">.</span><span class="na">sleep</span><span class="p">(</span><span class="m">2</span><span class="p">)</span>
+<span class="w">        </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;run1&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="err">输出结果：</span>
+<span class="n">run1</span>
+<span class="n">run</span>
+</code></pre></div>
+如果没有执行join方法，按照代码顺序是th先执行，th1后执行</p>
+<h3 id="_4">线程优先级<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<p>priority：不能保证线程优先执行，了解即可</p>
+<h3 id="_5">守护线程<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<p>java天然是多线程，除了main都是守护线程
+<div class="highlight"><pre><span></span><code><span class="kd">val</span><span class="w"> </span><span class="nv">threadMXBean</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ManagementFactory</span><span class="p">.</span><span class="na">getThreadMXBean</span><span class="p">()</span>
+<span class="n">threadMXBean</span><span class="p">.</span><span class="na">dumpAllThreads</span><span class="p">(</span><span class="kc">false</span><span class="p">,</span><span class="w"> </span><span class="kc">false</span><span class="p">).</span><span class="na">forEach</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;[</span><span class="si">${</span><span class="nb">it</span><span class="p">.</span><span class="na">threadId</span><span class="si">}</span><span class="s">] </span><span class="si">${</span><span class="nb">it</span><span class="p">.</span><span class="na">threadName</span><span class="si">}</span><span class="s"> </span><span class="si">${</span><span class="nb">it</span><span class="p">.</span><span class="na">threadState</span><span class="si">}</span><span class="s">&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="o">[</span><span class="m">1</span><span class="o">]</span><span class="w"> </span><span class="n">main</span><span class="w"> </span><span class="n">RUNNABLE</span>
+<span class="o">[</span><span class="m">2</span><span class="o">]</span><span class="w"> </span><span class="n">Reference</span><span class="w"> </span><span class="n">Handler</span><span class="w"> </span><span class="n">RUNNABLE</span>
+<span class="o">[</span><span class="m">3</span><span class="o">]</span><span class="w"> </span><span class="n">Finalizer</span><span class="w"> </span><span class="n">WAITING</span>
+<span class="o">[</span><span class="m">4</span><span class="o">]</span><span class="w"> </span><span class="n">Signal</span><span class="w"> </span><span class="n">Dispatcher</span><span class="w"> </span><span class="n">RUNNABLE</span>
+<span class="o">[</span><span class="m">5</span><span class="o">]</span><span class="w"> </span><span class="n">Attach</span><span class="w"> </span><span class="n">Listener</span><span class="w"> </span><span class="n">RUNNABLE</span>
+<span class="o">[</span><span class="m">21</span><span class="o">]</span><span class="w"> </span><span class="n">Common</span><span class="o">-</span><span class="n">Cleaner</span><span class="w"> </span><span class="n">TIMED_WAITING</span>
+<span class="o">[</span><span class="m">22</span><span class="o">]</span><span class="w"> </span><span class="n">Monitor</span><span class="w"> </span><span class="n">Ctrl</span><span class="o">-</span><span class="n">Break</span><span class="w"> </span><span class="n">RUNNABLE</span>
+<span class="o">[</span><span class="m">23</span><span class="o">]</span><span class="w"> </span><span class="n">Notification</span><span class="w"> </span><span class="n">Thread</span><span class="w"> </span><span class="n">RUNNABLE</span>
+</code></pre></div>
+默认用户线程都是非守护线程，主线程运行完成后，用户线程依然会执行
+<div class="highlight"><pre><span></span><code><span class="kd">fun</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">th</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Thread</span><span class="p">(</span><span class="n">PrimeRun</span><span class="p">())</span>
+<span class="w">    </span><span class="n">th</span><span class="p">.</span><span class="na">start</span><span class="p">()</span>
+<span class="w">    </span><span class="n">Thread</span><span class="p">.</span><span class="na">sleep</span><span class="p">(</span><span class="m">2</span><span class="p">)</span>
+<span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;main end&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="kd">class</span><span class="w"> </span><span class="nc">PrimeRun</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Runnable</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">override</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">run</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">var</span><span class="w"> </span><span class="nv">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">5</span>
+<span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="m">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;run&quot;</span><span class="p">)</span>
+<span class="w">            </span><span class="n">Thread</span><span class="p">.</span><span class="na">sleep</span><span class="p">(</span><span class="m">2</span><span class="p">)</span>
+<span class="w">            </span><span class="n">i</span><span class="o">--</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+<span class="err">输出结果：</span>
+<span class="n">run</span>
+<span class="n">main</span><span class="w"> </span><span class="n">end</span>
+<span class="n">run</span>
+<span class="n">run</span>
+<span class="n">run</span>
+<span class="n">run</span>
+</code></pre></div>
+用户线程转成守护进程
+<div class="highlight"><pre><span></span><code><span class="n">th</span><span class="p">.</span><span class="na">isDaemon</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
+<span class="err">输出结果：</span>
+<span class="n">run</span>
+<span class="n">run</span>
+<span class="n">main</span><span class="w"> </span><span class="n">end</span>
+</code></pre></div>
+<font color="#dd0000">注：finally在守护进程中不一定会执行</font></p>
 
 
 
