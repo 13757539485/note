@@ -912,13 +912,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#http" class="md-nav__link">
-    一次完整HTTP请求
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -1111,6 +1104,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ui/ui_webview/" class="md-nav__link">
+        WebView
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -1153,6 +1160,76 @@
     <li class="md-nav__item">
       <a href="../../fws/fws_process/" class="md-nav__link">
         IPC通信
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fws/fws_wms/" class="md-nav__link">
+        WMS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fws/fws_ams/" class="md-nav__link">
+        AMS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fws/fws_pms/" class="md-nav__link">
+        PMS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fws/fws_android_start/" class="md-nav__link">
+        Android启动流程
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fws/fws_app_start/" class="md-nav__link">
+        App进程启动
       </a>
     </li>
   
@@ -1247,6 +1324,54 @@
   
   
   
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_1_11" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_1_11" id="__nav_1_1_11_label" tabindex="0">
+          组件化技术
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_1_1_11_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_1_1_11">
+          <span class="md-nav__icon md-icon"></span>
+          组件化技术
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../component/com_base/" class="md-nav__link">
+        as配置
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
     <li class="md-nav__item">
       <a href="../../android_github/" class="md-nav__link">
         开源框架
@@ -1292,6 +1417,20 @@
     <li class="md-nav__item">
       <a href="../../android_compose/" class="md-nav__link">
         Compose
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../android_studio/" class="md-nav__link">
+        AS相关
       </a>
     </li>
   
@@ -2079,13 +2218,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#http" class="md-nav__link">
-    一次完整HTTP请求
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -2258,13 +2390,13 @@
 </tr>
 <tr>
 <td>首部开销</td>
-<td>8个字节</td>
 <td>最小20字节，最大60字节</td>
+<td>8个字节</td>
 </tr>
 <tr>
 <td>适用场景</td>
-<td>实时应用(IP电话、视频会议、直播、在线视频)</td>
 <td>可靠传输应用(文件传输)</td>
+<td>实时应用(IP电话、视频会议、直播、在线视频)</td>
 </tr>
 </tbody>
 </table>
@@ -2335,17 +2467,6 @@
 <li>防止连接关闭时第四次挥手中的ack丢失，如果没有此状态，客户端直接进入CLOSED，一旦客户端最后一次ACK丢失，服务器会重传此时无人处理将长时间等待直到重传次数达上限</li>
 <li>防止新连接收到旧链接的TCP报文</li>
 </ol>
-<h3 id="http">一次完整HTTP请求<a class="headerlink" href="#http" title="Permanent link">&para;</a></h3>
-<ol>
-<li>DNS域名解析(本地浏览器缓存、操作系统缓存或者DNS服务器)</li>
-<li>三次握手建立TCP连接</li>
-<li>客户端发起HTTP请求</li>
-<li>服务端响应HTTP请求</li>
-<li>客户端解析代码</li>
-<li>客户端渲染展示内容</li>
-<li>关闭TCP连接</li>
-</ol>
-<p>http2.0出现keep-alive可以使第7步不关闭</p>
 <h2 id="socket">Socket<a class="headerlink" href="#socket" title="Permanent link">&para;</a></h2>
 <p>Socket是应用层与TCP/IP协议通信的中间软件抽象层，是一组接口</p>
 <p>对于应用来说网络底层都是socket，将传输层、网络层、链路层包裹</p>
@@ -2397,7 +2518,7 @@ NIO：IO多路复用，同步非阻塞，优化BIO，面向缓冲区</p>
 <h3 id="_7">零拷贝<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
 <p>指计算机执行操作时，CPU不需要先将数据从某处内存复制到另一个特定区域</p>
 <p>尽可能减少CPU拷贝次数或没有CPU拷贝即为零拷贝</p>
-<p>mmap、sendfile、slice</p>
+<p>使用mmap、sendfile、slice函数可以减少cpu拷贝</p>
 <h4 id="dma">DMA<a class="headerlink" href="#dma" title="Permanent link">&para;</a></h4>
 <p>直接内存访问技术，用来代替CPU进行数据搬运工作</p>
 <h4 id="_8">传统数据传送<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h4>
@@ -2534,14 +2655,14 @@ NIO：IO多路复用，同步非阻塞，优化BIO，面向缓冲区</p>
 </table>
 <p>本质没有区别，都是基于TCP/IP，由HTTP的规定和服务器的限制造成不同体现</p>
 <h4 id="url">URL加载原理<a class="headerlink" href="#url" title="Permanent link">&para;</a></h4>
-<ol>
-<li>DNS域名解析</li>
-<li>TCP连接，SSL握手</li>
-<li>发送HTTP/HTTPS请求</li>
-<li>服务端处理请求并返回报文</li>
-<li>浏览器解析并渲染页面</li>
-<li>HTTP连接断开</li>
-</ol>
+<p>一次完整HTTP请求
+1. DNS域名解析
+2. TCP连接，SSL握手
+3. 发送HTTP/HTTPS请求
+4. 服务端处理请求并返回报文
+5. 浏览器解析并渲染页面
+6. HTTP连接断开</p>
+<p>http2.0出现keep-alive可以使第6步不关闭</p>
 <h4 id="_9">断点续传原理<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h4>
 <p>利用HTTP请求中的Range字段</p>
 <p>retrofit中可以直接使用@Header("Range")，对应数据"bytes=xxx-xxx"，从第xxx字节开始到xxx字节结束，结束可省略即"bytes=xxx"</p>
