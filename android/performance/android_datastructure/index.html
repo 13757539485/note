@@ -813,6 +813,62 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../network/net_tcp/" class="md-nav__link">
+        TCP协议
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../network/net_socket/" class="md-nav__link">
+        Socket
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../network/net_http/" class="md-nav__link">
+        HTTP协议
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../network/net_websocket/" class="md-nav__link">
+        WebSocket协议
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -1989,16 +2045,18 @@
 - 网络
 - 功耗
 - 远程下发 日志回捞 支持远程shell动态代码下发</p>
-<p>APM实现思路
-1. 配置(注解+json)
-2. 数据链的保存
-App启动、结束、界面跳转LifecycleCallbacks
-3. Crash
-Thread
-4. CPU GC 电量
-linux知识点 /proc/stat /proc/pid/stat BatteryMonitor
-5. ANR FPS
-文件检测/data/anr/trace.txt Choreographer.FrameCallback</p>
+<p>APM实现思路</p>
+<ol>
+<li>配置(注解+json)</li>
+<li>数据链的保存
+App启动、结束、界面跳转LifecycleCallbacks</li>
+<li>Crash
+Thread</li>
+<li>CPU GC 电量
+linux知识点 /proc/stat /proc/pid/stat BatteryMonitor</li>
+<li>ANR FPS
+文件检测/data/anr/trace.txt Choreographer.FrameCallback</li>
+</ol>
 <p>adb shell dumpsys battery
 获取手机电池相关信息</p>
 <p>adb shell getprop ro.product.model
@@ -2041,6 +2099,21 @@ adb shell cat /proc/meminfo</p>
 <p>Native Heap泄漏监控</p>
 <p>bionic</p>
 <p>xhook</p>
+<p>性能优化：</p>
+<p>1.启动优化</p>
+<p>启动背景优化SplashScreen</p>
+<p>有向无环图DAG、拓扑排序、CountDownLatch控制线程顺序(app_startup、Android_startup)</p>
+<p>架构上Application初始化分离到个模块</p>
+<p>SplashActivity优化，责任链模式，onStop中finish防止Main失败时出现问题</p>
+<p>懒加载、延迟加载</p>
+<p>2.内存优化</p>
+<p>内存泄漏、ANR、内存抖动、OOM、弱引用、JVM的gc回收算法(根可达)</p>
+<p>bitmap、数据结构HashMap和SparseArray(ArrayMap)</p>
+<p>线上监控KOOM、线下监控LeakCanary</p>
+<p>3.UI优化</p>
+<p>布局优化、webview优化、recycleview优化、自定义view(onDraw)</p>
+<p>4.安装包瘦身</p>
+<p>图片webp(svg、json)、so库、混淆、加固</p>
 
 
 

@@ -774,6 +774,26 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    阻塞队列
+  </a>
+  
+    <nav class="md-nav" aria-label="阻塞队列">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    常用阻塞队列
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -881,6 +901,62 @@
     <li class="md-nav__item">
       <a href="../../network/net_charles/" class="md-nav__link">
         抓包工具
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../network/net_tcp/" class="md-nav__link">
+        TCP协议
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../network/net_socket/" class="md-nav__link">
+        Socket
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../network/net_http/" class="md-nav__link">
+        HTTP协议
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../network/net_websocket/" class="md-nav__link">
+        WebSocket协议
       </a>
     </li>
   
@@ -2015,6 +2091,26 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    阻塞队列
+  </a>
+  
+    <nav class="md-nav" aria-label="阻塞队列">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    常用阻塞队列
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2052,11 +2148,39 @@
 <p>Linux每个进程最多1000个线程，Window最多2000个线程</p>
 <h3 id="threadlocal">ThreadLocal<a class="headerlink" href="#threadlocal" title="Permanent link">&para;</a></h3>
 <p>线程级别变量，并发模式下是绝对安全的变量</p>
+<p><img alt="thread1" src="../../../img/thread/thread1.png" /></p>
+<p>获取当前线程：Thread t = Thread.currentThread();</p>
+<p>能保证每一个thread中有独立一份
+<div class="highlight"><pre><span></span><code><span class="k">object</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="nc">ThreadLocal</span><span class="o">&lt;</span><span class="kt">String</span><span class="o">&gt;</span><span class="p">(){</span>
+<span class="w">    </span><span class="kd">override</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">initialValue</span><span class="p">():</span><span class="w"> </span><span class="kt">String?</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;123&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+内存泄漏原因</p>
+<p><img alt="thread2" src="../../../img/thread/thread2.png" /></p>
+<p>sThreadLocal如果设置null即第一个x可以断开，Key是弱引用即第二个x可以断开，如果Thread一直执行则Value是强引用不会被gc回收，所以及时remove防止内存泄漏</p>
 <h3 id="_4">同步、异步、阻塞、非阻塞<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
 <p>同步和异步、阻塞和非阻塞本质上是一对相对的概念。</p>
 <p>在进程通信这个层面，同步和异步针对的是发送方而言，取决于将数据写到内核缓冲区进程的行为，继续等待发送则为同步，反之即为异步。</p>
 <p>在进程通信这个层面，阻塞非阻塞针对的是接收方而言，取决于将内核中的数据能否立即拷贝到用户空间，如果不能直接拷贝则为阻塞，反之则为非阻塞</p>
-<p>同步异步是输入到结果需不需要等待决定，阻塞和非阻塞是是一种状态由的等待结果时是否可以做其他事情决定</p>
+<p>同步异步是输入到结果需不需要等待决定，阻塞和非阻塞是一种状态由等待结果时是否可以做其他事情决定</p>
+<h3 id="_5"><a id="block_queue">阻塞队列</a><a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<p>一般用来解决生产消费者问题</p>
+<p>BlockingQueue</p>
+<p>add和remove不阻塞，但add时满了或者remove时没数据时会抛出异常</p>
+<p>offer和poll不阻塞，offer时满了返回值为false，poll时没数据会返回null</p>
+<p>put和take会阻塞</p>
+<h4 id="_6">常用阻塞队列<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h4>
+<p>ArrayBlockingQueue：数据结构，有界</p>
+<p>LinkedBlockingQueue：链表结构，有界</p>
+<p>PriorityBlockingQueue：优先级排列，无界</p>
+<p>DelayQueue：优先级队列，无界</p>
+<p>SynchronousQueue：不存储元素</p>
+<p>LinkedTransferQueue：链表结构，无界</p>
+<p>LinkedBlockingDeque：链表结构，双向</p>
+<p>有界：容量有限，即满了后会被阻塞</p>
+<p>无界：容量无限，即不会被阻塞</p>
 
 
 

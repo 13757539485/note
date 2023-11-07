@@ -68,6 +68,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#dag" class="md-skip">
+          跳转至
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -792,6 +797,62 @@
     <li class="md-nav__item">
       <a href="../../network/net_charles/" class="md-nav__link">
         抓包工具
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../network/net_tcp/" class="md-nav__link">
+        TCP协议
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../network/net_socket/" class="md-nav__link">
+        Socket
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../network/net_http/" class="md-nav__link">
+        HTTP协议
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../network/net_websocket/" class="md-nav__link">
+        WebSocket协议
       </a>
     </li>
   
@@ -1878,6 +1939,48 @@
   
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#dag" class="md-nav__link">
+    有向无环图DAG
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    拓扑排序
+  </a>
+  
+    <nav class="md-nav" aria-label="拓扑排序">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    入度表法
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dfs" class="md-nav__link">
+    DFS
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1904,22 +2007,37 @@
 <p>onWindowFocusChanged是真正显示</p>
 <p>setContentView比自定义view慢？因为通过解析xml 反射 转成view
 优化方式：无，只能减少xml中的布局层级，根本解决方案compose</p>
-<p>图论拓步排序</p>
 <p>onResume可优化</p>
 <p>Looper.myQueue().addIdleHandler {
     false
 }</p>
-<p>有向无环图DAG</p>
+<h3 id="dag">有向无环图DAG<a class="headerlink" href="#dag" title="Permanent link">&para;</a></h3>
+<p>表示事件之间的依赖关系，管理任务之间的调度</p>
 <p><img alt="pf1" src="../../../img/performance/pf1.png" /></p>
-<p>拓扑排序</p>
+<p>顶点：图中的一个点，比如顶点Java，顶点Socket</p>
+<p>边：连接两个顶点的线段叫做边</p>
+<p>入度：代表当前有多少边指向它，如Java入度为0，Socket入度为1</p>
+<p>出度：代表当前指向其他的边数，如Java出度为2</p>
+<h3 id="_1">拓扑排序<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
+<p>对一个有向图构造拓扑序列的过程</p>
+<p>两种算法：入度表法(BFS法即广度优先搜索)和DFS法(深度优先搜索)</p>
+<h4 id="_2">入度表法<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h4>
 <ol>
 <li>找到图中入度为0的顶点</li>
 <li>反复删除顶点再找入度为0的顶点，完成排序</li>
 </ol>
-<p>上图中结果就是：Java-(Socket/设计模式)-Http协议-OkHttp，属于广度优先搜索</p>
-<p>深度优先搜索(DFS)</p>
-<p>广度优先搜索(BFS)</p>
-<p>完成任务按照排序</p>
+<p>上图中结果：</p>
+<p>Java-Socket-设计模式-Http协议-OkHttp</p>
+<p>拓扑排序不唯一：Java后可以是Socket也可以是设计模式</p>
+<h4 id="dfs">DFS<a class="headerlink" href="#dfs" title="Permanent link">&para;</a></h4>
+<ol>
+<li>深度搜索</li>
+<li>找到图中出度为0的顶点</li>
+</ol>
+<p>Java-Socket-Http协议-Okhttp</p>
+<p>Okhttp-Http协议-Socket后设计模式的出度为0，所以是设计模式-Java</p>
+<p>最终结果是拿逆序：</p>
+<p>Java-设计模式-Socket-Http协议-Okhttp</p>
 <p>CountDownLatch完成线程执行顺序 三方sdk通过字节码插桩 gradle修改内部子线程启动等</p>
 
 

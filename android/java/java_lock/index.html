@@ -843,6 +843,27 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#sleepwait" class="md-nav__link">
+    sleep和wait的区别
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    死锁
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aqs" class="md-nav__link">
+    AQS
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -908,6 +929,62 @@
     <li class="md-nav__item">
       <a href="../../network/net_charles/" class="md-nav__link">
         抓包工具
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../network/net_tcp/" class="md-nav__link">
+        TCP协议
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../network/net_socket/" class="md-nav__link">
+        Socket
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../network/net_http/" class="md-nav__link">
+        HTTP协议
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../network/net_websocket/" class="md-nav__link">
+        WebSocket协议
       </a>
     </li>
   
@@ -2069,6 +2146,27 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#sleepwait" class="md-nav__link">
+    sleep和wait的区别
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    死锁
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aqs" class="md-nav__link">
+    AQS
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2088,8 +2186,9 @@
 
 <h3 id="_1">锁的分类<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
 <h4 id="vs">乐观锁vs悲观锁<a class="headerlink" href="#vs" title="Permanent link">&para;</a></h4>
-<p>乐观锁：不加锁更新数据时会判断是否被修改，如被修改会发送自旋，java.util.concurret.atomic包下的原子变量类，基于CAS实现</p>
+<p>乐观锁：不加锁更新数据时会判断是否被修改，如被修改会发送自旋(可理解为死循环)，java.util.concurret.atomic包下的原子变量类，基于CAS实现</p>
 <p>悲观锁：获取数据时都会上锁，synchronized</p>
+<p>一般乐观锁性能比悲观锁好，原因是：上下文切换需要3-5ms，cpu执行指令约0.6ns，拿锁至少需要2次上下文切换</p>
 <h4 id="vs_1">独享锁vs共享锁<a class="headerlink" href="#vs_1" title="Permanent link">&para;</a></h4>
 <p>独享锁：锁只能被一个线程所持有，ReentrantLock</p>
 <p>共享锁：锁能被多个线程所持有，ReadWriteLock中读锁是共享锁，写锁是独享锁</p>
@@ -2138,6 +2237,64 @@
 <p>重量级锁：轻量级锁时，另一个线程自旋一定次数后无法获得锁就进入阻塞</p>
 <h4 id="_6">自旋锁<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h4>
 <p>尝试获取锁的线程不会立即阻塞，采取循环的方式获取锁，减少线程上下文切换的消耗，缺点是消耗cpu</p>
+<h3 id="sleepwait">sleep和wait的区别<a class="headerlink" href="#sleepwait" title="Permanent link">&para;</a></h3>
+<p>Thread.Sleep(0)的作⽤，触发操作系统⽴刻重新进⾏⼀次CPU竞争</p>
+<p>1、sleep是Thread的静态⽅法，wait是Object的⽅法，任何对象实例都能调⽤。</p>
+<p>2、sleep不会释放锁，它也不需要占⽤锁。wait会释放锁，但调⽤它的前提是当前线程占有锁(即代码要在synchronized中)。</p>
+<p>3、它们都可以被interrupt⽅法中断</p>
+<p>4、notify是需要等synchronized包裹的所有代码执行完成才释放锁</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>sleep</th>
+<th>wait</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>同步</td>
+<td>无限制</td>
+<td>synchronized中使用</td>
+</tr>
+<tr>
+<td>作用对象</td>
+<td>定义在Thread中，作用域当前线程</td>
+<td>定义在Object中，作用于本身</td>
+</tr>
+<tr>
+<td>释放锁</td>
+<td>否</td>
+<td>是</td>
+</tr>
+<tr>
+<td>唤醒条件</td>
+<td>超时或调用interrupt方法</td>
+<td>其他线程调用notify或notifyAll</td>
+</tr>
+<tr>
+<td>方法属性</td>
+<td>实例方法</td>
+<td>静态⽅法</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_7">死锁<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<ol>
+<li>互斥条件，每个资源每次只能被一个线程（或进程，下同）使用</li>
+<li>请求与保持条件，当一个线程试图获取资源，但发生了阻塞，则需对已获得的资源保持不放</li>
+<li>不剥夺条件，指线程已获得的资源，在未使用完之前，不会被强行剥夺</li>
+<li>循环等待条件，多个线程之间必须形成“循环等待”，才有可能形成死锁</li>
+</ol>
+<p>总结：</p>
+<ol>
+<li>多个操作者(m&gt;=2)，争夺多个资源(n&gt;=2)，且n&lt;=m</li>
+<li>争夺资源的顺序不对</li>
+<li>拿到资源不放手</li>
+</ol>
+<p>防止死锁：从2和3解决，不使用互斥锁，lock锁超时机制释放锁，资源标记有序去锁资源，银行家算法</p>
+<h3 id="aqs">AQS<a class="headerlink" href="#aqs" title="Permanent link">&para;</a></h3>
+<p>AbstractqueuedSynchronizer</p>
 
 
 

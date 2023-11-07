@@ -808,6 +808,26 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#futuretask" class="md-nav__link">
+    FutureTask
+  </a>
+  
+    <nav class="md-nav" aria-label="FutureTask">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#callable-vs-runnable" class="md-nav__link">
+    Callable vs Runnable
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -901,6 +921,62 @@
     <li class="md-nav__item">
       <a href="../../network/net_charles/" class="md-nav__link">
         抓包工具
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../network/net_tcp/" class="md-nav__link">
+        TCP协议
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../network/net_socket/" class="md-nav__link">
+        Socket
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../network/net_http/" class="md-nav__link">
+        HTTP协议
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../network/net_websocket/" class="md-nav__link">
+        WebSocket协议
       </a>
     </li>
   
@@ -2055,6 +2131,26 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#futuretask" class="md-nav__link">
+    FutureTask
+  </a>
+  
+    <nav class="md-nav" aria-label="FutureTask">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#callable-vs-runnable" class="md-nav__link">
+    Callable vs Runnable
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2278,6 +2374,22 @@ sleep、join方法会抛出InterruptedException，抛出后会将isInterrupted�
 <span class="n">main</span><span class="w"> </span><span class="n">end</span>
 </code></pre></div>
 <font color="#dd0000">注：finally在守护进程中不一定会执行</font></p>
+<h3 id="futuretask">FutureTask<a class="headerlink" href="#futuretask" title="Permanent link">&para;</a></h3>
+<p>支持Callable、Runnable，由于Thread只支持Runnable不能直接传Callable，FutureTask实现了Runnable接口
+<div class="highlight"><pre><span></span><code><span class="kd">fun</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">futureTask</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">FutureTask</span><span class="p">(</span><span class="n">UseCallable</span><span class="p">())</span>
+<span class="w">    </span><span class="n">Thread</span><span class="p">(</span><span class="n">futureTask</span><span class="p">).</span><span class="na">start</span><span class="p">()</span>
+<span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="n">futureTask</span><span class="p">.</span><span class="na">get</span><span class="p">())</span>
+<span class="p">}</span>
+
+<span class="kd">class</span><span class="w"> </span><span class="nc">UseCallable</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Callable</span><span class="o">&lt;</span><span class="kt">String</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">override</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">call</span><span class="p">():</span><span class="w"> </span><span class="kt">String</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;hello&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></p>
+<h4 id="callable-vs-runnable">Callable vs Runnable<a class="headerlink" href="#callable-vs-runnable" title="Permanent link">&para;</a></h4>
+<p>前者有返回值，后者无返回值</p>
 
 
 

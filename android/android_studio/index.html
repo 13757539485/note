@@ -813,6 +813,62 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../network/net_tcp/" class="md-nav__link">
+        TCP协议
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../network/net_socket/" class="md-nav__link">
+        Socket
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../network/net_http/" class="md-nav__link">
+        HTTP协议
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../network/net_websocket/" class="md-nav__link">
+        WebSocket协议
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -1240,6 +1296,26 @@
   <a href="#_1" class="md-nav__link">
     注解处理器
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gradle" class="md-nav__link">
+    gradle常见问题
+  </a>
+  
+    <nav class="md-nav" aria-label="gradle常见问题">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#gradle80" class="md-nav__link">
+    老版本升级gradle8.0
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1957,6 +2033,26 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#gradle" class="md-nav__link">
+    gradle常见问题
+  </a>
+  
+    <nav class="md-nav" aria-label="gradle常见问题">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#gradle80" class="md-nav__link">
+    老版本升级gradle8.0
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1986,6 +2082,84 @@
 }
 annotationProcessor &#39;com.google.auto.service:auto-service:1.1.1&#39;
 kapt &#39;com.google.auto.service:auto-service:1.1.1&#39;
+</code></pre></div></p>
+<h3 id="gradle">gradle常见问题<a class="headerlink" href="#gradle" title="Permanent link">&para;</a></h3>
+<h4 id="gradle80">老版本升级gradle8.0<a class="headerlink" href="#gradle80" title="Permanent link">&para;</a></h4>
+<p>1.先修改gradle/gradle-wrapper.properties成8.0
+<div class="highlight"><pre><span></span><code>distributionBase=GRADLE_USER_HOME
+distributionUrl=https\://services.gradle.org/distributions/gradle-8.0-bin.zip
+distributionPath=wrapper/dists
+zipStorePath=wrapper/dists
+zipStoreBase=GRADLE_USER_HOME
+</code></pre></div></p>
+<p>2.修改settings.gradle和根build.gradle文件</p>
+<p>build.gradle参考模板
+<div class="highlight"><pre><span></span><code>buildscript {
+    ext {
+        compose_version = &#39;1.4.2&#39;
+    }
+}
+plugins {
+    id &#39;com.android.application&#39; version &#39;8.0.0&#39; apply false
+    id &#39;com.android.library&#39; version &#39;8.0.0&#39; apply false
+    id &#39;org.jetbrains.kotlin.android&#39; version &#39;1.8.10&#39; apply false
+    id &#39;org.jetbrains.kotlin.jvm&#39; version &#39;1.8.10&#39; apply false
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
+</code></pre></div>
+settings.gradle参考模板
+<div class="highlight"><pre><span></span><code><span class="n">pluginManagement</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">repositories</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">gradlePluginPortal</span><span class="p">()</span>
+<span class="w">        </span><span class="n">google</span><span class="p">()</span>
+<span class="w">        </span><span class="n">mavenCentral</span><span class="p">()</span>
+<span class="w">        </span><span class="n">maven</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">url</span><span class="w"> </span><span class="err">&#39;</span><span class="n">https</span><span class="p">:</span><span class="c1">//jitpack.io&#39; }</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+<span class="n">dependencyResolutionManagement</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">repositoriesMode</span><span class="p">.</span><span class="na">set</span><span class="p">(</span><span class="n">RepositoriesMode</span><span class="p">.</span><span class="na">FAIL_ON_PROJECT_REPOS</span><span class="p">)</span>
+<span class="w">    </span><span class="n">repositories</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">google</span><span class="p">()</span>
+<span class="w">        </span><span class="n">mavenCentral</span><span class="p">()</span>
+<span class="w">        </span><span class="n">maven</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">url</span><span class="w"> </span><span class="err">&#39;</span><span class="n">https</span><span class="p">:</span><span class="c1">//jitpack.io&#39; }//三方库常用</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+<span class="n">rootProject</span><span class="p">.</span><span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;KotlinApp&quot;</span><span class="c1">//项目文件夹名字</span>
+<span class="n">include</span><span class="w"> </span><span class="err">&#39;</span><span class="p">:</span><span class="n">app</span><span class="err">&#39;</span>
+<span class="n">include</span><span class="w"> </span><span class="err">&#39;</span><span class="p">:</span><span class="n">other</span><span class="err">&#39;</span><span class="c1">//其他module</span>
+</code></pre></div>
+其他报错修改</p>
+<p>1.Build was configured to prefer settings repositories over project repositories but repository 'flatDir' was added by build file 'xxx\build.gradle'
+<div class="highlight"><pre><span></span><code>repositories {
+    flatDir {
+        dirs &#39;libs&#39;, &#39;providedLibs&#39;
+    }
+}
+</code></pre></div>
+解决方式</p>
+<p>将flatDir部分代码移动到settings.gradle</p>
+<p>2.Namespace not specified. Please specify a namespace in the module's build.gradle file like so</p>
+<p>将每个build.gradle中添加包名，可从AndroidManifest中查看
+<div class="highlight"><pre><span></span><code>android {
+    namespace &#39;com.xxx.xxx&#39;
+}
+</code></pre></div></p>
+<p>3.Build Type 'debug' contains custom BuildConfig fields, but the feature is disabled.</p>
+<p>build.gradle中使用了自定义配置(BuildConfig)属性buildConfigField，8.0默认关闭需要手动开启
+<div class="highlight"><pre><span></span><code>android {
+    buildFeatures {
+        buildConfig = true
+    }
+}
+</code></pre></div>
+4.无法新建AIDL文件
+Requires setting the buildFeatures.aidl to true in the build file
+<div class="highlight"><pre><span></span><code>buildFeatures {
+    aidl = true
+}
 </code></pre></div></p>
 
 

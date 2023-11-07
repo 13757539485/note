@@ -973,47 +973,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#httphttps" class="md-nav__link">
-    HTTP和HTTPS
-  </a>
-  
-    <nav class="md-nav" aria-label="HTTP和HTTPS">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#ssltls" class="md-nav__link">
-    SSL和TLS协议
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#getpost" class="md-nav__link">
-    get和post
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#url" class="md-nav__link">
-    URL加载原理
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
-    断点续传原理
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -1036,6 +995,62 @@
     <li class="md-nav__item">
       <a href="../net_charles/" class="md-nav__link">
         抓包工具
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../net_tcp/" class="md-nav__link">
+        TCP协议
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../net_socket/" class="md-nav__link">
+        Socket
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../net_http/" class="md-nav__link">
+        HTTP协议
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../net_websocket/" class="md-nav__link">
+        WebSocket协议
       </a>
     </li>
   
@@ -2279,47 +2294,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#httphttps" class="md-nav__link">
-    HTTP和HTTPS
-  </a>
-  
-    <nav class="md-nav" aria-label="HTTP和HTTPS">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#ssltls" class="md-nav__link">
-    SSL和TLS协议
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#getpost" class="md-nav__link">
-    get和post
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#url" class="md-nav__link">
-    URL加载原理
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
-    断点续传原理
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -2540,134 +2514,6 @@ NIO：IO多路复用，同步非阻塞，优化BIO，面向缓冲区</p>
 <p>2次拷贝，2次上下文切换：</p>
 <p>[磁盘-&gt;DMA拷贝-&gt;文件读取缓冲区]-&gt;PIPE(管道)-&gt;[套接字发送缓冲区-&gt;DMA拷贝-&gt;网络设备缓冲区]</p>
 <p>select、poll、epoll</p>
-<h3 id="httphttps">HTTP和HTTPS<a class="headerlink" href="#httphttps" title="Permanent link">&para;</a></h3>
-<p>HTTP协议：用于从万维网服务器传输超文本到本地浏览器的传输协议，基于TCP/IP协议来传递数据，属于应用层面向对象的协议</p>
-<p>HTTPS=HTTP+SSL/TLS</p>
-<table>
-<thead>
-<tr>
-<th></th>
-<th>HTTP</th>
-<th>HTTPS</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>端口</td>
-<td>80</td>
-<td>443</td>
-</tr>
-<tr>
-<td>内容</td>
-<td>明文，不安全</td>
-<td>加密，安全</td>
-</tr>
-<tr>
-<td>证书</td>
-<td>无</td>
-<td>需要CA颁发的证书</td>
-</tr>
-<tr>
-<td>响应速度</td>
-<td>相对快，只需要握手的3个包</td>
-<td>相对慢，额外需要SSL握手的9个包共12个包</td>
-</tr>
-</tbody>
-</table>
-<p>明文传输缺陷</p>
-<ol>
-<li>窃听风险：第三方可以获得通信内容</li>
-<li>篡改风险：第三方可以修改通信内容</li>
-<li>冒充风险：第三方可以冒充身份参与通信</li>
-</ol>
-<h4 id="ssltls">SSL和TLS协议<a class="headerlink" href="#ssltls" title="Permanent link">&para;</a></h4>
-<p>解决明文传输缺陷</p>
-<ol>
-<li>加密传播，防止窃听</li>
-<li>校验机制，一旦被篡改，通信双方立刻发现</li>
-<li>身份证书，防止被冒充</li>
-</ol>
-<p>基本思路：公钥加密法，客户端拿到服务器的公钥对信息加密，服务器使用私钥解密</p>
-<p>TLS是SSL3.0的后续版本</p>
-<p>SSL握手</p>
-<ol>
-<li>ClientHello：客户端向服务器发出加密通信请求(提供支持的协议版本、随机数用于生成对话密钥、支持的加密算法如RSA、支持的压缩方法)</li>
-<li>ServerHello：服务器收到请求后响应(回应确认使用的加密通信协议版本、随机数用于生成对话密钥、确认加密算法、服务器证书)</li>
-<li>客户端回应：校验证书取出公钥(回应用公钥加密的随机数、编码更改通知、握手结束通知)</li>
-<li>服务端回应：计算生成会话密钥(发送编码改变通知、服务器握手结束通知)</li>
-</ol>
-<h4 id="getpost">get和post<a class="headerlink" href="#getpost" title="Permanent link">&para;</a></h4>
-<table>
-<thead>
-<tr>
-<th></th>
-<th>GET</th>
-<th>POST</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>在浏览器回退</td>
-<td>无害</td>
-<td>再次提交请求</td>
-</tr>
-<tr>
-<td>URL地址</td>
-<td>可以书签收藏</td>
-<td>不行</td>
-</tr>
-<tr>
-<td>cache</td>
-<td>主动缓存</td>
-<td>默认不缓存，需要手动设置</td>
-</tr>
-<tr>
-<td>编码</td>
-<td>url编码</td>
-<td>多种编码方式</td>
-</tr>
-<tr>
-<td>历史记录</td>
-<td>保留</td>
-<td>不保留</td>
-</tr>
-<tr>
-<td>参数长度</td>
-<td>限制</td>
-<td>不限制</td>
-</tr>
-<tr>
-<td>参数数据类型</td>
-<td>ASCII字符</td>
-<td>无限制</td>
-</tr>
-<tr>
-<td>安全</td>
-<td>参数暴露在URL上</td>
-<td>被加密</td>
-</tr>
-<tr>
-<td>传递形式</td>
-<td>直接在URL后面</td>
-<td>请求体中</td>
-</tr>
-</tbody>
-</table>
-<p>本质没有区别，都是基于TCP/IP，由HTTP的规定和服务器的限制造成不同体现</p>
-<h4 id="url">URL加载原理<a class="headerlink" href="#url" title="Permanent link">&para;</a></h4>
-<p>一次完整HTTP请求
-1. DNS域名解析
-2. TCP连接，SSL握手
-3. 发送HTTP/HTTPS请求
-4. 服务端处理请求并返回报文
-5. 浏览器解析并渲染页面
-6. HTTP连接断开</p>
-<p>http2.0出现keep-alive可以使第6步不关闭</p>
-<h4 id="_9">断点续传原理<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h4>
-<p>利用HTTP请求中的Range字段</p>
-<p>retrofit中可以直接使用@Header("Range")，对应数据"bytes=xxx-xxx"，从第xxx字节开始到xxx字节结束，结束可省略即"bytes=xxx"</p>
-<p>也可以利用okhttp拦截器，addHeader("RANGE","bytes=${start}")</p>
-<p>写入文件时利用FileOutputStream(file, true)的append模式即可</p>
 
 
 
