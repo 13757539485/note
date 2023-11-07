@@ -8,16 +8,20 @@
       
       
       
-        <link rel="canonical" href="https://13757539485.github.io/note/android/performance/android_start/">
+        <link rel="canonical" href="https://13757539485.github.io/note/android/performance/android_memory/">
       
       
+        <link rel="prev" href="../android_bitmap/">
+      
+      
+        <link rel="next" href="../android_datastructure/">
       
       <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.14">
     
     
       
-        <title>Android start - 我的笔记</title>
+        <title>内存管理 - 我的笔记</title>
       
     
     
@@ -69,7 +73,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#dag" class="md-skip">
+        <a href="#_1" class="md-skip">
           跳转至
         </a>
       
@@ -102,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Android start
+              内存管理
             
           </span>
         </div>
@@ -190,6 +194,8 @@
         
   
   
+    
+  
 
 
   
@@ -206,7 +212,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../java/java_basic/" class="md-tabs__link">
+      <a href="../../java/java_basic/" class="md-tabs__link md-tabs__link--active">
         Android系统
       </a>
     </li>
@@ -358,14 +364,16 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" checked>
       
       
       
@@ -374,7 +382,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_1">
           <span class="md-nav__icon md-icon"></span>
           Android系统
@@ -385,14 +393,16 @@
               
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_1" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_1" checked>
       
       
       
@@ -401,7 +411,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_1_label" aria-expanded="false">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_1_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_1_1">
           <span class="md-nav__icon md-icon"></span>
           学习笔记
@@ -1064,14 +1074,16 @@
               
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_1_9" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_1_9" checked>
       
       
       
@@ -1080,7 +1092,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_1_1_9_label" aria-expanded="false">
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_1_1_9_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_1_1_9">
           <span class="md-nav__icon md-icon"></span>
           性能优化
@@ -1105,11 +1117,76 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../android_memory/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          内存管理
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         内存管理
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    进程内存分配
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    内存抖动
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    内存泄漏
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    分配大内存
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    监听释放内存响应
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1960,36 +2037,37 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#dag" class="md-nav__link">
-    有向无环图DAG
+  <a href="#_1" class="md-nav__link">
+    进程内存分配
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    拓扑排序
-  </a>
-  
-    <nav class="md-nav" aria-label="拓扑排序">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
-    入度表法
+    内存抖动
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#dfs" class="md-nav__link">
-    DFS
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    内存泄漏
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    分配大内存
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    监听释放内存响应
+  </a>
   
 </li>
       
@@ -2008,51 +2086,40 @@
                   
 
 
-  <h1>Android start</h1>
+  <h1>内存管理</h1>
 
-<p>准备知识：app启动流程、DAG、拓步排序、线程相关</p>
-<p>黑白屏： splashscreen PhoneWindow中解析</p>
-<p>context：装饰者模式</p>
-<p>优化部分：</p>
-<p>Application attachBaseContext 字节优化</p>
-<p>attach-onCreate-onStart-onResume</p>
-<p>attach: 创建上下文，创建window</p>
-<p>activity管理window，window管理view</p>
-<p>onWindowFocusChanged是真正显示</p>
-<p>setContentView比自定义view慢？因为通过解析xml 反射 转成view
-优化方式：无，只能减少xml中的布局层级，根本解决方案compose</p>
-<p>onResume可优化</p>
-<p>Looper.myQueue().addIdleHandler {
-    false
-}</p>
-<h3 id="dag">有向无环图DAG<a class="headerlink" href="#dag" title="Permanent link">&para;</a></h3>
-<p>表示事件之间的依赖关系，管理任务之间的调度</p>
-<p><img alt="pf1" src="../../../img/performance/pf1.png" /></p>
-<p>顶点：图中的一个点，比如顶点Java，顶点Socket</p>
-<p>边：连接两个顶点的线段叫做边</p>
-<p>入度：代表当前有多少边指向它，如Java入度为0，Socket入度为1</p>
-<p>出度：代表当前指向其他的边数，如Java出度为2</p>
-<h3 id="_1">拓扑排序<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
-<p>对一个有向图构造拓扑序列的过程</p>
-<p>两种算法：入度表法(BFS法即广度优先搜索)和DFS法(深度优先搜索)</p>
-<h4 id="_2">入度表法<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h4>
-<ol>
-<li>找到图中入度为0的顶点</li>
-<li>反复删除顶点再找入度为0的顶点，完成排序</li>
-</ol>
-<p>上图中结果：</p>
-<p>Java-Socket-设计模式-Http协议-OkHttp</p>
-<p>拓扑排序不唯一：Java后可以是Socket也可以是设计模式</p>
-<h4 id="dfs">DFS<a class="headerlink" href="#dfs" title="Permanent link">&para;</a></h4>
-<ol>
-<li>深度搜索</li>
-<li>找到图中出度为0的顶点</li>
-</ol>
-<p>Java-Socket-Http协议-Okhttp</p>
-<p>Okhttp-Http协议-Socket后设计模式的出度为0，所以是设计模式-Java</p>
-<p>最终结果是拿逆序：</p>
-<p>Java-设计模式-Socket-Http协议-Okhttp</p>
-<p>CountDownLatch完成线程执行顺序 三方sdk通过字节码插桩 gradle修改内部子线程启动等</p>
+<h3 id="_1">进程内存分配<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
+<p>通过getprop获取</p>
+<p>app启动初始堆分配的内存：</p>
+<p>[dalvik.vm.heapstartsize]: [8m]</p>
+<p>app最大内存限制：</p>
+<p>[dalvik.vm.heapgrowthlimit]: [256m]</p>
+<p>开启largeHeap=true后的最大限制</p>
+<p>[dalvik.vm.heapsize]: [512m]</p>
+<p>largeHeap为true，则内存到heapsize才会OOM，否则达到 heapgrowthlimit就会OOM</p>
+<h3 id="_2">内存抖动<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<p>短时间内存反复发生增长和回收，可能会导致卡顿和oom</p>
+<p>卡顿：gc回收中会有stw使得工作线程暂停</p>
+<p>oom：如果垃圾回收采用的时标记-清除法会出现大量内存碎片，此时创建一个比较大的对象(如数组)时由于没有连续内存空间导致oom</p>
+<h3 id="_3">内存泄漏<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<p>当对象不能被回收导致内存越来越少，最终可能会oom</p>
+<p><a href="./java/java_jvm.md#obj_live">java对象存活</a></p>
+<p>常见泄漏：单例context(applicationContext或者手动将单例置null)、handler(弱引用+销毁removeMessage操作)、webview(通过动态创建+addView/removeView的形式或独立进程退出调用System.exit)、非静态类有静态实例引用(改成静态引用)</p>
+<h3 id="_4">分配大内存<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<p>AndroidManifest中android:largeHeap="true"，获取当前配置内存大小和最大内存大小
+<div class="highlight"><pre><span></span><code><span class="n">getSystemService</span><span class="p">(</span><span class="n">Context</span><span class="p">.</span><span class="na">ACTIVITY_SERVICE</span><span class="p">).</span><span class="na">let</span><span class="w"> </span><span class="p">{</span><span class="nb">it</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">ActivityManager</span>
+<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ActivityManager</span><span class="p">.</span><span class="na">MemoryInfo</span><span class="p">()</span><span class="c1">// 获取系统内存</span>
+<span class="w">    </span><span class="nb">it</span><span class="p">.</span><span class="na">getMemoryInfo</span><span class="p">(</span><span class="n">info</span><span class="p">)</span>
+<span class="w">    </span><span class="n">Log</span><span class="p">.</span><span class="na">e</span><span class="p">(</span><span class="s">&quot;tag&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;memory: </span><span class="si">${</span><span class="nb">it</span><span class="p">.</span><span class="na">memoryClass</span><span class="si">}</span><span class="s">, large memory： </span><span class="si">${</span><span class="nb">it</span><span class="p">.</span><span class="na">largeMemoryClass</span><span class="si">}</span><span class="s">, info: </span><span class="si">${</span><span class="n">info</span><span class="p">.</span><span class="na">availMem</span><span class="si">}</span><span class="s"> </span><span class="si">${</span><span class="n">info</span><span class="p">.</span><span class="na">totalMem</span><span class="si">}</span><span class="s">&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></p>
+<h3 id="_5">监听释放内存响应<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<p>根据内存level处理
+<div class="highlight"><pre><span></span><code><span class="kd">class</span><span class="w"> </span><span class="nc">MainActivity</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">ComponentActivity</span><span class="p">(),</span><span class="w"> </span><span class="n">ComponentCallbacks2</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">override</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">onTrimMemory</span><span class="p">(</span><span class="n">level</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">super</span><span class="p">.</span><span class="na">onTrimMemory</span><span class="p">(</span><span class="n">level</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+</code></pre></div></p>
 
 
 

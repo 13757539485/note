@@ -14,7 +14,7 @@
         <link rel="prev" href="../../fws/fws_app_start/">
       
       
-        <link rel="next" href="../android_datastructure/">
+        <link rel="next" href="../android_memory/">
       
       <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.14">
@@ -1141,38 +1141,24 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    内存抖动
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    内存泄漏
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    分配大内存
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    监听释放内存响应
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
       
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../android_memory/" class="md-nav__link">
+        内存管理
+      </a>
     </li>
   
 
@@ -2029,34 +2015,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    内存抖动
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    内存泄漏
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    分配大内存
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    监听释放内存响应
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -2127,29 +2085,6 @@
 <p>转化公式：分辨率x(设备dpi/目录dpi)</p>
 <p>如设备dpi为480，xhdpi目录120x160的图片内存大小为</p>
 <p>120x(480/320)x160(480/320) = 43200byte=42kb</p>
-<h3 id="_1">内存抖动<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
-<p>短时间内存反复发生增长和回收，可能会导致卡顿和oom</p>
-<p>卡顿：gc回收中会有stw使得工作线程暂停</p>
-<p>oom：如果垃圾回收采用的时标记-清除法会出现大量内存碎片，此时创建一个比较大的对象(如数组)时由于没有连续内存空间导致oom</p>
-<h3 id="_2">内存泄漏<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
-<p>当对象不能被回收导致内存越来越少，最终可能会oom</p>
-<p><a href="./java/java_jvm.md#obj_live">java中使用的回收算法</a></p>
-<p>常见泄漏：单例context(applicationContext或者手动将单例置null)、handler(弱引用+销毁removeMessage操作)、webview(通过动态创建+addView/removeView的形式或独立进程退出调用System.exit)、非静态类有静态实例引用(改成静态引用)</p>
-<h3 id="_3">分配大内存<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
-<p>AndroidManifest中android:largeHeap="true"，获取当前配置内存大小和最大内存大小
-<div class="highlight"><pre><span></span><code><span class="n">getSystemService</span><span class="p">(</span><span class="n">Context</span><span class="p">.</span><span class="na">ACTIVITY_SERVICE</span><span class="p">).</span><span class="na">let</span><span class="w"> </span><span class="p">{</span><span class="nb">it</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">ActivityManager</span>
-<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ActivityManager</span><span class="p">.</span><span class="na">MemoryInfo</span><span class="p">()</span><span class="c1">// 获取系统内存</span>
-<span class="w">    </span><span class="nb">it</span><span class="p">.</span><span class="na">getMemoryInfo</span><span class="p">(</span><span class="n">info</span><span class="p">)</span>
-<span class="w">    </span><span class="n">Log</span><span class="p">.</span><span class="na">e</span><span class="p">(</span><span class="s">&quot;tag&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;memory: </span><span class="si">${</span><span class="nb">it</span><span class="p">.</span><span class="na">memoryClass</span><span class="si">}</span><span class="s">, large memory： </span><span class="si">${</span><span class="nb">it</span><span class="p">.</span><span class="na">largeMemoryClass</span><span class="si">}</span><span class="s">, info: </span><span class="si">${</span><span class="n">info</span><span class="p">.</span><span class="na">availMem</span><span class="si">}</span><span class="s"> </span><span class="si">${</span><span class="n">info</span><span class="p">.</span><span class="na">totalMem</span><span class="si">}</span><span class="s">&quot;</span><span class="p">)</span>
-<span class="p">}</span>
-</code></pre></div></p>
-<h3 id="_4">监听释放内存响应<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
-<p>根据内存level处理
-<div class="highlight"><pre><span></span><code><span class="kd">class</span><span class="w"> </span><span class="nc">MainActivity</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">ComponentActivity</span><span class="p">(),</span><span class="w"> </span><span class="n">ComponentCallbacks2</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="kd">override</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">onTrimMemory</span><span class="p">(</span><span class="n">level</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="k">super</span><span class="p">.</span><span class="na">onTrimMemory</span><span class="p">(</span><span class="n">level</span><span class="p">)</span>
-<span class="w">    </span><span class="p">}</span>
-</code></pre></div></p>
 
 
 
