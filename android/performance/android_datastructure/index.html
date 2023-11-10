@@ -11,7 +11,7 @@
         <link rel="canonical" href="https://13757539485.github.io/note/android/performance/android_datastructure/">
       
       
-        <link rel="prev" href="../android_memory/">
+        <link rel="prev" href="../android_leakcanary/">
       
       
         <link rel="next" href="../../android_hotfix/">
@@ -73,7 +73,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#_1" class="md-skip">
+        <a href="#koom" class="md-skip">
           跳转至
         </a>
       
@@ -1131,6 +1131,34 @@
               
   
   
+  
+    <li class="md-nav__item">
+      <a href="../android_mat/" class="md-nav__link">
+        Mat工具
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../android_leakcanary/" class="md-nav__link">
+        LeakCanary
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
     
   
   
@@ -1163,13 +1191,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    常见内存泄漏原因
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#koom" class="md-nav__link">
     KOOM
   </a>
@@ -1199,7 +1220,7 @@
   
     <li class="md-nav__item">
       <a href="../../android_hotfix/" class="md-nav__link">
-        插件化技术
+        插件化
       </a>
     </li>
   
@@ -1222,14 +1243,14 @@
       
       
         <label class="md-nav__link" for="__nav_1_1_11" id="__nav_1_1_11_label" tabindex="0">
-          组件化技术
+          组件化
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_1_1_11_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_1_1_11">
           <span class="md-nav__icon md-icon"></span>
-          组件化技术
+          组件化
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -2016,13 +2037,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    常见内存泄漏原因
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#koom" class="md-nav__link">
     KOOM
   </a>
@@ -2094,21 +2108,12 @@ adb shell cat /proc/meminfo</p>
 <p>YSS&gt;=RSS&gt;=PSS&gt;=USS</p>
 <p>vmstart</p>
 <p>cpu时间片 用户cpu时间 系统cpu时间 linux TMS</p>
-<p>oom_adj: ps查看pid 然后使用cat/pid/oom_adj，内存不足时根据此值进行kill(从高到底) 保活可以用workmanager</p>
 <p>activity销毁如何得知？</p>
 <p>ReferenceQueue</p>
 <p>WeakHashMap：Key是弱引用可以被回收，把Activity作为key，当key被回收说明activity已经销毁了，结合registerActivityLifecycleCallbacks，stop中gc</p>
 <p>阈值处理：KOOM &gt; Matrix</p>
 <p>SystemClock.sleep System.runFinalization</p>
 <p>Debug.M</p>
-<h3 id="_1">常见内存泄漏原因<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
-<ul>
-<li>静态变量或单例(不要持有activity或view等对象的引用，改成弱引用)</li>
-<li>内部类导致的泄漏(改成静态内部类)</li>
-<li>匿名内部类(Handler，可改成静态内部类或者弱引用方式)</li>
-<li>动画问题(activity销毁，需要cancel动画)</li>
-<li>流、Cursor、File等没有close</li>
-</ul>
 <h3 id="koom">KOOM<a class="headerlink" href="#koom" title="Permanent link">&para;</a></h3>
 <p>Native Heap泄漏监控</p>
 <p>bionic</p>

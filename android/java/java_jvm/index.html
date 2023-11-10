@@ -907,13 +907,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#android" class="md-nav__link">
-    Android虚拟机
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#jvm_3" class="md-nav__link">
     JVM调优
   </a>
@@ -1614,6 +1607,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../performance/android_mat/" class="md-nav__link">
+        Mat工具
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../performance/android_leakcanary/" class="md-nav__link">
+        LeakCanary
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../performance/android_datastructure/" class="md-nav__link">
         数据结构
       </a>
@@ -1636,7 +1657,7 @@
   
     <li class="md-nav__item">
       <a href="../../android_hotfix/" class="md-nav__link">
-        插件化技术
+        插件化
       </a>
     </li>
   
@@ -1659,14 +1680,14 @@
       
       
         <label class="md-nav__link" for="__nav_1_1_11" id="__nav_1_1_11_label" tabindex="0">
-          组件化技术
+          组件化
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_1_1_11_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_1_1_11">
           <span class="md-nav__icon md-icon"></span>
-          组件化技术
+          组件化
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -2863,13 +2884,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#android" class="md-nav__link">
-    Android虚拟机
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#jvm_3" class="md-nav__link">
     JVM调优
   </a>
@@ -3272,17 +3286,21 @@
 <p>S1是from，S0是to</p>
 <h4 id="mark-sweep">标记清除算法(Mark-Sweep)<a class="headerlink" href="#mark-sweep" title="Permanent link">&para;</a></h4>
 <p>找到可达链然后清除垃圾</p>
-<p>特点
-1. 位置不连续，产生碎片
-2. 可以不暂停(优势，因为没有对象移动)
-3. 两次扫描，第一次扫描标记出哪些可以回收进行标记，第二次进行清除</p>
+<p>特点</p>
+<ol>
+<li>位置不连续，产生碎片</li>
+<li>可以不暂停(优势，因为没有对象移动)</li>
+<li>两次扫描，第一次扫描标记出哪些可以回收进行标记，第二次进行清除</li>
+</ol>
 <p><img alt="jvm_m10" src="../../../img/java/jvm_m10.png" /></p>
 <h4 id="mark-compact">标记整理算法(Mark-Compact)<a class="headerlink" href="#mark-compact" title="Permanent link">&para;</a></h4>
 <p>标记-&gt;整理-&gt;清除</p>
-<p>特点
-1. 没有内存碎片
-2. 指针需要移动
-3. 两次扫描</p>
+<p>特点</p>
+<ol>
+<li>没有内存碎片</li>
+<li>指针需要移动</li>
+<li>两次扫描</li>
+</ol>
 <p><img alt="jvm_m11" src="../../../img/java/jvm_m11.png" /></p>
 <h3 id="_33">常见垃圾回收器<a class="headerlink" href="#_33" title="Permanent link">&para;</a></h3>
 <p>单线程：Serial、Serial Old</p>
@@ -3348,60 +3366,6 @@
 <p>服务器维护：重启后CMS就没有内存碎片</p>
 <p>VM参数：-Xlog:gc*(--XX:+PrintGCDetails) --XX:UseConcMarkSweepGC</p>
 <p>G1：堆空间8G以上推荐，&lt;6G用CMS，jdk1.8以上默认采用G1</p>
-<h3 id="android">Android虚拟机<a class="headerlink" href="#android" title="Permanent link">&para;</a></h3>
-<p>Dalvik内存区域块</p>
-<p>Linear Alloc：匿名共享内存，只读区域</p>
-<p>Zygote Space：Zygote进程和应用进程之间共享，对象在启动时会重新创建</p>
-<p>Alloc Space：每个进程独占，分配对象区域</p>
-<p>Art内存区域块</p>
-<p>Non Moving Space</p>
-<p>Zygote Space</p>
-<p>Alloc Space</p>
-<p>Image Space：预加载的类信息，Zygote进程和应用进程之间共享</p>
-<p>Large Obj Space：分配大对象，如bitmap，此处对象只创建一次</p>
-<p>运行时堆都分为前3个</p>
-<table>
-<thead>
-<tr>
-<th></th>
-<th>Dalvik</th>
-<th>Art</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>回收算法</td>
-<td>标记-清除算法</td>
-<td>CMS？</td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr>
-<th></th>
-<th>JVM</th>
-<th>Android虚拟机</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>虚拟机栈</td>
-<td>局部变量表和操作数栈</td>
-<td>寄存器</td>
-</tr>
-<tr>
-<td>堆</td>
-<td>Eden、S0、S1和老年代</td>
-<td>Alloc Space先当于新生代，Large Obj Space相当于老年代</td>
-</tr>
-<tr>
-<td>加载</td>
-<td>class</td>
-<td>dex</td>
-</tr>
-</tbody>
-</table>
 <h3 id="jvm_3">JVM调优<a class="headerlink" href="#jvm_3" title="Permanent link">&para;</a></h3>
 <h4 id="_34">扩容新生代<a class="headerlink" href="#_34" title="Permanent link">&para;</a></h4>
 <p>为何能提高GC效率吗？</p>

@@ -1141,6 +1141,74 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    高效加载大型位图
+  </a>
+  
+    <nav class="md-nav" aria-label="高效加载大型位图">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    读取位图尺寸和类型
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    按比例压缩
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    整体流程
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    缓存位图
+  </a>
+  
+    <nav class="md-nav" aria-label="缓存位图">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    内存缓存
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    磁盘缓存
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    图片加载框架设计思路
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1158,6 +1226,34 @@
     <li class="md-nav__item">
       <a href="../android_memory/" class="md-nav__link">
         内存管理
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../android_mat/" class="md-nav__link">
+        Mat工具
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../android_leakcanary/" class="md-nav__link">
+        LeakCanary
       </a>
     </li>
   
@@ -1192,7 +1288,7 @@
   
     <li class="md-nav__item">
       <a href="../../android_hotfix/" class="md-nav__link">
-        插件化技术
+        插件化
       </a>
     </li>
   
@@ -1215,14 +1311,14 @@
       
       
         <label class="md-nav__link" for="__nav_1_1_11" id="__nav_1_1_11_label" tabindex="0">
-          组件化技术
+          组件化
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_1_1_11_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_1_1_11">
           <span class="md-nav__icon md-icon"></span>
-          组件化技术
+          组件化
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -2015,6 +2111,74 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    高效加载大型位图
+  </a>
+  
+    <nav class="md-nav" aria-label="高效加载大型位图">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    读取位图尺寸和类型
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    按比例压缩
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    整体流程
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    缓存位图
+  </a>
+  
+    <nav class="md-nav" aria-label="缓存位图">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    内存缓存
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    磁盘缓存
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    图片加载框架设计思路
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2085,6 +2249,94 @@
 <p>转化公式：分辨率x(设备dpi/目录dpi)</p>
 <p>如设备dpi为480，xhdpi目录120x160的图片内存大小为</p>
 <p>120x(480/320)x160(480/320) = 43200byte=42kb</p>
+<p><a href="https://developer.android.com/topic/performance/graphics/cache-bitmap?hl=zh-cn">https://developer.android.com/topic/performance/graphics/cache-bitmap?hl=zh-cn</a></p>
+<p><a href="https://developer.android.com/topic/performance/graphics?hl=zh-cn">https://developer.android.com/topic/performance/graphics?hl=zh-cn</a></p>
+<h3 id="_1">高效加载大型位图<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
+<h4 id="_2">读取位图尺寸和类型<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h4>
+<p><div class="highlight"><pre><span></span><code><span class="kd">val</span><span class="w"> </span><span class="nv">options</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BitmapFactory</span><span class="p">.</span><span class="na">Options</span><span class="p">().</span><span class="na">apply</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">inJustDecodeBounds</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="c1">//可避免内存分配，为位图对象返回 null</span>
+<span class="p">}</span>
+<span class="n">BitmapFactory</span><span class="p">.</span><span class="na">decodeResource</span><span class="p">(</span><span class="n">resources</span><span class="p">,</span><span class="w"> </span><span class="n">R</span><span class="p">.</span><span class="na">id</span><span class="p">.</span><span class="na">myimage</span><span class="p">,</span><span class="w"> </span><span class="n">options</span><span class="p">)</span>
+<span class="kd">val</span><span class="w"> </span><span class="nv">imageHeight</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">options</span><span class="p">.</span><span class="na">outHeight</span>
+<span class="kd">val</span><span class="w"> </span><span class="nv">imageWidth</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">options</span><span class="p">.</span><span class="na">outWidth</span>
+<span class="kd">val</span><span class="w"> </span><span class="nv">imageType</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">options</span><span class="p">.</span><span class="na">outMimeType</span>
+</code></pre></div>
+进行解码前先读取尺寸防止OOM</p>
+<h4 id="_3">按比例压缩<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="kd">fun</span><span class="w"> </span><span class="nf">calculateInSampleSize</span><span class="p">(</span><span class="n">options</span><span class="p">:</span><span class="w"> </span><span class="n">BitmapFactory</span><span class="p">.</span><span class="na">Options</span><span class="p">,</span><span class="w"> </span><span class="n">reqWidth</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="p">,</span><span class="w"> </span><span class="n">reqHeight</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="p">):</span><span class="w"> </span><span class="kt">Int</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="p">(</span><span class="nv">height</span><span class="p">:</span><span class="w"> </span><span class="n">Int</span><span class="p">,</span><span class="w"> </span><span class="nv">width</span><span class="p">:</span><span class="w"> </span><span class="n">Int</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">options</span><span class="p">.</span><span class="na">run</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">outHeight</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">outWidth</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nv">inSampleSize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">height</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">reqHeight</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">width</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">reqWidth</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">val</span><span class="w"> </span><span class="nv">halfHeight</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">height</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="m">2</span>
+<span class="w">        </span><span class="kd">val</span><span class="w"> </span><span class="nv">halfWidth</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">width</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="m">2</span>
+<span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">halfHeight</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">inSampleSize</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">reqHeight</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">halfWidth</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">inSampleSize</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">reqWidth</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">inSampleSize</span><span class="w"> </span><span class="o">*=</span><span class="w"> </span><span class="m">2</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">inSampleSize</span>
+<span class="p">}</span>
+</code></pre></div>
+<h4 id="_4">整体流程<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h4>
+<p>将任意大尺寸的位图加载到显示 100x100 像素缩略图的 ImageView 中
+<div class="highlight"><pre><span></span><code><span class="kd">fun</span><span class="w"> </span><span class="nf">decodeSampledBitmapFromResource</span><span class="p">(</span>
+<span class="w">        </span><span class="n">res</span><span class="p">:</span><span class="w"> </span><span class="n">Resources</span><span class="p">,</span>
+<span class="w">        </span><span class="n">resId</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="p">,</span>
+<span class="w">        </span><span class="n">reqWidth</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="p">,</span>
+<span class="w">        </span><span class="n">reqHeight</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span>
+<span class="p">):</span><span class="w"> </span><span class="n">Bitmap</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">BitmapFactory</span><span class="p">.</span><span class="na">Options</span><span class="p">().</span><span class="na">run</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">inJustDecodeBounds</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
+<span class="w">        </span><span class="n">BitmapFactory</span><span class="p">.</span><span class="na">decodeResource</span><span class="p">(</span><span class="n">res</span><span class="p">,</span><span class="w"> </span><span class="n">resId</span><span class="p">,</span><span class="w"> </span><span class="k">this</span><span class="p">)</span>
+
+<span class="w">        </span><span class="n">inSampleSize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">calculateInSampleSize</span><span class="p">(</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="n">reqWidth</span><span class="p">,</span><span class="w"> </span><span class="n">reqHeight</span><span class="p">)</span>
+
+<span class="w">        </span><span class="n">inJustDecodeBounds</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span>
+
+<span class="w">        </span><span class="n">BitmapFactory</span><span class="p">.</span><span class="na">decodeResource</span><span class="p">(</span><span class="n">res</span><span class="p">,</span><span class="w"> </span><span class="n">resId</span><span class="p">,</span><span class="w"> </span><span class="k">this</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="n">imageView</span><span class="p">.</span><span class="na">setImageBitmap</span><span class="p">(</span>
+<span class="w">    </span><span class="n">decodeSampledBitmapFromResource</span><span class="p">(</span><span class="n">resources</span><span class="p">,</span><span class="w"> </span><span class="n">R</span><span class="p">.</span><span class="na">id</span><span class="p">.</span><span class="na">xxx</span><span class="p">,</span><span class="w"> </span><span class="m">100</span><span class="p">,</span><span class="w"> </span><span class="m">100</span><span class="p">)</span>
+<span class="p">)</span>
+</code></pre></div></p>
+<h3 id="_5">缓存位图<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<h4 id="_6">内存缓存<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h4>
+<p>LruCache 类，不建议使用软引用或弱引用容易被回收</p>
+<p>选择策略
+1. 当前app内存占用情况(可能即将达到进程所能申请的最大内存)
+2. 屏幕显示图片数量(列表中显示场景)
+3. 屏幕尺寸和密度(分辨率和dpi影响计算内存大小)
+4. 位图尺寸和配置(原图大小，编码模式，压缩)
+5. 图片访问频率
+6. 质量和数量之间的平衡</p>
+<p>使用例子，分配最大内存的&#8539;
+<div class="highlight"><pre><span></span><code><span class="kd">private</span><span class="w"> </span><span class="kd">lateinit</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="nv">memoryCache</span><span class="p">:</span><span class="w"> </span><span class="n">LruCache</span><span class="o">&lt;</span><span class="kt">String</span><span class="p">,</span><span class="w"> </span><span class="n">Bitmap</span><span class="o">&gt;</span>
+
+<span class="kd">override</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">onCreate</span><span class="p">(</span><span class="n">savedInstanceState</span><span class="p">:</span><span class="w"> </span><span class="n">Bundle?)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">maxMemory</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">Runtime</span><span class="p">.</span><span class="na">getRuntime</span><span class="p">().</span><span class="na">maxMemory</span><span class="p">()</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="m">1024</span><span class="p">).</span><span class="na">toInt</span><span class="p">()</span>
+
+<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">cacheSize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">maxMemory</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="m">8</span>
+<span class="w">    </span><span class="n">memoryCache</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">object</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="nc">LruCache</span><span class="o">&lt;</span><span class="kt">String</span><span class="p">,</span><span class="w"> </span><span class="n">Bitmap</span><span class="o">&gt;</span><span class="p">(</span><span class="n">cacheSize</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">override</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">sizeOf</span><span class="p">(</span><span class="n">key</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span><span class="p">,</span><span class="w"> </span><span class="n">bitmap</span><span class="p">:</span><span class="w"> </span><span class="n">Bitmap</span><span class="p">):</span><span class="w"> </span><span class="kt">Int</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">bitmap</span><span class="p">.</span><span class="na">byteCount</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="m">1024</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></p>
+<h4 id="_7">磁盘缓存<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h4>
+<p>DiskLruCache</p>
+<h3 id="_8">图片加载框架设计思路<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<ul>
+<li>采样率压缩(inSampleSize)，尺寸压缩</li>
+<li>bitmap编码格式ARGB_8888等</li>
+<li>加载方式：协程用来异步加载和线程切换</li>
+<li>多级缓存：LruCache、对象复用池、DiskLruCache</li>
+<li>内存泄漏OOM：生命周期监听，低内存时释放</li>
+<li>列表加载：错乱问题</li>
+</ul>
+<p><a href="">Glide</a>已经完成优化</p>
 
 
 
