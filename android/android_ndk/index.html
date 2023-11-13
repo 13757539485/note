@@ -68,6 +68,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -1144,6 +1149,48 @@
   
   
     <li class="md-nav__item">
+      <a href="../performance/android_koom/" class="md-nav__link">
+        KOOM
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../performance/android_anr/" class="md-nav__link">
+        ANR监控
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../performance/android_crash/" class="md-nav__link">
+        Crash监控
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../performance/android_datastructure/" class="md-nav__link">
         数据结构
       </a>
@@ -1976,6 +2023,28 @@
   
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    配置工程
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    基础知识
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1991,7 +2060,26 @@
 
   <h1>Android ndk</h1>
 
+<h3 id="_1">配置工程<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
+<p>as中安装工具，包括ndk和cmake</p>
+<p><img alt="ndk1" src="../../img/ndk/ndk1.png" /></p>
+<p><a href="../android_studio/#ndk_config">gradle配置</a></p>
+<p>代码提示功能开启，针对头文件引入后没有代码提示</p>
+<p><img alt="ndk2" src="../../img/ndk/ndk2.png" /></p>
+<h3 id="_2">基础知识<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<p>上层调用c++方法方式</p>
+<p>java：native关键字</p>
+<p>kotlin：external关键字</p>
+<p>cmake文件中</p>
+<p><div class="highlight"><pre><span></span><code><span class="nb">add_library</span><span class="p">(</span><span class="o">${</span><span class="nv">CMAKE_PROJECT_NAME</span><span class="o">}</span><span class="w"> </span><span class="s">SHARED</span>
+<span class="w">    </span><span class="s">jetpack.cpp</span><span class="p">)</span>
 
+<span class="nb">target_link_libraries</span><span class="p">(</span><span class="o">${</span><span class="nv">CMAKE_PROJECT_NAME</span><span class="o">}</span>
+<span class="w">    </span><span class="s">android</span>
+<span class="w">    </span><span class="s">log</span><span class="p">)</span>
+</code></pre></div>
+add_library：参数分别是名字，编译类型(SHARED表示编译成so)，编译源文件</p>
+<p>target_link_libraries：引用其他库</p>
 
 
 

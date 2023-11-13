@@ -14,7 +14,7 @@
         <link rel="prev" href="../android_mat/">
       
       
-        <link rel="next" href="../android_datastructure/">
+        <link rel="next" href="../android_koom/">
       
       <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.14">
@@ -1164,6 +1164,48 @@
   
   
     <li class="md-nav__item">
+      <a href="../android_koom/" class="md-nav__link">
+        KOOM
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../android_anr/" class="md-nav__link">
+        ANR监控
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../android_crash/" class="md-nav__link">
+        Crash监控
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../android_datastructure/" class="md-nav__link">
         数据结构
       </a>
@@ -2011,6 +2053,14 @@
 
   <h1>LeakCanary</h1>
 
+<p>由Square公司开发</p>
+<p><a href="https://github.com/square/leakcanary">https://github.com/square/leakcanary</a></p>
+<p>接入方式：
+<div class="highlight"><pre><span></span><code>debugImplementation &#39;com.squareup.leakcanary:leakcanary-android:2.12&#39;
+</code></pre></div>
+<a href="https://square.github.io/leakcanary/getting_started/">依赖版本获取</a></p>
+<p>新版本无需在application中初始化，采用ContentProvider形式自动初始化</p>
+<p>发生内存泄漏后通知栏显示，log通过tag(LeakCanary)查看信息包括dump文件地址</p>
 <p>监听Activity：从Activity源码入手dispatchActivityCreated会调用到Application中的callback</p>
 <p>监听Fragment：从FragmentManager源码入手dispatchOnFragmentCreated</p>
 <p>Fragment的本质是View</p>
@@ -2018,6 +2068,14 @@
 <p>检测Activity是否被回收，可以把Activity对象放到弱引用中，手动触发gc后判断Activity对象是否为null</p>
 <p>ReferenceQueue用来保存所有弱引用对象</p>
 <p>分析dump使用haha库或者shark库</p>
+<p>不能使用线上原因</p>
+<ol>
+<li>频繁gc容易导致卡顿</li>
+<li>每次检测到泄漏就会dump快照文件，同一个也会触发</li>
+<li>dump出的hprof(内存镜像)文件耗时，容易造成程序未响应</li>
+<li>hprof文件太大，解析耗时</li>
+</ol>
+<p>线上使用<a href="../android_koom/">KOOM</a></p>
 
 
 

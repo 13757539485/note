@@ -1235,10 +1235,23 @@
     内存溢出(OOM)
   </a>
   
+    <nav class="md-nav" aria-label="内存溢出(OOM)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    常见内存溢出
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
+  <a href="#_10" class="md-nav__link">
     分析内存命令
   </a>
   
@@ -1288,7 +1301,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
+  <a href="#_11" class="md-nav__link">
     总结
   </a>
   
@@ -1300,14 +1313,14 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_11" class="md-nav__link">
+  <a href="#_12" class="md-nav__link">
     分配大内存
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_12" class="md-nav__link">
+  <a href="#_13" class="md-nav__link">
     监听释放内存响应
   </a>
   
@@ -1344,6 +1357,48 @@
     <li class="md-nav__item">
       <a href="../android_leakcanary/" class="md-nav__link">
         LeakCanary
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../android_koom/" class="md-nav__link">
+        KOOM
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../android_anr/" class="md-nav__link">
+        ANR监控
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../android_crash/" class="md-nav__link">
+        Crash监控
       </a>
     </li>
   
@@ -2281,10 +2336,23 @@
     内存溢出(OOM)
   </a>
   
+    <nav class="md-nav" aria-label="内存溢出(OOM)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    常见内存溢出
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
+  <a href="#_10" class="md-nav__link">
     分析内存命令
   </a>
   
@@ -2334,7 +2402,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
+  <a href="#_11" class="md-nav__link">
     总结
   </a>
   
@@ -2346,14 +2414,14 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_11" class="md-nav__link">
+  <a href="#_12" class="md-nav__link">
     分配大内存
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_12" class="md-nav__link">
+  <a href="#_13" class="md-nav__link">
     监听释放内存响应
   </a>
   
@@ -2508,7 +2576,15 @@
 <p>Capture heap dump</p>
 <h3 id="oom">内存溢出(OOM)<a class="headerlink" href="#oom" title="Permanent link">&para;</a></h3>
 <p>分类：Java堆内存溢出(常见)、无足够连续内存空间、FD数量超出限制、线程数超出限制、虚拟内存不足</p>
-<h3 id="_9">分析内存命令<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
+<h4 id="_9">常见内存溢出<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h4>
+<ul>
+<li>内存抖动</li>
+<li>内存泄漏</li>
+<li>文件数达上限</li>
+<li>线程数达上限</li>
+<li>内存不足</li>
+</ul>
+<h3 id="_10">分析内存命令<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
 <h4 id="dumpsys-meminfo">dumpsys meminfo<a class="headerlink" href="#dumpsys-meminfo" title="Permanent link">&para;</a></h4>
 <p>可以看到不同标准排序</p>
 <p>dumpsys meminfo 包名</p>
@@ -2526,7 +2602,7 @@
 <h4 id="free">free<a class="headerlink" href="#free" title="Permanent link">&para;</a></h4>
 <h4 id="showmap">showmap<a class="headerlink" href="#showmap" title="Permanent link">&para;</a></h4>
 <h4 id="vmstat">vmstat<a class="headerlink" href="#vmstat" title="Permanent link">&para;</a></h4>
-<h4 id="_10">总结<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h4>
+<h4 id="_11">总结<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h4>
 <ol>
 <li>dumpsys meminfo 适用场景： 查看进程的oom adj，或者dalvik/native等区域内存情况，或者某
 个进程或apk的内存情况，功能非常强大；</li>
@@ -2535,7 +2611,7 @@
 <li>free 适用场景： 只查看系统的可用内存；</li>
 <li>showmap 适用场景： 查看进程的虚拟地址空间的内存分配情况</li>
 </ol>
-<h3 id="_11">分配大内存<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
+<h3 id="_12">分配大内存<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h3>
 <p>AndroidManifest中android:largeHeap="true"，获取当前配置内存大小和最大内存大小
 <div class="highlight"><pre><span></span><code><span class="n">getSystemService</span><span class="p">(</span><span class="n">Context</span><span class="p">.</span><span class="na">ACTIVITY_SERVICE</span><span class="p">).</span><span class="na">let</span><span class="w"> </span><span class="p">{</span><span class="nb">it</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">ActivityManager</span>
 <span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ActivityManager</span><span class="p">.</span><span class="na">MemoryInfo</span><span class="p">()</span><span class="c1">// 获取系统内存</span>
@@ -2543,7 +2619,7 @@
 <span class="w">    </span><span class="n">Log</span><span class="p">.</span><span class="na">e</span><span class="p">(</span><span class="s">&quot;tag&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;memory: </span><span class="si">${</span><span class="nb">it</span><span class="p">.</span><span class="na">memoryClass</span><span class="si">}</span><span class="s">, large memory： </span><span class="si">${</span><span class="nb">it</span><span class="p">.</span><span class="na">largeMemoryClass</span><span class="si">}</span><span class="s">, info: </span><span class="si">${</span><span class="n">info</span><span class="p">.</span><span class="na">availMem</span><span class="si">}</span><span class="s"> </span><span class="si">${</span><span class="n">info</span><span class="p">.</span><span class="na">totalMem</span><span class="si">}</span><span class="s">&quot;</span><span class="p">)</span>
 <span class="p">}</span>
 </code></pre></div></p>
-<h3 id="_12">监听释放内存响应<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h3>
+<h3 id="_13">监听释放内存响应<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h3>
 <p>根据内存level处理
 <div class="highlight"><pre><span></span><code><span class="kd">class</span><span class="w"> </span><span class="nc">MainActivity</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">ComponentActivity</span><span class="p">(),</span><span class="w"> </span><span class="n">ComponentCallbacks2</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="kd">override</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">onTrimMemory</span><span class="p">(</span><span class="n">level</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>

@@ -11,13 +11,17 @@
         <link rel="canonical" href="https://13757539485.github.io/note/android/performance/android_koom/">
       
       
+        <link rel="prev" href="../android_leakcanary/">
+      
+      
+        <link rel="next" href="../android_anr/">
       
       <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.14">
     
     
       
-        <title>Android koom - 我的笔记</title>
+        <title>KOOM - 我的笔记</title>
       
     
     
@@ -68,6 +72,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -97,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Android koom
+              KOOM
             
           </span>
         </div>
@@ -185,6 +194,8 @@
         
   
   
+    
+  
 
 
   
@@ -201,7 +212,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../java/java_basic/" class="md-tabs__link">
+      <a href="../../java/java_basic/" class="md-tabs__link md-tabs__link--active">
         Android系统
       </a>
     </li>
@@ -353,14 +364,16 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" checked>
       
       
       
@@ -369,7 +382,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_1">
           <span class="md-nav__icon md-icon"></span>
           Android系统
@@ -380,14 +393,16 @@
               
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_1" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_1" checked>
       
       
       
@@ -396,7 +411,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_1_label" aria-expanded="false">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_1_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_1_1">
           <span class="md-nav__icon md-icon"></span>
           学习笔记
@@ -1059,14 +1074,16 @@
               
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_1_9" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_1_9" checked>
       
       
       
@@ -1075,7 +1092,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_1_1_9_label" aria-expanded="false">
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_1_1_9_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_1_1_9">
           <span class="md-nav__icon md-icon"></span>
           性能优化
@@ -1132,6 +1149,146 @@
     <li class="md-nav__item">
       <a href="../android_leakcanary/" class="md-nav__link">
         LeakCanary
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          KOOM
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        KOOM
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    基本使用
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    源码分析
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#koom" class="md-nav__link">
+    KOOM监控
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dump" class="md-nav__link">
+    解决dump慢
+  </a>
+  
+    <nav class="md-nav" aria-label="解决dump慢">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fork" class="md-nav__link">
+    fork
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fork_1" class="md-nav__link">
+    fork存在问题
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hprof" class="md-nav__link">
+    hprof
+  </a>
+  
+    <nav class="md-nav" aria-label="hprof">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hprof_1" class="md-nav__link">
+    hprof压缩
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../android_anr/" class="md-nav__link">
+        ANR监控
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../android_crash/" class="md-nav__link">
+        Crash监控
       </a>
     </li>
   
@@ -1976,6 +2133,82 @@
   
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    基本使用
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    源码分析
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#koom" class="md-nav__link">
+    KOOM监控
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dump" class="md-nav__link">
+    解决dump慢
+  </a>
+  
+    <nav class="md-nav" aria-label="解决dump慢">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fork" class="md-nav__link">
+    fork
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fork_1" class="md-nav__link">
+    fork存在问题
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hprof" class="md-nav__link">
+    hprof
+  </a>
+  
+    <nav class="md-nav" aria-label="hprof">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hprof_1" class="md-nav__link">
+    hprof压缩
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1989,9 +2222,94 @@
                   
 
 
-  <h1>Android koom</h1>
+  <h1>KOOM</h1>
 
+<p>由快手团队开发</p>
+<p><a href="https://github.com/KwaiAppTeam/KOOM/blob/master/README.zh-CN.md">https://github.com/KwaiAppTeam/KOOM/blob/master/README.zh-CN.md</a></p>
+<h3 id="_1">基本使用<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>implementation &quot;com.kuaishou.koom:koom-java-leak:2.2.1&quot;
+</code></pre></div>
+<p>application中初始化
+<div class="highlight"><pre><span></span><code><span class="n">OOMMonitor</span><span class="p">.</span><span class="na">init</span><span class="p">(</span><span class="n">CommonConfig</span><span class="p">.</span><span class="na">Builder</span><span class="p">().</span><span class="na">build</span><span class="p">(),</span>
+<span class="w">    </span><span class="n">OOMMonitorConfig</span><span class="p">.</span><span class="na">Builder</span><span class="p">().</span><span class="na">setHprofUploader</span><span class="p">(</span><span class="k">object</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="nc">OOMHprofUploader</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">override</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">upload</span><span class="p">(</span><span class="n">file</span><span class="p">:</span><span class="w"> </span><span class="n">File</span><span class="p">,</span><span class="w"> </span><span class="n">type</span><span class="p">:</span><span class="w"> </span><span class="n">OOMHprofUploader</span><span class="p">.</span><span class="na">HprofType</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="c1">//上传hprof快照</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}).</span><span class="na">setReportUploader</span><span class="p">(</span><span class="k">object</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="nc">OOMReportUploader</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">override</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">upload</span><span class="p">(</span><span class="n">file</span><span class="p">:</span><span class="w"> </span><span class="n">File</span><span class="p">,</span><span class="w"> </span><span class="n">content</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="c1">//上传json泄漏报告</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">})</span>
+<span class="w">        </span><span class="p">.</span><span class="na">build</span><span class="p">()</span>
+<span class="p">)</span>
+<span class="n">OOMMonitor</span><span class="p">.</span><span class="na">startLoop</span><span class="p">()</span>
+</code></pre></div></p>
+<h3 id="_2">源码分析<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<p>startLoop执行super.startLoop，接着执行LoopMonitor里面的mLoopRunnable，里面首先执行call函数，实现在OOMMonitor中执行trackOOM</p>
+<p>trackOOM会先从mOOMTrackers个维度进行检测
+<div class="highlight"><pre><span></span><code><span class="kd">private</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">mOOMTrackers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mutableListOf</span><span class="p">(</span>
+<span class="w">    </span><span class="n">HeapOOMTracker</span><span class="p">(),</span><span class="w"> </span><span class="n">ThreadOOMTracker</span><span class="p">(),</span><span class="w"> </span><span class="n">FdOOMTracker</span><span class="p">(),</span>
+<span class="w">    </span><span class="n">PhysicalMemoryOOMTracker</span><span class="p">(),</span><span class="w"> </span><span class="n">FastHugeMemoryOOMTracker</span><span class="p">()</span>
+<span class="p">)</span>
+</code></pre></div>
+其中PhysicalMemoryOOMTracker只是打印一些日志</p>
+<p>检测函数track返回为true则添加到mTrackReasons中</p>
+<p>KOOM通过周期轮询检测，通过HandlerThread检测以下维度</p>
+<ol>
+<li>内存占用率检测HeapOOMTracker，检测内存占用比例超过阈值(根据最大内存算出(0.8,0.85,0.9)或手动设置进来)时且超过上次比例-0.05，记录次数+1，当超过3次触发</li>
+<li>线程数检测ThreadOOMTracker，检测线程数量超过阈值(EMUI且版本小于O是450，其他750或手动设置进来)时且超过上次数量-50，记录次数+1，当超过3次触发</li>
+<li>文件描述符检测FdOOMTracker，检测打开文件数量超过阈值(默认1000或手动设置进来)时且超过上次数量-50，记录次数+1，当超过3次触发</li>
+<li>内存增长检测FastHugeMemoryOOMTracker，检测内存占用比例超过0.9触发，检测到当前内存-上次内存大于350m(增长过快)触发</li>
+</ol>
+<p>在dumpAndAnalysis之前会进行触发判断</p>
+<p>isExceedAnalysisPeriod() || isExceedAnalysisTimes()</p>
+<p>超过15天触发或者超过5次就不触发</p>
+<p>接下来进行dumpAndAnalysis主要是dump出hprof以及分析</p>
+<p>dump函数：suspendAndFork解决多线程fork问题、Debug.dumpHprofData、resumeAndWait</p>
+<h3 id="koom">KOOM监控<a class="headerlink" href="#koom" title="Permanent link">&para;</a></h3>
+<p>KOOM监控整体内存，而不是监控对象，减少dump频率</p>
+<h3 id="dump">解决dump慢<a class="headerlink" href="#dump" title="Permanent link">&para;</a></h3>
+<p>是否可以在子线程处理，可以，但是dump会触发stw，stw是停止一切线程(具体代码在art/runtime/thread_list.cc的ScopeSuspendAll中)，因此没啥效果</p>
+<p>解决方案：fork一份进程进行dump</p>
+<h4 id="fork">fork<a class="headerlink" href="#fork" title="Permanent link">&para;</a></h4>
+<p>fork系统调用用于创建子进程，会返回多次，返回值位整型，负值表示创建子进程失败，0返回新建的子进程(即当前处于子进程)，正数返回新进程id(即当前处于父进程)</p>
+<p>子进程和父进程是共享同一份内存(read-only)，通过copy-on-write进行写数据(写时复制内存相同空间)</p>
+<h4 id="fork_1">fork存在问题<a class="headerlink" href="#fork_1" title="Permanent link">&para;</a></h4>
+<p>由于java天生是多线程，主进程a线程调用fork，则子进程只复制a线程，对于其他线程b,c,d只复制线程中对象(即Thread对象)，此时stw无法停止这些线程导致卡死(死锁)</p>
+<p>解决方案：fork之前先触发SuspendAll，等fork完后恢复ResumeAll</p>
+<p>koom加载koom-fast-dump.so去处理，以AndroidR版本SuspendAndFork为例
+<div class="highlight"><pre><span></span><code><span class="c1">//反射调用libart.so(suspend相关操作编译产物)中的函数</span>
+<span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">handle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">kwai</span><span class="o">::</span><span class="n">linker</span><span class="o">::</span><span class="n">DlFcn</span><span class="o">::</span><span class="n">dlopen</span><span class="p">(</span><span class="s">&quot;libart.so&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">RTLD_NOW</span><span class="p">);</span>
+<span class="c1">//art::Dbg::SuspendVM和art::Dbg::ResumeVM</span>
+<span class="n">suspend_vm_fnc_</span><span class="w"> </span><span class="o">=</span>
+<span class="w">        </span><span class="p">(</span><span class="kt">void</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="p">)())</span><span class="n">DlFcn</span><span class="o">::</span><span class="n">dlsym</span><span class="p">(</span><span class="n">handle</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;_ZN3art3Dbg9SuspendVMEv&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="n">KFINISHV_FNC</span><span class="p">(</span><span class="n">suspend_vm_fnc_</span><span class="p">,</span><span class="w"> </span><span class="n">DlFcn</span><span class="o">::</span><span class="n">dlclose</span><span class="p">,</span><span class="w"> </span><span class="n">handle</span><span class="p">)</span>
 
+<span class="kt">pid_t</span><span class="w"> </span><span class="n">HprofDump</span><span class="o">::</span><span class="n">SuspendAndFork</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">KCHECKI</span><span class="p">(</span><span class="n">init_done_</span><span class="p">)</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">android_api_</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">__ANDROID_API_R__</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">suspend_vm_fnc_</span><span class="p">();</span>
+<span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">android_api_</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">__ANDROID_API_S__</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">//...</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="c1">//再进行fork</span>
+<span class="w">  </span><span class="kt">pid_t</span><span class="w"> </span><span class="n">pid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fork</span><span class="p">();</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">pid</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">alarm</span><span class="p">(</span><span class="mi">60</span><span class="p">);</span>
+<span class="w">    </span><span class="n">prctl</span><span class="p">(</span><span class="n">PR_SET_NAME</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;forked-dump-process&quot;</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">pid</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+其中_ZN3art3Dbg9SuspendVMEv是c++符号化表现，通过命令查看符号名(正真函数名)
+<div class="highlight"><pre><span></span><code>run -D libart.so &gt;xx.txt
+</code></pre></div></p>
+<p>除了JVMIT以外，通过反射hide注解限制也使用到反射so中的函数，需要掌握so的格式和数据格式分析</p>
+<p><a href="../android_jvmti/">JVMTI</a>：控制JVM行为，可反射调用so中的函数</p>
+<h3 id="hprof">hprof<a class="headerlink" href="#hprof" title="Permanent link">&para;</a></h3>
+<p>hprof是基于JVMTI实现的内存分析器代理，记录java的内存镜像包括堆详细使用信息，包含许多无用信息(时间、版本、标签等)</p>
+<h4 id="hprof_1">hprof压缩<a class="headerlink" href="#hprof_1" title="Permanent link">&para;</a></h4>
+<p>android.os.Debug.dumpHprofData肯定是通过IO写到文件中，则可以进行hprof裁剪，通过hook IO的write函数来提取需要(无用信息抛弃掉)的buffer写到hprof文件即可减少hprof大小</p>
 
 
 

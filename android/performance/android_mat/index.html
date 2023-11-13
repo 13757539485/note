@@ -1212,6 +1212,48 @@
   
   
     <li class="md-nav__item">
+      <a href="../android_koom/" class="md-nav__link">
+        KOOM
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../android_anr/" class="md-nav__link">
+        ANR监控
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../android_crash/" class="md-nav__link">
+        Crash监控
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../android_datastructure/" class="md-nav__link">
         数据结构
       </a>
@@ -2109,8 +2151,19 @@
 <h3 id="_1">标准格式转化<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
 <p>工具位置：AndroidSDK\platform-tools
 <div class="highlight"><pre><span></span><code>hprof-conv -z fileName.hprof newFileName.hprof
-</code></pre></div></p>
-<p>Histogram</p>
+</code></pre></div>
+使用拖拽脚本
+<div class="highlight"><pre><span></span><code><span class="p">@</span><span class="k">echo</span> off
+<span class="k">Setlocal</span> enabledelayedexpansion
+<span class="k">set</span> <span class="s2">&quot;file=</span><span class="nv">%~1</span><span class="s2">&quot;</span>
+<span class="k">set</span> <span class="nv">inputfilename</span><span class="p">=</span><span class="nv">%~n1</span>
+<span class="k">md</span> <span class="nv">%inputfilename%</span>
+<span class="k">set</span> <span class="nv">hpOutFile</span><span class="p">=</span><span class="nv">%inputfilename%</span>\<span class="nv">%inputfilename%</span>_new.hprof
+hprof-conv.exe <span class="nv">%file%</span> <span class="nv">%hpOutFile%</span>
+<span class="k">echo</span> success!
+<span class="k">endlocal</span>
+</code></pre></div>
+Histogram</p>
 <p>with incoming references：查看类被哪些实例引用</p>
 <p>with outgoing references: 查看引用哪些外部实例</p>
 <p>Shallow Heap: 浅堆</p>

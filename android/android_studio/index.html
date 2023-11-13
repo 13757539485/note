@@ -1159,6 +1159,48 @@
   
   
     <li class="md-nav__item">
+      <a href="../performance/android_koom/" class="md-nav__link">
+        KOOM
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../performance/android_anr/" class="md-nav__link">
+        ANR监控
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../performance/android_crash/" class="md-nav__link">
+        Crash监控
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../performance/android_datastructure/" class="md-nav__link">
         数据结构
       </a>
@@ -1358,6 +1400,13 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ndk" class="md-nav__link">
+    ndk配置
+  </a>
   
 </li>
       
@@ -2095,6 +2144,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#ndk" class="md-nav__link">
+    ndk配置
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2203,6 +2259,33 @@ Requires setting the buildFeatures.aidl to true in the build file
     aidl = true
 }
 </code></pre></div></p>
+<h3 id="ndk"><a id="ndk_config">ndk配置</a><a class="headerlink" href="#ndk" title="Permanent link">&para;</a></h3>
+<p>android {
+    //...
+    defaultConfig {
+        //...
+        //配置自己c++代码编译的CPU架构
+        externalNativeBuild {
+            cmake {
+                cppFlags ''
+                abiFilters 'armeabi-v7a'
+            }
+        }
+        //配置打包哪些CPU架构
+        ndk {
+            abiFilters 'armeabi-v7a'
+        }
+    }
+    //...
+    //配置cpp代码路径
+    externalNativeBuild {
+        cmake {
+            path file('src/main/cpp/CMakeLists.txt')
+            version '3.22.1'
+        }
+    }
+}
+as插件：CMake simple highlighter</p>
 
 
 
