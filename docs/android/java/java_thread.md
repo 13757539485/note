@@ -1,4 +1,4 @@
-### 生命周期
+### <a id="thread_life">生命周期</a>
 
 新建，运⾏，阻塞，等待，计时等待、终⽌
 
@@ -232,3 +232,22 @@ run
 main end
 ```
 <font color="#dd0000">注：finally在守护进程中不一定会执行</font>
+
+### FutureTask
+支持Callable、Runnable，由于Thread只支持Runnable不能直接传Callable，FutureTask实现了Runnable接口
+```kotlin
+fun main() {
+    val futureTask = FutureTask(UseCallable())
+    Thread(futureTask).start()
+    println(futureTask.get())
+}
+
+class UseCallable : Callable<String> {
+    override fun call(): String {
+        return "hello"
+    }
+}
+```
+
+#### Callable vs Runnable
+前者有返回值，后者无返回值

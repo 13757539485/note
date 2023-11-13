@@ -43,7 +43,7 @@ when表达式相当于java中的switch
 String模版使用${}方式，其中{}部分场景可省略
 
 ### field和property
-[Java](../java/java_basic.md)中可以单独申明字段，但kotlin中不行，只能什么属性
+[Java](../java/java_basic.md)中可以单独申明字段，但kotlin中不行，只能是属性
 
 原因是kotlin必须使用var或val申明，且会自动生成get/set方法，而属性=字段+get/set
 

@@ -15,6 +15,8 @@ github: https://github.com/Tencent/MMKV/
 
 ### OKhttp
 
+准备知识：java基础、网络编程、HTTP协议、设计模式
+
 保持长连接：加快请求效率，重复使用socket，需要服务器支持
 
 key: Connection value: keep-alive

@@ -1,3 +1,5 @@
+https://developer.android.com/guide?hl=zh-cn
+
 线上APM(Android performance monitor)相关知识点
 
 技术点
@@ -16,6 +18,7 @@ Java层实现功能
 - 远程下发 日志回捞 支持远程shell动态代码下发
 
 APM实现思路
+
 1. 配置(注解+json)
 2. 数据链的保存
 App启动、结束、界面跳转LifecycleCallbacks
@@ -68,14 +71,52 @@ vmstart
 
 cpu时间片 用户cpu时间 系统cpu时间 linux TMS
 
-oom_adj: ps查看pid 然后使用cat/pid/oom_adj，内存不足时根据此值进行kill(从高到底) 保活可以用workmanager
+
+activity销毁如何得知？
 
 ReferenceQueue
 
 WeakHashMap：Key是弱引用可以被回收，把Activity作为key，当key被回收说明activity已经销毁了，结合registerActivityLifecycleCallbacks，stop中gc
 
+阈值处理：KOOM > Matrix
+
 SystemClock.sleep System.runFinalization
 
 Debug.M
 
-KOOM
+### KOOM
+Native Heap泄漏监控
+
+bionic
+
+xhook
+
+性能优化：
+
+1.启动优化
+
+启动背景优化SplashScreen
+
+有向无环图DAG、拓扑排序、CountDownLatch控制线程顺序(app_startup、Android_startup)
+
+架构上Application初始化分离到个模块
+
+SplashActivity优化，责任链模式，onStop中finish防止Main失败时出现问题
+
+懒加载、延迟加载
+
+2.内存优化
+
+内存泄漏、ANR、内存抖动、OOM、弱引用、JVM的gc回收算法(根可达)
+
+bitmap、数据结构HashMap和SparseArray(ArrayMap)
+
+线上监控KOOM、线下监控LeakCanary
+
+3.UI优化
+
+布局优化、webview优化、recycleview优化、自定义view(onDraw)
+
+4.安装包瘦身
+
+图片webp(svg、json)、so库、混淆、加固

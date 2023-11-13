@@ -284,3 +284,83 @@ public static int growSize(int currentSize) {
 }
 ```
 ## ConcurrentHashMap
+
+## LinkedHashMap
+继承于HashMap
+```kotlin
+val map = object : LinkedHashMap<String, String>() {
+    override fun removeEldestEntry(eldest: MutableMap.MutableEntry<String, String>): Boolean {
+        return size > 3
+    }
+}
+```
+限制map大小，FIFO淘汰机制，上面超过3个后会从第0个开始移除
+
+## 算法
+### 二分查找
+前提：已经有序排列
+
+### 排序算法
+冒泡、选择、插入、归并、堆、快速、希尔、计数、基数、桶排序
+
+#### 冒泡排序
+核心思想：两两比较，将最小的或最大的排到最后
+
+比如：5 8 1 75 升序
+
+第一轮：5,8 8,1->1,8 8,75变成5 1 8 75，此时75无需比较
+
+第二轮：5,1->1,5 5,8变成1 5 8 75，此时8也无需比较
+
+第三轮：1,5结束
+
+所以轮数是数组长度-1，每轮比较次数是数组长度-1-第几轮
+
+```kotlin
+fun bubbleSort(arr: IntArray, isAsc: Boolean) {
+    if (arr.isNotEmpty()) {
+        for (i in arr.indices) {
+            for (j in 0 until arr.size - 1 - i) {
+                val asc = if (isAsc) arr[j + 1] > arr[j]
+                else arr[j + 1] < arr[j]
+                if (asc) {
+                    val temp = arr[j + 1]
+                    arr[j + 1] = arr[j]
+                    arr[j] = temp
+                }
+            }
+        }
+    }
+    println(arr.contentToString())
+}
+```
+
+#### 选择排序
+核心思想：找到最大或最小值用下标记录，放到最前面
+
+比如：5 8 1 75 升序(找最小值) 下标index
+
+第一轮：index = 2，1和5交换，此时变成8 5 75
+
+第二轮：index = 1，8和5交换，此时变成8 75
+
+第三轮：index = 0结束
+
+```kotlin
+fun selectSort(arr: IntArray, isAsc: Boolean) {
+    for (i in arr.indices) {
+        var index: Int = i
+        for (j in i+1 until arr.size) {
+            val asc = if (isAsc) arr[j] < arr[index]
+            else arr[j] > arr[index]
+            if (asc) {
+                index = j
+            }
+        }
+        val temp = arr[index]
+        arr[index] = arr[i]
+        arr[i] = temp
+    }
+    println(arr.contentToString())
+}
+```

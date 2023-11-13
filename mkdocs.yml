@@ -27,19 +27,38 @@ nav:
         - 网络编程: 
            - 网络基础: android/network/net_base.md
            - 抓包工具: android/network/net_charles.md
+           - TCP协议: android/network/net_tcp.md
+           - Socket: android/network/net_socket.md
+           - HTTP协议: android/network/net_http.md
+           - WebSocket协议: android/network/net_websocket.md
         - 高级UI: 
            - RecycleView: android/ui/ui_recyclerview.md
            - View: android/android_ui.md
+           - WebView: android/ui/ui_webview.md
         - Framework:
            - IPC通信: android/fws/fws_process.md
+           - WMS: android/fws/fws_wms.md
+           - AMS: android/fws/fws_ams.md
+           - PMS: android/fws/fws_pms.md
+           - Android启动流程: android/fws/fws_android_start.md
+           - App进程启动: android/fws/fws_app_start.md
         - 性能优化: 
            - 图片相关: android/performance/android_bitmap.md
+           - 内存管理: android/performance/android_memory.md
+           - Mat工具: android/performance/android_mat.md
+           - LeakCanary: android/performance/android_leakcanary.md
+           - KOOM: android/performance/android_koom.md
+           - ANR监控: android/performance/android_anr.md
+           - Crash监控: android/performance/android_crash.md
            - 数据结构: android/performance/android_datastructure.md
-        - 插件化技术: android/android_hotfix.md
+        - 插件化: android/android_hotfix.md
+        - 组件化:
+           - as配置: android/component/com_base.md
         - 开源框架: android/android_github.md
         - 开发模式: android/android_dev_mode.md
         - Apk相关: android/android_build_apk.md
         - Compose: android/android_compose.md
+        - AS相关: android/android_studio.md
         # - NDK: android/android_ndk.md
         - Flutter: android/android_flutter.md
         # - 小程序: android/android_wechat.md
