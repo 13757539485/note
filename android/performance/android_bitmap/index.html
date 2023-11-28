@@ -11,17 +11,17 @@
         <link rel="canonical" href="https://13757539485.github.io/note/android/performance/android_bitmap/">
       
       
-        <link rel="prev" href="../../fws/fws_app_start/">
+        <link rel="prev" href="../android_datastructure/">
       
       
-        <link rel="next" href="../android_memory/">
+        <link rel="next" href="../android_anr/">
       
       <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.14">
     
     
       
-        <title>图片相关 - 我的笔记</title>
+        <title>Bitmap优化 - 我的笔记</title>
       
     
     
@@ -106,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              图片相关
+              Bitmap优化
             
           </span>
         </div>
@@ -984,6 +984,68 @@
   
   
   
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_1_8_1" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_1_8_1" id="__nav_1_1_8_1_label" tabindex="0">
+          AOSP学习
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_1_1_8_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_1_1_8_1">
+          <span class="md-nav__icon md-icon"></span>
+          AOSP学习
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fws/fws_aosp/" class="md-nav__link">
+        环境搭建
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fws/fws_handler/" class="md-nav__link">
+        Handler
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
     <li class="md-nav__item">
       <a href="../../fws/fws_process/" class="md-nav__link">
         IPC通信
@@ -1014,7 +1076,7 @@
   
     <li class="md-nav__item">
       <a href="../../fws/fws_ams/" class="md-nav__link">
-        AMS
+        AMS/ATMS
       </a>
     </li>
   
@@ -1103,6 +1165,133 @@
               
   
   
+  
+    <li class="md-nav__item">
+      <a href="../android_start/" class="md-nav__link">
+        启动优化
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_1_9_2" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_1_9_2" id="__nav_1_1_9_2_label" tabindex="0">
+          内存优化
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_1_1_9_2_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_1_1_9_2">
+          <span class="md-nav__icon md-icon"></span>
+          内存优化
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../android_memory_base/" class="md-nav__link">
+        基础知识
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../android_memory_commond/" class="md-nav__link">
+        系统命令
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../android_memory_leak/" class="md-nav__link">
+        内存泄漏优化
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../android_memory_shake/" class="md-nav__link">
+        内存抖动优化
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../android_memory_oom/" class="md-nav__link">
+        内存溢出优化
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../android_datastructure/" class="md-nav__link">
+        数据结构优化
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
     
   
   
@@ -1113,12 +1302,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          图片相关
+          Bitmap优化
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        图片相关
+        Bitmap优化
       </a>
       
         
@@ -1218,14 +1407,139 @@
 
             
           
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_1_9_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_1_9_3" id="__nav_1_1_9_3_label" tabindex="0">
+          稳定性优化
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_1_1_9_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_1_1_9_3">
+          <span class="md-nav__icon md-icon"></span>
+          稳定性优化
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
             
               
   
   
   
     <li class="md-nav__item">
-      <a href="../android_memory/" class="md-nav__link">
-        内存管理
+      <a href="../android_anr/" class="md-nav__link">
+        ANR监控
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../android_crash/" class="md-nav__link">
+        Crash监控
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../android_ui/" class="md-nav__link">
+        UI优化
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../android_network/" class="md-nav__link">
+        网络优化
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../android_apk_cut/" class="md-nav__link">
+        瘦身优化
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../android_storage/" class="md-nav__link">
+        储存优化
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../android_battery/" class="md-nav__link">
+        电池优化
       </a>
     </li>
   
@@ -1268,48 +1582,6 @@
     <li class="md-nav__item">
       <a href="../android_koom/" class="md-nav__link">
         KOOM
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../android_anr/" class="md-nav__link">
-        ANR监控
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../android_crash/" class="md-nav__link">
-        Crash监控
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../android_datastructure/" class="md-nav__link">
-        数据结构
       </a>
     </li>
   
@@ -1463,6 +1735,20 @@
     <li class="md-nav__item">
       <a href="../../android_flutter/" class="md-nav__link">
         Flutter
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../android_interview/" class="md-nav__link">
+        面试题
       </a>
     </li>
   
@@ -2236,7 +2522,7 @@
                   
 
 
-  <h1>图片相关</h1>
+  <h1>Bitmap优化</h1>
 
 <h3 id="bitmap">Bitmap<a class="headerlink" href="#bitmap" title="Permanent link">&para;</a></h3>
 <p>图片占用内存大小计算：分辨率x像素点大小</p>
@@ -2346,13 +2632,15 @@
 <h3 id="_5">缓存位图<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
 <h4 id="_6">内存缓存<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h4>
 <p>LruCache 类，不建议使用软引用或弱引用容易被回收</p>
-<p>选择策略
-1. 当前app内存占用情况(可能即将达到进程所能申请的最大内存)
-2. 屏幕显示图片数量(列表中显示场景)
-3. 屏幕尺寸和密度(分辨率和dpi影响计算内存大小)
-4. 位图尺寸和配置(原图大小，编码模式，压缩)
-5. 图片访问频率
-6. 质量和数量之间的平衡</p>
+<p>选择策略</p>
+<ol>
+<li>当前app内存占用情况(可能即将达到进程所能申请的最大内存)</li>
+<li>屏幕显示图片数量(列表中显示场景)</li>
+<li>屏幕尺寸和密度(分辨率和dpi影响计算内存大小)</li>
+<li>位图尺寸和配置(原图大小，编码模式，压缩)</li>
+<li>图片访问频率</li>
+<li>质量和数量之间的平衡</li>
+</ol>
 <p>使用例子，分配最大内存的&#8539;
 <div class="highlight"><pre><span></span><code><span class="kd">private</span><span class="w"> </span><span class="kd">lateinit</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="nv">memoryCache</span><span class="p">:</span><span class="w"> </span><span class="n">LruCache</span><span class="o">&lt;</span><span class="kt">String</span><span class="p">,</span><span class="w"> </span><span class="n">Bitmap</span><span class="o">&gt;</span>
 
