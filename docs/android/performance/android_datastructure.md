@@ -65,6 +65,9 @@ dumpsys meminfo 包名
 
 RSS 共享库so 动态链接库
 
+Tinker的so的加载流程
+https://github.com/KeepSafe/Relinker
+
 YSS>=RSS>=PSS>=USS
 
 vmstart

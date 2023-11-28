@@ -98,8 +98,17 @@ kt的根父类Any相当于java的Object
 
 Any类只提供标准，看不到源码具体实现，由各个平台处理
 
+除了可以转化类型，还可以对导入函数进行重命名，如
+```kotlin
+import com.hfc.lib.util.abcdfjdksalfjdlsajflglsdjfsak as method
+
+fun main() {
+//    abcdfjdksalfjdlsajflglsdjfsak()
+    method()
+}
+```
 ### object关键字
-#### 单例
+#### <a id="single">单例</a>
 表示的类将变成单例对象
 ```kotlin
 object Student : Person() {

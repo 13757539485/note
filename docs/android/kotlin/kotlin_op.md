@@ -266,3 +266,13 @@ class A(var name: String) {
 使用operator关键字，plus是可以通过快捷键(Ctrl+空格)提示出对应关系
 
 ![operator](../../img/kotlin/operator.png)
+
+### infix
+模仿系统的x to x
+```kotlin
+infix fun <T, R> T.go(r: R) {
+    println("$this - $r")
+}
+"who" go "you"
+"who".go("you")
+```

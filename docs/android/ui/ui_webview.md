@@ -50,7 +50,7 @@ override fun shouldOverrideUrlLoading(view: WebView?, request: WebResourceReques
 #### 方式3
 WebViewChromeClient从重写方法onJsAlert、onJsConfirm、onJsPrompt
 
-### 优化方案
+### <a id="webview_optimize">优化方案</a>
 1. WebView 动态加载和销毁
 2. 独立的web进程，与主进程隔开，解决任何webview内存泄漏之类的问题
 3. 实现WebView复用

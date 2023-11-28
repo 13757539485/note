@@ -286,15 +286,5 @@ v2(dis)->v2(onTouchEvent = super.onTouchEvent)->onClick
 2. onTouchEvent调用由onTouch的返回值决定，false调用
 3. onClick调用由onTouchEvent的返回值决定，调用super.onTouchEvent且是在UP事件后
 
-#### 责任链模式
-优点
-1. 降低对象间耦合度
-2. 增强系统可扩展性，满足开闭原则
-3. 增强对象指派责任的灵活性
-4. 简化对象之间的连接，避免if else语句
-5. 责任分担，每个类只需要处理自己的工作，符合单一职责原则
+设计模式：[责任链模式](./design_mode.md#chain)
 
-缺点
-1. 不能保证事件一定被处理
-2. 责任链太长时，系统性能受影响
-3. 责任链建立需要合理处理才能保证，复杂性增加

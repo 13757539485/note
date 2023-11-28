@@ -37,7 +37,7 @@ public class GenericMethod {
     }
 }
 ```
-注：有<T>才是泛型方法，且和泛型类无关，如
+注：有`<T>`才是泛型方法，且和泛型类无关，如
 ```java
 public class GenericMethod<T> {
     public <T> T genericMethod(T...a){

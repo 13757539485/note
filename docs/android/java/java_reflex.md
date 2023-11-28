@@ -1,5 +1,6 @@
 ### 获得 Class 对象
 获取Class对象的三种方式
+
 1. 通过类名获取 类名.class
 2. 通过对象获取 对象名.getClass()
 3. 通过全类名获取 Class.forName(全类名) classLoader.loadClass(全类名)

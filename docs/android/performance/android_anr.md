@@ -53,7 +53,7 @@ java中Thread封装的[生命周期](../java/java_thread.md#thread_life)
 
 通过友盟、bugly等监控，提取日志手机配置信息大致定位，有条件可本地复现
 
-#### ANR监听
+#### 自行实现ANR监听
 
 1.利用FileObserver，但受selinux限制，系统开发不影响，三方app不行
 ```kotlin

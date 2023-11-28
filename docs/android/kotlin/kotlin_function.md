@@ -233,3 +233,57 @@ println(NAME.takeIf {
 ```
 ### takeUnless
 和takeIf相反
+
+### 扩展函数
+1. 自定义扩展不能重复
+2. jdk中扩展函数可以覆盖
+```kotlin
+fun <T> T?.showContent() = println("showContent: $this")
+fun Any?.other() = println("other: $this")
+null.other()
+"D".showContent()
+```
+### map函数
+转化返回类型
+```kotlin
+val list = listOf(1, 2, 3)
+println(list.map {
+    "new$it"
+}.map {
+    it.replace("new", "old")
+}.map {
+    it.replace("old", "")
+}.map {
+    it.toInt() + 5
+})
+```
+### flatMap函数
+```kotlin
+val list = listOf(1, 2, 3)
+println(list.map {
+    "new$it"
+}.flatMap {
+    listOf(it.replace("new", "4"))
+})
+```
+### filter函数
+过滤功能，配合map和flatMap效果不同
+```kotlin
+listOf(
+    listOf("flat", "run"),
+    listOf("ab", "len")
+).flatMap {
+    it.filter { content ->
+        content.contains("f")
+    }
+}.map {
+    println(it)//flat
+}
+```
+### zip函数
+合并集合
+```kotlin
+val list1 = listOf("a","b","c")
+val list2 = listOf(1,2,3)
+println(list1.zip(list2))//[(a, 1), (b, 2), (c, 3)]
+```
