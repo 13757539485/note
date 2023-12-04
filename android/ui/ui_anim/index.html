@@ -68,6 +68,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#renderthread" class="md-skip">
+          跳转至
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -2302,6 +2307,28 @@
   
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#renderthread" class="md-nav__link">
+    RenderThread
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#android" class="md-nav__link">
+    Android绘制流程
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2317,7 +2344,16 @@
 
   <h1>Ui anim</h1>
 
-
+<h3 id="renderthread">RenderThread<a class="headerlink" href="#renderthread" title="Permanent link">&para;</a></h3>
+<p>渲染线程，Android5.0之后将Open GL线程独立出来的线程</p>
+<p>硬件加速：通过GPU渲染，Android4.0默认开启，</p>
+<p>GPU：硬件，由GPU厂商按照Open GL规范实现的驱动</p>
+<p>Open GL线程：处理硬件加速绘制的线程</p>
+<h3 id="android">Android绘制流程<a class="headerlink" href="#android" title="Permanent link">&para;</a></h3>
+<p>软件绘制</p>
+<p>CPU主导，每个窗口关联一个Surface，lockCanvas方法获取一个Canvas，SurfaceFlinger，GraphicBuffer</p>
+<p>硬件绘制</p>
+<p>GPU主导</p>
 
 
 

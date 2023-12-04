@@ -1889,6 +1889,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    2.拖拽删除文件
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2367,6 +2374,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    2.拖拽删除文件
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2394,6 +2408,11 @@
 <img alt="win11_clsid_inner_create" src="../../img/win11_clsid_inner_create.png" /></p>
 <p>5.重启资源管理器
 <img alt="win11_reboot_res" src="../../img/win11_reboot_res.png" /></p>
+<h3 id="2">2.拖拽删除文件<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
+<p>新建bat文件，添加代码
+<div class="highlight"><pre><span></span><code><span class="k">DEL</span> /F /A /Q \\?\<span class="nv">%1</span>
+<span class="k">RD</span> /S /Q \\?\<span class="nv">%1</span>
+</code></pre></div></p>
 
 
 
