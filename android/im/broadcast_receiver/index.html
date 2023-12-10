@@ -8,27 +8,23 @@
       
       
       
-        <link rel="canonical" href="https://13757539485.github.io/note/android/android_studio/">
+        <link rel="canonical" href="https://13757539485.github.io/note/android/im/broadcast_receiver/">
       
       
-        <link rel="prev" href="../android_compose/">
       
-      
-        <link rel="next" href="../android_flutter/">
-      
-      <link rel="icon" href="../../assets/images/favicon.png">
+      <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.14">
     
     
       
-        <title>AS相关 - 我的笔记</title>
+        <title>Broadcast receiver - 我的笔记</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.85bb2934.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.85bb2934.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.a6bdf11c.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.a6bdf11c.min.css">
       
       
 
@@ -44,7 +40,7 @@
       
     
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -72,11 +68,6 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
-        
-        <a href="#composekotlin" class="md-skip">
-          跳转至
-        </a>
-      
     </div>
     <div data-md-component="announce">
       
@@ -87,7 +78,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="页眉">
-    <a href="../.." title="我的笔记" class="md-header__button md-logo" aria-label="我的笔记" data-md-component="logo">
+    <a href="../../.." title="我的笔记" class="md-header__button md-logo" aria-label="我的笔记" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -106,7 +97,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              AS相关
+              Broadcast receiver
             
           </span>
         </div>
@@ -194,8 +185,6 @@
         
   
   
-    
-  
 
 
   
@@ -212,7 +201,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../java/java_basic/" class="md-tabs__link md-tabs__link--active">
+      <a href="../../java/java_basic/" class="md-tabs__link">
         Android系统
       </a>
     </li>
@@ -232,7 +221,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../window/window_install/" class="md-tabs__link">
+      <a href="../../../window/window_install/" class="md-tabs__link">
         Window系统
       </a>
     </li>
@@ -253,7 +242,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../linux/ubuntu_install/" class="md-tabs__link">
+      <a href="../../../linux/ubuntu_install/" class="md-tabs__link">
         Linux系统
       </a>
     </li>
@@ -271,7 +260,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../mac/mac_install/" class="md-tabs__link">
+      <a href="../../../mac/mac_install/" class="md-tabs__link">
         mac系统
       </a>
     </li>
@@ -287,7 +276,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../ohos/ohos_build/" class="md-tabs__link">
+      <a href="../../../ohos/ohos_build/" class="md-tabs__link">
         OpenHarmony系统
       </a>
     </li>
@@ -303,7 +292,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../python/" class="md-tabs__link">
+      <a href="../../../python/" class="md-tabs__link">
         常见开发环境
       </a>
     </li>
@@ -319,7 +308,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../excel/" class="md-tabs__link">
+      <a href="../../../excel/" class="md-tabs__link">
         其他学习
       </a>
     </li>
@@ -347,7 +336,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="我的笔记" class="md-nav__button md-logo" aria-label="我的笔记" data-md-component="logo">
+    <a href="../../.." title="我的笔记" class="md-nav__button md-logo" aria-label="我的笔记" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -364,16 +353,14 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" checked>
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
       
       
       
@@ -382,7 +369,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="true">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_1">
           <span class="md-nav__icon md-icon"></span>
           Android系统
@@ -393,16 +380,14 @@
               
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_1" checked>
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_1" >
       
       
       
@@ -411,7 +396,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_1_label" aria-expanded="true">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_1_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_1_1">
           <span class="md-nav__icon md-icon"></span>
           学习笔记
@@ -451,7 +436,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../java/java_basic/" class="md-nav__link">
+      <a href="../../java/java_basic/" class="md-nav__link">
         基础
       </a>
     </li>
@@ -465,7 +450,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../java/java_jvm/" class="md-nav__link">
+      <a href="../../java/java_jvm/" class="md-nav__link">
         虚拟机
       </a>
     </li>
@@ -479,7 +464,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../java/java_genericity/" class="md-nav__link">
+      <a href="../../java/java_genericity/" class="md-nav__link">
         泛型
       </a>
     </li>
@@ -493,7 +478,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../java/java_reflex/" class="md-nav__link">
+      <a href="../../java/java_reflex/" class="md-nav__link">
         反射
       </a>
     </li>
@@ -541,7 +526,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../kotlin/kotlin_basic/" class="md-nav__link">
+      <a href="../../kotlin/kotlin_basic/" class="md-nav__link">
         入门
       </a>
     </li>
@@ -555,7 +540,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../kotlin/kotlin_function/" class="md-nav__link">
+      <a href="../../kotlin/kotlin_function/" class="md-nav__link">
         函数
       </a>
     </li>
@@ -569,7 +554,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../kotlin/kotlin_op/" class="md-nav__link">
+      <a href="../../kotlin/kotlin_op/" class="md-nav__link">
         操作符与关键字
       </a>
     </li>
@@ -583,7 +568,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../kotlin/kotlin_collection/" class="md-nav__link">
+      <a href="../../kotlin/kotlin_collection/" class="md-nav__link">
         集合
       </a>
     </li>
@@ -597,7 +582,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../kotlin/kotlin_class/" class="md-nav__link">
+      <a href="../../kotlin/kotlin_class/" class="md-nav__link">
         类
       </a>
     </li>
@@ -611,7 +596,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../kotlin/kotlin_code/" class="md-nav__link">
+      <a href="../../kotlin/kotlin_code/" class="md-nav__link">
         实战应用
       </a>
     </li>
@@ -625,7 +610,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../kotlin/kotlin_principle/" class="md-nav__link">
+      <a href="../../kotlin/kotlin_principle/" class="md-nav__link">
         原理
       </a>
     </li>
@@ -646,7 +631,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../java/java_collection/" class="md-nav__link">
+      <a href="../../java/java_collection/" class="md-nav__link">
         数据结构
       </a>
     </li>
@@ -660,7 +645,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../design_mode/" class="md-nav__link">
+      <a href="../../design_mode/" class="md-nav__link">
         设计模式
       </a>
     </li>
@@ -701,7 +686,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../java/java_base/" class="md-nav__link">
+      <a href="../../java/java_base/" class="md-nav__link">
         基础概念
       </a>
     </li>
@@ -715,7 +700,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../java/java_thread/" class="md-nav__link">
+      <a href="../../java/java_thread/" class="md-nav__link">
         线程
       </a>
     </li>
@@ -729,7 +714,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../java/java_safe/" class="md-nav__link">
+      <a href="../../java/java_safe/" class="md-nav__link">
         线程安全
       </a>
     </li>
@@ -743,7 +728,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../java/java_lock/" class="md-nav__link">
+      <a href="../../java/java_lock/" class="md-nav__link">
         锁
       </a>
     </li>
@@ -791,7 +776,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../network/net_base/" class="md-nav__link">
+      <a href="../../network/net_base/" class="md-nav__link">
         网络基础
       </a>
     </li>
@@ -805,7 +790,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../network/net_charles/" class="md-nav__link">
+      <a href="../../network/net_charles/" class="md-nav__link">
         抓包工具
       </a>
     </li>
@@ -819,7 +804,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../network/net_tcp/" class="md-nav__link">
+      <a href="../../network/net_tcp/" class="md-nav__link">
         TCP协议
       </a>
     </li>
@@ -833,7 +818,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../network/net_socket/" class="md-nav__link">
+      <a href="../../network/net_socket/" class="md-nav__link">
         Socket
       </a>
     </li>
@@ -847,7 +832,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../network/net_http/" class="md-nav__link">
+      <a href="../../network/net_http/" class="md-nav__link">
         HTTP协议
       </a>
     </li>
@@ -861,7 +846,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../network/net_websocket/" class="md-nav__link">
+      <a href="../../network/net_websocket/" class="md-nav__link">
         WebSocket协议
       </a>
     </li>
@@ -909,7 +894,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../ui/ui_recyclerview/" class="md-nav__link">
+      <a href="../../ui/ui_recyclerview/" class="md-nav__link">
         RecycleView
       </a>
     </li>
@@ -923,7 +908,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../android_ui/" class="md-nav__link">
+      <a href="../../android_ui/" class="md-nav__link">
         View
       </a>
     </li>
@@ -937,7 +922,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../ui/ui_webview/" class="md-nav__link">
+      <a href="../../ui/ui_webview/" class="md-nav__link">
         WebView
       </a>
     </li>
@@ -1012,7 +997,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../fws/fws_aosp/" class="md-nav__link">
+      <a href="../../fws/fws_aosp/" class="md-nav__link">
         环境搭建
       </a>
     </li>
@@ -1026,7 +1011,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../fws/fws_handler/" class="md-nav__link">
+      <a href="../../fws/fws_handler/" class="md-nav__link">
         Handler
       </a>
     </li>
@@ -1047,7 +1032,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../fws/fws_process/" class="md-nav__link">
+      <a href="../../fws/fws_process/" class="md-nav__link">
         IPC通信
       </a>
     </li>
@@ -1061,7 +1046,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../fws/fws_wms/" class="md-nav__link">
+      <a href="../../fws/fws_wms/" class="md-nav__link">
         WMS
       </a>
     </li>
@@ -1075,7 +1060,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../fws/fws_ams/" class="md-nav__link">
+      <a href="../../fws/fws_ams/" class="md-nav__link">
         AMS/ATMS
       </a>
     </li>
@@ -1089,7 +1074,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../fws/fws_pms/" class="md-nav__link">
+      <a href="../../fws/fws_pms/" class="md-nav__link">
         PMS
       </a>
     </li>
@@ -1103,7 +1088,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../fws/fws_android_start/" class="md-nav__link">
+      <a href="../../fws/fws_android_start/" class="md-nav__link">
         Android启动流程
       </a>
     </li>
@@ -1117,7 +1102,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../fws/fws_app_start/" class="md-nav__link">
+      <a href="../../fws/fws_app_start/" class="md-nav__link">
         App进程启动
       </a>
     </li>
@@ -1165,7 +1150,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../performance/android_start/" class="md-nav__link">
+      <a href="../../performance/android_start/" class="md-nav__link">
         启动优化
       </a>
     </li>
@@ -1206,7 +1191,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../performance/android_memory_base/" class="md-nav__link">
+      <a href="../../performance/android_memory_base/" class="md-nav__link">
         基础知识
       </a>
     </li>
@@ -1220,7 +1205,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../performance/android_memory_commond/" class="md-nav__link">
+      <a href="../../performance/android_memory_commond/" class="md-nav__link">
         系统命令
       </a>
     </li>
@@ -1234,7 +1219,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../performance/android_memory_leak/" class="md-nav__link">
+      <a href="../../performance/android_memory_leak/" class="md-nav__link">
         内存泄漏优化
       </a>
     </li>
@@ -1248,7 +1233,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../performance/android_memory_shake/" class="md-nav__link">
+      <a href="../../performance/android_memory_shake/" class="md-nav__link">
         内存抖动优化
       </a>
     </li>
@@ -1262,7 +1247,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../performance/android_memory_oom/" class="md-nav__link">
+      <a href="../../performance/android_memory_oom/" class="md-nav__link">
         内存溢出优化
       </a>
     </li>
@@ -1276,7 +1261,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../performance/android_datastructure/" class="md-nav__link">
+      <a href="../../performance/android_datastructure/" class="md-nav__link">
         数据结构优化
       </a>
     </li>
@@ -1290,7 +1275,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../performance/android_bitmap/" class="md-nav__link">
+      <a href="../../performance/android_bitmap/" class="md-nav__link">
         Bitmap优化
       </a>
     </li>
@@ -1338,7 +1323,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../performance/android_anr/" class="md-nav__link">
+      <a href="../../performance/android_anr/" class="md-nav__link">
         ANR监控
       </a>
     </li>
@@ -1352,7 +1337,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../performance/android_crash/" class="md-nav__link">
+      <a href="../../performance/android_crash/" class="md-nav__link">
         Crash监控
       </a>
     </li>
@@ -1373,7 +1358,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../performance/android_ui/" class="md-nav__link">
+      <a href="../../performance/android_ui/" class="md-nav__link">
         UI优化
       </a>
     </li>
@@ -1387,7 +1372,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../performance/android_network/" class="md-nav__link">
+      <a href="../../performance/android_network/" class="md-nav__link">
         网络优化
       </a>
     </li>
@@ -1401,7 +1386,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../performance/android_apk_cut/" class="md-nav__link">
+      <a href="../../performance/android_apk_cut/" class="md-nav__link">
         瘦身优化
       </a>
     </li>
@@ -1415,7 +1400,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../performance/android_storage/" class="md-nav__link">
+      <a href="../../performance/android_storage/" class="md-nav__link">
         储存优化
       </a>
     </li>
@@ -1429,7 +1414,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../performance/android_battery/" class="md-nav__link">
+      <a href="../../performance/android_battery/" class="md-nav__link">
         电池优化
       </a>
     </li>
@@ -1443,7 +1428,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../performance/android_mat/" class="md-nav__link">
+      <a href="../../performance/android_mat/" class="md-nav__link">
         Mat工具
       </a>
     </li>
@@ -1457,7 +1442,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../performance/android_leakcanary/" class="md-nav__link">
+      <a href="../../performance/android_leakcanary/" class="md-nav__link">
         LeakCanary
       </a>
     </li>
@@ -1471,7 +1456,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../performance/android_koom/" class="md-nav__link">
+      <a href="../../performance/android_koom/" class="md-nav__link">
         KOOM
       </a>
     </li>
@@ -1492,7 +1477,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../android_hotfix/" class="md-nav__link">
+      <a href="../../android_hotfix/" class="md-nav__link">
         插件化
       </a>
     </li>
@@ -1533,7 +1518,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../component/com_base/" class="md-nav__link">
+      <a href="../../component/com_base/" class="md-nav__link">
         as配置
       </a>
     </li>
@@ -1554,7 +1539,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../android_github/" class="md-nav__link">
+      <a href="../../android_github/" class="md-nav__link">
         开源框架
       </a>
     </li>
@@ -1568,7 +1553,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../android_dev_mode/" class="md-nav__link">
+      <a href="../../android_dev_mode/" class="md-nav__link">
         开发模式
       </a>
     </li>
@@ -1582,7 +1567,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../android_build_apk/" class="md-nav__link">
+      <a href="../../android_build_apk/" class="md-nav__link">
         Apk相关
       </a>
     </li>
@@ -1596,7 +1581,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../android_compose/" class="md-nav__link">
+      <a href="../../android_compose/" class="md-nav__link">
         Compose
       </a>
     </li>
@@ -1608,89 +1593,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          AS相关
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../android_studio/" class="md-nav__link">
         AS相关
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="目录">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#composekotlin" class="md-nav__link">
-    Compose与kotlin版本兼容
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    注解处理器
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#gradle" class="md-nav__link">
-    gradle常见问题
-  </a>
-  
-    <nav class="md-nav" aria-label="gradle常见问题">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#gradle80" class="md-nav__link">
-    老版本升级gradle8.0
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#ndk" class="md-nav__link">
-    ndk配置
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#gradle_1" class="md-nav__link">
-    gradle下载源
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1702,7 +1609,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../android_flutter/" class="md-nav__link">
+      <a href="../../android_flutter/" class="md-nav__link">
         Flutter
       </a>
     </li>
@@ -1716,7 +1623,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../android_interview/" class="md-nav__link">
+      <a href="../../android_interview/" class="md-nav__link">
         面试题
       </a>
     </li>
@@ -1764,7 +1671,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../android_os/" class="md-nav__link">
+      <a href="../../android_os/" class="md-nav__link">
         OS大全
       </a>
     </li>
@@ -1778,7 +1685,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../android_root/" class="md-nav__link">
+      <a href="../../android_root/" class="md-nav__link">
         Root面具
       </a>
     </li>
@@ -1834,7 +1741,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../window/window_install/" class="md-nav__link">
+      <a href="../../../window/window_install/" class="md-nav__link">
         系统安装
       </a>
     </li>
@@ -1848,7 +1755,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../window/window_software/" class="md-nav__link">
+      <a href="../../../window/window_software/" class="md-nav__link">
         常见软件
       </a>
     </li>
@@ -1889,7 +1796,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../window/window_vmware/" class="md-nav__link">
+      <a href="../../../window/window_vmware/" class="md-nav__link">
         VMWare安装
       </a>
     </li>
@@ -1903,7 +1810,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../window/window_wsl2/" class="md-nav__link">
+      <a href="../../../window/window_wsl2/" class="md-nav__link">
         WSL2
       </a>
     </li>
@@ -1917,7 +1824,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../window/window_inner_android/" class="md-nav__link">
+      <a href="../../../window/window_inner_android/" class="md-nav__link">
         Android子系统
       </a>
     </li>
@@ -1931,7 +1838,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../window/window_win11/" class="md-nav__link">
+      <a href="../../../window/window_win11/" class="md-nav__link">
         Window11相关
       </a>
     </li>
@@ -2014,7 +1921,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../linux/ubuntu_install/" class="md-nav__link">
+      <a href="../../../linux/ubuntu_install/" class="md-nav__link">
         ubuntu
       </a>
     </li>
@@ -2028,7 +1935,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../linux/deepin_install/" class="md-nav__link">
+      <a href="../../../linux/deepin_install/" class="md-nav__link">
         deepin
       </a>
     </li>
@@ -2049,7 +1956,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../linux/linux_software/" class="md-nav__link">
+      <a href="../../../linux/linux_software/" class="md-nav__link">
         常见软件
       </a>
     </li>
@@ -2090,7 +1997,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../linux/linux_command/" class="md-nav__link">
+      <a href="../../../linux/linux_command/" class="md-nav__link">
         常用命令
       </a>
     </li>
@@ -2146,7 +2053,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../mac/mac_install/" class="md-nav__link">
+      <a href="../../../mac/mac_install/" class="md-nav__link">
         黑苹果
       </a>
     </li>
@@ -2160,7 +2067,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../mac/mac_software/" class="md-nav__link">
+      <a href="../../../mac/mac_software/" class="md-nav__link">
         使用软件
       </a>
     </li>
@@ -2174,7 +2081,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../mac/mac_swift/" class="md-nav__link">
+      <a href="../../../mac/mac_swift/" class="md-nav__link">
         SwiftUI
       </a>
     </li>
@@ -2223,7 +2130,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ohos/ohos_build/" class="md-nav__link">
+      <a href="../../../ohos/ohos_build/" class="md-nav__link">
         源码编译
       </a>
     </li>
@@ -2237,7 +2144,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ohos/arkui/" class="md-nav__link">
+      <a href="../../../ohos/arkui/" class="md-nav__link">
         ArkUI开发
       </a>
     </li>
@@ -2286,7 +2193,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../python/" class="md-nav__link">
+      <a href="../../../python/" class="md-nav__link">
         python部署
       </a>
     </li>
@@ -2300,7 +2207,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../git_github/" class="md-nav__link">
+      <a href="../../../git_github/" class="md-nav__link">
         git部署
       </a>
     </li>
@@ -2349,7 +2256,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../excel/" class="md-nav__link">
+      <a href="../../../excel/" class="md-nav__link">
         Excel
       </a>
     </li>
@@ -2363,7 +2270,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../markdown/" class="md-nav__link">
+      <a href="../../../markdown/" class="md-nav__link">
         Markdown
       </a>
     </li>
@@ -2395,62 +2302,6 @@
   
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#composekotlin" class="md-nav__link">
-    Compose与kotlin版本兼容
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    注解处理器
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#gradle" class="md-nav__link">
-    gradle常见问题
-  </a>
-  
-    <nav class="md-nav" aria-label="gradle常见问题">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#gradle80" class="md-nav__link">
-    老版本升级gradle8.0
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#ndk" class="md-nav__link">
-    ndk配置
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#gradle_1" class="md-nav__link">
-    gradle下载源
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -2464,129 +2315,9 @@
                   
 
 
-  <h1>AS相关</h1>
+  <h1>Broadcast receiver</h1>
 
-<h3 id="composekotlin">Compose与kotlin版本兼容<a class="headerlink" href="#composekotlin" title="Permanent link">&para;</a></h3>
-<p><a href="https://developer.android.com/jetpack/androidx/releases/compose-kotlin?hl=zh-cn">https://developer.android.com/jetpack/androidx/releases/compose-kotlin?hl=zh-cn</a></p>
-<h3 id="_1"><a id="kapt">注解处理器</a><a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
-<p>auto-service: <a href="https://github.com/google/auto">https://github.com/google/auto</a></p>
-<p>添加kapt
-<div class="highlight"><pre><span></span><code>plugins {
-    id &#39;com.android.library&#39;
-    id &#39;org.jetbrains.kotlin.android&#39;
-    id &#39;kotlin-kapt&#39;
-}
-annotationProcessor &#39;com.google.auto.service:auto-service:1.1.1&#39;
-kapt &#39;com.google.auto.service:auto-service:1.1.1&#39;
-</code></pre></div></p>
-<h3 id="gradle">gradle常见问题<a class="headerlink" href="#gradle" title="Permanent link">&para;</a></h3>
-<h4 id="gradle80">老版本升级gradle8.0<a class="headerlink" href="#gradle80" title="Permanent link">&para;</a></h4>
-<p>1.先修改gradle/gradle-wrapper.properties成8.0
-<div class="highlight"><pre><span></span><code>distributionBase=GRADLE_USER_HOME
-distributionUrl=https\://services.gradle.org/distributions/gradle-8.0-bin.zip
-distributionPath=wrapper/dists
-zipStorePath=wrapper/dists
-zipStoreBase=GRADLE_USER_HOME
-</code></pre></div></p>
-<p>2.修改settings.gradle和根build.gradle文件</p>
-<p>build.gradle参考模板
-<div class="highlight"><pre><span></span><code>buildscript {
-    ext {
-        compose_version = &#39;1.4.2&#39;
-    }
-}
-plugins {
-    id &#39;com.android.application&#39; version &#39;8.0.0&#39; apply false
-    id &#39;com.android.library&#39; version &#39;8.0.0&#39; apply false
-    id &#39;org.jetbrains.kotlin.android&#39; version &#39;1.8.10&#39; apply false
-    id &#39;org.jetbrains.kotlin.jvm&#39; version &#39;1.8.10&#39; apply false
-}
 
-task clean(type: Delete) {
-    delete rootProject.buildDir
-}
-</code></pre></div>
-settings.gradle参考模板
-<div class="highlight"><pre><span></span><code><span class="n">pluginManagement</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">repositories</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="n">gradlePluginPortal</span><span class="p">()</span>
-<span class="w">        </span><span class="n">google</span><span class="p">()</span>
-<span class="w">        </span><span class="n">mavenCentral</span><span class="p">()</span>
-<span class="w">        </span><span class="n">maven</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">url</span><span class="w"> </span><span class="err">&#39;</span><span class="n">https</span><span class="p">:</span><span class="c1">//jitpack.io&#39; }</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">}</span>
-<span class="n">dependencyResolutionManagement</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">repositoriesMode</span><span class="p">.</span><span class="na">set</span><span class="p">(</span><span class="n">RepositoriesMode</span><span class="p">.</span><span class="na">FAIL_ON_PROJECT_REPOS</span><span class="p">)</span>
-<span class="w">    </span><span class="n">repositories</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="n">google</span><span class="p">()</span>
-<span class="w">        </span><span class="n">mavenCentral</span><span class="p">()</span>
-<span class="w">        </span><span class="n">maven</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">url</span><span class="w"> </span><span class="err">&#39;</span><span class="n">https</span><span class="p">:</span><span class="c1">//jitpack.io&#39; }//三方库常用</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">}</span>
-<span class="n">rootProject</span><span class="p">.</span><span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;KotlinApp&quot;</span><span class="c1">//项目文件夹名字</span>
-<span class="n">include</span><span class="w"> </span><span class="err">&#39;</span><span class="p">:</span><span class="n">app</span><span class="err">&#39;</span>
-<span class="n">include</span><span class="w"> </span><span class="err">&#39;</span><span class="p">:</span><span class="n">other</span><span class="err">&#39;</span><span class="c1">//其他module</span>
-</code></pre></div>
-其他报错修改</p>
-<p>1.Build was configured to prefer settings repositories over project repositories but repository 'flatDir' was added by build file 'xxx\build.gradle'
-<div class="highlight"><pre><span></span><code>repositories {
-    flatDir {
-        dirs &#39;libs&#39;, &#39;providedLibs&#39;
-    }
-}
-</code></pre></div>
-解决方式</p>
-<p>将flatDir部分代码移动到settings.gradle</p>
-<p>2.Namespace not specified. Please specify a namespace in the module's build.gradle file like so</p>
-<p>将每个build.gradle中添加包名，可从AndroidManifest中查看
-<div class="highlight"><pre><span></span><code>android {
-    namespace &#39;com.xxx.xxx&#39;
-}
-</code></pre></div></p>
-<p>3.Build Type 'debug' contains custom BuildConfig fields, but the feature is disabled.</p>
-<p>build.gradle中使用了自定义配置(BuildConfig)属性buildConfigField，8.0默认关闭需要手动开启
-<div class="highlight"><pre><span></span><code>android {
-    buildFeatures {
-        buildConfig = true
-    }
-}
-</code></pre></div>
-4.无法新建AIDL文件
-Requires setting the buildFeatures.aidl to true in the build file
-<div class="highlight"><pre><span></span><code>buildFeatures {
-    aidl = true
-}
-</code></pre></div></p>
-<h3 id="ndk"><a id="ndk_config">ndk配置</a><a class="headerlink" href="#ndk" title="Permanent link">&para;</a></h3>
-<p><div class="highlight"><pre><span></span><code>android {
-    //...
-    defaultConfig {
-        //...
-        //配置自己c++代码编译的CPU架构
-        externalNativeBuild {
-            cmake {
-                cppFlags &#39;&#39;
-                abiFilters &#39;armeabi-v7a&#39;
-            }
-        }
-        //配置打包哪些CPU架构
-        ndk {
-            abiFilters &#39;armeabi-v7a&#39;
-        }
-    }
-    //...
-    //配置cpp代码路径
-    externalNativeBuild {
-        cmake {
-            path file(&#39;src/main/cpp/CMakeLists.txt&#39;)
-            version &#39;3.22.1&#39;
-        }
-    }
-}
-</code></pre></div>
-as插件：CMake simple highlighter</p>
-<h3 id="gradle_1">gradle下载源<a class="headerlink" href="#gradle_1" title="Permanent link">&para;</a></h3>
-<p><a href="https://mirrors.huaweicloud.com/repository/maven/">https://mirrors.huaweicloud.com/repository/maven/</a></p>
 
 
 
@@ -2638,10 +2369,10 @@ as插件：CMake simple highlighter</p>
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "search.suggest", "search.highlight"], "search": "../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "search.suggest", "search.highlight"], "search": "../../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.b4d07000.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.b4d07000.min.js"></script>
       
     
   </body>

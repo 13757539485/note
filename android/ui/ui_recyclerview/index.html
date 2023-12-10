@@ -2823,7 +2823,10 @@
 <span class="w">    </span><span class="n">myAdapter</span><span class="p">.</span><span class="na">onItemLongClickListener</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
 
 <span class="w">    </span><span class="p">}</span>
-<span class="w">    </span><span class="n">itemAnimator</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DefaultItemAnimator</span><span class="p">()</span><span class="c1">//其他动画需自定义</span>
+<span class="w">    </span><span class="n">itemAnimator</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DefaultItemAnimator</span><span class="p">()</span><span class="w"> </span><span class="c1">//其他动画需自定义</span>
+
+<span class="w">    </span><span class="p">(</span><span class="n">itemAnimator</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">SimpleItemAnimator</span><span class="p">).</span><span class="na">supportsChangeAnimations</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="w"> </span><span class="c1">//关闭动画</span>
+
 <span class="w">    </span><span class="c1">//给Item添加分割线</span>
 <span class="w">    </span><span class="n">addItemDecoration</span><span class="p">(</span><span class="n">DividerItemDecoration</span><span class="p">(</span><span class="k">this</span><span class="nd">@RVActivity</span><span class="p">,</span><span class="w"> </span><span class="n">DividerItemDecoration</span><span class="p">.</span><span class="na">VERTICAL</span><span class="p">))))</span><span class="c1">//垂直方向</span>
 <span class="w">    </span><span class="n">addItemDecoration</span><span class="p">(</span><span class="n">DividerItemDecoration</span><span class="p">(</span><span class="k">this</span><span class="nd">@RVActivity</span><span class="p">,</span><span class="w"> </span><span class="n">DividerItemDecoration</span><span class="p">.</span><span class="na">HORIZONTAL</span><span class="p">))</span><span class="c1">//水平方向</span>
@@ -2958,7 +2961,9 @@ draw会调用父类View的draw，接着调用onDraw方法，即调用到分割�
 <span class="w">        </span><span class="n">outRect</span><span class="p">.</span><span class="na">bottom</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">bottomSpace</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
-</code></pre></div></p>
+</code></pre></div>
+setHastFixedSize：item改变时不会影响rv的高度时使用</p>
+<p>adapter.setHasStableIds(boolean)，需要重写getItemId(int position)方法，固定id可以减少刷新</p>
 <h2 id="_7">四级缓存源码分析<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
 <p>onTouchEvent会触发缓存和复用流程
 <div class="highlight"><pre><span></span><code><span class="nd">@Override</span>
