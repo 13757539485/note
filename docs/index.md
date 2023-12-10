@@ -70,6 +70,18 @@ mkdocs gh-deploy // 会自动创建分支名为gh-deploy并存放网页源码
 
 https://13757539485.github.io/note
 
+6. 如果网页没刷新，可以手动重新触发构建发布
+
+https://github.com/13757539485/note/actions
+
+找到失败的job或者最新的
+
+![index1](./img/index1.png)
+
+打开后重新触发
+
+![index2](./img/index2.png)
+
 ## yaml相关注意事项
 ### 安装material主题
 ```

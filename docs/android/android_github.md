@@ -241,3 +241,15 @@ https://blog.csdn.net/u013347784/article/details/125728996
 默认网络请求是使用OkHttp
 
 活动缓存、内存缓存、磁盘缓存
+
+### RecyclerView相关库
+1.实现仿美团双排翻页效果：
+https://github.com/GcsSloop/pager-layoutmanager
+
+![github1](../img/github/github1.png)
+
+2.实现仿微信九宫格效果：https://github.com/MartinMu2016/NineGridLayoutManager
+
+3.实现吸顶效果：https://github.com/donkingliang/ConsecutiveScroller
+
+4.快速使用adapter：https://github.com/CymChad/BaseRecyclerViewAdapterHelper

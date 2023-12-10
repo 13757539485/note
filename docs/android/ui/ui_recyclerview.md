@@ -50,7 +50,10 @@ StaggeredGridLayoutManager.VERTICAL)//使用ListView形式
     myAdapter.onItemLongClickListener = {
         
     }
-    itemAnimator = DefaultItemAnimator()//其他动画需自定义
+    itemAnimator = DefaultItemAnimator() //其他动画需自定义
+
+    (itemAnimator as SimpleItemAnimator).supportsChangeAnimations = false //关闭动画
+
     //给Item添加分割线
     addItemDecoration(DividerItemDecoration(this@RVActivity, DividerItemDecoration.VERTICAL))))//垂直方向
     addItemDecoration(DividerItemDecoration(this@RVActivity, DividerItemDecoration.HORIZONTAL))//水平方向
@@ -195,6 +198,9 @@ class GridSpacingItemDecoration(//列数
     }
 }
 ```
+setHastFixedSize：item改变时不会影响rv的高度时使用
+
+adapter.setHasStableIds(boolean)，需要重写getItemId(int position)方法，固定id可以减少刷新
 
 ## 四级缓存源码分析
 onTouchEvent会触发缓存和复用流程

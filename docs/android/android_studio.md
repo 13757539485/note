@@ -115,6 +115,7 @@ buildFeatures {
 ```
 
 ### <a id="ndk_config">ndk配置</a>
+```gradle
 android {
     //...
     defaultConfig {
@@ -140,4 +141,9 @@ android {
         }
     }
 }
+```
 as插件：CMake simple highlighter
+
+### gradle下载源
+
+https://mirrors.huaweicloud.com/repository/maven/

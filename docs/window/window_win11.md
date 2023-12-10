@@ -14,3 +14,13 @@
 
 5.重启资源管理器
 ![win11_reboot_res](../img/win11_reboot_res.png)
+
+```
+reg.exe delete "HKCUSoftwareClassesCLSID{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}InprocServer32" /va /f
+```
+### 2.拖拽删除文件
+新建bat文件，添加代码
+```bat
+DEL /F /A /Q \\?\%1
+RD /S /Q \\?\%1
+```
