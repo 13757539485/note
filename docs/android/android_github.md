@@ -235,7 +235,7 @@ https://blog.csdn.net/u013347784/article/details/125728996
 
 活动缓存、内存缓存、磁盘缓存
 
-### Coil
+### <a id="coil">Coil</a>
 官方网址：https://github.com/coil-kt/coil
 
 默认网络请求是使用OkHttp
@@ -252,4 +252,36 @@ https://github.com/GcsSloop/pager-layoutmanager
 
 3.实现吸顶效果：https://github.com/donkingliang/ConsecutiveScroller
 
-4.快速使用adapter：https://github.com/CymChad/BaseRecyclerViewAdapterHelper
+4.快速使用<a id="BaseRecyclerViewAdapterHelper">BaseRecyclerViewAdapterHelper</a>：https://github.com/CymChad/BaseRecyclerViewAdapterHelper
+```kotlin
+implementation（"io.github.cymchad:BaseRecyclerViewAdapterHelper4:4.1.2")
+```
+基本使用(官方案例)
+```kotlin
+class TestAdapter : BaseQuickAdapter<Status, TestAdapter.VH>() {
+
+    // 自定义ViewHolder类
+    class VH(
+        parent: ViewGroup,
+        val binding: LayoutAnimationBinding = LayoutAnimationBinding.inflate(
+            LayoutInflater.from(parent.context), parent, false
+        ),
+    ) : RecyclerView.ViewHolder(binding.root)
+
+    override fun onCreateViewHolder(context: Context, parent: ViewGroup, viewType: Int): VH {
+        // 返回一个 ViewHolder
+        return VH(parent)
+    }
+
+    override fun onBindViewHolder(holder: VH, position: Int, item: Status?) {
+        // 设置item数据
+    }
+}
+```
+注：添加数据集合内部是直接赋值的形式，因此是引用，如果需要保证初始数据，可new一个集合
+```kotlin
+rvAdapter.submitList(mutableListOf<Media>().also { it.addAll(imgUrls) })
+```
+
+### <a id="smart-fresh">下拉刷新库</a>
+https://github.com/scwang90/SmartRefreshLayout

@@ -19,6 +19,12 @@ nav:
            - 原理: android/kotlin/kotlin_principle.md
         - 数据结构: android/java/java_collection.md
         - 设计模式: android/design_mode.md
+        - 通信相关: 
+           - 基础: android/im/base.md
+           - AIDL: android/im/aidl.md
+           - 广播: android/im/broadcast_receiver.md
+           - Service: android/im/service.md
+           - Socket: android/network/net_socket.md
         - 并发编程:
            - 基础概念: android/java/java_base.md
            - 线程: android/java/java_thread.md
@@ -32,9 +38,13 @@ nav:
            - HTTP协议: android/network/net_http.md
            - WebSocket协议: android/network/net_websocket.md
         - 高级UI: 
-           - RecycleView: android/ui/ui_recyclerview.md
+           - RecycleView:
+              - 基本使用: android/ui/recyclerview/ui_recyclerview.md
+              - 多选案例: android/ui/recyclerview/ui_stagger.md
+              - 源码解析: android/ui/recyclerview/ui_source_code.md
            - View: android/android_ui.md
            - WebView: android/ui/ui_webview.md
+           - Camera: android/ui/ui_camera.md
         - Framework:
            - AOSP学习:  
               - 环境搭建: android/fws/fws_aosp.md

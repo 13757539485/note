@@ -106,7 +106,7 @@ android {
     }
 }
 ```
-4.无法新建AIDL文件
+4.<a id="aidl-create">无法新建AIDL文件</a>
 Requires setting the buildFeatures.aidl to true in the build file
 ```gradle
 buildFeatures {
