@@ -8,27 +8,27 @@
       
       
       
-        <link rel="canonical" href="https://13757539485.github.io/note/android/ui/ui_recyclerview/">
+        <link rel="canonical" href="https://13757539485.github.io/note/android/ui/recyclerview/ui_source_code/">
       
       
-        <link rel="prev" href="../../network/net_websocket/">
+        <link rel="prev" href="../ui_stagger/">
       
       
-        <link rel="next" href="../../android_ui/">
+        <link rel="next" href="../../../android_ui/">
       
-      <link rel="icon" href="../../../assets/images/favicon.png">
+      <link rel="icon" href="../../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.14">
     
     
       
-        <title>RecycleView - 我的笔记</title>
+        <title>源码解析 - 我的笔记</title>
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.85bb2934.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.85bb2934.min.css">
       
         
-        <link rel="stylesheet" href="../../../assets/stylesheets/palette.a6bdf11c.min.css">
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.a6bdf11c.min.css">
       
       
 
@@ -44,7 +44,7 @@
       
     
     
-    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -73,7 +73,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#recyclerview" class="md-skip">
+        <a href="#_1" class="md-skip">
           跳转至
         </a>
       
@@ -87,7 +87,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="页眉">
-    <a href="../../.." title="我的笔记" class="md-header__button md-logo" aria-label="我的笔记" data-md-component="logo">
+    <a href="../../../.." title="我的笔记" class="md-header__button md-logo" aria-label="我的笔记" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -106,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              RecycleView
+              源码解析
             
           </span>
         </div>
@@ -212,7 +212,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../java/java_basic/" class="md-tabs__link md-tabs__link--active">
+      <a href="../../../java/java_basic/" class="md-tabs__link md-tabs__link--active">
         Android系统
       </a>
     </li>
@@ -232,7 +232,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../window/window_install/" class="md-tabs__link">
+      <a href="../../../../window/window_install/" class="md-tabs__link">
         Window系统
       </a>
     </li>
@@ -253,7 +253,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../linux/ubuntu_install/" class="md-tabs__link">
+      <a href="../../../../linux/ubuntu_install/" class="md-tabs__link">
         Linux系统
       </a>
     </li>
@@ -271,7 +271,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../mac/mac_install/" class="md-tabs__link">
+      <a href="../../../../mac/mac_install/" class="md-tabs__link">
         mac系统
       </a>
     </li>
@@ -287,7 +287,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../ohos/ohos_build/" class="md-tabs__link">
+      <a href="../../../../ohos/ohos_build/" class="md-tabs__link">
         OpenHarmony系统
       </a>
     </li>
@@ -303,7 +303,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../python/" class="md-tabs__link">
+      <a href="../../../../python/" class="md-tabs__link">
         常见开发环境
       </a>
     </li>
@@ -319,7 +319,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../excel/" class="md-tabs__link">
+      <a href="../../../../excel/" class="md-tabs__link">
         其他学习
       </a>
     </li>
@@ -347,7 +347,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../.." title="我的笔记" class="md-nav__button md-logo" aria-label="我的笔记" data-md-component="logo">
+    <a href="../../../.." title="我的笔记" class="md-nav__button md-logo" aria-label="我的笔记" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -451,7 +451,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/java_basic/" class="md-nav__link">
+      <a href="../../../java/java_basic/" class="md-nav__link">
         基础
       </a>
     </li>
@@ -465,7 +465,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/java_jvm/" class="md-nav__link">
+      <a href="../../../java/java_jvm/" class="md-nav__link">
         虚拟机
       </a>
     </li>
@@ -479,7 +479,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/java_genericity/" class="md-nav__link">
+      <a href="../../../java/java_genericity/" class="md-nav__link">
         泛型
       </a>
     </li>
@@ -493,7 +493,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/java_reflex/" class="md-nav__link">
+      <a href="../../../java/java_reflex/" class="md-nav__link">
         反射
       </a>
     </li>
@@ -541,7 +541,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kotlin/kotlin_basic/" class="md-nav__link">
+      <a href="../../../kotlin/kotlin_basic/" class="md-nav__link">
         入门
       </a>
     </li>
@@ -555,7 +555,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kotlin/kotlin_function/" class="md-nav__link">
+      <a href="../../../kotlin/kotlin_function/" class="md-nav__link">
         函数
       </a>
     </li>
@@ -569,7 +569,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kotlin/kotlin_op/" class="md-nav__link">
+      <a href="../../../kotlin/kotlin_op/" class="md-nav__link">
         操作符与关键字
       </a>
     </li>
@@ -583,7 +583,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kotlin/kotlin_collection/" class="md-nav__link">
+      <a href="../../../kotlin/kotlin_collection/" class="md-nav__link">
         集合
       </a>
     </li>
@@ -597,7 +597,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kotlin/kotlin_class/" class="md-nav__link">
+      <a href="../../../kotlin/kotlin_class/" class="md-nav__link">
         类
       </a>
     </li>
@@ -611,7 +611,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kotlin/kotlin_code/" class="md-nav__link">
+      <a href="../../../kotlin/kotlin_code/" class="md-nav__link">
         实战应用
       </a>
     </li>
@@ -625,7 +625,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kotlin/kotlin_principle/" class="md-nav__link">
+      <a href="../../../kotlin/kotlin_principle/" class="md-nav__link">
         原理
       </a>
     </li>
@@ -646,7 +646,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/java_collection/" class="md-nav__link">
+      <a href="../../../java/java_collection/" class="md-nav__link">
         数据结构
       </a>
     </li>
@@ -660,7 +660,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../design_mode/" class="md-nav__link">
+      <a href="../../../design_mode/" class="md-nav__link">
         设计模式
       </a>
     </li>
@@ -684,14 +684,14 @@
       
       
         <label class="md-nav__link" for="__nav_1_1_5" id="__nav_1_1_5_label" tabindex="0">
-          并发编程
+          通信相关
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_1_1_5_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_1_1_5">
           <span class="md-nav__icon md-icon"></span>
-          并发编程
+          通信相关
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -701,8 +701,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/java_base/" class="md-nav__link">
-        基础概念
+      <a href="../../../im/base/" class="md-nav__link">
+        基础
       </a>
     </li>
   
@@ -715,8 +715,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/java_thread/" class="md-nav__link">
-        线程
+      <a href="../../../im/aidl/" class="md-nav__link">
+        AIDL
       </a>
     </li>
   
@@ -729,8 +729,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/java_safe/" class="md-nav__link">
-        线程安全
+      <a href="../../../im/broadcast_receiver/" class="md-nav__link">
+        广播
       </a>
     </li>
   
@@ -743,8 +743,22 @@
   
   
     <li class="md-nav__item">
-      <a href="../../java/java_lock/" class="md-nav__link">
-        锁
+      <a href="../../../im/service/" class="md-nav__link">
+        Service
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../network/net_socket/" class="md-nav__link">
+        Socket
       </a>
     </li>
   
@@ -774,12 +788,102 @@
       
       
         <label class="md-nav__link" for="__nav_1_1_6" id="__nav_1_1_6_label" tabindex="0">
-          网络编程
+          并发编程
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_1_1_6_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_1_1_6">
+          <span class="md-nav__icon md-icon"></span>
+          并发编程
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../java/java_base/" class="md-nav__link">
+        基础概念
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../java/java_thread/" class="md-nav__link">
+        线程
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../java/java_safe/" class="md-nav__link">
+        线程安全
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../java/java_lock/" class="md-nav__link">
+        锁
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_1_7" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_1_7" id="__nav_1_1_7_label" tabindex="0">
+          网络编程
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_1_1_7_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_1_1_7">
           <span class="md-nav__icon md-icon"></span>
           网络编程
         </label>
@@ -791,7 +895,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../network/net_base/" class="md-nav__link">
+      <a href="../../../network/net_base/" class="md-nav__link">
         网络基础
       </a>
     </li>
@@ -805,7 +909,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../network/net_charles/" class="md-nav__link">
+      <a href="../../../network/net_charles/" class="md-nav__link">
         抓包工具
       </a>
     </li>
@@ -819,7 +923,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../network/net_tcp/" class="md-nav__link">
+      <a href="../../../network/net_tcp/" class="md-nav__link">
         TCP协议
       </a>
     </li>
@@ -833,7 +937,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../network/net_socket/" class="md-nav__link">
+      <a href="../../../network/net_socket/" class="md-nav__link">
         Socket
       </a>
     </li>
@@ -847,7 +951,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../network/net_http/" class="md-nav__link">
+      <a href="../../../network/net_http/" class="md-nav__link">
         HTTP协议
       </a>
     </li>
@@ -861,7 +965,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../network/net_websocket/" class="md-nav__link">
+      <a href="../../../network/net_websocket/" class="md-nav__link">
         WebSocket协议
       </a>
     </li>
@@ -889,21 +993,78 @@
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_1_7" checked>
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_1_8" checked>
       
       
       
-        <label class="md-nav__link" for="__nav_1_1_7" id="__nav_1_1_7_label" tabindex="0">
+        <label class="md-nav__link" for="__nav_1_1_8" id="__nav_1_1_8_label" tabindex="0">
           高级UI
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_1_1_7_label" aria-expanded="true">
-        <label class="md-nav__title" for="__nav_1_1_7">
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_1_1_8_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_1_1_8">
           <span class="md-nav__icon md-icon"></span>
           高级UI
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_1_8_1" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_1_8_1" id="__nav_1_1_8_1_label" tabindex="0">
+          RecycleView
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_1_1_8_1_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_1_1_8_1">
+          <span class="md-nav__icon md-icon"></span>
+          RecycleView
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ui_recyclerview/" class="md-nav__link">
+        基本使用
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ui_stagger/" class="md-nav__link">
+        多选案例
+      </a>
+    </li>
+  
+
+            
           
             
               
@@ -919,12 +1080,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          RecycleView
+          源码解析
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        RecycleView
+        源码解析
       </a>
       
         
@@ -941,75 +1102,7 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#recyclerview" class="md-nav__link">
-    RecyclerView基本使用
-  </a>
-  
-    <nav class="md-nav" aria-label="RecyclerView基本使用">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#adapter" class="md-nav__link">
-    定义adapter
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
-    基本使用
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    修改分割线样式
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    自定义分割线
-  </a>
-  
-    <nav class="md-nav" aria-label="自定义分割线">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    分割线绘制源码分析
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    分割线事件问题
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    注意点
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
     四级缓存源码分析
   </a>
   
@@ -1017,7 +1110,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     缓存
   </a>
   
@@ -1044,14 +1137,14 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     总结
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     复用
   </a>
   
@@ -1083,19 +1176,6 @@
     第二级缓存mAttachedScrap和mCachedViews
   </a>
   
-    <nav class="md-nav" aria-label="第二级缓存mAttachedScrap和mCachedViews">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#cache" class="md-nav__link">
-    修改cache缓存大小
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
         
           <li class="md-nav__item">
@@ -1109,26 +1189,6 @@
   <a href="#recycledviewpool" class="md-nav__link">
     第四级缓存RecycledViewPool
   </a>
-  
-    <nav class="md-nav" aria-label="第四级缓存RecycledViewPool">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_11" class="md-nav__link">
-    修改缓存池大小
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_12" class="md-nav__link">
-    复用(共享)缓存池
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
         
@@ -1151,13 +1211,20 @@
 
             
           
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
             
               
   
   
   
     <li class="md-nav__item">
-      <a href="../../android_ui/" class="md-nav__link">
+      <a href="../../../android_ui/" class="md-nav__link">
         View
       </a>
     </li>
@@ -1171,7 +1238,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../ui_webview/" class="md-nav__link">
+      <a href="../../ui_webview/" class="md-nav__link">
         WebView
       </a>
     </li>
@@ -1185,188 +1252,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../ui_camera/" class="md-nav__link">
+      <a href="../../ui_camera/" class="md-nav__link">
         Camera
-      </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-      
-      
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_1_8" >
-      
-      
-      
-        <label class="md-nav__link" for="__nav_1_1_8" id="__nav_1_1_8_label" tabindex="0">
-          Framework
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_1_1_8_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_1_1_8">
-          <span class="md-nav__icon md-icon"></span>
-          Framework
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-      
-      
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_1_8_1" >
-      
-      
-      
-        <label class="md-nav__link" for="__nav_1_1_8_1" id="__nav_1_1_8_1_label" tabindex="0">
-          AOSP学习
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_1_1_8_1_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_1_1_8_1">
-          <span class="md-nav__icon md-icon"></span>
-          AOSP学习
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../fws/fws_aosp/" class="md-nav__link">
-        环境搭建
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../fws/fws_handler/" class="md-nav__link">
-        Handler
-      </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../fws/fws_process/" class="md-nav__link">
-        IPC通信
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../fws/fws_wms/" class="md-nav__link">
-        WMS
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../fws/fws_ams/" class="md-nav__link">
-        AMS/ATMS
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../fws/fws_pms/" class="md-nav__link">
-        PMS
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../fws/fws_android_start/" class="md-nav__link">
-        Android启动流程
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../fws/fws_app_start/" class="md-nav__link">
-        App进程启动
       </a>
     </li>
   
@@ -1396,12 +1283,192 @@
       
       
         <label class="md-nav__link" for="__nav_1_1_9" id="__nav_1_1_9_label" tabindex="0">
-          性能优化
+          Framework
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_1_1_9_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_1_1_9">
+          <span class="md-nav__icon md-icon"></span>
+          Framework
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_1_9_1" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_1_9_1" id="__nav_1_1_9_1_label" tabindex="0">
+          AOSP学习
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_1_1_9_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_1_1_9_1">
+          <span class="md-nav__icon md-icon"></span>
+          AOSP学习
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../fws/fws_aosp/" class="md-nav__link">
+        环境搭建
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../fws/fws_handler/" class="md-nav__link">
+        Handler
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../fws/fws_process/" class="md-nav__link">
+        IPC通信
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../fws/fws_wms/" class="md-nav__link">
+        WMS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../fws/fws_ams/" class="md-nav__link">
+        AMS/ATMS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../fws/fws_pms/" class="md-nav__link">
+        PMS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../fws/fws_android_start/" class="md-nav__link">
+        Android启动流程
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../fws/fws_app_start/" class="md-nav__link">
+        App进程启动
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_1_10" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_1_10" id="__nav_1_1_10_label" tabindex="0">
+          性能优化
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_1_1_10_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_1_1_10">
           <span class="md-nav__icon md-icon"></span>
           性能优化
         </label>
@@ -1413,7 +1480,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../performance/android_start/" class="md-nav__link">
+      <a href="../../../performance/android_start/" class="md-nav__link">
         启动优化
       </a>
     </li>
@@ -1432,17 +1499,17 @@
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_1_9_2" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_1_10_2" >
       
       
       
-        <label class="md-nav__link" for="__nav_1_1_9_2" id="__nav_1_1_9_2_label" tabindex="0">
+        <label class="md-nav__link" for="__nav_1_1_10_2" id="__nav_1_1_10_2_label" tabindex="0">
           内存优化
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_1_1_9_2_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_1_1_9_2">
+      <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_1_1_10_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_1_1_10_2">
           <span class="md-nav__icon md-icon"></span>
           内存优化
         </label>
@@ -1454,7 +1521,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../performance/android_memory_base/" class="md-nav__link">
+      <a href="../../../performance/android_memory_base/" class="md-nav__link">
         基础知识
       </a>
     </li>
@@ -1468,7 +1535,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../performance/android_memory_commond/" class="md-nav__link">
+      <a href="../../../performance/android_memory_commond/" class="md-nav__link">
         系统命令
       </a>
     </li>
@@ -1482,7 +1549,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../performance/android_memory_leak/" class="md-nav__link">
+      <a href="../../../performance/android_memory_leak/" class="md-nav__link">
         内存泄漏优化
       </a>
     </li>
@@ -1496,7 +1563,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../performance/android_memory_shake/" class="md-nav__link">
+      <a href="../../../performance/android_memory_shake/" class="md-nav__link">
         内存抖动优化
       </a>
     </li>
@@ -1510,7 +1577,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../performance/android_memory_oom/" class="md-nav__link">
+      <a href="../../../performance/android_memory_oom/" class="md-nav__link">
         内存溢出优化
       </a>
     </li>
@@ -1524,7 +1591,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../performance/android_datastructure/" class="md-nav__link">
+      <a href="../../../performance/android_datastructure/" class="md-nav__link">
         数据结构优化
       </a>
     </li>
@@ -1538,7 +1605,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../performance/android_bitmap/" class="md-nav__link">
+      <a href="../../../performance/android_bitmap/" class="md-nav__link">
         Bitmap优化
       </a>
     </li>
@@ -1564,17 +1631,17 @@
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_1_9_3" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_1_10_3" >
       
       
       
-        <label class="md-nav__link" for="__nav_1_1_9_3" id="__nav_1_1_9_3_label" tabindex="0">
+        <label class="md-nav__link" for="__nav_1_1_10_3" id="__nav_1_1_10_3_label" tabindex="0">
           稳定性优化
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_1_1_9_3_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_1_1_9_3">
+      <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_1_1_10_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_1_1_10_3">
           <span class="md-nav__icon md-icon"></span>
           稳定性优化
         </label>
@@ -1586,7 +1653,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../performance/android_anr/" class="md-nav__link">
+      <a href="../../../performance/android_anr/" class="md-nav__link">
         ANR监控
       </a>
     </li>
@@ -1600,7 +1667,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../performance/android_crash/" class="md-nav__link">
+      <a href="../../../performance/android_crash/" class="md-nav__link">
         Crash监控
       </a>
     </li>
@@ -1621,7 +1688,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../performance/android_ui/" class="md-nav__link">
+      <a href="../../../performance/android_ui/" class="md-nav__link">
         UI优化
       </a>
     </li>
@@ -1635,7 +1702,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../performance/android_network/" class="md-nav__link">
+      <a href="../../../performance/android_network/" class="md-nav__link">
         网络优化
       </a>
     </li>
@@ -1649,7 +1716,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../performance/android_apk_cut/" class="md-nav__link">
+      <a href="../../../performance/android_apk_cut/" class="md-nav__link">
         瘦身优化
       </a>
     </li>
@@ -1663,7 +1730,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../performance/android_storage/" class="md-nav__link">
+      <a href="../../../performance/android_storage/" class="md-nav__link">
         储存优化
       </a>
     </li>
@@ -1677,7 +1744,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../performance/android_battery/" class="md-nav__link">
+      <a href="../../../performance/android_battery/" class="md-nav__link">
         电池优化
       </a>
     </li>
@@ -1691,7 +1758,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../performance/android_mat/" class="md-nav__link">
+      <a href="../../../performance/android_mat/" class="md-nav__link">
         Mat工具
       </a>
     </li>
@@ -1705,7 +1772,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../performance/android_leakcanary/" class="md-nav__link">
+      <a href="../../../performance/android_leakcanary/" class="md-nav__link">
         LeakCanary
       </a>
     </li>
@@ -1719,7 +1786,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../performance/android_koom/" class="md-nav__link">
+      <a href="../../../performance/android_koom/" class="md-nav__link">
         KOOM
       </a>
     </li>
@@ -1740,7 +1807,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../android_hotfix/" class="md-nav__link">
+      <a href="../../../android_hotfix/" class="md-nav__link">
         插件化
       </a>
     </li>
@@ -1759,17 +1826,17 @@
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_1_11" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_1_12" >
       
       
       
-        <label class="md-nav__link" for="__nav_1_1_11" id="__nav_1_1_11_label" tabindex="0">
+        <label class="md-nav__link" for="__nav_1_1_12" id="__nav_1_1_12_label" tabindex="0">
           组件化
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_1_1_11_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_1_1_11">
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_1_1_12_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_1_1_12">
           <span class="md-nav__icon md-icon"></span>
           组件化
         </label>
@@ -1781,7 +1848,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../component/com_base/" class="md-nav__link">
+      <a href="../../../component/com_base/" class="md-nav__link">
         as配置
       </a>
     </li>
@@ -1802,7 +1869,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../android_github/" class="md-nav__link">
+      <a href="../../../android_github/" class="md-nav__link">
         开源框架
       </a>
     </li>
@@ -1816,7 +1883,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../android_dev_mode/" class="md-nav__link">
+      <a href="../../../android_dev_mode/" class="md-nav__link">
         开发模式
       </a>
     </li>
@@ -1830,7 +1897,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../android_build_apk/" class="md-nav__link">
+      <a href="../../../android_build_apk/" class="md-nav__link">
         Apk相关
       </a>
     </li>
@@ -1844,7 +1911,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../android_compose/" class="md-nav__link">
+      <a href="../../../android_compose/" class="md-nav__link">
         Compose
       </a>
     </li>
@@ -1858,7 +1925,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../android_studio/" class="md-nav__link">
+      <a href="../../../android_studio/" class="md-nav__link">
         AS相关
       </a>
     </li>
@@ -1872,7 +1939,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../android_flutter/" class="md-nav__link">
+      <a href="../../../android_flutter/" class="md-nav__link">
         Flutter
       </a>
     </li>
@@ -1886,7 +1953,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../android_interview/" class="md-nav__link">
+      <a href="../../../android_interview/" class="md-nav__link">
         面试题
       </a>
     </li>
@@ -1934,7 +2001,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../android_os/" class="md-nav__link">
+      <a href="../../../android_os/" class="md-nav__link">
         OS大全
       </a>
     </li>
@@ -1948,7 +2015,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../android_root/" class="md-nav__link">
+      <a href="../../../android_root/" class="md-nav__link">
         Root面具
       </a>
     </li>
@@ -2004,7 +2071,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../window/window_install/" class="md-nav__link">
+      <a href="../../../../window/window_install/" class="md-nav__link">
         系统安装
       </a>
     </li>
@@ -2018,7 +2085,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../window/window_software/" class="md-nav__link">
+      <a href="../../../../window/window_software/" class="md-nav__link">
         常见软件
       </a>
     </li>
@@ -2059,7 +2126,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../window/window_vmware/" class="md-nav__link">
+      <a href="../../../../window/window_vmware/" class="md-nav__link">
         VMWare安装
       </a>
     </li>
@@ -2073,7 +2140,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../window/window_wsl2/" class="md-nav__link">
+      <a href="../../../../window/window_wsl2/" class="md-nav__link">
         WSL2
       </a>
     </li>
@@ -2087,7 +2154,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../window/window_inner_android/" class="md-nav__link">
+      <a href="../../../../window/window_inner_android/" class="md-nav__link">
         Android子系统
       </a>
     </li>
@@ -2101,7 +2168,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../window/window_win11/" class="md-nav__link">
+      <a href="../../../../window/window_win11/" class="md-nav__link">
         Window11相关
       </a>
     </li>
@@ -2184,7 +2251,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../linux/ubuntu_install/" class="md-nav__link">
+      <a href="../../../../linux/ubuntu_install/" class="md-nav__link">
         ubuntu
       </a>
     </li>
@@ -2198,7 +2265,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../linux/deepin_install/" class="md-nav__link">
+      <a href="../../../../linux/deepin_install/" class="md-nav__link">
         deepin
       </a>
     </li>
@@ -2219,7 +2286,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../linux/linux_software/" class="md-nav__link">
+      <a href="../../../../linux/linux_software/" class="md-nav__link">
         常见软件
       </a>
     </li>
@@ -2260,7 +2327,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../linux/linux_command/" class="md-nav__link">
+      <a href="../../../../linux/linux_command/" class="md-nav__link">
         常用命令
       </a>
     </li>
@@ -2316,7 +2383,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../mac/mac_install/" class="md-nav__link">
+      <a href="../../../../mac/mac_install/" class="md-nav__link">
         黑苹果
       </a>
     </li>
@@ -2330,7 +2397,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../mac/mac_software/" class="md-nav__link">
+      <a href="../../../../mac/mac_software/" class="md-nav__link">
         使用软件
       </a>
     </li>
@@ -2344,7 +2411,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../mac/mac_swift/" class="md-nav__link">
+      <a href="../../../../mac/mac_swift/" class="md-nav__link">
         SwiftUI
       </a>
     </li>
@@ -2393,7 +2460,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../ohos/ohos_build/" class="md-nav__link">
+      <a href="../../../../ohos/ohos_build/" class="md-nav__link">
         源码编译
       </a>
     </li>
@@ -2407,7 +2474,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../ohos/arkui/" class="md-nav__link">
+      <a href="../../../../ohos/arkui/" class="md-nav__link">
         ArkUI开发
       </a>
     </li>
@@ -2456,7 +2523,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../python/" class="md-nav__link">
+      <a href="../../../../python/" class="md-nav__link">
         python部署
       </a>
     </li>
@@ -2470,7 +2537,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../git_github/" class="md-nav__link">
+      <a href="../../../../git_github/" class="md-nav__link">
         git部署
       </a>
     </li>
@@ -2519,7 +2586,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../excel/" class="md-nav__link">
+      <a href="../../../../excel/" class="md-nav__link">
         Excel
       </a>
     </li>
@@ -2533,7 +2600,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../markdown/" class="md-nav__link">
+      <a href="../../../../markdown/" class="md-nav__link">
         Markdown
       </a>
     </li>
@@ -2572,75 +2639,7 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#recyclerview" class="md-nav__link">
-    RecyclerView基本使用
-  </a>
-  
-    <nav class="md-nav" aria-label="RecyclerView基本使用">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#adapter" class="md-nav__link">
-    定义adapter
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
-    基本使用
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    修改分割线样式
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    自定义分割线
-  </a>
-  
-    <nav class="md-nav" aria-label="自定义分割线">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    分割线绘制源码分析
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    分割线事件问题
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    注意点
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
     四级缓存源码分析
   </a>
   
@@ -2648,7 +2647,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     缓存
   </a>
   
@@ -2675,14 +2674,14 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     总结
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     复用
   </a>
   
@@ -2714,19 +2713,6 @@
     第二级缓存mAttachedScrap和mCachedViews
   </a>
   
-    <nav class="md-nav" aria-label="第二级缓存mAttachedScrap和mCachedViews">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#cache" class="md-nav__link">
-    修改cache缓存大小
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
         
           <li class="md-nav__item">
@@ -2740,26 +2726,6 @@
   <a href="#recycledviewpool" class="md-nav__link">
     第四级缓存RecycledViewPool
   </a>
-  
-    <nav class="md-nav" aria-label="第四级缓存RecycledViewPool">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_11" class="md-nav__link">
-    修改缓存池大小
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_12" class="md-nav__link">
-    复用(共享)缓存池
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
         
@@ -2788,197 +2754,9 @@
                   
 
 
-  <h1>RecycleView</h1>
+  <h1>源码解析</h1>
 
-<h2 id="recyclerview">RecyclerView基本使用<a class="headerlink" href="#recyclerview" title="Permanent link">&para;</a></h2>
-<h3 id="adapter">定义adapter<a class="headerlink" href="#adapter" title="Permanent link">&para;</a></h3>
-<p>1)先定义ViewHolder</p>
-<p>xml布局：item.rv.xml
-<div class="highlight"><pre><span></span><code><span class="kd">class</span><span class="w"> </span><span class="nc">MyViewHolder</span><span class="p">(</span><span class="kd">val</span><span class="w"> </span><span class="nv">binding</span><span class="p">:</span><span class="w"> </span><span class="n">ItemRvBinding</span><span class="p">)</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">RecyclerView</span><span class="p">.</span><span class="na">ViewHolder</span><span class="p">(</span><span class="n">binding</span><span class="p">.</span><span class="na">root</span><span class="p">)</span>
-</code></pre></div>
-2)再实现adapter
-<div class="highlight"><pre><span></span><code><span class="kd">class</span><span class="w"> </span><span class="nc">MyAdapter</span><span class="p">(</span><span class="kd">val</span><span class="w"> </span><span class="nv">list</span><span class="p">:</span><span class="w"> </span><span class="n">MutableList</span><span class="o">&lt;</span><span class="kt">String</span><span class="o">&gt;</span><span class="p">):</span><span class="w"> </span><span class="n">RecyclerView</span><span class="p">.</span><span class="na">Adapter</span><span class="o">&lt;</span><span class="n">MyViewHolder</span><span class="o">&gt;</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="kd">override</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">onCreateViewHolder</span><span class="p">(</span><span class="n">parent</span><span class="p">:</span><span class="w"> </span><span class="n">ViewGroup</span><span class="p">,</span><span class="w"> </span><span class="n">viewType</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="p">):</span><span class="w"> </span><span class="n">MyViewHolder</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">MyViewHolder</span><span class="p">(</span>
-<span class="w">        </span><span class="n">ItemRvBinding</span><span class="p">.</span><span class="na">inflate</span><span class="p">(</span><span class="n">LayoutInflater</span><span class="p">.</span><span class="na">from</span><span class="p">(</span><span class="n">parent</span><span class="p">.</span><span class="na">context</span><span class="p">),</span><span class="w"> </span><span class="n">parent</span><span class="p">,</span><span class="w"> </span><span class="kc">false</span><span class="p">)</span>
-
-<span class="w">    </span><span class="kd">override</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">getItemCount</span><span class="p">():</span><span class="w"> </span><span class="kt">Int</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">list</span><span class="p">.</span><span class="na">size</span>
-
-<span class="w">    </span><span class="kd">override</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">onBindViewHolder</span><span class="p">(</span><span class="n">holder</span><span class="p">:</span><span class="w"> </span><span class="n">MyViewHolder</span><span class="p">,</span><span class="w"> </span><span class="n">position</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="n">holder</span><span class="p">.</span><span class="na">binding</span><span class="p">.</span><span class="na">itemTv</span><span class="p">.</span><span class="na">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">list</span><span class="o">[</span><span class="n">position</span><span class="o">]</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
-3)添加监听
-<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nv">onItemClickListener</span><span class="p">:</span><span class="w"> </span><span class="p">((</span><span class="n">pos</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">Unit</span><span class="p">)</span><span class="o">?</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span>
-<span class="kd">var</span><span class="w"> </span><span class="nv">onItemLongClickListener</span><span class="p">:</span><span class="w"> </span><span class="p">((</span><span class="n">pos</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">Unit</span><span class="p">)</span><span class="o">?</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span>
-<span class="n">holder</span><span class="p">.</span><span class="na">itemView</span><span class="p">.</span><span class="na">setOnClickListener</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">onItemClickListener</span><span class="o">?.</span><span class="na">invoke</span><span class="p">(</span><span class="n">position</span><span class="p">)</span>
-<span class="p">}</span>
-<span class="n">holder</span><span class="p">.</span><span class="na">itemView</span><span class="p">.</span><span class="na">setOnLongClickListener</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">onItemLongClickListener</span><span class="o">?.</span><span class="na">invoke</span><span class="p">(</span><span class="n">position</span><span class="p">)</span>
-<span class="w">    </span><span class="kc">true</span>
-<span class="p">}</span>
-</code></pre></div></p>
-<h3 id="_1">基本使用<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="n">getBinding</span><span class="p">().</span><span class="na">rv</span><span class="p">.</span><span class="na">apply</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">layoutManager</span><span class="w"> </span><span class="o">=</span>
-<span class="w">        </span><span class="n">LinearLayoutManager</span><span class="p">(</span><span class="k">this</span><span class="nd">@RVActivity</span><span class="p">,</span><span class="w"> </span><span class="n">LinearLayoutManager</span><span class="p">.</span><span class="na">VERTICAL</span><span class="p">,</span><span class="w"> </span><span class="kc">false</span><span class="p">)</span><span class="c1">//使用ListView形式</span>
-<span class="w">    </span><span class="n">layoutManager</span><span class="w"> </span><span class="o">=</span>
-<span class="w">        </span><span class="n">GridLayoutManager</span><span class="p">(</span><span class="k">this</span><span class="nd">@RVActivity</span><span class="p">,</span><span class="w"> </span><span class="m">2</span><span class="p">,</span>
-<span class="n">GridLayoutManager</span><span class="p">.</span><span class="na">VERTICAL</span><span class="p">,</span><span class="w"> </span><span class="kc">false</span><span class="p">)</span><span class="c1">////使用GridView形式</span>
-<span class="w">    </span><span class="n">layoutManager</span><span class="w"> </span><span class="o">=</span>
-<span class="w">        </span><span class="n">StaggeredGridLayoutManager</span><span class="p">(</span><span class="m">3</span><span class="p">,</span>
-<span class="n">StaggeredGridLayoutManager</span><span class="p">.</span><span class="na">VERTICAL</span><span class="p">)</span><span class="c1">//使用ListView形式</span>
-<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">myAdapter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">MyAdapter</span><span class="p">(</span><span class="n">mutableListOf</span><span class="p">(</span><span class="s">&quot;1&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;2&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;3&quot;</span><span class="p">))</span>
-<span class="w">    </span><span class="n">adapter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">myAdapter</span>
-<span class="w">    </span><span class="n">myAdapter</span><span class="p">.</span><span class="na">onItemClickListener</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
-
-<span class="w">    </span><span class="p">}</span>
-<span class="w">    </span><span class="n">myAdapter</span><span class="p">.</span><span class="na">onItemLongClickListener</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
-
-<span class="w">    </span><span class="p">}</span>
-<span class="w">    </span><span class="n">itemAnimator</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DefaultItemAnimator</span><span class="p">()</span><span class="w"> </span><span class="c1">//其他动画需自定义</span>
-
-<span class="w">    </span><span class="p">(</span><span class="n">itemAnimator</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">SimpleItemAnimator</span><span class="p">).</span><span class="na">supportsChangeAnimations</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="w"> </span><span class="c1">//关闭动画</span>
-
-<span class="w">    </span><span class="c1">//给Item添加分割线</span>
-<span class="w">    </span><span class="n">addItemDecoration</span><span class="p">(</span><span class="n">DividerItemDecoration</span><span class="p">(</span><span class="k">this</span><span class="nd">@RVActivity</span><span class="p">,</span><span class="w"> </span><span class="n">DividerItemDecoration</span><span class="p">.</span><span class="na">VERTICAL</span><span class="p">))))</span><span class="c1">//垂直方向</span>
-<span class="w">    </span><span class="n">addItemDecoration</span><span class="p">(</span><span class="n">DividerItemDecoration</span><span class="p">(</span><span class="k">this</span><span class="nd">@RVActivity</span><span class="p">,</span><span class="w"> </span><span class="n">DividerItemDecoration</span><span class="p">.</span><span class="na">HORIZONTAL</span><span class="p">))</span><span class="c1">//水平方向</span>
-<span class="w">    </span><span class="n">scrollToPosition</span><span class="p">(</span><span class="m">0</span><span class="p">)</span><span class="c1">//滚动到第0个</span>
-<span class="p">}</span>
-</code></pre></div>
-<h3 id="_2">修改分割线样式<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="nt">&lt;item</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;android:listDivider&quot;</span><span class="nt">&gt;</span>@drawable/bg_recyclerview_divider<span class="nt">&lt;/item&gt;</span>
-
-<span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span>
-<span class="nt">&lt;shape</span><span class="w"> </span><span class="na">xmlns:android=</span><span class="s">&quot;http://schemas.android.com/apk/res/android&quot;</span>
-<span class="w">       </span><span class="na">android:shape=</span><span class="s">&quot;rectangle&quot;</span><span class="nt">&gt;</span>
-
-<span class="w">    </span><span class="nt">&lt;gradient</span>
-<span class="w">        </span><span class="na">android:centerColor=</span><span class="s">&quot;#ff00ff00&quot;</span>
-<span class="w">        </span><span class="na">android:endColor=</span><span class="s">&quot;#ff0000ff&quot;</span>
-<span class="w">        </span><span class="na">android:startColor=</span><span class="s">&quot;#ffff0000&quot;</span>
-<span class="w">        </span><span class="na">android:type=</span><span class="s">&quot;linear&quot;</span><span class="nt">/&gt;</span>
-
-<span class="w">    </span><span class="nt">&lt;size</span>
-<span class="w">        </span><span class="na">android:width=</span><span class="s">&quot;10dp&quot;</span>
-<span class="w">        </span><span class="na">android:height=</span><span class="s">&quot;10dp&quot;</span><span class="nt">/&gt;</span>
-
-<span class="nt">&lt;/shape&gt;</span>
-</code></pre></div>
-<h3 id="_3">自定义分割线<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="kd">class</span><span class="w"> </span><span class="nc">MyDecoration</span><span class="p">:</span><span class="w"> </span><span class="n">RecyclerView</span><span class="p">.</span><span class="na">ItemDecoration</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="kd">override</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">getItemOffsets</span><span class="p">(</span>
-<span class="w">        </span><span class="n">outRect</span><span class="p">:</span><span class="w"> </span><span class="n">Rect</span><span class="p">,</span>
-<span class="w">        </span><span class="n">view</span><span class="p">:</span><span class="w"> </span><span class="n">View</span><span class="p">,</span>
-<span class="w">        </span><span class="n">parent</span><span class="p">:</span><span class="w"> </span><span class="n">RecyclerView</span><span class="p">,</span>
-<span class="w">        </span><span class="n">state</span><span class="p">:</span><span class="w"> </span><span class="n">RecyclerView</span><span class="p">.</span><span class="na">State</span>
-<span class="w">    </span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="k">super</span><span class="p">.</span><span class="na">getItemOffsets</span><span class="p">(</span><span class="n">outRect</span><span class="p">,</span><span class="w"> </span><span class="n">view</span><span class="p">,</span><span class="w"> </span><span class="n">parent</span><span class="p">,</span><span class="w"> </span><span class="n">state</span><span class="p">)</span>
-<span class="w">    </span><span class="p">}</span>
-
-<span class="w">    </span><span class="kd">override</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">onDraw</span><span class="p">(</span><span class="n">c</span><span class="p">:</span><span class="w"> </span><span class="n">Canvas</span><span class="p">,</span><span class="w"> </span><span class="n">parent</span><span class="p">:</span><span class="w"> </span><span class="n">RecyclerView</span><span class="p">,</span><span class="w"> </span><span class="n">state</span><span class="p">:</span><span class="w"> </span><span class="n">RecyclerView</span><span class="p">.</span><span class="na">State</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="k">super</span><span class="p">.</span><span class="na">onDraw</span><span class="p">(</span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="n">parent</span><span class="p">,</span><span class="w"> </span><span class="n">state</span><span class="p">)</span>
-<span class="w">    </span><span class="p">}</span>
-
-<span class="w">    </span><span class="kd">override</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">onDrawOver</span><span class="p">(</span><span class="n">c</span><span class="p">:</span><span class="w"> </span><span class="n">Canvas</span><span class="p">,</span><span class="w"> </span><span class="n">parent</span><span class="p">:</span><span class="w"> </span><span class="n">RecyclerView</span><span class="p">,</span><span class="w"> </span><span class="n">state</span><span class="p">:</span><span class="w"> </span><span class="n">RecyclerView</span><span class="p">.</span><span class="na">State</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="k">super</span><span class="p">.</span><span class="na">onDrawOver</span><span class="p">(</span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="n">parent</span><span class="p">,</span><span class="w"> </span><span class="n">state</span><span class="p">)</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
-<h4 id="_4">分割线绘制源码分析<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h4>
-<p><div class="highlight"><pre><span></span><code><span class="nd">@Override</span>
-<span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">draw</span><span class="p">(</span><span class="n">Canvas</span><span class="w"> </span><span class="n">c</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="kd">super</span><span class="p">.</span><span class="na">draw</span><span class="p">(</span><span class="n">c</span><span class="p">);</span>
-
-<span class="w">    </span><span class="kd">final</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mItemDecorations</span><span class="p">.</span><span class="na">size</span><span class="p">();</span>
-<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">count</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="n">mItemDecorations</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">i</span><span class="p">).</span><span class="na">onDrawOver</span><span class="p">(</span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="n">mState</span><span class="p">);</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="w">    </span><span class="c1">//...</span>
-<span class="p">}</span>
-
-<span class="nd">@Override</span>
-<span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">onDraw</span><span class="p">(</span><span class="n">Canvas</span><span class="w"> </span><span class="n">c</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="kd">super</span><span class="p">.</span><span class="na">onDraw</span><span class="p">(</span><span class="n">c</span><span class="p">);</span>
-
-<span class="w">    </span><span class="kd">final</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mItemDecorations</span><span class="p">.</span><span class="na">size</span><span class="p">();</span>
-<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">count</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="n">mItemDecorations</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">i</span><span class="p">).</span><span class="na">onDraw</span><span class="p">(</span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="n">mState</span><span class="p">);</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
-draw会调用父类View的draw，接着调用onDraw方法，即调用到分割线的onDraw，最后调用onDrawOver方法，所以onDrawOver可以用来绘制覆盖场景使用，列如吸顶</p>
-<h4 id="_5">分割线事件问题<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h4>
-<p>分割线是无法触发任何事件，需要手动添加手势解决
-<div class="highlight"><pre><span></span><code><span class="kd">val</span><span class="w"> </span><span class="nv">gestureDetector</span><span class="w"> </span><span class="o">=</span>
-<span class="w">    </span><span class="n">GestureDetector</span><span class="p">(</span><span class="n">parent</span><span class="p">.</span><span class="na">context</span><span class="p">,</span><span class="w"> </span><span class="k">object</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="nc">GestureDetector</span><span class="p">.</span><span class="na">SimpleOnGestureListener</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="kd">override</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">onSingleTapUp</span><span class="p">(</span><span class="n">e</span><span class="p">:</span><span class="w"> </span><span class="n">MotionEvent</span><span class="p">):</span><span class="w"> </span><span class="kt">Boolean</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="kd">val</span><span class="w"> </span><span class="nv">pointX</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="na">x</span>
-<span class="w">            </span><span class="kd">val</span><span class="w"> </span><span class="nv">pointY</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="na">y</span>
-<span class="w">            </span><span class="c1">//判断边距再处理事件</span>
-<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="k">super</span><span class="p">.</span><span class="na">onSingleTapUp</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">    </span><span class="p">})</span>
-<span class="n">parent</span><span class="p">.</span><span class="na">addOnItemTouchListener</span><span class="p">(</span><span class="k">object</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="nc">RecyclerView</span><span class="p">.</span><span class="na">OnItemTouchListener</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="kd">override</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">onInterceptTouchEvent</span><span class="p">(</span><span class="n">rv</span><span class="p">:</span><span class="w"> </span><span class="n">RecyclerView</span><span class="p">,</span><span class="w"> </span><span class="n">e</span><span class="p">:</span><span class="w"> </span><span class="n">MotionEvent</span><span class="p">):</span><span class="w"> </span><span class="kt">Boolean</span><span class="w"> </span><span class="o">=</span>
-<span class="w">        </span><span class="n">gestureDetector</span><span class="p">.</span><span class="na">onTouchEvent</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
-
-<span class="w">    </span><span class="kd">override</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">onTouchEvent</span><span class="p">(</span><span class="n">rv</span><span class="p">:</span><span class="w"> </span><span class="n">RecyclerView</span><span class="p">,</span><span class="w"> </span><span class="n">e</span><span class="p">:</span><span class="w"> </span><span class="n">MotionEvent</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="n">gestureDetector</span><span class="p">.</span><span class="na">onTouchEvent</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
-<span class="w">    </span><span class="p">}</span>
-
-<span class="w">    </span><span class="kd">override</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">onRequestDisallowInterceptTouchEvent</span><span class="p">(</span><span class="n">disallowIntercept</span><span class="p">:</span><span class="w"> </span><span class="kt">Boolean</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-
-<span class="w">    </span><span class="p">}</span>
-<span class="p">})</span>
-</code></pre></div></p>
-<h3 id="_6">注意点<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
-<p>getChildCount()实际返回的是整数的可见的item数量</p>
-<p>getChildAt(int index)获取是可见的第index个位置的item</p>
-<p>所以当item只显示一项时以下获取的效果一致(案例抖音)
-<div class="highlight"><pre><span></span><code><span class="kd">val</span><span class="w"> </span><span class="nv">itemView</span><span class="p">:</span><span class="w"> </span><span class="n">View? </span><span class="o">=</span><span class="w"> </span><span class="n">layoutmanager</span><span class="p">.</span><span class="na">findViewByPosition</span><span class="p">(</span><span class="m">0</span><span class="p">)</span>
-<span class="kd">val</span><span class="w"> </span><span class="nv">itemView</span><span class="p">:</span><span class="w"> </span><span class="n">View? </span><span class="o">=</span><span class="w"> </span><span class="n">getChildAt</span><span class="p">(</span><span class="m">0</span><span class="p">)</span>
-<span class="c1">//关闭动画</span>
-<span class="p">(</span><span class="n">itemAnimator</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">SimpleItemAnimator</span><span class="p">).</span><span class="na">supportsChangeAnimations</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span>
-
-<span class="c1">//GridLayoutManager设置分割线</span>
-<span class="kd">class</span><span class="w"> </span><span class="nc">GridSpacingItemDecoration</span><span class="p">(</span><span class="c1">//列数</span>
-<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">column</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="p">,</span><span class="w"> </span><span class="kd">private</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">leftSpace</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="p">,</span><span class="w"> </span><span class="c1">//左间距</span>
-<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">topSpace</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="p">,</span><span class="w"> </span><span class="c1">//顶部间距</span>
-<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">rightSpace</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="p">,</span><span class="w"> </span><span class="c1">//右间距</span>
-<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">bottomSpace</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="p">,</span><span class="w"> </span><span class="c1">//底部间距</span>
-<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">centerLeftSpace</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="p">,</span><span class="w"> </span><span class="c1">//item之间左间距</span>
-<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">centerTopSpace</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="w"> </span><span class="c1">//item之间顶部间距</span>
-<span class="p">)</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">RecyclerView</span><span class="p">.</span><span class="na">ItemDecoration</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-
-<span class="w">    </span><span class="kd">fun</span><span class="w"> </span><span class="nf">getItemOffsets</span><span class="p">(</span>
-<span class="w">        </span><span class="n">outRect</span><span class="p">:</span><span class="w"> </span><span class="n">Rect</span><span class="p">,</span><span class="w"> </span><span class="n">view</span><span class="p">:</span><span class="w"> </span><span class="n">View?,</span>
-<span class="w">        </span><span class="n">parent</span><span class="p">:</span><span class="w"> </span><span class="n">RecyclerView</span><span class="p">,</span><span class="w"> </span><span class="n">state</span><span class="p">:</span><span class="w"> </span><span class="n">RecyclerView</span><span class="p">.</span><span class="na">State</span><span class="o">?</span>
-<span class="w">    </span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="kd">val</span><span class="w"> </span><span class="nv">pos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">parent</span><span class="p">.</span><span class="na">getChildAdapterPosition</span><span class="p">(</span><span class="n">view</span><span class="o">!!</span><span class="p">)</span>
-<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">pos</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">column</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="n">outRect</span><span class="p">.</span><span class="na">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">leftSpace</span>
-<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="n">outRect</span><span class="p">.</span><span class="na">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">centerLeftSpace</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">pos</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">column</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="n">outRect</span><span class="p">.</span><span class="na">top</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">topSpace</span>
-<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="n">outRect</span><span class="p">.</span><span class="na">top</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">centerTopSpace</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">pos</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">column</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">column</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="n">outRect</span><span class="p">.</span><span class="na">right</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rightSpace</span>
-<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="n">outRect</span><span class="p">.</span><span class="na">right</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">        </span><span class="n">outRect</span><span class="p">.</span><span class="na">bottom</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">bottomSpace</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
-setHastFixedSize：item改变时不会影响rv的高度时使用</p>
-<p>adapter.setHasStableIds(boolean)，需要重写getItemId(int position)方法，固定id可以减少刷新</p>
-<h2 id="_7">四级缓存源码分析<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<h2 id="_1">四级缓存源码分析<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <p>onTouchEvent会触发缓存和复用流程
 <div class="highlight"><pre><span></span><code><span class="nd">@Override</span>
 <span class="kd">public</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">onTouchEvent</span><span class="p">(</span><span class="n">MotionEvent</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -3017,7 +2795,7 @@ scrollBy主要看fill方法
 <div class="highlight"><pre><span></span><code><span class="n">recycleByLayoutState</span><span class="p">(</span><span class="n">recycler</span><span class="p">,</span><span class="w"> </span><span class="n">layoutState</span><span class="p">);</span>
 <span class="n">layoutChunk</span><span class="p">(</span><span class="n">recycler</span><span class="p">,</span><span class="w"> </span><span class="n">state</span><span class="p">,</span><span class="w"> </span><span class="n">layoutState</span><span class="p">,</span><span class="w"> </span><span class="n">layoutChunkResult</span><span class="p">);</span>
 </code></pre></div></p>
-<h3 id="_8">缓存<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<h3 id="_2">缓存<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
 <p>recycleByLayoutState主要是缓存相关</p>
 <p>缓存最终调用recycleChildren方法，接着调用recycleView
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">removeAndRecycleViewAt</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">index</span><span class="p">,</span><span class="w"> </span><span class="n">Recycler</span><span class="w"> </span><span class="n">recycler</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -3027,7 +2805,7 @@ scrollBy主要看fill方法
 <span class="p">}</span>
 </code></pre></div>
 recycleView主要看recycleViewHolderInternal方法</p>
-<h4 id="mcachedviewsrecycledviewpool">mCachedViews和RecycledViewPool相关<a class="headerlink" href="#mcachedviewsrecycledviewpool" title="Permanent link">&para;</a></h4>
+<h4 id="mcachedviewsrecycledviewpool"><a id="cache_rv_pool">mCachedViews和RecycledViewPool相关</a><a class="headerlink" href="#mcachedviewsrecycledviewpool" title="Permanent link">&para;</a></h4>
 <p><div class="highlight"><pre><span></span><code><span class="kd">final</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">ViewHolder</span><span class="o">&gt;</span><span class="w"> </span><span class="n">mCachedViews</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">ViewHolder</span><span class="o">&gt;</span><span class="p">();</span>
 <span class="kt">int</span><span class="w"> </span><span class="n">mViewCacheMax</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DEFAULT_CACHE_SIZE</span><span class="p">;</span>
 <span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">DEFAULT_CACHE_SIZE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
@@ -3139,7 +2917,7 @@ recycleViewHolderInternal就是上面的mCachedViews和RecycledViewPool缓存逻
 <span class="p">}</span>
 </code></pre></div>
 onLayoutChildren-&gt;fill走onTouchEvent分析的流程</p>
-<h3 id="_9">总结<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
+<h3 id="_3">总结<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
 <tr>
@@ -3199,7 +2977,7 @@ onLayoutChildren-&gt;fill走onTouchEvent分析的流程</p>
 </li>
 <li>回调bindView通过mFlags决定，从RecycledViewPool取出的缓存会调用resetInternal方法使得mFlags变成0</li>
 </ol>
-<h3 id="_10">复用<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
+<h3 id="_4">复用<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
 <p>回到fill方法中layoutChunk方法主要是复用相关
 <div class="highlight"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">layoutChunk</span><span class="p">(</span><span class="n">RecyclerView</span><span class="p">.</span><span class="na">Recycler</span><span class="w"> </span><span class="n">recycler</span><span class="p">,</span><span class="w"> </span><span class="n">RecyclerView</span><span class="p">.</span><span class="na">State</span><span class="w"> </span><span class="n">state</span><span class="p">,</span><span class="n">LayoutState</span><span class="w"> </span><span class="n">layoutState</span><span class="p">,</span><span class="w"> </span><span class="n">LayoutChunkResult</span><span class="w"> </span><span class="n">result</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="n">View</span><span class="w"> </span><span class="n">view</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">layoutState</span><span class="p">.</span><span class="na">next</span><span class="p">(</span><span class="n">recycler</span><span class="p">);</span>
@@ -3274,7 +3052,7 @@ onLayoutChildren-&gt;fill走onTouchEvent分析的流程</p>
 <span class="w">    </span><span class="c1">//...</span>
 <span class="p">}</span>
 </code></pre></div></p>
-<h4 id="mchangedscrap">第一级缓存mChangedScrap<a class="headerlink" href="#mchangedscrap" title="Permanent link">&para;</a></h4>
+<h4 id="mchangedscrap"><a id="mChangedScrap">第一级缓存mChangedScrap</a><a class="headerlink" href="#mchangedscrap" title="Permanent link">&para;</a></h4>
 <p>getChangedScrapViewForPosition(position)
 <div class="highlight"><pre><span></span><code><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">ViewHolder</span><span class="o">&gt;</span><span class="w"> </span><span class="n">mChangedScrap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span>
 <span class="n">ViewHolder</span><span class="w"> </span><span class="nf">getChangedScrapViewForPosition</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">position</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -3347,9 +3125,6 @@ onLayoutChildren-&gt;fill走onTouchEvent分析的流程</p>
 <span class="p">}</span>
 </code></pre></div>
 getScrapOrCachedViewForId也是从mAttachedScrap获取缓存</p>
-<h5 id="cache">修改cache缓存大小<a class="headerlink" href="#cache" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="n">setItemViewCacheSize</span><span class="p">(</span><span class="m">3</span><span class="p">)</span>
-</code></pre></div>
 <h4 id="mviewcacheextension">第三级缓存mViewCacheExtension<a class="headerlink" href="#mviewcacheextension" title="Permanent link">&para;</a></h4>
 <p>自定义缓存
 <div class="highlight"><pre><span></span><code><span class="n">setViewCacheExtension</span><span class="p">(</span><span class="k">object</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="nc">RecyclerView</span><span class="p">.</span><span class="na">ViewCacheExtension</span><span class="p">(){</span>
@@ -3374,12 +3149,6 @@ getScrapOrCachedViewForId也是从mAttachedScrap获取缓存</p>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div></p>
-<h5 id="_11">修改缓存池大小<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="n">rv</span><span class="p">.</span><span class="na">recycledViewPool</span><span class="p">.</span><span class="na">setMaxRecycledViews</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="m">5</span><span class="p">)</span>
-</code></pre></div>
-<h5 id="_12">复用(共享)缓存池<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="n">rv</span><span class="p">.</span><span class="na">setRecycledViewPool</span><span class="p">(</span><span class="n">recycledViewPool</span><span class="p">)</span>
-</code></pre></div>
 
 
 
@@ -3431,10 +3200,10 @@ getScrapOrCachedViewForId也是从mAttachedScrap获取缓存</p>
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "search.suggest", "search.highlight"], "search": "../../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.tabs", "search.suggest", "search.highlight"], "search": "../../../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.b4d07000.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.b4d07000.min.js"></script>
       
     
   </body>
