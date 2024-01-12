@@ -10,6 +10,16 @@ Windows虚拟机监控程序平台、适用于Linux的Windows子系统并重启�
 https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi
 #### 4.启动ubuntu
 window菜单中打开ubuntu会自动进行安装，完成后输入用户名，密码
+
+报错：WslRegisterDistribution failed with error: 0x80370102
+
+确保BIOS中Virtualization(或者VT关键字，每个电脑可能不同)功能已经开启
+
+管理员身份打开终端
+```
+bcdedit /set hypervisorlaunchtype auto
+```
+重启电脑
 #### 5.查看配置
 打开powershell输入
 ```
@@ -83,5 +93,9 @@ compact vdisk
 detach vdisk
 exit
 ```
-映射window磁盘，文件管理器输入\\wsl$后回车，右键添加映射网络驱动器
+映射window磁盘，文件管理器输入
+```
+\\wsl$
+```
+后回车，右键添加映射网络驱动器
 ![wsl2_disk](../img/wsl2_disk.png)

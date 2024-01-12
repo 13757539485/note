@@ -15,12 +15,24 @@
 5.重启资源管理器
 ![win11_reboot_res](../img/win11_reboot_res.png)
 
+命令方式
 ```
 reg.exe delete "HKCUSoftwareClassesCLSID{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}InprocServer32" /va /f
 ```
+或者
+```
+reg add HKCU\Software\Classes\CLSID\{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}\InprocServer32 /ve /d "" /f
+```
+需要重启电脑
 ### 2.拖拽删除文件
 新建bat文件，添加代码
 ```bat
 DEL /F /A /Q \\?\%1
 RD /S /Q \\?\%1
+```
+
+### 3.合并7z.00x
+打开cmd
+```
+copy /b xxx.7z.* xxx.7z
 ```

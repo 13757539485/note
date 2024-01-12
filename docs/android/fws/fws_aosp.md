@@ -84,7 +84,7 @@ repo forall -c git config --add core.filemode false
 #### 添加虚拟内存
 如果已经存在swapfile，先关闭
 ```shell
-sudo swapon /swapfile
+sudo swapoff /swapfile
 ```
 在删除
 ```shell

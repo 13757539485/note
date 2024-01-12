@@ -62,3 +62,80 @@ sudo hwclock --localtime --systohc //将本地时间更新到硬件上
 sudo apt-get remove vim-common
 sudo apt-get install vim
 ```
+#### 设置root密码
+```
+sudo passwd root
+```
+#### 安装输入法
+先安装[星火商店](https://spark-app.store/)，在办公中选中相应的输入法，例如百度输入法，安装中会出现报错，打开终端执行
+```
+sudo apt install -f
+```
+打开设置-区域与语言-管理已安装的语言，在弹出的框中选择键盘输入法系统为Fcitx 4
+
+注销电脑，重新打开星火商店重新安装输入法再注销即可
+
+#### 美化主题
+打开ubuntu software，搜索并安装GNOME Tweaks和扩展
+
+拓展管理安装：
+```
+sudo apt install gnome-shell-extension-manager
+```
+打开拓展管理器选择安装User Themes
+
+mac主题
+```
+git clone https://github.com/vinceliuice/WhiteSur-gtk-theme.git --depth=1
+```
+执行
+```
+./install.sh
+```
+mac图标
+```
+git clone https://github.com/vinceliuice/WhiteSur-icon-theme.git --depth=1
+```
+执行
+```
+./install.sh
+```
+
+打开优化(GNOME Tweaks)，下安装外观，对应用程序、光标、图标、Shell进行主题配置White开头
+
+窗口标题栏修改放置为左
+
+#### 配置samba共享
+安装samba
+```
+sudo apt-get install samba
+```
+设置用户目录权限
+```
+sudo chmod 755 /home/username
+```
+编辑配置文件
+```
+sudo vi /etc/samba/smb.conf
+```
+添加内容
+```
+[Share]  
+    Comment = Ubuntu File Share  
+    Path = /home/username  
+    Browseable = yes  
+    Writable = yes  
+    Valid Users = username
+```
+设置访问用户并设置访问密码
+```
+sudo smbpasswd -a username
+```
+重启samba服务
+```
+sudo service smbd restart
+```
+window电脑直接在文件管理其中输入ubuntu的ip地址即可访问，创建磁盘映射路径为：
+```
+\\ip\Share
+```
