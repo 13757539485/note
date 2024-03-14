@@ -25,6 +25,8 @@ nav:
            - 广播: android/im/broadcast_receiver.md
            - Service: android/im/service.md
            - Socket: android/network/net_socket.md
+           - LocalSocket: android/im/localsocket.md
+           - Netty: android/im/netty.md
         - 并发编程:
            - 基础概念: android/java/java_base.md
            - 线程: android/java/java_thread.md
@@ -48,6 +50,10 @@ nav:
         - Framework:
            - AOSP学习:  
               - 环境搭建: android/fws/fws_aosp.md
+              - 编译相关: android/fws/fws_aosp_make.md
+              - 传感器: 
+                - 源码: android/fws/fws_sensor.md
+                - 案例: android/fws/fws_sensor_case.md
               - Handler: android/fws/fws_handler.md
            - IPC通信: android/fws/fws_process.md
            - WMS: android/fws/fws_wms.md

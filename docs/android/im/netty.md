@@ -7,6 +7,8 @@ MediaScannerConnection.scanFile(
     // 图片扫描完毕，用来保证图片写入完整后继续其他操作
 }
 ```
+netty可以与Socket混合使用，即client是netty编写，server是socket编写，反之亦可
+
 ### 添加依赖
 ```kts
 dependencies {
@@ -14,363 +16,182 @@ dependencies {
 }
 ```
 
-### 服务端
+### 封装的工具
+#### 服务端
+[com/hfc/netty/StringServerHandler](./code/src/com/hfc/netty/StringServerHandler.kt)
+
+[com/hfc/netty/StringServerListener](./code/src/com/hfc/netty/StringServerListener.kt)
+#### 客户端
+[com/hfc/netty/StringClientHandler](./code/src/com/hfc/netty/StringClientHandler.kt)
+
+[com/hfc/netty/StringClientListener](./code/src/com/hfc/netty/StringClientListener.kt)
+
+#### 基类
+[com/hfc/netty/base/BaseHandler](./code/src/com/hfc/netty/base/BaseHandler.kt)
+
+[com/hfc/netty/base/SimpleChannelHandler](./code/src/com/hfc/netty//base/SimpleChannelHandler.kt)
+
+[com/hfc/netty/base/SimpleListener](./code/src/com/hfc/netty/base/SimpleListener.kt)
+
+### 简单使用
+StringServerHandler和StringClientHandler是基于String消息封装，消息解析是通过换行符
+
+#### server端
+启动服务，参数port不传默认1235
 ```kotlin
-object ServerHandler {
-    private var channel: Channel? = null
-    private var workerGroup: EventLoopGroup? = null
-    private var listener: ServerListener? = null
-    private var channelHandlerContext: ChannelHandlerContext? = null
-
-    fun registerListener(listener: ServerListener) {
-        ServerHandler.listener = listener
-    }
-
-    fun unregisterListener() {
-        listener = null
-    }
-
-    fun startServerJava(port: Int = 1234) {
-        MainScope().launch {
-            startServer(port)
+StringServerHandler.startServer()
+```
+关闭服务
+```kotlin
+StringServerHandler.close()
+```
+设置监听
+```kotlin
+StringServerHandler.registerListener(object : StringServerListener {
+    override fun channelActive() {
+        lifecycleScope.launch {
+            // 建立连接完成
         }
     }
 
-    suspend fun startServer(port: Int = 1234) {
-        if (channel != null && channel!!.isActive) {
-            println("server already start")
-            return
+    override fun channelInActive(msg: String) {
+        lifecycleScope.launch {
+            // 断开连接
         }
-        withContext(Dispatchers.IO) {
-            workerGroup = NioEventLoopGroup()
-            val bootstrap = ServerBootstrap()
-            bootstrap.group(workerGroup)
-                .channel(NioServerSocketChannel::class.java)
-                .option(ChannelOption.SO_REUSEADDR, true)
-                .option(ChannelOption.SO_BACKLOG, 1024)
-                .option(ChannelOption.SO_KEEPALIVE, true)
-                .option(ChannelOption.CONNECT_TIMEOUT_MILLIS, 30000)
-                .childOption(ChannelOption.SO_KEEPALIVE, true)
-                .childOption(ChannelOption.SO_RCVBUF, 1024 * 1024)
-                .childOption(ChannelOption.SO_SNDBUF, 1024 * 1024)
-                .childHandler(object : ChannelInitializer<SocketChannel>() {
-                    @Throws(Exception::class)
-                    override fun initChannel(socketChannel: SocketChannel) {
-                        socketChannel.pipeline().addLast(ByteArrayMessageEncoder())
-                        socketChannel.pipeline().addLast(ByteArrayMessageDecoder())
-                        socketChannel.pipeline()
-                            .addLast(object : SimpleChannelInboundHandler<ByteArrayMessage>() {
-                                override fun messageReceived(
-                                    ctx: ChannelHandlerContext,
-                                    msg: ByteArrayMessage
-                                ) {
-                                    println("msg $msg ${Thread.currentThread().name}")
-                                    when (msg.type) {
-                                        0 -> {
-                                            listener?.messageReceived(
-                                                BitmapFactory.decodeByteArray(
-                                                    msg.data,
-                                                    0,
-                                                    msg.length
-                                                )
-                                            )
-                                        }
+    }
 
-                                        1 -> {
-                                            listener?.messageReceived(String(msg.data))
-                                        }
-                                    }
-                                }
+    override fun messageReceived(msg: String) {
+        lifecycleScope.launch {
+            // 收到消息
+        }
+    }
+})
+```
+发送消息
+```kotlin
+StringServerHandler.sendMsg(msg)
+```
+#### client端
+启动服务，参数ip地址，必传String类型，port不传默认1235
+```kotlin
+StringClientHandler.startClient(ipStr)
+```
+关闭服务
+```kotlin
+StringClientHandler.close()
+```
+设置监听
+```kotlin
+StringClientHandler.registerListener(object : StringClientHandler {
+    override fun channelActive() {
+        lifecycleScope.launch {
+            // 建立连接完成
+        }
+    }
 
-                                override fun channelActive(ctx: ChannelHandlerContext?) {
-                                    super.channelActive(ctx)
-                                    channelHandlerContext = ctx
-                                    listener?.channelActive()
-                                }
-
-                                override fun channelInactive(ctx: ChannelHandlerContext?) {
-                                    super.channelInactive(ctx)
-                                    println("server channelInactive")
-                                }
-                            })
-                    }
-                })
-            try {
-                val future = bootstrap.bind(port).sync()
-                channel = future.channel()
-                println("server running")
-                channel!!.closeFuture().sync()
-            } catch (e: InterruptedException) {
-                e.printStackTrace()
+    override fun channelInActive(msg: String) {
+        lifecycleScope.launch {
+            when (msg) {
+                "ConnectException" -> {
+                    // 服务器端未启动
+                }
+                else -> {
+                    // 服务器端关闭
+                }
             }
-        }
-    }
-
-    fun sendMsgJava(msg: ByteArrayMessage) {
-        MainScope().launch {
-            sendMsg(msg)
-        }
-    }
-
-    suspend fun sendMsg(msg: ByteArrayMessage) {
-        if (channelHandlerContext == null) {
-            println("channel is null, please check")
-            return
-        }
-        val channel = channelHandlerContext!!
-        withContext(Dispatchers.IO) {
-            channel.writeAndFlush(msg)
-        }
-    }
-
-    fun sendStrJava(msg: String) {
-        MainScope().launch {
-            sendStr(msg)
-        }
-    }
-
-    suspend fun sendStr(msg: String) {
-        if (channelHandlerContext == null) {
-            println("channel is null, please check")
-            return
-        }
-        val channel = channelHandlerContext!!
-        withContext(Dispatchers.IO) {
-            val bytes = msg.toByteArray()
-            channel.writeAndFlush(ByteArrayMessage(bytes, bytes.size, 1))
-        }
-    }
-
-    fun closeServer() {
-        MainScope().launch {
-            withContext(Dispatchers.IO) {
-                workerGroup?.shutdownGracefully()
-                channel?.closeFuture()?.syncUninterruptibly()
-                channel = null
-                channelHandlerContext?.close()?.sync()
-                channelHandlerContext = null
-            }
-            println("server close")
-        }
-    }
 }
+    }
 
-interface ServerListener {
-    fun channelActive()
-
-    fun messageReceived(bitmap: Bitmap)
-
-    fun messageReceived(msg: String)
-}
+    override fun messageReceived(msg: String) {
+        lifecycleScope.launch {
+            // 收到消息
+        }
+    }
+})
+```
+发送消息
+```kotlin
+StringClientHandler.sendMsg(msg)
 ```
 
-### 客户端
+### 自定义消息体
+以传递bitmap和Stirng为例
+
+1. Listener接口编写，继承SimpleListener
 ```kotlin
-object AlbumClientHandler {
-    private var workerGroup: EventLoopGroup? = null
-    private var channel: Channel? = null
-    private var listener: AlbumClientListener? = null
-    private var channelHandlerContext: ChannelHandlerContext? = null
+fun messageReceived(bitmap: Bitmap)
+fun messageReceived(msg: String)
+```
 
-    fun registerListener(listener: AlbumClientListener) {
-        this.listener = listener
-    }
+2. 编写Handler，继承BaseHandler<上面Listener>，编写启动函数和发送消息函数
+```kotlin
+fun startServer(port: Int = 1234) {
+    buildTcpServer(port) { socketChannel ->
+        socketChannel.pipeline().addLast(ByteArrayMessageEncoder())
+        socketChannel.pipeline().addLast(ByteArrayMessageDecoder())
+        socketChannel.pipeline()
+            .addLast(object :
+                SimpleChannelHandler<ByteArrayMessage, ByteArrayServerListener>(listener, this) {
+                override fun messageReceived(
+                    ctx: ChannelHandlerContext,
+                    msg: ByteArrayMessage
+                ) {
+                    when (msg.type) {
+                        0 -> {
+                            //转成Bitmap
+                        }
 
-    fun unregisterListener() {
-        listener = null
-    }
-
-    fun startAlbumClientJava(ip: String, port: Int = 1234) {
-        MainScope().launch {
-            startAlbumClient(ip, port)
-        }
-    }
-
-    suspend fun startAlbumClient(ip: String, port: Int = 1234) {
-        if (channel != null && channel!!.isActive) {
-            println("client already start")
-            return
-        }
-        withContext(Dispatchers.IO) {
-            workerGroup = NioEventLoopGroup()
-            val bootstrap = Bootstrap()
-            bootstrap.group(workerGroup)
-                .channel(NioSocketChannel::class.java)
-                .handler(object : ChannelInitializer<SocketChannel>() {
-                    @Throws(Exception::class)
-                    override fun initChannel(socketChannel: SocketChannel) {
-                        socketChannel.pipeline().addLast(ByteArrayMessageEncoder())
-                        socketChannel.pipeline().addLast(ByteArrayMessageDecoder())
-                        socketChannel.pipeline()
-                            .addLast(object : SimpleChannelInboundHandler<ByteArrayMessage>() {
-                                override fun messageReceived(
-                                    ctx: ChannelHandlerContext?,
-                                    msg: ByteArrayMessage
-                                ) {
-                                    println("msg $msg")
-                                    when (msg.type) {
-                                        0 -> {
-                                            listener?.messageReceived(
-                                                BitmapFactory.decodeByteArray(
-                                                    msg.data,
-                                                    0,
-                                                    msg.length
-                                                )
-                                            )
-                                        }
-
-                                        1 -> {
-                                            listener?.messageReceived(String(msg.data))
-                                        }
-                                    }
-                                }
-
-                                override fun channelActive(ctx: ChannelHandlerContext?) {
-                                    super.channelActive(ctx)
-                                    channelHandlerContext = ctx
-                                    listener?.channelActive()
-                                }
-
-                                override fun channelInactive(ctx: ChannelHandlerContext?) {
-                                    super.channelInactive(ctx)
-                                    listener?.channelInActive("")
-                                }
-                            })
+                        1 -> {
+                            //转成String
+                        }
                     }
-                })
-            try {
-                val future = bootstrap.connect(ip, port).sync()
-                channel = future.channel()
-                println("client running")
-                future.channel().closeFuture().sync()
-            } catch (e: Exception) {
-                if (e is ConnectException || e is NoRouteToHostException) {
-                    println("server is not running: ${e.message}")
-                    listener?.channelInActive("ConnectException")
-                } else {
-                    e.printStackTrace()
+                }
+            })
+        }
+    }
+
+    fun sendMsg(msg: ByteArrayMessage) {
+        checkHandlerContext {
+            mainScope.launch {
+                withContext(Dispatchers.IO) {
+                    it.writeAndFlush(msg)
                 }
             }
         }
     }
+```
+具体见
+#### 自定义解码器
+[com/hfc/netty/decoder/ByteArrayMessageDecoder](./code/src/com/hfc/netty/decoder/ByteArrayMessageDecoder.kt)
+#### 自定义编码器
+[com/hfc/netty/encoder/ByteArrayMessageEncoder](./code/src/com/hfc/netty/encoder/ByteArrayMessageEncoder.kt)
+#### 自定义数据包
+[com/hfc/netty/pack/ByteArrayMessage](./code/src/com/hfc/netty/pack/ByteArrayMessage.kt)
+#### 自定义客户端
+[com/hfc/netty/ByteArrayClientHandler](./code/src/com/hfc/netty/ByteArrayClientHandler.kt)
 
-    fun sendMsgJava(msg: List<ByteArrayMessage>) {
-        MainScope().launch {
-            sendMsg(msg)
-        }
-    }
+[com/hfc/netty/ByteArrayClientListener](./code/src/com/hfc/netty/ByteArrayClientListener.kt)
+#### 自定义服务端
+[com/hfc/netty/ByteArrayServerHandler](./code/src/com/hfc/netty/ByteArrayServerHandler.kt)
 
-    suspend fun sendMsg(msg: List<ByteArrayMessage>) {
-        if (channelHandlerContext == null) {
-            println("channel is null, please check")
-            return
-        }
-        val channel = channelHandlerContext!!
-        withContext(Dispatchers.IO) {
-            msg.forEach {
-                channel.writeAndFlush(it)
+[com/hfc/netty/StringServerHandler](./code/src/com/hfc/netty/ByteArrayServerListener.kt)
+
+发送图片字节
+```kotlin
+private val imgs = listOf(R.mipmap.test1, R.mipmap.test2, R.mipmap.test3)
+lifecycleScope.launch {
+    val bitmapsFlow: List<ByteArrayMessage> = imgs.asFlow()
+        .map { resourceId ->
+            BitmapFactory.decodeResource(resources, resourceId)
+        }.map { bitmap ->
+            val baos = ByteArrayOutputStream().apply {
+                bitmap.compress(Bitmap.CompressFormat.PNG, 100, this)
             }
+            val byte = baos.toByteArray()
+            ByteArrayMessage(byte, byte.size)
         }
-    }
-
-    fun sendStrJava(msg: String) {
-        MainScope().launch {
-            sendStr(msg)
-        }
-    }
-
-    suspend fun sendStr(msg: String) {
-        if (channelHandlerContext == null) {
-            println("channel is null, please check")
-            return
-        }
-        val channel = channelHandlerContext!!
-        withContext(Dispatchers.IO) {
-            val bytes = msg.toByteArray()
-            channel.writeAndFlush(ByteArrayMessage(bytes, bytes.size, 1))
-        }
-    }
-
-    fun closeClient() {
-        MainScope().launch {
-            withContext(Dispatchers.IO) {
-                workerGroup?.shutdownGracefully()
-                channel?.closeFuture()?.sync()
-                channel = null
-                channelHandlerContext?.close()?.sync()
-                channelHandlerContext = null
-                println("close client")
-            }
-        }
-    }
-}
-
-interface ClientListener {
-    fun channelActive()
-
-    fun channelInActive(msg: String)
-
-    fun messageReceived(bitmap: Bitmap)
-
-    fun messageReceived(msg: String)
-}
-```
-
-### 解码器
-```kotlin
-class ByteArrayMessageDecoder: ByteToMessageDecoder() {
-    override fun decode(ctx: ChannelHandlerContext?, byteBuf: ByteBuf, out: MutableList<Any>) {
-        println("start decode")
-        if (byteBuf.readableBytes() < 4) {
-            return
-        }
-        byteBuf.markReaderIndex()
-        val length = byteBuf.readInt()
-        if (byteBuf.readableBytes() < length) {
-            byteBuf.resetReaderIndex()
-            return
-        }
-        val data = ByteArray(length)
-        byteBuf.readBytes(data);
-        val messageType = byteBuf.readByte().toInt()
-        out.add(ByteArrayMessage(data, length, messageType))
-        println("end decode")
-    }
-}
-```
-
-### 编码器
-```kotlin
-class ByteArrayMessageEncoder: MessageToByteEncoder<ByteArrayMessage>() {
-    override fun encode(ctx: ChannelHandlerContext?, msg: ByteArrayMessage, out: ByteBuf) {
-        println("start encode")
-        out.writeInt(msg.length)
-        out.writeBytes(msg.data)
-        out.writeByte(msg.type)
-        println("end encode")
-    }
-}
-```
-
-### 数据包
-```kotlin
-data class ByteArrayMessage(var data: ByteArray, var length: Int, var type: Int = 0) {
-    override fun equals(other: Any?): Boolean {
-        if (this === other) return true
-        if (javaClass != other?.javaClass) return false
-
-        other as ByteArrayMessage
-
-        if (!data.contentEquals(other.data)) return false
-        if (length != other.length) return false
-
-        return true
-    }
-
-    override fun hashCode(): Int {
-        var result = data.contentHashCode()
-        result = 31 * result + length
-        return result
-    }
+        .flowOn(Dispatchers.IO)
+        .toList()
+    AlbumClientHandler.sendMsg(bitmapsFlow)
 }
 ```
