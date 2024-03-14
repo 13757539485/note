@@ -6,6 +6,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://13757539485.github.io/note/ai/</loc>
+         <lastmod>2024-03-14</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://13757539485.github.io/note/excel/</loc>
          <lastmod>2024-03-14</lastmod>
          <changefreq>daily</changefreq>
@@ -172,6 +177,11 @@
     </url>
     <url>
          <loc>https://13757539485.github.io/note/android/fws/fws_handler/</loc>
+         <lastmod>2024-03-14</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://13757539485.github.io/note/android/fws/fws_mk_bp/</loc>
          <lastmod>2024-03-14</lastmod>
          <changefreq>daily</changefreq>
     </url>

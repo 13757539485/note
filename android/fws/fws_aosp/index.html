@@ -1710,7 +1710,25 @@
           <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
-      添加虚拟内存
+      添加交换内存
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      安装依赖
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      提升编译
     </span>
   </a>
   
@@ -1759,7 +1777,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       编译以及命令相关
     </span>
@@ -1853,6 +1871,27 @@
   
   
   
+    <li class="md-nav__item">
+      <a href="../fws_mk_bp/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    配置记录
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
     
     
     
@@ -1863,10 +1902,10 @@
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_1_9_1_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_1_9_1_4" >
         
           
-          <label class="md-nav__link" for="__nav_1_1_9_1_3" id="__nav_1_1_9_1_3_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_1_1_9_1_4" id="__nav_1_1_9_1_4_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -1877,8 +1916,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_1_1_9_1_3_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_1_1_9_1_3">
+        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_1_1_9_1_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_1_9_1_4">
             <span class="md-nav__icon md-icon"></span>
             传感器
           </label>
@@ -3755,6 +3794,27 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    AI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -3826,7 +3886,25 @@
           <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
-      添加虚拟内存
+      添加交换内存
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      安装依赖
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      提升编译
     </span>
   </a>
   
@@ -3875,7 +3953,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       编译以及命令相关
     </span>
@@ -4010,6 +4088,8 @@ chmod<span class="w"> </span>+x<span class="w"> </span>~/bin/repo
 </code></pre></div></p>
 <h3 id="4android">4.同步Android源码<a class="headerlink" href="#4android" title="Permanent link">&para;</a></h3>
 <p>六种查看Android系统源码的网址</p>
+<p>AOSP在线源码(需vpn)
+<a href="https://cs.android.com/android/platform/superproject/main">https://cs.android.com/android/platform/superproject/main</a></p>
 <p>进入目录aosp执行
 <div class="highlight"><pre><span></span><code>repo<span class="w"> </span>init<span class="w"> </span>-u<span class="w"> </span>git://mirrors.ustc.edu.cn/aosp/platform/manifest<span class="w"> </span>-b<span class="w"> </span>android-13.0.0_r15
 </code></pre></div>
@@ -4030,7 +4110,7 @@ git<span class="w"> </span>pull
 <p>解决：
 <div class="highlight"><pre><span></span><code>repo<span class="w"> </span>forall<span class="w"> </span>-c<span class="w"> </span>git<span class="w"> </span>config<span class="w"> </span>--add<span class="w"> </span>core.filemode<span class="w"> </span><span class="nb">false</span>
 </code></pre></div></p>
-<h4 id="_1">添加虚拟内存<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h4>
+<h4 id="_1">添加交换内存<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h4>
 <p>如果已经存在swapfile，先关闭
 <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>swapoff<span class="w"> </span>/swapfile
 </code></pre></div>
@@ -4047,12 +4127,34 @@ sudo<span class="w"> </span>swapon<span class="w"> </span>/swapfile
 </code></pre></div>
 同步代码： (较慢)
 <div class="highlight"><pre><span></span><code>repo<span class="w"> </span>sync
-</code></pre></div>
-安装jdk
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>openjdk-8-jre-headless
+</code></pre></div></p>
+<h4 id="_2">安装依赖<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h4>
+<p>安装jdk
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>openjdk-11-jre-headless
 </code></pre></div>
 其他依赖
 <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>git-core<span class="w"> </span>gnupg<span class="w"> </span>flex<span class="w"> </span>bison<span class="w"> </span>gperf<span class="w"> </span>build-essential<span class="w"> </span>zip<span class="w"> </span>curl<span class="w"> </span>zlib1g-dev<span class="w"> </span>gcc-multilib<span class="w"> </span>g++-multilib<span class="w"> </span>libc6-dev-i386<span class="w"> </span>lib32ncurses5-dev<span class="w"> </span>x11proto-core-dev<span class="w"> </span>libx11-dev<span class="w"> </span>lib32z-dev<span class="w"> </span>libgl1-mesa-dev<span class="w"> </span>libxml2-utils<span class="w"> </span>xsltproc<span class="w"> </span>unzip
+</code></pre></div></p>
+<h4 id="_3">提升编译<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h4>
+<p>交换内存控制，重启生效
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>vi<span class="w"> </span>/etc/sysctl.conf
+vm.swappiness<span class="o">=</span><span class="m">70</span>
+</code></pre></div>
+swappiness值为0表示优先使用物理内存，值为100则优先使用swap内存</p>
+<p>查看命令
+<div class="highlight"><pre><span></span><code>cat<span class="w"> </span>/proc/sys/vm/swappiness
+</code></pre></div>
+设置缓存，配置java虚拟机内存
+<div class="highlight"><pre><span></span><code>vi<span class="w"> </span>~/.bashrc
+<span class="c1">#添加以下内容</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">USE_CCACHE</span><span class="o">=</span><span class="m">1</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">CCACHE_COMPRESS</span><span class="o">=</span><span class="m">1</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">LC_ALL</span><span class="o">=</span>C
+
+<span class="nb">export</span><span class="w"> </span><span class="nv">_JAVA_OPTIONS</span><span class="o">=</span><span class="s2">&quot;-Xmx6g&quot;</span>
+</code></pre></div>
+开启ccache
+<div class="highlight"><pre><span></span><code>ccache<span class="w"> </span>-M<span class="w"> </span>50G
 </code></pre></div></p>
 <h3 id="5google">5.驱动下载(针对google手机，可跳过)<a class="headerlink" href="#5google" title="Permanent link">&para;</a></h3>
 <p><a href="https://developers.google.com/android/drivers">https://developers.google.com/android/drivers</a></p>
@@ -4095,7 +4197,7 @@ sdk_x86_64-userdebug \
 sdk_phone_x86_64-userdebug
 </code></pre></div></p>
 <p>选择版本后执行编译命令：make -j(虚拟机配置的cpu核数)</p>
-<h4 id="_2">编译以及命令相关<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h4>
+<h4 id="_4">编译以及命令相关<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h4>
 <p><a href="../fws_aosp_make/">fws_aosp_make</a></p>
 <h4 id="car-api">Car API相关<a class="headerlink" href="#car-api" title="Permanent link">&para;</a></h4>
 <p>即编译和CarService通信的接口库</p>
