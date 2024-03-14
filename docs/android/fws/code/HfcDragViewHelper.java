@@ -27,6 +27,8 @@ import java.io.OutputStream;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 
+import javax.swing.text.View;
+
 /**
  * @hide
  */
@@ -101,22 +103,38 @@ public class HfcDragViewHelper {
         dragView(view);
     }
 
-    public void handleDragEvent(DragEvent event, String basePackageName) {
+    public boolean handleDragEvent(DragEvent event, String basePackageName) {
+        if (event == null) {
+            Log.e(TAG, "handleDragEvent event is null");
+            return false;
+        }
+        boolean result = false;
         if (DragEvent.ACTION_DROP == event.mAction) {
-            //判断是否是自身应用拖拽接收
             if (mCurrentDragView != null && mCurrentDragView.mContext != null &&
                     checkPkg(mCurrentDragView.mContext.getPackageName(), basePackageName)) {
                 Log.e(TAG, "mClipData set null");
-                event.mClipData = null;
+                if (!"com.hfc.manager".equals(basePackageName)) {
+                    event.mClipData = null;//是否允许自身应用拖拽接收
+                } else {
+                    result = true;
+                }
+            } else {
+                // 高德和美图接收拖拽
+                if ("com.mt.mtxx.mtxx".equals(basePackageName) ||
+                        "com.autonavi.minimap".equals(basePackageName)) {
+                    Log.e(TAG, "simulate drag and drop:" + mCurrentDragView);
+                    result = true;
+                }
             }
         } else if (DragEvent.ACTION_DRAG_ENDED == event.mAction) {
             if (mCurrentDragView != null) {
-                showBar(mCurrentDragView, false);
+                Log.e(TAG, "hasDrag reset false: " + mCurrentDragView);
+                showBar(mCurrentDragView.mContext, false, event.mClipData);
                 mCurrentDragView.hasDrag = false;
                 mCurrentDragView = null;
-                Log.e(TAG, "hasDrag reset false");
             }
         }
+        return result;
     }
 
     public void dragView(View view) {
@@ -145,14 +163,16 @@ public class HfcDragViewHelper {
 
     private void drawOther(View view) {
         String packageName = view.mContext.getPackageName();
-        if ("com.tencent.mm".equals(packageName)) {
-            try {
+        try {
+            if ("com.tencent.mm".equals(packageName)) {
                 adapterWx(view);
-            } catch (Exception e) {
-                e.printStackTrace();
+            } else if ("com.sankuai.meituan".equals(packageName)) {
+                adapterMeituan(view);
+            } else {
+                Log.e(TAG, "drawOther not support type: " + view);
             }
-        } else {
-            Log.e(TAG, "drawOther not support type: " + view);
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
@@ -210,16 +230,38 @@ public class HfcDragViewHelper {
         if (drawable instanceof BitmapDrawable) {
             bitmap = ((BitmapDrawable) drawable).getBitmap();
         } else {
-            int width = iv.getWidth();
-            int height = iv.getHeight();
-            bitmap = Bitmap.createBitmap(width, height, Bitmap.Config.RGB_565);
-            Canvas canvas = new Canvas(bitmap);
-            iv.draw(canvas);
+            bitmap = tryExtract(iv);
         }
         if (bitmap != null) {
             drawBitmap(view, bitmap);
         }
     }
+
+    private Bitmap tryExtract(ImageView imageView) {
+        Bitmap bitmap = null;
+        try {
+            bitmap = Bitmap.createBitmap(imageView.getWidth(), imageView.getHeight(),
+                    Bitmap.Config.RGB_565);
+            Canvas canvas = new Canvas(bitmap);
+            imageView.draw(canvas);
+        } catch (Exception e) {
+            Log.e(TAG, "createBitmap once error: " + e.getMessage());
+        }
+        if (bitmap == null) {
+            try {
+                imageView.setDrawingCacheEnabled(true);
+                imageView.buildDrawingCache();
+                if (imageView.getDrawingCache() != null) {
+                    bitmap = Bitmap.createBitmap(imageView.getDrawingCache());
+                }
+                imageView.setDrawingCacheEnabled(false);
+            } catch (Exception e) {
+                Log.e(TAG, "createBitmap second error: " + e.getMessage());
+            }
+        }
+        return bitmap;
+    }
+
 
     private void drawText(View view, CharSequence content) {
         view.startDragAndDrop(ClipData.newPlainText("drag text", content),
@@ -361,16 +403,69 @@ public class HfcDragViewHelper {
         }
     }
 
-    public void showBar(View view, boolean show) {
+    private void adapterMeituan(View view) {
+        Log.e(TAG, "adapterMeituan start: " + view);
+        if (checkViewName(view, "com.facebook.react.views.view.f") && view instanceof ViewGroup) {
+            ViewGroup vg = (ViewGroup) view;
+            Log.e(TAG, "adapterMeituan bkg:" + vg + "," + vg.getChildCount());
+            if (vg.getChildCount() > 3) {
+                View child = vg.getChildAt(3);
+                if (child instanceof TextView) {
+                    CharSequence text = ((TextView) child).getText();
+                    drawText(child, text);
+                    Log.e(TAG, "adapterMeituan text: " + text);
+                }
+            }
+        }
+    }
+
+    public void sendAllowDragApp(Context context, ClipData clipData, String pkg) {
+        Intent shareBarIntent = getShareBarIntent();
+        shareBarIntent.setClipData(clipData);
+        shareBarIntent.setAction("action.hfc.custom.pkg_drag");
+        shareBarIntent.putExtra("target_pkg", pkg);
+        context.sendBroadcast(shareBarIntent);
+    }
+
+    public void dragStart(Context context, ClipData data) {
+        showBar(context, true, data);
+    }
+
+    public boolean hasDrag(View view) {
         mCurrentDragView = view;
-        if (view == null) {
-            Log.e(TAG, "showBar view is null");
+        if (mCurrentDragView != null) {
+            Log.e(TAG, "hasDrag: " + mCurrentDragView);
+            if (!mCurrentDragView.hasDrag) {
+                mCurrentDragView.hasDrag = true;
+                return false;
+            } else {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private void showBar(Context context, boolean show, ClipData data) {
+        if (context == null) {
+            Log.e(TAG, "showBar context is null");
             return;
         }
+        Log.e(TAG, "showBar: " + show + "," + context.getPackageName());
+        if (!PM_WRITE_LIST.contains(context.getPackageName())) {
+            Log.e(TAG, "showBar pkg is not in write list");
+            return;
+        }
+        Intent intent = getShareBarIntent();
+        intent.setAction(show ?  "action.hfc.show": "action.hfc.hide");
+        intent.setClipData(data);
+        context.sendBroadcast(intent);
+    }
+
+    private Intent getShareBarIntent() {
         Intent intent = new Intent();
-        intent.setComponent(new ComponentName("com.hfc.manager","com.hfc.manager.HfcManagerReceiver"));
-        intent.setAction(show ? "action.hfc.show": "action.hfc.hide");
-        view.mContext.sendBroadcast(intent);
+        intent.setComponent(new ComponentName("com.hfc.manager",
+                "com.hfc.manager.HfcManagerReceiver"));
+        return intent;
     }
 
     public void printLog(String tag, String msg) {

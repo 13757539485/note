@@ -285,3 +285,6 @@ rvAdapter.submitList(mutableListOf<Media>().also { it.addAll(imgUrls) })
 
 ### <a id="smart-fresh">下拉刷新库</a>
 https://github.com/scwang90/SmartRefreshLayout
+
+### <a id="xx_p">XXPermissions</a>
+https://github.com/getActivity/XXPermissions

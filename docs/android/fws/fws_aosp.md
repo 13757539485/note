@@ -53,6 +53,9 @@ sudo ln -s /usr/bin/python3.10 /usr/bin/python
 ### 4.同步Android源码
 六种查看Android系统源码的网址
 
+AOSP在线源码(需vpn)
+https://cs.android.com/android/platform/superproject/main
+
 进入目录aosp执行
 ```shell
 repo init -u git://mirrors.ustc.edu.cn/aosp/platform/manifest -b android-13.0.0_r43
@@ -95,7 +98,7 @@ git config --global --add safe.directory "*"
 ```shell
 repo forall -c git config --add core.filemode false
 ```
-#### 添加虚拟内存
+#### 添加交换内存
 如果已经存在swapfile，先关闭
 ```shell
 sudo swapoff /swapfile
@@ -118,6 +121,7 @@ sudo swapon /swapfile
 ```shell
 repo sync
 ```
+#### 安装依赖
 安装jdk
 ```shell
 sudo apt install openjdk-11-jre-headless
@@ -126,6 +130,33 @@ sudo apt install openjdk-11-jre-headless
 ```shell
 sudo apt-get install git-core gnupg flex bison gperf build-essential zip curl zlib1g-dev gcc-multilib g++-multilib libc6-dev-i386 lib32ncurses5-dev x11proto-core-dev libx11-dev lib32z-dev libgl1-mesa-dev libxml2-utils xsltproc unzip
 ```
+#### 提升编译
+交换内存控制，重启生效
+```shell
+sudo vi /etc/sysctl.conf
+vm.swappiness=70
+```
+swappiness值为0表示优先使用物理内存，值为100则优先使用swap内存
+
+查看命令
+```shell
+cat /proc/sys/vm/swappiness
+```
+设置缓存，配置java虚拟机内存
+```shell
+vi ~/.bashrc
+#添加以下内容
+export USE_CCACHE=1
+export CCACHE_COMPRESS=1
+export LC_ALL=C
+
+export _JAVA_OPTIONS="-Xmx6g"
+```
+开启ccache
+```shell
+ccache -M 50G
+```
+
 ### 5.驱动下载(针对google手机，可跳过)
 https://developers.google.com/android/drivers
 

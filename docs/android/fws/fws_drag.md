@@ -88,3 +88,6 @@ binding.root.setOnDragListener { v, event ->
 
 ## 实战案例
 [案例定制](./fws_drag_case.md)
+
+应用横屏
+https://blog.csdn.net/u012932409/article/details/117379528

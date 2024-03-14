@@ -27,6 +27,7 @@ nav:
            - Socket: android/network/net_socket.md
            - LocalSocket: android/im/localsocket.md
            - Netty: android/im/netty.md
+           - 蓝牙: android/im/bluetooth.md
         - 并发编程:
            - 基础概念: android/java/java_base.md
            - 线程: android/java/java_thread.md
@@ -51,6 +52,7 @@ nav:
            - AOSP学习:  
               - 环境搭建: android/fws/fws_aosp.md
               - 编译相关: android/fws/fws_aosp_make.md
+              - 配置记录: android/fws/fws_mk_bp.md
               - 传感器: 
                 - 源码: android/fws/fws_sensor.md
                 - 案例: android/fws/fws_sensor_case.md
@@ -128,6 +130,7 @@ nav:
 - 其他学习: 
     - Excel: excel.md
     - Markdown: markdown.md
+    - AI: ai.md
 theme: 
   name: material
   language: zh

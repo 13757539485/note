@@ -122,12 +122,12 @@ public final boolean startDragAndDrop(ClipData data, DragShadowBuilder shadowBui
             Object myLocalState, int flags) {
     //...
     if (data != null) {
-            data.prepareToLeaveProcess((flags & View.DRAG_FLAG_GLOBAL) != 0);
+        data.prepareToLeaveProcess((flags & View.DRAG_FLAG_GLOBAL) != 0);
     }
     // add start
-    if (!hasDrag) {
-            hasDrag = true;
-            HfcDragViewHelper.getInstance().showBar(this, true);
+    if (HfcDragViewHelper.getInstance().hasDrag(this)) {
+        hasDrag = true;
+        HfcDragViewHelper.getInstance().dragStart(mContext, data);
     }
     //...
 ```
@@ -140,29 +140,53 @@ frameworks/base/core/java/android/view/ViewRootImpl.java
 ```java
 private void handleDragEvent(DragEvent event) {
     // ...
-    HfcDragViewHelper.getInstance().handleDragEvent(event, mBasePackageName);
+    boolean customResult = HfcDragViewHelper.getInstance().handleDragEvent(event, mBasePackageName);
     // Now dispatch the drag/drop event
     boolean result = mView.dispatchDragEvent(event);
+    if (customResult) {
+        // 不执行拖拽返回动画，应用假装支持拖拽接收
+        result = true;
+        CariadDragHelper.getInstance().sendAllowDragApp(mContext, event.mClipData, mBasePackageName);
+        Log.e("HfcDragViewHelper", "replace result to custom result:" + mBasePackageName);
+    }
+
     // ...
 }
 ```
 用来处理拖拽结束逻辑
 ```java
-public void handleDragEvent(DragEvent event, String basePackageName) {
+public boolean handleDragEvent(DragEvent event, String basePackageName) {
+    if (event == null) {
+        Log.e(TAG, "handleDragEvent event is null");
+        return false;
+    }
+    boolean result = false;
     if (DragEvent.ACTION_DROP == event.mAction) {
-        //判断是否是自身应用拖拽接收
-        if (mCurrentDragView != null && mCurrentDragView.mContext != null && checkPkg(mCurrentDragView.mContext.getPackageName(), basePackageName)) {
+        if (mCurrentDragView != null && mCurrentDragView.mContext != null &&
+                checkPkg(mCurrentDragView.mContext.getPackageName(), basePackageName)) {
             Log.e(TAG, "mClipData set null");
-            event.mClipData = null;
+            if (!"com.hfc.manager".equals(basePackageName)) {
+                event.mClipData = null;//是否允许自身应用拖拽接收
+            } else {
+                result = true;
+            }
+        } else {
+            // 高德和美图接收拖拽
+            if ("com.mt.mtxx.mtxx".equals(basePackageName) ||
+                    "com.autonavi.minimap".equals(basePackageName)) {
+                Log.e(TAG, "simulate drag and drop:" + mCurrentDragView);
+                result = true;
+            }
         }
     } else if (DragEvent.ACTION_DRAG_ENDED == event.mAction) {
         if (mCurrentDragView != null) {
-            showBar(mCurrentDragView.mContext, false); // 显示其他视图如dockbar
+            Log.e(TAG, "hasDrag reset false: " + mCurrentDragView);
+            showBar(mCurrentDragView.mContext, false, event.mClipData);
             mCurrentDragView.hasDrag = false;
             mCurrentDragView = null;
-            Log.e(TAG, "hasDrag reset false");
         }
     }
+    return result;
 }
 ```
 
@@ -263,6 +287,20 @@ void updateDragSurfaceLocked(boolean keepHandling, float x, float y) {
     float height = mScale == 1.0f ? mThumbOffsetY : mSurfaceControl.getHeight() * mScale / 2;
     mTransaction.setPosition(mSurfaceControl, x - width,
             y - height).apply();
+    //...
+}
+```
+修改拖拽取消/返回动画
+```java
+private ValueAnimator createReturnAnimationLocked() {
+    //...
+    PropertyValuesHolder.ofFloat(ANIMATED_PROPERTY_SCALE, mScale, 1),
+    //...
+}
+
+private ValueAnimator createCancelAnimationLocked() {
+    //...
+    PropertyValuesHolder.ofFloat(ANIMATED_PROPERTY_SCALE, mScale, 0),
     //...
 }
 ```
