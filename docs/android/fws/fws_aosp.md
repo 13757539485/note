@@ -55,10 +55,24 @@ sudo ln -s /usr/bin/python3.10 /usr/bin/python
 
 进入目录aosp执行
 ```shell
-repo init -u git://mirrors.ustc.edu.cn/aosp/platform/manifest -b android-13.0.0_r15
+repo init -u git://mirrors.ustc.edu.cn/aosp/platform/manifest -b android-13.0.0_r43
 ```
 其中-b查看地址：(挂vpn)
 https://source.android.com/setup/start/build-numbers?hl=zh_cn
+
+Pixel6: TQ2A.230505.002对应分支android-13.0.0_r43
+
+报错：
+Repo command failed: RepoUnhandledExceptionError
+	GitCommandError: 'reset --keep v2.44^0' on repo failed
+stderr: error: Entry 'project.py' not uptodate. Cannot merge.
+fatal: 不能重置索引文件至版本 'v2.44^0'。
+
+解决：
+```shell
+cd .repo/repo/
+git pull
+```
 
 报错：
 error.GitError: manifests rev-list ('^1013d985f70641b2cc05943f57fab5824d9e2ff3', 'HEAD', '--'): fatal: bad revision 'HEAD'
@@ -106,7 +120,7 @@ repo sync
 ```
 安装jdk
 ```shell
-sudo apt install openjdk-8-jre-headless
+sudo apt install openjdk-11-jre-headless
 ```
 其他依赖
 ```shell
@@ -117,7 +131,7 @@ https://developers.google.com/android/drivers
 
 ![fws1](../../img/fws/fws1.png)
 
-上面源码下载的是android-13.0.0_r11所以复制build ID(TD1A.220804.031)到驱动网站
+上面源码下载的是android-13.0.0_r43所以复制build ID(TQ2A.230505.002)到驱动网站
 
 ![fws2](../../img/fws/fws2.png)
 
@@ -131,6 +145,8 @@ tar -zxvf google_devices-cheetah-td1a.220804.031-d59f7f42.tgz
 ```
 按回车后一直按F键直到出现Type "I ACCEPT" if you agree to the terms of the license:
 输入I ACCEPT回车即可
+
+获得一个vendor文件夹，确保在aosp目录下
 
 ### 6.内核下载(可跳过)
 https://source.android.google.cn/docs/setup/build/building-kernels?hl=zh-cn#id-version
@@ -147,8 +163,10 @@ lunch
 ```
 lunch后会列出编译选项
 
-如果是真机代号可以通过驱动界面查找，比如Pixel 7 ("panther")
-
+如果是真机代号可以通过驱动界面查找，比如Pixel6 ("oriole")
+```shell
+lunch aosp_oriole-userdebug
+```
 编译版本介绍
 
 - user:无root权限
@@ -191,6 +209,63 @@ make android.car-stubs 仅包含没有被@SystemApi修饰的方法，且不含�
 线刷包：https://developers.google.com/android/images
 
 OTA包：https://developers.google.com/android/ota
+
+刷机编译的包
+
+adb和fastboot报错
+
+no permissions (missing udev rules? user is in the plugdev group)
+
+解决：
+```shell
+lsusb
+```
+输出：Bus 001 Device 009: ID 18d1:4ee7 Google Inc. Nexus/Pixel Device (charging + debug)
+```shell
+cd /etc/udev/rules.d/
+sudo vi 51-android.rules
+添加内容：
+SUBSYSTEM=="usb", ATTRS{idVendor}=="18d1", ATTRS{idProduct}=="4ee7",MODE="0666"
+```
+设置权限
+```shell
+sudo chmod a+x 51-android.rules
+```
+fastboot相同解决
+
+Bus 001 Device 014: ID 18d1:4ee0 Google Inc. Nexus/Pixel Device (fastboot)
+SUBSYSTEM=="usb", ATTRS{idVendor}=="18d1", ATTRS{idProduct}=="4ee0",MODE="0666"
+
+解锁设备
+```shell
+fastboot flashing unlock
+音量键选择Unlock
+```
+查看编译产出目录是否正确，默认是正确的，如需配置在.bashrc中添加export ANDROID_PRODUCT_OUT=/home/xxx/aosp/out/target/product/oriole
+```shell
+echo $ANDROID_PRODUCT_OUT
+```
+刷入编译产物：
+```shell
+fastboot flashall -w
+```
+
+其他命令
+
+b分区相关
+```shell
+fastboot set_active other
+fastboot --slot=other flash bootloader bootloader.img
+```
+
+wifi感叹号处理
+```shell
+adb shell settings delete global captive_portal_http_url
+adb shell settings delete global captive_portal_https_url
+adb shell settings put global captive_portal_http_url http://www.google.cn/generate_204
+adb shell settings put global captive_portal_https_url https://www.google.cn/generate_204
+```
+飞行模式开关一下
 
 ### 9.启动模拟器
 1.vmware中，源码编译完后直接执行emulator即可

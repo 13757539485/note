@@ -204,3 +204,26 @@ git checkout -b branch_name tagName
 ```
 git push --set-upstream origin branch_name
 ```
+
+#### 清理repo缓存
+```
+repo forall -c "git gc"
+rm -rf .repo/objects/*
+rm -rf .repo/logs/*
+rm -rf .repo/cache/*
+repo sync --no-repo-verify -c
+```
+
+#### aosp查看分支
+```
+git --git-dir=.repo/manifests/.git/ branch -av
+```
+
+#### aosp清理修改
+```
+repo forall -c 'git stash' # 先暂存所有更改（如果有）
+repo forall -c 'git checkout .'
+repo forall -c 'git clean -fdx' # 清理未跟踪文件和目录
+repo forall -c 'git reset --hard HEAD' # 硬重置所有模块到HEAD
+repo forall -c 'git stash drop' # 删除暂存区的改动（如果前面执行了stash
+```

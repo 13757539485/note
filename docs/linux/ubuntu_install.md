@@ -139,3 +139,11 @@ window电脑直接在文件管理其中输入ubuntu的ip地址即可访问，创
 ```
 \\ip\Share
 ```
+
+#### 配置java环境
+```
+PATH=~/bin:$PATH
+export JAVA_HOME=/media/yuli/E/Software/android-studio-linux/jbr
+export CLASSPATH=.:${JAVA_HOME}/bin
+export PATH=${JAVA_HOME}/bin:/media/yuli/E/Software/AndroidSDKlinux/platform-tools:$PATH
+```

@@ -1,0 +1,46 @@
+### KernelSU
+项目官网：https://github.com/tiann/KernelSU
+
+下载最新的Magisk安装包
+
+https://github.com/topjohnwu/Magisk/releases
+
+将 Magisk-*(version).apk 重命名为 Magisk-*.zip 
+
+解压获取Magisk-*/lib/arm64-v8a/libmagiskboot.so文件
+
+使用 adb push 到手机：
+```shell
+adb push libmagiskboot.so /data/local/tmp/magiskboot
+```
+提取boot.img，刷机包或者直接提取系统boot
+
+下载AnyKernel3(https://github.com/tiann/KernelSU/releases/tag/v0.9.0) 中的 Image
+
+根据手机设置内核版本
+
+![kernelsu](../img/android/kernelsu.png)
+
+下载对应AnyKernel3-android13-5.10.149_2023-01.zip 
+
+推送到手机
+```shell
+adb push boot.img /data/local/tmp/
+adb push Image /data/local/tmp/
+```
+打包内核
+```shell
+adb shell
+cd /data/local/tmp/
+chmod +x magiskboot
+./magiskboot unpack boot.img
+//执行后得到kernel文件
+mv -f Image kernel
+./magiskboot repack boot.img
+//得到new-boot.img文件
+```
+刷内核到手机
+```shell
+fastboot flash boot new-boot.img
+```
+安装 KernelSU_xxx-release.apk (https://github.com/tiann/KernelSU/releases/tag/v0.9.0)

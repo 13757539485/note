@@ -144,3 +144,9 @@ kill -9 pid或者直接进任务管理器杀死进程
 ```
 du -sh 文件夹
 ```
+
+#### 测试ssd速度
+```
+sudo apt-get install hdparm
+sudo hdparm -Tt /dev/sda
+```
