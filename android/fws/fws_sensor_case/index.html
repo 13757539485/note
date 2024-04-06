@@ -3368,11 +3368,11 @@ SensorService.cpp实现具体函数
 </code></pre></div></p>
 <h3 id="_2">整体流程<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
 <ol>
-<li>RK开机启动SensorService系统服务开启(原生逻辑)</li>
+<li>设备A开机启动SensorService系统服务开启(原生逻辑)</li>
 <li>手机端启动Netty客户端并连接</li>
-<li>RK三方应用或者游戏监听传感器</li>
-<li>RK 如果是应用fw(SystemSensorManager)被创建并通过LocalSocket连接到SensorService中的服务端，等待消息</li>
-<li>RK上触发传感器无论是应用还是游戏都会调用到SensorService中的enable/disable函数，通过Socket向手机端发送消息，携带传感器类型信息</li>
+<li>设备A三方应用或者游戏监听传感器</li>
+<li>设备A如果是应用fw(SystemSensorManager)被创建并通过LocalSocket连接到SensorService中的服务端，等待消息</li>
+<li>设备A上触发传感器无论是应用还是游戏都会调用到SensorService中的enable/disable函数，通过Socket向手机端发送消息，携带传感器类型信息</li>
 <li>SensorService收到手机的数据，解析后将数据传回应用和游戏</li>
 <li>如果应用或游戏退出onUidStateChanged，向手机发送uid的程序消息，手机关闭对应传感器数据</li>
 </ol>
