@@ -44,3 +44,23 @@ mv -f Image kernel
 fastboot flash boot new-boot.img
 ```
 安装 KernelSU_xxx-release.apk (https://github.com/tiann/KernelSU/releases/tag/v0.9.0)
+
+### LSPosed
+LSPosed框架: https://github.com/LSPosed/LSPosed
+
+Magisk面具root安装: LSPosed-v1.9.2-7024-riru-release.zip
+
+KernelSu安装: LSPosed-v1.9.2-7024-zygisk-release.zip 
+
+拨号键输入代码 *#*#5776733#*#* 可启动应用
+
+### Riru
+https://github.com/RikkaApps/Riru
+
+### Zygisk-Next
+https://github.com/tsailin-bit/ZygiskNext/
+
+### Zygisk-on-KernelSU
+https://github.com/magiskmodule/Zygisk-on-KernelSU
+
+和Zygisk-Next互斥

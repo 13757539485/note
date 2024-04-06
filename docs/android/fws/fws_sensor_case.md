@@ -642,11 +642,11 @@ private fun unRegisterSensorListener(type: Int, listener: SensorEventListener?) 
 ```
 
 ### 整体流程
-1. RK开机启动SensorService系统服务开启(原生逻辑)
+1. 设备A开机启动SensorService系统服务开启(原生逻辑)
 2. 手机端启动Netty客户端并连接
-3. RK三方应用或者游戏监听传感器
-4. RK 如果是应用fw(SystemSensorManager)被创建并通过LocalSocket连接到SensorService中的服务端，等待消息
-5. RK上触发传感器无论是应用还是游戏都会调用到SensorService中的enable/disable函数，通过Socket向手机端发送消息，携带传感器类型信息
+3. 设备A三方应用或者游戏监听传感器
+4. 设备A如果是应用fw(SystemSensorManager)被创建并通过LocalSocket连接到SensorService中的服务端，等待消息
+5. 设备A上触发传感器无论是应用还是游戏都会调用到SensorService中的enable/disable函数，通过Socket向手机端发送消息，携带传感器类型信息
 6. SensorService收到手机的数据，解析后将数据传回应用和游戏
 7. 如果应用或游戏退出onUidStateChanged，向手机发送uid的程序消息，手机关闭对应传感器数据
 
