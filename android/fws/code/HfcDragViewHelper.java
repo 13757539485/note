@@ -1,10 +1,13 @@
 package android.view;
 
+import android.animation.PropertyValuesHolder;
+import android.animation.ValueAnimator;
 import android.content.ClipData;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.Canvas;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.media.MediaScannerConnection;
@@ -13,6 +16,7 @@ import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Looper;
 import android.util.Log;
+import android.util.TypedValue;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -33,13 +37,11 @@ public class HfcDragViewHelper {
 
     private View mCurrentDragView;
 
-    private HandlerThread mImageThread;
-
-    private Handler mMainHandler;
-    private Handler mThreadHandler;
+    private final Handler mMainHandler;
+    private final Handler mThreadHandler;
 
     private static final float MOVE_IGNORE_THRESHOLD_DP = 10.0f;
-    private static final long LONG_PRESS_THRESHOLD_MS = ViewConfiguration.getLongPressTimeout();
+    private static final long LONG_PRESS_THRESHOLD_MS = ViewConfiguration.getLongPressTimeout() + 50L;
     private long mDownTime;
     private float mDownX;
     private float mDownY;
@@ -48,10 +50,9 @@ public class HfcDragViewHelper {
         PM_WRITE_LIST.add("com.tencent.mm");
         PM_WRITE_LIST.add("com.example.testenvir");
         PM_WRITE_LIST.add("com.dianping.v1");
-        PM_WRITE_LIST.add("com.hfc.manager");
-        mImageThread = new HandlerThread("thread-image");
-        mImageThread.start();
-        mThreadHandler = new Handler(mImageThread.getLooper());
+        HandlerThread imageThread = new HandlerThread("thread-image");
+        imageThread.start();
+        mThreadHandler = new Handler(imageThread.getLooper());
         mMainHandler = new Handler(Looper.getMainLooper());
     }
 
@@ -95,7 +96,6 @@ public class HfcDragViewHelper {
     }
 
     private void onLongPress(View view) {
-        mCurrentDragView = view;
         Log.e(TAG, "onLongPress: " + view +"," + view.mContext.getPackageName()  + "," +
                 view.getAccessibilityClassName());
         dragView(view);
@@ -111,7 +111,7 @@ public class HfcDragViewHelper {
             }
         } else if (DragEvent.ACTION_DRAG_ENDED == event.mAction) {
             if (mCurrentDragView != null) {
-                showBar(mCurrentDragView.mContext, false);
+                showBar(mCurrentDragView, false);
                 mCurrentDragView.hasDrag = false;
                 mCurrentDragView = null;
                 Log.e(TAG, "hasDrag reset false");
@@ -163,9 +163,13 @@ public class HfcDragViewHelper {
             if (!dir.exists()) {
                 dir.mkdirs();
             }
+            File saveDir = new File(dir, "drag-drop");
+            if (!saveDir.exists()) {
+                saveDir.mkdirs();
+            }
             mThreadHandler.post(() -> {
                 try {
-                    File outputFile = new File(dir, "bitmap" + view.mContext.getPackageName() + ".png");
+                    File outputFile = new File(saveDir, "bitmap-" + view.mContext.getPackageName() + ".png");
                     if (outputFile.exists()) {
                         boolean file = outputFile.delete();
                         Log.e(TAG, "delete file: " + file);
@@ -202,8 +206,17 @@ public class HfcDragViewHelper {
         Log.e(TAG, "ImageView: " + view);
         Drawable drawable = iv.getDrawable();
         Log.e(TAG, "drawable: " + drawable);
+        Bitmap bitmap;
         if (drawable instanceof BitmapDrawable) {
-            Bitmap bitmap = ((BitmapDrawable) drawable).getBitmap();
+            bitmap = ((BitmapDrawable) drawable).getBitmap();
+        } else {
+            int width = iv.getWidth();
+            int height = iv.getHeight();
+            bitmap = Bitmap.createBitmap(width, height, Bitmap.Config.RGB_565);
+            Canvas canvas = new Canvas(bitmap);
+            iv.draw(canvas);
+        }
+        if (bitmap != null) {
             drawBitmap(view, bitmap);
         }
     }
@@ -348,12 +361,16 @@ public class HfcDragViewHelper {
         }
     }
 
-    public void showBar(Context context, boolean show) {
+    public void showBar(View view, boolean show) {
+        mCurrentDragView = view;
+        if (view == null) {
+            Log.e(TAG, "showBar view is null");
+            return;
+        }
         Intent intent = new Intent();
         intent.setComponent(new ComponentName("com.hfc.manager","com.hfc.manager.HfcManagerReceiver"));
         intent.setAction(show ? "action.hfc.show": "action.hfc.hide");
-        intent.putExtra("content", "hello show");
-        context.sendBroadcast(intent, "permission.hfc");
+        view.mContext.sendBroadcast(intent);
     }
 
     public void printLog(String tag, String msg) {
