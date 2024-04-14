@@ -55,6 +55,9 @@ nav:
                 - 源码: android/fws/fws_sensor.md
                 - 案例: android/fws/fws_sensor_case.md
               - Handler: android/fws/fws_handler.md
+              - 拖拽: 
+                - 源码: android/fws/fws_drag.md
+                - 案例: android/fws/fws_drag_case.md
            - IPC通信: android/fws/fws_process.md
            - WMS: android/fws/fws_wms.md
            - AMS/ATMS: android/fws/fws_ams.md
