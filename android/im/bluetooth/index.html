@@ -8,28 +8,28 @@
       
       
       
-        <link rel="canonical" href="https://13757539485.github.io/note/ohos/ohos_build/">
+        <link rel="canonical" href="https://13757539485.github.io/note/android/im/bluetooth/">
       
       
-        <link rel="prev" href="../../mac/mac_swift/">
+        <link rel="prev" href="../netty/">
       
       
-        <link rel="next" href="../arkui/">
+        <link rel="next" href="../../java/java_base/">
       
       
-      <link rel="icon" href="../../assets/images/favicon.png">
+      <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.3">
     
     
       
-        <title>源码编译 - 我的笔记</title>
+        <title>蓝牙 - 我的笔记</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.50c56a3b.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.50c56a3b.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -48,7 +48,7 @@
       
     
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#wsl2" class="md-skip">
+        <a href="#_1" class="md-skip">
           跳转至
         </a>
       
@@ -88,7 +88,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="页眉">
-    <a href="../.." title="我的笔记" class="md-header__button md-logo" aria-label="我的笔记" data-md-component="logo">
+    <a href="../../.." title="我的笔记" class="md-header__button md-logo" aria-label="我的笔记" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -108,7 +108,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              源码编译
+              蓝牙
             
           </span>
         </div>
@@ -203,23 +203,29 @@
         
   
   
+    
+  
   
     
     
       
   
   
+    
+  
   
     
     
       
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../../android/java/java_basic/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../java/java_basic/" class="md-tabs__link">
           
   
   Android系统
@@ -243,7 +249,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../window/window_install/" class="md-tabs__link">
+        <a href="../../../window/window_install/" class="md-tabs__link">
           
   
   Window系统
@@ -267,7 +273,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../linux/ubuntu_install/" class="md-tabs__link">
+        <a href="../../../linux/ubuntu_install/" class="md-tabs__link">
           
   
   Linux系统
@@ -288,7 +294,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../mac/mac_install/" class="md-tabs__link">
+        <a href="../../../mac/mac_install/" class="md-tabs__link">
           
   
   mac系统
@@ -302,13 +308,11 @@
         
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="./" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../../../ohos/ohos_build/" class="md-tabs__link">
           
   
   OpenHarmony系统
@@ -326,7 +330,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../python/" class="md-tabs__link">
+        <a href="../../../python/" class="md-tabs__link">
           
   
   常见开发环境
@@ -344,7 +348,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../excel/" class="md-tabs__link">
+        <a href="../../../excel/" class="md-tabs__link">
           
   
   其他学习
@@ -377,7 +381,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="我的笔记" class="md-nav__button md-logo" aria-label="我的笔记" data-md-component="logo">
+    <a href="../../.." title="我的笔记" class="md-nav__button md-logo" aria-label="我的笔记" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -392,8 +396,10 @@
       
   
   
+    
   
   
+  
     
     
     
@@ -402,12 +408,12 @@
       
       
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" checked>
         
           
           <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="">
@@ -421,7 +427,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_1">
             <span class="md-nav__icon md-icon"></span>
             Android系统
@@ -432,19 +438,21 @@
                 
   
   
+    
   
   
+  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_1" checked>
         
           
           <label class="md-nav__link" for="__nav_1_1" id="__nav_1_1_label" tabindex="0">
@@ -458,7 +466,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_1_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_1_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_1_1">
             <span class="md-nav__icon md-icon"></span>
             学习笔记
@@ -509,7 +517,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../android/java/java_basic/" class="md-nav__link">
+      <a href="../../java/java_basic/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -530,7 +538,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../android/java/java_jvm/" class="md-nav__link">
+      <a href="../../java/java_jvm/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -551,7 +559,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../android/java/java_genericity/" class="md-nav__link">
+      <a href="../../java/java_genericity/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -572,7 +580,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../android/java/java_reflex/" class="md-nav__link">
+      <a href="../../java/java_reflex/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -638,7 +646,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../android/kotlin/kotlin_basic/" class="md-nav__link">
+      <a href="../../kotlin/kotlin_basic/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -659,7 +667,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../android/kotlin/kotlin_function/" class="md-nav__link">
+      <a href="../../kotlin/kotlin_function/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -680,7 +688,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../android/kotlin/kotlin_op/" class="md-nav__link">
+      <a href="../../kotlin/kotlin_op/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -701,7 +709,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../android/kotlin/kotlin_collection/" class="md-nav__link">
+      <a href="../../kotlin/kotlin_collection/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -722,7 +730,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../android/kotlin/kotlin_class/" class="md-nav__link">
+      <a href="../../kotlin/kotlin_class/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -743,7 +751,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../android/kotlin/kotlin_code/" class="md-nav__link">
+      <a href="../../kotlin/kotlin_code/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -764,7 +772,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../android/kotlin/kotlin_principle/" class="md-nav__link">
+      <a href="../../kotlin/kotlin_principle/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -793,7 +801,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../android/java/java_collection/" class="md-nav__link">
+      <a href="../../java/java_collection/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -814,7 +822,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../android/design_mode/" class="md-nav__link">
+      <a href="../../design_mode/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -832,19 +840,21 @@
                 
   
   
+    
   
   
+  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_1_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_1_5" checked>
         
           
           <label class="md-nav__link" for="__nav_1_1_5" id="__nav_1_1_5_label" tabindex="0">
@@ -858,7 +868,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_1_1_5_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_1_1_5_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_1_1_5">
             <span class="md-nav__icon md-icon"></span>
             通信相关
@@ -872,7 +882,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../android/im/base/" class="md-nav__link">
+      <a href="../base/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -893,7 +903,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../android/im/aidl/" class="md-nav__link">
+      <a href="../aidl/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -914,7 +924,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../android/im/broadcast_receiver/" class="md-nav__link">
+      <a href="../broadcast_receiver/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -935,7 +945,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../android/im/service/" class="md-nav__link">
+      <a href="../service/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -956,7 +966,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../android/network/net_socket/" class="md-nav__link">
+      <a href="../../network/net_socket/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -977,7 +987,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../android/im/localsocket/" class="md-nav__link">
+      <a href="../localsocket/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -998,7 +1008,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../android/im/netty/" class="md-nav__link">
+      <a href="../netty/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1016,10 +1026,28 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../android/im/bluetooth/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    蓝牙
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -1028,6 +1056,102 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      经典蓝牙
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="经典蓝牙">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      添加权限
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      动态申请权限
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#xxpermissions" class="md-nav__link">
+    <span class="md-ellipsis">
+      使用三方权限库XXPermissions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      注册蓝牙广播监听
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      启动/关闭蓝牙服务端
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      启动/关闭蓝牙客户端
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      其他
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1085,7 +1209,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../android/java/java_base/" class="md-nav__link">
+      <a href="../../java/java_base/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1106,7 +1230,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../android/java/java_thread/" class="md-nav__link">
+      <a href="../../java/java_thread/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1127,7 +1251,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../android/java/java_safe/" class="md-nav__link">
+      <a href="../../java/java_safe/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1148,7 +1272,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../android/java/java_lock/" class="md-nav__link">
+      <a href="../../java/java_lock/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1214,7 +1338,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../android/network/net_base/" class="md-nav__link">
+      <a href="../../network/net_base/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1235,7 +1359,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../android/network/net_charles/" class="md-nav__link">
+      <a href="../../network/net_charles/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1256,7 +1380,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../android/network/net_tcp/" class="md-nav__link">
+      <a href="../../network/net_tcp/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1277,7 +1401,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../android/network/net_socket/" class="md-nav__link">
+      <a href="../../network/net_socket/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1298,7 +1422,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../android/network/net_http/" class="md-nav__link">
+      <a href="../../network/net_http/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1319,7 +1443,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../android/network/net_websocket/" class="md-nav__link">
+      <a href="../../network/net_websocket/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1422,7 +1546,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../android/ui/recyclerview/ui_recyclerview/" class="md-nav__link">
+      <a href="../../ui/recyclerview/ui_recyclerview/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1443,7 +1567,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../android/ui/recyclerview/ui_stagger/" class="md-nav__link">
+      <a href="../../ui/recyclerview/ui_stagger/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1464,7 +1588,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../android/ui/recyclerview/ui_source_code/" class="md-nav__link">
+      <a href="../../ui/recyclerview/ui_source_code/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1493,7 +1617,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../android/android_ui/" class="md-nav__link">
+      <a href="../../android_ui/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1514,7 +1638,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../android/ui/ui_webview/" class="md-nav__link">
+      <a href="../../ui/ui_webview/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1535,7 +1659,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../android/ui/ui_camera/" class="md-nav__link">
+      <a href="../../ui/ui_camera/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1638,7 +1762,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../android/fws/fws_aosp/" class="md-nav__link">
+      <a href="../../fws/fws_aosp/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1659,7 +1783,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../android/fws/fws_aosp_make/" class="md-nav__link">
+      <a href="../../fws/fws_aosp_make/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1680,7 +1804,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../android/fws/fws_mk_bp/" class="md-nav__link">
+      <a href="../../fws/fws_mk_bp/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1738,7 +1862,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../android/fws/fws_sensor/" class="md-nav__link">
+      <a href="../../fws/fws_sensor/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1759,7 +1883,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../android/fws/fws_sensor_case/" class="md-nav__link">
+      <a href="../../fws/fws_sensor_case/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1788,7 +1912,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../android/fws/fws_handler/" class="md-nav__link">
+      <a href="../../fws/fws_handler/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1846,7 +1970,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../android/fws/fws_drag/" class="md-nav__link">
+      <a href="../../fws/fws_drag/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1867,7 +1991,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../android/fws/fws_drag_case/" class="md-nav__link">
+      <a href="../../fws/fws_drag_case/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1904,7 +2028,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../android/fws/fws_process/" class="md-nav__link">
+      <a href="../../fws/fws_process/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1925,7 +2049,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../android/fws/fws_wms/" class="md-nav__link">
+      <a href="../../fws/fws_wms/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1946,7 +2070,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../android/fws/fws_ams/" class="md-nav__link">
+      <a href="../../fws/fws_ams/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1967,7 +2091,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../android/fws/fws_pms/" class="md-nav__link">
+      <a href="../../fws/fws_pms/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1988,7 +2112,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../android/fws/fws_android_start/" class="md-nav__link">
+      <a href="../../fws/fws_android_start/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2009,7 +2133,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../android/fws/fws_app_start/" class="md-nav__link">
+      <a href="../../fws/fws_app_start/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2075,7 +2199,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../android/performance/android_start/" class="md-nav__link">
+      <a href="../../performance/android_start/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2133,7 +2257,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../android/performance/android_memory_base/" class="md-nav__link">
+      <a href="../../performance/android_memory_base/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2154,7 +2278,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../android/performance/android_memory_commond/" class="md-nav__link">
+      <a href="../../performance/android_memory_commond/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2175,7 +2299,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../android/performance/android_memory_leak/" class="md-nav__link">
+      <a href="../../performance/android_memory_leak/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2196,7 +2320,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../android/performance/android_memory_shake/" class="md-nav__link">
+      <a href="../../performance/android_memory_shake/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2217,7 +2341,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../android/performance/android_memory_oom/" class="md-nav__link">
+      <a href="../../performance/android_memory_oom/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2238,7 +2362,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../android/performance/android_datastructure/" class="md-nav__link">
+      <a href="../../performance/android_datastructure/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2259,7 +2383,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../android/performance/android_bitmap/" class="md-nav__link">
+      <a href="../../performance/android_bitmap/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2325,7 +2449,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../android/performance/android_anr/" class="md-nav__link">
+      <a href="../../performance/android_anr/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2346,7 +2470,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../android/performance/android_crash/" class="md-nav__link">
+      <a href="../../performance/android_crash/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2375,7 +2499,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../android/performance/android_ui/" class="md-nav__link">
+      <a href="../../performance/android_ui/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2396,7 +2520,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../android/performance/android_network/" class="md-nav__link">
+      <a href="../../performance/android_network/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2417,7 +2541,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../android/performance/android_apk_cut/" class="md-nav__link">
+      <a href="../../performance/android_apk_cut/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2438,7 +2562,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../android/performance/android_storage/" class="md-nav__link">
+      <a href="../../performance/android_storage/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2459,7 +2583,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../android/performance/android_battery/" class="md-nav__link">
+      <a href="../../performance/android_battery/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2480,7 +2604,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../android/performance/android_mat/" class="md-nav__link">
+      <a href="../../performance/android_mat/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2501,7 +2625,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../android/performance/android_leakcanary/" class="md-nav__link">
+      <a href="../../performance/android_leakcanary/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2522,7 +2646,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../android/performance/android_koom/" class="md-nav__link">
+      <a href="../../performance/android_koom/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2551,7 +2675,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../android/android_hotfix/" class="md-nav__link">
+      <a href="../../android_hotfix/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2609,7 +2733,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../android/component/com_base/" class="md-nav__link">
+      <a href="../../component/com_base/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2638,7 +2762,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../android/android_github/" class="md-nav__link">
+      <a href="../../android_github/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2659,7 +2783,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../android/android_dev_mode/" class="md-nav__link">
+      <a href="../../android_dev_mode/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2680,7 +2804,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../android/android_build_apk/" class="md-nav__link">
+      <a href="../../android_build_apk/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2701,7 +2825,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../android/android_compose/" class="md-nav__link">
+      <a href="../../android_compose/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2722,7 +2846,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../android/android_studio/" class="md-nav__link">
+      <a href="../../android_studio/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2743,7 +2867,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../android/android_flutter/" class="md-nav__link">
+      <a href="../../android_flutter/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2764,7 +2888,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../android/android_interview/" class="md-nav__link">
+      <a href="../../android_interview/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2830,7 +2954,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../android/android_os/" class="md-nav__link">
+      <a href="../../android_os/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2851,7 +2975,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../android/android_root/" class="md-nav__link">
+      <a href="../../android_root/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2927,7 +3051,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../window/window_install/" class="md-nav__link">
+      <a href="../../../window/window_install/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2948,7 +3072,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../window/window_software/" class="md-nav__link">
+      <a href="../../../window/window_software/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3006,7 +3130,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../window/window_vmware/" class="md-nav__link">
+      <a href="../../../window/window_vmware/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3027,7 +3151,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../window/window_wsl2/" class="md-nav__link">
+      <a href="../../../window/window_wsl2/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3048,7 +3172,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../window/window_inner_android/" class="md-nav__link">
+      <a href="../../../window/window_inner_android/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3069,7 +3193,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../window/window_win11/" class="md-nav__link">
+      <a href="../../../window/window_win11/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3182,7 +3306,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../linux/ubuntu_install/" class="md-nav__link">
+      <a href="../../../linux/ubuntu_install/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3203,7 +3327,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../linux/deepin_install/" class="md-nav__link">
+      <a href="../../../linux/deepin_install/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3232,7 +3356,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../linux/linux_software/" class="md-nav__link">
+      <a href="../../../linux/linux_software/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3290,7 +3414,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../linux/linux_command/" class="md-nav__link">
+      <a href="../../../linux/linux_command/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3366,7 +3490,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../mac/mac_install/" class="md-nav__link">
+      <a href="../../../mac/mac_install/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3387,7 +3511,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../mac/mac_software/" class="md-nav__link">
+      <a href="../../../mac/mac_software/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3408,7 +3532,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../mac/mac_swift/" class="md-nav__link">
+      <a href="../../../mac/mac_swift/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3433,8 +3557,6 @@
       
   
   
-    
-  
   
   
     
@@ -3445,12 +3567,12 @@
       
       
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
         
           
           <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
@@ -3464,7 +3586,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             OpenHarmony系统
@@ -3475,28 +3597,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    源码编译
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../../ohos/ohos_build/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3505,78 +3609,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="目录">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#wsl2" class="md-nav__link">
-    <span class="md-ellipsis">
-      WSL2配置
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      官网相关
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      源码下载
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      编译配置
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      参考教程
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    <span class="md-ellipsis">
-      其他使用网站
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -3589,7 +3621,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../arkui/" class="md-nav__link">
+      <a href="../../../ohos/arkui/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3657,7 +3689,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../python/" class="md-nav__link">
+      <a href="../../../python/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3678,7 +3710,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../git_github/" class="md-nav__link">
+      <a href="../../../git_github/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3746,7 +3778,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../excel/" class="md-nav__link">
+      <a href="../../../excel/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3767,7 +3799,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../markdown/" class="md-nav__link">
+      <a href="../../../markdown/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3788,7 +3820,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ai/" class="md-nav__link">
+      <a href="../../../ai/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3834,56 +3866,80 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#wsl2" class="md-nav__link">
-    <span class="md-ellipsis">
-      WSL2配置
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
-      官网相关
+      经典蓝牙
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
+    <nav class="md-nav" aria-label="经典蓝牙">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
-      源码下载
+      添加权限
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
-      编译配置
+      动态申请权限
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
+  <a href="#xxpermissions" class="md-nav__link">
+    <span class="md-ellipsis">
+      使用三方权限库XXPermissions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
-      参考教程
+      注册蓝牙广播监听
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
-      其他使用网站
+      启动/关闭蓝牙服务端
     </span>
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      启动/关闭蓝牙客户端
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      其他
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -3902,74 +3958,221 @@
                   
 
 
-  <h1>源码编译</h1>
+  <h1>蓝牙</h1>
 
-<h4 id="wsl2">WSL2配置<a class="headerlink" href="#wsl2" title="Permanent link">&para;</a></h4>
-<p>1.打开Microsoft store搜索ubuntu，推荐使用ubuntu-20.04，下载后如果出现乱码则安装update_x64.msi(wsl2中)，如果wsl2还未配置则先<a href="../../window/window_wsl2/">wsl2环境配置</a></p>
-<p>2.设置root密码
-<div class="highlight"><pre><span></span><code>sudo passwd root
-</code></pre></div></p>
-<p>3.Ubuntu Shell环境修改为bash</p>
-<p>执行sudo dpkg-reconfigure dash，选择No</p>
-<p>4.切换python版本
-<div class="highlight"><pre><span></span><code>sudo update-alternatives --install /usr/bin/python python /usr/bin/python3 150
-</code></pre></div></p>
-<p>5.安装pip3
-<div class="highlight"><pre><span></span><code>sudo apt -y update
-sudo apt upgrade
-sudo apt install python3-pip
-</code></pre></div></p>
-<p>6.配置git相关
-<div class="highlight"><pre><span></span><code>sudo apt install git-all
-su
-curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | sudo bash
-apt install git-lfs
-git lfs install
-exit
-git config --global user.name &quot;yuli&quot;
-git config --global user.email &quot;1875287386@qq.com&quot;
-git config --global credential.helper store
-</code></pre></div></p>
-<p>7.配置repo
-<div class="highlight"><pre><span></span><code>curl https://gitee.com/oschina/repo/raw/fork_flow/repo-py3 &gt; /usr/local/bin/repo
-chmod a+x /usr/local/bin/repo
-pip3 install -i https://pypi.tuna.tsinghua.edu.cn/simple requests
-</code></pre></div></p>
-<p>8.按照wsl迁移到其他磁盘(可跳过)</p>
-<h4 id="_1">官网相关<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h4>
-<p>源码文档： <a href="https://gitee.com/openharmony/docs">https://gitee.com/openharmony/docs</a></p>
-<p>开发者文档： <a href="http://docs.openharmony.cn/pages/v4.0/zh-cn/OpenHarmony-Overview_zh.md/">http://docs.openharmony.cn/pages/v4.0/zh-cn/OpenHarmony-Overview_zh.md/</a></p>
-<h4 id="_2">源码下载<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h4>
-<p>注册gitee以及生成ssh
-<div class="highlight"><pre><span></span><code>ssh-keygen -t ed25519 -C &quot;ubuntu&quot;
+<h2 id="_1">经典蓝牙<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<h3 id="_2">添加权限<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;uses-permission</span><span class="w"> </span><span class="na">android:name=</span><span class="s">&quot;android.permission.BLUETOOTH&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;uses-permission</span><span class="w"> </span><span class="na">android:name=</span><span class="s">&quot;android.permission.BLUETOOTH_SCAN&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;uses-permission</span><span class="w"> </span><span class="na">android:name=</span><span class="s">&quot;android.permission.BLUETOOTH_ADMIN&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;uses-permission</span><span class="w"> </span><span class="na">android:name=</span><span class="s">&quot;android.permission.BLUETOOTH_CONNECT&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;uses-permission</span><span class="w"> </span><span class="na">android:name=</span><span class="s">&quot;android.permission.BLUETOOTH_PRIVILEGED&quot;</span>
+<span class="w">    </span><span class="na">tools:ignore=</span><span class="s">&quot;ProtectedPermissions&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="nt">&lt;uses-permission</span><span class="w"> </span><span class="na">android:name=</span><span class="s">&quot;android.permission.BLUETOOTH_ADVERTISE&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;uses-permission</span><span class="w"> </span><span class="na">android:name=</span><span class="s">&quot;com.google.android.things.permission.MANAGE_BLUETOOTH&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="nt">&lt;uses-permission</span><span class="w"> </span><span class="na">android:name=</span><span class="s">&quot;android.permission.ACCESS_FINE_LOCATION&quot;</span><span class="nt">/&gt;</span>
 </code></pre></div>
-下载
-<div class="highlight"><pre><span></span><code>repo init -u git@gitee.com:openharmony/manifest.git -b master --no-repo-verify
-repo sync -c
-repo forall -c &#39;git lfs pull&#39;
+<h3 id="_3">动态申请权限<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<h3 id="xxpermissions">使用三方权限库<a href="../../android_github/#xx_p">XXPermissions</a><a class="headerlink" href="#xxpermissions" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="n">XXPermissions</span><span class="p">.</span><span class="na">with</span><span class="p">(</span><span class="k">this</span><span class="p">)</span>
+<span class="w">    </span><span class="p">.</span><span class="na">permission</span><span class="p">(</span><span class="n">Permission</span><span class="p">.</span><span class="na">ACCESS_FINE_LOCATION</span><span class="p">)</span>
+<span class="w">    </span><span class="p">.</span><span class="na">permission</span><span class="p">(</span><span class="n">Permission</span><span class="p">.</span><span class="na">Group</span><span class="p">.</span><span class="na">BLUETOOTH</span><span class="p">)</span>
+<span class="w">    </span><span class="p">.</span><span class="na">request</span><span class="p">(</span><span class="k">object</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="nc">OnPermissionCallback</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">override</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">onGranted</span><span class="p">(</span><span class="n">permissions</span><span class="p">:</span><span class="w"> </span><span class="n">MutableList</span><span class="o">&lt;</span><span class="kt">String</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">allGranted</span><span class="p">:</span><span class="w"> </span><span class="kt">Boolean</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">allGranted</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="n">toast</span><span class="p">(</span><span class="s">&quot;获取部分权限成功，但部分权限未正常授予&quot;</span><span class="p">)</span>
+<span class="w">                </span><span class="k">return</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">Build</span><span class="p">.</span><span class="na">VERSION</span><span class="p">.</span><span class="na">SDK_INT</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">Build</span><span class="p">.</span><span class="na">VERSION_CODES</span><span class="p">.</span><span class="na">Q</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="kd">val</span><span class="w"> </span><span class="nv">lm</span><span class="p">:</span><span class="w"> </span><span class="n">LocationManager</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">getSystemService</span><span class="p">(</span><span class="n">Context</span><span class="p">.</span><span class="na">LOCATION_SERVICE</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">LocationManager</span>
+<span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">lm</span><span class="p">.</span><span class="na">isProviderEnabled</span><span class="p">(</span><span class="n">LocationManager</span><span class="p">.</span><span class="na">GPS_PROVIDER</span><span class="p">)){</span>
+<span class="w">                    </span><span class="n">Toast</span><span class="p">.</span><span class="na">makeText</span><span class="p">(</span><span class="k">this</span><span class="nd">@MainActivity</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;请您先开启gps,否则蓝牙不可用&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">Toast</span><span class="p">.</span><span class="na">LENGTH_SHORT</span><span class="p">).</span><span class="na">show</span><span class="p">()</span>
+<span class="w">                        </span><span class="c1">// 创建指向系统定位服务设置的Intent</span>
+<span class="w">                        </span><span class="kd">val</span><span class="w"> </span><span class="nv">intent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Intent</span><span class="p">(</span><span class="n">Settings</span><span class="p">.</span><span class="na">ACTION_LOCATION_SOURCE_SETTINGS</span><span class="p">)</span>
+<span class="w">                        </span><span class="c1">// 启动该Intent，用户将被带到系统设置中的定位服务页面</span>
+<span class="w">                        </span><span class="n">startActivity</span><span class="p">(</span><span class="n">intent</span><span class="p">)</span>
+<span class="w">                </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">bluetoothAdapter</span><span class="p">.</span><span class="na">isEnabled</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                        </span><span class="n">startActivity</span><span class="p">(</span><span class="n">Intent</span><span class="p">(</span><span class="n">BluetoothAdapter</span><span class="p">.</span><span class="na">ACTION_REQUEST_ENABLE</span><span class="p">))</span>
+<span class="w">                    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">Build</span><span class="p">.</span><span class="na">MODEL</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">SERVER_MODEL</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                            </span><span class="n">registerReceiver</span><span class="p">(</span><span class="n">receiver</span><span class="p">,</span><span class="w"> </span><span class="n">BluetoothReceiver</span><span class="p">.</span><span class="na">markFilter</span><span class="p">())</span>
+<span class="w">                            </span><span class="n">scanBluetooth</span><span class="p">()</span>
+<span class="w">                        </span><span class="p">}</span>
+<span class="w">                    </span><span class="p">}</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="kd">override</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">onDenied</span><span class="p">(</span><span class="n">permissions</span><span class="p">:</span><span class="w"> </span><span class="n">MutableList</span><span class="o">&lt;</span><span class="kt">String</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">doNotAskAgain</span><span class="p">:</span><span class="w"> </span><span class="kt">Boolean</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">doNotAskAgain</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="n">toast</span><span class="p">(</span><span class="s">&quot;被永久拒绝授权，请手动授予定位附近权限&quot;</span><span class="p">)</span>
+<span class="w">                </span><span class="c1">// 如果是被永久拒绝就跳转到应用权限系统设置页面</span>
+<span class="w">                </span><span class="n">XXPermissions</span><span class="p">.</span><span class="na">startPermissionActivity</span><span class="p">(</span><span class="k">this</span><span class="nd">@MainActivity</span><span class="p">,</span><span class="w"> </span><span class="n">permissions</span><span class="p">)</span>
+<span class="w">            </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="n">toast</span><span class="p">(</span><span class="s">&quot;获取权限失败&quot;</span><span class="p">)</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">})</span>
+</code></pre></div>
+<h3 id="_4">注册蓝牙广播监听<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="n">registerReceiver</span><span class="p">(</span><span class="n">receiver</span><span class="p">,</span><span class="w"> </span><span class="n">BluetoothReceiver</span><span class="p">.</span><span class="na">markFilter</span><span class="p">())</span>
+
+<span class="nd">@SuppressLint</span><span class="p">(</span><span class="s">&quot;MissingPermission&quot;</span><span class="p">)</span>
+<span class="kd">class</span><span class="w"> </span><span class="nc">BluetoothReceiver</span><span class="p">(</span><span class="kd">private</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">block</span><span class="p">:</span><span class="w"> </span><span class="p">(</span><span class="n">device</span><span class="p">:</span><span class="w"> </span><span class="n">BluetoothDevice?)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">Unit</span><span class="p">)</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">BroadcastReceiver</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">TAG</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;BlueToothReceiver&quot;</span>
+<span class="w">    </span><span class="kd">override</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">onReceive</span><span class="p">(</span><span class="n">context</span><span class="p">:</span><span class="w"> </span><span class="n">Context</span><span class="p">,</span><span class="w"> </span><span class="n">intent</span><span class="p">:</span><span class="w"> </span><span class="n">Intent</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">when</span><span class="w"> </span><span class="p">(</span><span class="n">intent</span><span class="p">.</span><span class="na">action</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">BluetoothDevice</span><span class="p">.</span><span class="na">ACTION_ACL_CONNECTED</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">Log</span><span class="p">.</span><span class="na">d</span><span class="p">(</span><span class="n">TAG</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;ACTION_ACL_CONNECTED&quot;</span><span class="p">)</span>
+<span class="w">            </span><span class="n">BluetoothDevice</span><span class="p">.</span><span class="na">ACTION_ACL_DISCONNECTED</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">Log</span><span class="p">.</span><span class="na">d</span><span class="p">(</span>
+<span class="w">                </span><span class="n">TAG</span><span class="p">,</span>
+<span class="w">                </span><span class="s">&quot;ACTION_ACL_DISCONNECTED&quot;</span>
+<span class="w">            </span><span class="p">)</span><span class="w"> </span><span class="c1">// 连接断开，停止通信</span>
+<span class="w">            </span><span class="n">BluetoothDevice</span><span class="p">.</span><span class="na">ACTION_FOUND</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="c1">// 找到设备</span>
+<span class="w">                </span><span class="kd">val</span><span class="w"> </span><span class="nv">device</span><span class="w"> </span><span class="o">=</span>
+<span class="w">                    </span><span class="n">intent</span><span class="p">.</span><span class="na">getParcelableExtra</span><span class="o">&lt;</span><span class="n">BluetoothDevice</span><span class="o">&gt;</span><span class="p">(</span><span class="n">BluetoothDevice</span><span class="p">.</span><span class="na">EXTRA_DEVICE</span><span class="p">)</span>
+<span class="w">                </span><span class="n">block</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+<span class="w">            </span><span class="p">}</span>
+
+<span class="w">            </span><span class="n">BluetoothDevice</span><span class="p">.</span><span class="na">ACTION_BOND_STATE_CHANGED</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="c1">// 远程设备的绑定状态发生变化</span>
+<span class="w">                </span><span class="n">Log</span><span class="p">.</span><span class="na">d</span><span class="p">(</span><span class="n">TAG</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;ACTION_BOND_STATE_CHANGED&quot;</span><span class="p">)</span>
+<span class="w">                </span><span class="k">when</span><span class="w"> </span><span class="p">((</span><span class="n">intent</span><span class="p">.</span><span class="na">getParcelableExtra</span><span class="o">&lt;</span><span class="n">Parcelable</span><span class="o">&gt;</span><span class="p">(</span><span class="n">BluetoothDevice</span><span class="p">.</span><span class="na">EXTRA_DEVICE</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">BluetoothDevice?)</span><span class="o">!!</span><span class="p">.</span><span class="na">bondState</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="n">BluetoothDevice</span><span class="p">.</span><span class="na">BOND_NONE</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{}</span>
+<span class="w">                    </span><span class="n">BluetoothDevice</span><span class="p">.</span><span class="na">BOND_BONDING</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{}</span>
+<span class="w">                    </span><span class="n">BluetoothDevice</span><span class="p">.</span><span class="na">BOND_BONDED</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{}</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">companion</span><span class="w"> </span><span class="kd">object</span><span class="w"> </span><span class="err">{</span>
+<span class="w">        </span><span class="cm">/**</span>
+<span class="cm">         * 设置Intent过滤器</span>
+<span class="cm">         *</span>
+<span class="cm">         * @return</span>
+<span class="cm">         */</span>
+<span class="w">        </span><span class="kd">fun</span><span class="w"> </span><span class="nf">markFilter</span><span class="p">():</span><span class="w"> </span><span class="n">IntentFilter</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="kd">val</span><span class="w"> </span><span class="nv">filter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">IntentFilter</span><span class="p">()</span>
+<span class="w">            </span><span class="n">filter</span><span class="p">.</span><span class="na">addAction</span><span class="p">(</span><span class="n">BluetoothDevice</span><span class="p">.</span><span class="na">ACTION_FOUND</span><span class="p">)</span>
+<span class="w">            </span><span class="n">filter</span><span class="p">.</span><span class="na">addAction</span><span class="p">(</span><span class="n">BluetoothDevice</span><span class="p">.</span><span class="na">ACTION_BOND_STATE_CHANGED</span><span class="p">)</span>
+<span class="w">            </span><span class="n">filter</span><span class="p">.</span><span class="na">addAction</span><span class="p">(</span><span class="n">BluetoothDevice</span><span class="p">.</span><span class="na">ACTION_ACL_CONNECTED</span><span class="p">)</span>
+<span class="w">            </span><span class="n">filter</span><span class="p">.</span><span class="na">addAction</span><span class="p">(</span><span class="n">BluetoothDevice</span><span class="p">.</span><span class="na">ACTION_ACL_DISCONNECTED</span><span class="p">)</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">filter</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="_5">启动/关闭蓝牙服务端<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<p><a href="../code/src/com/bt/BtServer.kt">BtServer</a>
+<div class="highlight"><pre><span></span><code><span class="n">btServer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BtServer</span><span class="p">(</span><span class="n">btServerListener</span><span class="p">)</span>
+<span class="n">btServer</span><span class="o">!!</span><span class="p">.</span><span class="na">startServer</span><span class="p">()</span>
+<span class="n">btServer</span><span class="o">?.</span><span class="na">close</span><span class="p">()</span>
 </code></pre></div></p>
-<h4 id="_3">编译配置<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h4>
-<p>配置环境：
-<div class="highlight"><pre><span></span><code>./build/build_scripts/env_setup.sh
-sudo apt install libxinerama-dev libxcursor-dev libxrandr-dev libxi-dev
+<h3 id="_6">启动/关闭蓝牙客户端<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<p><a href="./code/src/com/bt/BtClinet.kt">BtClinet</a>
+<div class="highlight"><pre><span></span><code><span class="n">btClient</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BtClient</span><span class="p">(</span><span class="n">blueDev</span><span class="p">,</span><span class="w"> </span><span class="k">object</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="nc">BluetoothListener</span><span class="p">{</span>
+<span class="w">    </span><span class="kd">override</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">onStart</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">MainScope</span><span class="p">().</span><span class="na">launch</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">holder</span><span class="p">.</span><span class="na">binding</span><span class="p">.</span><span class="na">blueItemStatusTv</span><span class="p">.</span><span class="na">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;正在连接...&quot;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="kd">override</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">onMsgRecv</span><span class="p">(</span><span class="n">socket</span><span class="p">:</span><span class="w"> </span><span class="n">BluetoothSocket?,</span><span class="w"> </span><span class="n">msg</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">MainScope</span><span class="p">().</span><span class="na">launch</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">block</span><span class="p">(</span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="n">msg</span><span class="p">)</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="kd">override</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">onError</span><span class="p">(</span><span class="n">error</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">MainScope</span><span class="p">().</span><span class="na">launch</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">block</span><span class="p">(</span><span class="kc">false</span><span class="p">,</span><span class="w"> </span><span class="n">error</span><span class="p">)</span>
+<span class="w">            </span><span class="n">holder</span><span class="p">.</span><span class="na">binding</span><span class="p">.</span><span class="na">blueItemStatusTv</span><span class="p">.</span><span class="na">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;已配对&quot;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="kd">override</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">onConnected</span><span class="p">(</span><span class="n">msg</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">MainScope</span><span class="p">().</span><span class="na">launch</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">holder</span><span class="p">.</span><span class="na">binding</span><span class="p">.</span><span class="na">blueItemStatusTv</span><span class="p">.</span><span class="na">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;已连接&quot;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}).</span><span class="na">also</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">MainScope</span><span class="p">().</span><span class="na">launch</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nb">it</span><span class="p">.</span><span class="na">startClient</span><span class="p">()</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+<span class="n">blueAdapter</span><span class="o">?.</span><span class="na">close</span><span class="p">()</span>
 </code></pre></div>
-如果env_setup.sh执行没效果，则打开此脚本文件删除或注释掉这句代码
-result2=$(echo $SHELL | grep "zsh")</p>
-<p>预编译工具下载：
-<div class="highlight"><pre><span></span><code>./build/prebuilts_download.sh
+其中监听回调
+<div class="highlight"><pre><span></span><code><span class="kd">val</span><span class="w"> </span><span class="nv">BLUE_UUID</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">UUID</span><span class="p">.</span><span class="na">fromString</span><span class="p">(</span><span class="s">&quot;00001101-0000-1000-8000-00805F9B34FB&quot;</span><span class="p">)</span>
+<span class="kd">interface</span><span class="w"> </span><span class="nc">BluetoothListener</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">fun</span><span class="w"> </span><span class="nf">onStart</span><span class="p">()</span>
+<span class="w">    </span><span class="kd">fun</span><span class="w"> </span><span class="nf">onMsgRecv</span><span class="p">(</span><span class="n">socket</span><span class="p">:</span><span class="w"> </span><span class="n">BluetoothSocket?,</span><span class="w"> </span><span class="n">msg</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span><span class="p">)</span>
+<span class="w">    </span><span class="kd">fun</span><span class="w"> </span><span class="nf">onError</span><span class="p">(</span><span class="n">error</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span><span class="p">)</span>
+<span class="w">    </span><span class="kd">fun</span><span class="w"> </span><span class="nf">onConnected</span><span class="p">(</span><span class="n">msg</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span><span class="p">)</span>
+<span class="p">}</span>
 </code></pre></div>
-64位：
-<div class="highlight"><pre><span></span><code>./build.sh --product-name rk3568 --target-cpu arm64 --ccache
+客户端一般是列表形式展现</p>
+<p>每个蓝牙设备类BluetoothDevice</p>
+<p>地址: blueDev.address</p>
+<p>名称: blueDev.name</p>
+<p>已配对： blueDev.bondState == BluetoothDevice.BOND_BONDED</p>
+<p>获取列表：注册广播后回调添加设备
+<div class="highlight"><pre><span></span><code><span class="kd">private</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">receiver</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BluetoothReceiver</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nb">it</span><span class="o">?.</span><span class="na">let</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">blueDev</span><span class="w"> </span><span class="o">-&gt;</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">blueDev</span><span class="w"> </span><span class="k">!in</span><span class="w"> </span><span class="n">blueBeans</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">blueDev</span><span class="p">.</span><span class="na">name</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">blueAdapter</span><span class="o">?.</span><span class="na">add</span><span class="p">(</span><span class="n">blueDev</span><span class="p">)</span>
+<span class="w">            </span><span class="n">blueAdapter</span><span class="o">?.</span><span class="na">notifyItemInserted</span><span class="p">(</span><span class="n">blueBeans</span><span class="p">.</span><span class="na">size</span><span class="p">)</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
 </code></pre></div>
-32位：
-<div class="highlight"><pre><span></span><code>./build.sh --product-name rk3568  --ccache
+启动蓝牙扫描后，广播才会回调
+<div class="highlight"><pre><span></span><code><span class="kd">fun</span><span class="w"> </span><span class="nf">scanBluetooth</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">blueBeans</span><span class="p">.</span><span class="na">clear</span><span class="p">()</span>
+<span class="w">    </span><span class="n">blueAdapter</span><span class="o">?.</span><span class="na">notifyDataSetChanged</span><span class="p">()</span>
+<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">bondedDevices</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">bluetoothAdapter</span><span class="p">.</span><span class="na">bondedDevices</span><span class="w"> </span><span class="c1">// 获取以及配对的设备</span>
+<span class="w">    </span><span class="n">bondedDevices</span><span class="o">?.</span><span class="na">forEach</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">device</span><span class="w"> </span><span class="o">-&gt;</span>
+<span class="w">        </span><span class="n">blueBeans</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+<span class="w">        </span><span class="n">blueAdapter</span><span class="o">?.</span><span class="na">notifyItemInserted</span><span class="p">(</span><span class="n">blueBeans</span><span class="p">.</span><span class="na">size</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">bluetoothAdapter</span><span class="p">.</span><span class="na">isDiscovering</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">bluetoothAdapter</span><span class="p">.</span><span class="na">cancelDiscovery</span><span class="p">()</span><span class="c1">// 取消扫描</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="n">bluetoothAdapter</span><span class="p">.</span><span class="na">startDiscovery</span><span class="p">()</span><span class="c1">// 开始扫描</span>
+<span class="p">}</span>
 </code></pre></div></p>
-<p>编译完成镜像路径：\out\rk3568\packages\phone\images\</p>
-<h4 id="_4">参考教程<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h4>
-<p><a href="https://blog.csdn.net/nanzhanfei/article/details/121951919">https://blog.csdn.net/nanzhanfei/article/details/121951919</a></p>
-<h4 id="_5">其他使用网站<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h4>
-<p>daily构建版本</p>
-<p><a href="http://ci.openharmony.cn">http://ci.openharmony.cn</a></p>
+<h3 id="_7">其他<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<p>获取ip地址
+<div class="highlight"><pre><span></span><code><span class="kd">fun</span><span class="w"> </span><span class="nf">getIPAddress</span><span class="p">():</span><span class="w"> </span><span class="kt">String?</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">val</span><span class="w"> </span><span class="nv">interfaces</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">NetworkInterface</span><span class="p">.</span><span class="na">getNetworkInterfaces</span><span class="p">()</span>
+<span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">interfaces</span><span class="p">.</span><span class="na">hasMoreElements</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="kd">val</span><span class="w"> </span><span class="nv">networkInterface</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">interfaces</span><span class="p">.</span><span class="na">nextElement</span><span class="p">()</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">networkInterface</span><span class="p">.</span><span class="na">name</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">sKeyInterfaceName</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="kd">val</span><span class="w"> </span><span class="nv">addresses</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">networkInterface</span><span class="p">.</span><span class="na">inetAddresses</span>
+<span class="w">                </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">addresses</span><span class="p">.</span><span class="na">hasMoreElements</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="kd">val</span><span class="w"> </span><span class="nv">inetAddress</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">addresses</span><span class="p">.</span><span class="na">nextElement</span><span class="p">()</span>
+<span class="w">                    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">inetAddress</span><span class="p">.</span><span class="na">isLoopbackAddress</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">!</span><span class="n">inetAddress</span><span class="p">.</span><span class="na">isLinkLocalAddress</span>
+<span class="w">                        </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">inetAddress</span><span class="p">.</span><span class="na">isSiteLocalAddress</span>
+<span class="w">                    </span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                        </span><span class="k">return</span><span class="w"> </span><span class="n">inetAddress</span><span class="p">.</span><span class="na">hostAddress</span>
+<span class="w">                    </span><span class="p">}</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">e</span><span class="p">:</span><span class="w"> </span><span class="n">Exception</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">e</span><span class="p">.</span><span class="na">printStackTrace</span><span class="p">()</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="kc">null</span>
+<span class="p">}</span>
+</code></pre></div>
+判断是否是IP地址
+<div class="highlight"><pre><span></span><code><span class="kd">fun</span><span class="w"> </span><span class="nf">isIPv4Address</span><span class="p">(</span><span class="n">ipString</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span><span class="p">):</span><span class="w"> </span><span class="kt">Boolean</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// IPv4 地址正则表达式，匹配形如 &quot;0.0.0.0&quot; 至 &quot;255.255.255.255&quot; 的格式</span>
+<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">ipv4Regex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;^((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)</span><span class="err">$</span><span class="s">&quot;</span>
+<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">pattern</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Pattern</span><span class="p">.</span><span class="na">compile</span><span class="p">(</span><span class="n">ipv4Regex</span><span class="p">)</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">pattern</span><span class="p">.</span><span class="na">matcher</span><span class="p">(</span><span class="n">ipString</span><span class="p">).</span><span class="na">matches</span><span class="p">()</span>
+<span class="p">}</span>
+</code></pre></div></p>
 
 
 
@@ -4030,10 +4233,10 @@ result2=$(echo $SHELL | grep "zsh")</p>
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "search.suggest", "search.highlight"], "search": "../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "search.suggest", "search.highlight"], "search": "../../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.d7c377c4.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.d7c377c4.min.js"></script>
       
     
   </body>
