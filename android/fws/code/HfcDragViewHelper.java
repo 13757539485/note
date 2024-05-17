@@ -26,6 +26,7 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.text.View;
 
@@ -36,6 +37,7 @@ public class HfcDragViewHelper {
     private static final String TAG = "HfcDragViewHelper";
 
     private static final ArrayList<String> PM_WRITE_LIST = new ArrayList<>();
+    private static final ArrayList<String> PM_ALLOW_RECV_DROP_LIST = new ArrayList<>();
 
     private View mCurrentDragView;
 
@@ -52,6 +54,8 @@ public class HfcDragViewHelper {
         PM_WRITE_LIST.add("com.tencent.mm");
         PM_WRITE_LIST.add("com.example.testenvir");
         PM_WRITE_LIST.add("com.dianping.v1");
+        PM_ALLOW_RECV_DROP_LIST.add("com.autonavi.minimap");
+        PM_ALLOW_RECV_DROP_LIST.add("com.mt.mtxx.mtxx");
         HandlerThread imageThread = new HandlerThread("thread-image");
         imageThread.start();
         mThreadHandler = new Handler(imageThread.getLooper());
@@ -103,7 +107,7 @@ public class HfcDragViewHelper {
         dragView(view);
     }
 
-    public boolean handleDragEvent(DragEvent event, String basePackageName) {
+    public boolean handleDragEvent(DragEvent event, String basePackageName, Context context) {
         if (event == null) {
             Log.e(TAG, "handleDragEvent event is null");
             return false;
@@ -120,10 +124,25 @@ public class HfcDragViewHelper {
                 }
             } else {
                 // 高德和美图接收拖拽
-                if ("com.mt.mtxx.mtxx".equals(basePackageName) ||
-                        "com.autonavi.minimap".equals(basePackageName)) {
+                if (PM_ALLOW_RECV_DROP_LIST.contains(basePackageName)) {
                     Log.e(TAG, "simulate drag and drop:" + mCurrentDragView);
-                    result = true;
+                    if (event.mClipDescription != null && event.mClipDescription.getMimeType(0) != null) {
+                        // 查询支持分享的类型：区分具体支持文本/URL
+                        Intent intent = new Intent(Intent.ACTION_SEND, null);
+                        intent.addCategory(Intent.CATEGORY_DEFAULT);
+                        String type = event.mClipDescription.getMimeType(0);
+                        intent.setType(type);
+                        List<ResolveInfo> resolveInfos = context.getPackageManager().queryIntentActivities(
+                                intent,
+                                PackageManager.COMPONENT_ENABLED_STATE_DEFAULT
+                        );
+                        for (ResolveInfo resolveInfo : resolveInfos) {
+                            if (basePackageName.equals(resolveInfo.activityInfo.packageName)) {
+                                result = true;
+                                break;
+                            }
+                        }
+                    }
                 }
             }
         } else if (DragEvent.ACTION_DRAG_ENDED == event.mAction) {

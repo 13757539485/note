@@ -47,22 +47,14 @@ object ByteArrayServerHandler : BaseHandler<ByteArrayServerListener>() {
 
     fun sendMsg(msg: ByteArrayMessage) {
         checkHandlerContext{
-            mainScope.launch {
-                withContext(Dispatchers.IO) {
-                    it.writeAndFlush(msg)
-                }
-            }
+            it.writeAndFlush(msg)
         }
     }
 
     fun sendStr(msg: String) {
         checkHandlerContext {
-            mainScope.launch {
-                withContext(Dispatchers.IO) {
-                    val bytes = msg.toByteArray()
-                    it.writeAndFlush(ByteArrayMessage(bytes, bytes.size, 1))
-                }
-            }
+            val bytes = msg.toByteArray()
+            it.writeAndFlush(ByteArrayMessage(bytes, bytes.size, 1))
         }
     }
 }

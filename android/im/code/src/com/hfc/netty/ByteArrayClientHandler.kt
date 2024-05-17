@@ -46,24 +46,22 @@ object ByteArrayClientHandler: BaseHandler<ByteArrayClientListener>() {
 
     fun sendMsg(msg: List<ByteArrayMessage>) {
         checkHandlerContext {chc->
-            mainScope.launch {
-                withContext(Dispatchers.IO) {
-                    msg.forEach {
-                        chc.writeAndFlush(it)
-                    }
-                }
+            msg.forEach {
+                chc.writeAndFlush(it)
             }
+        }
+    }
+
+    fun sendMsg(msg: ByteArrayMessage) {
+        checkHandlerContext { chc ->
+            chc.writeAndFlush(msg)
         }
     }
 
     fun sendStr(msg: String) {
         checkHandlerContext { chc ->
-            mainScope.launch {
-                withContext(Dispatchers.IO) {
-                    val bytes = msg.toByteArray()
-                    chc.writeAndFlush(ByteArrayMessage(bytes, bytes.size, 1))
-                }
-            }
+            val bytes = msg.toByteArray()
+            chc.writeAndFlush(ByteArrayMessage(bytes, bytes.size, 1))
         }
     }
 }

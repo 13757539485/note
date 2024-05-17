@@ -117,7 +117,15 @@ abstract class BaseHandler<T : SimpleListener> {
             println("connect is not active, please check")
             return
         }
-        block(channelHandlerContext!!)
+        // 切换成netty自身的线程环境
+        val eventLoop = channelHandlerContext!!.channel().eventLoop()
+        if (eventLoop.inEventLoop()) {
+            block(channelHandlerContext!!)
+        } else {
+            eventLoop.execute {
+                block(channelHandlerContext!!)
+            }
+        }
     }
 
     fun isActive(): Boolean {
