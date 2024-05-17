@@ -38,6 +38,44 @@ PRODUCT_SYSTEM_SERVER_APPS += \
 
 参考：https://blog.csdn.net/etrospect/article/details/128235015
 
-### RK板子相关
-官网：
-https://wiki.t-firefly.com/zh_CN/Core-3588J/android_compile_android12.0_firmware.html
+### 开启Sta和Ap并发
+wifi模组：正基AP6275系列 模组支持STA+AP并发
+
+device/xxx/BoardConfig.mk中添加标志位
+```mk
+WIFI_HIDL_FEATURE_DUAL_INTERFACE:=true
+```
+
+kernel-5.10/drivers/net/wireless/rockchip_wlan/rkwifi/bcmdhd/Makefile开放
+```mk
+CONFIG_BCMDHD_STATIC_IF :=y
+
+ifeq ($(CONFIG_BCMDHD_STATIC_IF),y)
+    DHDCFLAGS += -DWL_STATIC_IF
+endif
+```
+
+### 设备强制横屏
+适用于Android11以上
+
+https://blog.csdn.net/u011774634/article/details/125508483
+
+frameworks/base/services/core/java/com/android/server/wm/DisplayContent.java
+```java
+int getOrientation() {
+    if (true) {
+        return SCREEN_ORIENTATION_LANDSCAPE;
+    }
+    //...
+}
+```
+
+frameworks/base/services/core/java/com/android/server/wm/DisplayRotation.java
+```java
+boolean updateRotationUnchecked(boolean forceUpdate) {
+    if (true) {
+        return true;
+    }
+    //...
+}
+```

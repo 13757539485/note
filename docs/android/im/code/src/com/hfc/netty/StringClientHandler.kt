@@ -31,16 +31,12 @@ object StingrClientHandler : BaseHandler<StringClientListener>() {
 
     fun sendMsg(msg: String) {
         checkHandlerContext {
-            mainScope.launch {
-                withContext(Dispatchers.IO) {
-                    it.writeAndFlush(
-                        Unpooled.copiedBuffer(
-                            (msg + System.getProperty("line.separator"))
-                                .toByteArray()
-                        )
-                    )
-                }
-            }
+            it.writeAndFlush(
+                Unpooled.copiedBuffer(
+                    (msg + System.getProperty("line.separator"))
+                        .toByteArray()
+                )
+            )
         }
     }
 }

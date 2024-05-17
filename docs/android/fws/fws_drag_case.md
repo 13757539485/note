@@ -140,13 +140,13 @@ frameworks/base/core/java/android/view/ViewRootImpl.java
 ```java
 private void handleDragEvent(DragEvent event) {
     // ...
-    boolean customResult = HfcDragViewHelper.getInstance().handleDragEvent(event, mBasePackageName);
+    boolean customResult = HfcDragViewHelper.getInstance().handleDragEvent(event, mBasePackageName，mContext);
     // Now dispatch the drag/drop event
     boolean result = mView.dispatchDragEvent(event);
     if (customResult) {
         // 不执行拖拽返回动画，应用假装支持拖拽接收
         result = true;
-        CariadDragHelper.getInstance().sendAllowDragApp(mContext, event.mClipData, mBasePackageName);
+        HfcDragViewHelper.getInstance().sendAllowDragApp(mContext, event.mClipData, mBasePackageName);
         Log.e("HfcDragViewHelper", "replace result to custom result:" + mBasePackageName);
     }
 
@@ -155,7 +155,7 @@ private void handleDragEvent(DragEvent event) {
 ```
 用来处理拖拽结束逻辑
 ```java
-public boolean handleDragEvent(DragEvent event, String basePackageName) {
+public boolean handleDragEvent(DragEvent event, String basePackageName, Context context) {
     if (event == null) {
         Log.e(TAG, "handleDragEvent event is null");
         return false;
@@ -216,12 +216,12 @@ frameworks/base/services/core/java/com/android/server/wm/DragState.java
 执行拖拽居中缩放动画以及alpha动画
 ```java
 void startDragLocked() {
-    mAnimator = createShowAnimationLocked();
+    createShowAnimationLocked();
 }
 
 private float mScale = 1.0f;
 
-private ValueAnimator createShowAnimationLocked() {
+private void createShowAnimationLocked() {
     int maxValue = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 200,
             mService.mContext.getResources().getDisplayMetrics());
     int width = mSurfaceControl.getWidth();
@@ -239,6 +239,10 @@ private ValueAnimator createShowAnimationLocked() {
             PropertyValuesHolder.ofFloat(
                     ANIMATED_PROPERTY_ALPHA, 1, mOriginalAlpha));
     animator.addUpdateListener(animation -> {
+        if (mSurfaceControl == null && animation.isRunning()) {
+            animation.cancel();
+            return;
+        }
         try (SurfaceControl.Transaction transaction =
                         mService.mTransactionFactory.get()) {
             transaction.setAlpha(
@@ -268,12 +272,12 @@ private ValueAnimator createShowAnimationLocked() {
 
         @Override
         public void onAnimationEnd(Animator animation) {
-            mAnimator = null;
+            mAnimationCompleted = true;
+            mDragDropController.sendHandlerMessage(MSG_ANIMATION_END, null);
         }
     });
 
     mService.mAnimationHandler.post(() -> animator.start());
-    return animator;
 }
 ```
 修改拖动时视图不居中问题

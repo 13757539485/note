@@ -51,10 +51,14 @@ python快捷键创建
 sudo ln -s /usr/bin/python3.10 /usr/bin/python
 ```
 ### 4.同步Android源码
-六种查看Android系统源码的网址
+查看Android系统源码的网址
 
-AOSP在线源码(需vpn)
+AOSP最新在线源码(需vpn)
 https://cs.android.com/android/platform/superproject/main
+
+9.0之前：http://androidxref.com
+
+5.0-14.0+: http://aospxref.com
 
 进入目录aosp执行
 ```shell
