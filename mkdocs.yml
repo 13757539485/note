@@ -70,6 +70,7 @@ nav:
               - PMS: android/fws/fws_pms.md
               - Android启动流程: android/fws/fws_android_start.md
               - App进程启动: android/fws/fws_app_start.md
+              - Android图形系统: android/fws/fws_surface.md
            - RK3588J: android/fws/fws_rk.md
         - 性能优化: 
            - 启动优化: android/performance/android_start.md
