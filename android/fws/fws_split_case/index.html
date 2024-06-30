@@ -73,7 +73,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#bar" class="md-skip">
+        <a href="#ui" class="md-skip">
           跳转至
         </a>
       
@@ -1519,9 +1519,77 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#bar" class="md-nav__link">
-    添加bar
+  <a href="#ui" class="md-nav__link">
+    分屏UI定制
   </a>
+  
+    <nav class="md-nav" aria-label="分屏UI定制">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    分屏背景透明显示壁纸
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    分隔栏修改
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    圆角裁剪
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    导航栏背景修改
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bar" class="md-nav__link">
+    应用添加bar
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    高斯模糊
+  </a>
+  
+    <nav class="md-nav" aria-label="高斯模糊">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    分屏应用拖拽模糊
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    分屏界面背景模糊
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -3005,9 +3073,77 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#bar" class="md-nav__link">
-    添加bar
+  <a href="#ui" class="md-nav__link">
+    分屏UI定制
   </a>
+  
+    <nav class="md-nav" aria-label="分屏UI定制">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    分屏背景透明显示壁纸
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    分隔栏修改
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    圆角裁剪
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    导航栏背景修改
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bar" class="md-nav__link">
+    应用添加bar
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    高斯模糊
+  </a>
+  
+    <nav class="md-nav" aria-label="高斯模糊">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    分屏应用拖拽模糊
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    分屏界面背景模糊
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -3028,6 +3164,9 @@
 
   <h1>案例</h1>
 
+<h3 id="ui">分屏UI定制<a class="headerlink" href="#ui" title="Permanent link">&para;</a></h3>
+<h4 id="_1">分屏背景透明显示壁纸<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h4>
+<p>方案一：</p>
 <p>frameworks/base/core/java/com/android/internal/policy/DecorView.java
 <div class="highlight"><pre><span></span><code><span class="kd">protected</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">onLayout</span><span class="p">(</span><span class="kt">boolean</span><span class="w"> </span><span class="n">changed</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">left</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">top</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">right</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">bottom</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="kd">super</span><span class="p">.</span><span class="na">onLayout</span><span class="p">(</span><span class="n">changed</span><span class="p">,</span><span class="w"> </span><span class="n">left</span><span class="p">,</span><span class="w"> </span><span class="n">top</span><span class="p">,</span><span class="w"> </span><span class="n">right</span><span class="p">,</span><span class="w"> </span><span class="n">bottom</span><span class="p">);</span>
@@ -3064,7 +3203,18 @@ frameworks/base/core/java/com/android/internal/policy/PhoneWindow.java
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
-frameworks/base/</p>
+方案二：</p>
+<p>frameworks/base/services/core/java/com/android/server/wm/LetterboxUiController.java
+<div class="highlight"><pre><span></span><code><span class="kd">private</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">updateWallpaperForLetterbox</span><span class="p">(</span><span class="n">WindowState</span><span class="w"> </span><span class="n">mainWindow</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nd">@LetterboxBackgroundType</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">letterboxBackgroundType</span><span class="w"> </span><span class="o">=</span>
+<span class="w">            </span><span class="n">mLetterboxConfiguration</span><span class="p">.</span><span class="na">getLetterboxBackgroundType</span><span class="p">();</span>
+<span class="w">    </span><span class="c1">//...</span>
+<span class="w">    </span><span class="n">wallpaperShouldBeShown</span><span class="w"> </span><span class="o">|=</span><span class="w"> </span><span class="n">mainWindow</span><span class="p">.</span><span class="na">getWindowingMode</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">WindowConfiguration</span><span class="p">.</span><span class="na">WINDOWING_MODE_MULTI_WINDOW</span><span class="p">;</span>
+<span class="w">    </span><span class="c1">//...</span>
+<span class="p">}</span>
+</code></pre></div></p>
+<h4 id="_2">分隔栏修改<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h4>
+<p>frameworks/base/</p>
 <p>分割栏布局：libs/WindowManager/Shell/res/layout/split_divider.xml</p>
 <p>分割栏背景：DockedDividerBackground</p>
 <p>libs/WindowManager/Shell/res/values-land/styles.xml
@@ -3073,8 +3223,10 @@ libs/WindowManager/Shell/res/values/styles.xml</p>
 libs/WindowManager/Shell/res/values/dimen.xml</p>
 <p>白条宽度：split_divider_handle_height</p>
 <p>总宽度：split_divider_bar_width</p>
-<p>圆角裁剪相关：
-libs/WindowManager/Shell/src/com/android/wm/shell/common/split/SplitLayout.java</p>
+<p>加载分割栏布局：
+libs/WindowManager/Shell/src/com/android/wm/shell/common/split/SplitWindowManager.java</p>
+<h4 id="_3">圆角裁剪<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h4>
+<p>libs/WindowManager/Shell/src/com/android/wm/shell/common/split/SplitLayout.java</p>
 <p>updateBounds：设置分屏Rect
 <div class="highlight"><pre><span></span><code><span class="kd">private</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">updateBounds</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">position</span><span class="p">,</span><span class="w"> </span><span class="n">Rect</span><span class="w"> </span><span class="n">bounds1</span><span class="p">,</span><span class="w"> </span><span class="n">Rect</span><span class="w"> </span><span class="n">bounds2</span><span class="p">,</span><span class="w"> </span><span class="n">Rect</span><span class="w"> </span><span class="n">dividerBounds</span><span class="p">,</span>
 <span class="w">            </span><span class="kt">boolean</span><span class="w"> </span><span class="n">setEffectBounds</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -3136,11 +3288,9 @@ applySurfaceChanges: 圆角裁剪
 <span class="w">            </span><span class="p">.</span><span class="na">setCornerRadius</span><span class="p">(</span><span class="n">leash1</span><span class="p">,</span><span class="w"> </span><span class="mi">30</span><span class="p">);</span>
 <span class="w">    </span><span class="c1">//...</span>
 <span class="p">}</span>
-</code></pre></div>
-加载分割栏布局：
-libs/WindowManager/Shell/src/com/android/wm/shell/common/split/SplitWindowManager.java</p>
-<p>导航栏背景修改：
-packages/SystemUI/src/com/android/systemui/navigationbar/NavigationBarTransitions.java
+</code></pre></div></p>
+<h4 id="_4">导航栏背景修改<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h4>
+<p>packages/SystemUI/src/com/android/systemui/navigationbar/NavigationBarTransitions.java
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="nf">NavigationBarTransitions</span><span class="p">(</span>
 <span class="w">        </span><span class="n">NavigationBarView</span><span class="w"> </span><span class="n">view</span><span class="p">,</span>
 <span class="w">        </span><span class="n">IWindowManager</span><span class="w"> </span><span class="n">windowManagerService</span><span class="p">,</span>
@@ -3163,7 +3313,7 @@ packages/SystemUI/src/com/android/systemui/navigationbar/NavigationBarTransition
 <span class="w">        </span><span class="p">}</span>
 <span class="w">    </span><span class="p">}</span>
 </code></pre></div></p>
-<h3 id="bar">添加bar<a class="headerlink" href="#bar" title="Permanent link">&para;</a></h3>
+<h3 id="bar">应用添加bar<a class="headerlink" href="#bar" title="Permanent link">&para;</a></h3>
 <p>DecorView中
 <div class="highlight"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">onResourcesLoaded</span><span class="p">(</span><span class="n">LayoutInflater</span><span class="w"> </span><span class="n">inflater</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">layoutResource</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">mDecorCaptionView</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -3175,33 +3325,102 @@ packages/SystemUI/src/com/android/systemui/navigationbar/NavigationBarTransition
 <span class="w">    </span><span class="c1">//...</span>
 <span class="p">}</span>
 
+<span class="nd">@Override</span>
+<span class="kd">protected</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">onConfigurationChanged</span><span class="p">(</span><span class="n">Configuration</span><span class="w"> </span><span class="n">newConfig</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">super</span><span class="p">.</span><span class="na">onConfigurationChanged</span><span class="p">(</span><span class="n">newConfig</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">//...</span>
+<span class="w">    </span><span class="n">createDecorThreeDotsView</span><span class="p">();</span>
+
+<span class="w">    </span><span class="c1">//...</span>
+<span class="p">}</span>
+
 <span class="kd">private</span><span class="w"> </span><span class="n">ThreeDotsView</span><span class="w"> </span><span class="n">mThreeDotsView</span><span class="p">;</span>
 
 <span class="kd">private</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">createDecorThreeDotsView</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="kd">final</span><span class="w"> </span><span class="n">WindowManager</span><span class="p">.</span><span class="na">LayoutParams</span><span class="w"> </span><span class="n">attrs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mWindow</span><span class="p">.</span><span class="na">getAttributes</span><span class="p">();</span>
-<span class="w">    </span><span class="kd">final</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="n">isApplication</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">attrs</span><span class="p">.</span><span class="na">type</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">TYPE_BASE_APPLICATION</span><span class="w"> </span><span class="o">||</span>
-<span class="w">            </span><span class="n">attrs</span><span class="p">.</span><span class="na">type</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">TYPE_APPLICATION</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">attrs</span><span class="p">.</span><span class="na">type</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">TYPE_DRAWN_APPLICATION</span><span class="p">;</span>
-<span class="w">    </span><span class="kd">final</span><span class="w"> </span><span class="n">WindowConfiguration</span><span class="w"> </span><span class="n">winConfig</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">getResources</span><span class="p">().</span><span class="na">getConfiguration</span><span class="p">().</span><span class="na">windowConfiguration</span><span class="p">;</span>
-
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">mWindow</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">mWindow</span><span class="p">.</span><span class="na">getAppToken</span><span class="p">()</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="o">&amp;&amp;</span>
-<span class="w">            </span><span class="n">isApplication</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">winConfig</span><span class="p">.</span><span class="na">getActivityType</span><span class="p">()</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">ACTIVITY_TYPE_HOME</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="n">mThreeDotsView</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ThreeDotsView</span><span class="p">(</span><span class="n">getContext</span><span class="p">());</span>
-<span class="w">        </span><span class="n">FrameLayout</span><span class="p">.</span><span class="na">LayoutParams</span><span class="w"> </span><span class="n">lp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">LayoutParams</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span><span class="w"> </span><span class="mi">80</span><span class="p">,</span><span class="w"> </span><span class="n">Gravity</span><span class="p">.</span><span class="na">CENTER_HORIZONTAL</span><span class="p">);</span>
-<span class="w">        </span><span class="n">lp</span><span class="p">.</span><span class="na">topMargin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">winConfig</span><span class="p">.</span><span class="na">getAppBounds</span><span class="p">().</span><span class="na">top</span><span class="p">;</span>
-<span class="w">        </span><span class="n">addView</span><span class="p">(</span><span class="n">mThreeDotsView</span><span class="p">,</span><span class="w"> </span><span class="n">lp</span><span class="p">);</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
-适当的位置更新top距离？
-<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">onDecorThreeDotsChange</span><span class="p">(</span><span class="kt">boolean</span><span class="w"> </span><span class="n">isInMultiWindowMode</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">mThreeDotsView</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="n">WindowConfiguration</span><span class="w"> </span><span class="n">winConfig</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">getResources</span><span class="p">().</span><span class="na">getConfiguration</span><span class="p">().</span><span class="na">windowConfiguration</span><span class="p">;</span>
-<span class="w">        </span><span class="n">FrameLayout</span><span class="p">.</span><span class="na">LayoutParams</span><span class="w"> </span><span class="n">lp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">LayoutParams</span><span class="p">)</span><span class="w"> </span><span class="n">mThreeDotsView</span><span class="p">.</span><span class="na">getLayoutParams</span><span class="p">();</span>
-<span class="w">        </span><span class="n">lp</span><span class="p">.</span><span class="na">topMargin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">isInMultiWindowMode</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">winConfig</span><span class="p">.</span><span class="na">getAppBounds</span><span class="p">().</span><span class="na">top</span><span class="p">;</span>
-<span class="w">        </span><span class="n">updateViewLayout</span><span class="p">(</span><span class="n">mThreeDotsView</span><span class="p">,</span><span class="w"> </span><span class="n">lp</span><span class="p">);</span>
+<span class="w">    </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">mThreeDotsView</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="kd">final</span><span class="w"> </span><span class="n">WindowManager</span><span class="p">.</span><span class="na">LayoutParams</span><span class="w"> </span><span class="n">attrs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mWindow</span><span class="p">.</span><span class="na">getAttributes</span><span class="p">();</span>
+<span class="w">            </span><span class="kd">final</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="n">isApplication</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">attrs</span><span class="p">.</span><span class="na">type</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">TYPE_BASE_APPLICATION</span><span class="w"> </span><span class="o">||</span>
+<span class="w">                    </span><span class="n">attrs</span><span class="p">.</span><span class="na">type</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">TYPE_APPLICATION</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">attrs</span><span class="p">.</span><span class="na">type</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">TYPE_DRAWN_APPLICATION</span><span class="p">;</span>
+<span class="w">            </span><span class="kd">final</span><span class="w"> </span><span class="n">WindowConfiguration</span><span class="w"> </span><span class="n">winConfig</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">getResources</span><span class="p">().</span><span class="na">getConfiguration</span><span class="p">().</span><span class="na">windowConfiguration</span><span class="p">;</span>
+<span class="w">            </span><span class="n">Rect</span><span class="w"> </span><span class="n">bounds</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">winConfig</span><span class="p">.</span><span class="na">getBounds</span><span class="p">();</span>
+<span class="w">            </span><span class="kt">boolean</span><span class="w"> </span><span class="n">isActivity</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mWindow</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">mWindow</span><span class="p">.</span><span class="na">getAppToken</span><span class="p">()</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">!</span><span class="n">mWindow</span><span class="p">.</span><span class="na">isFloating</span><span class="p">();</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">isApplication</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">isActivity</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">winConfig</span><span class="p">.</span><span class="na">getActivityType</span><span class="p">()</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">ACTIVITY_TYPE_HOME</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="n">mThreeDotsView</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ThreeDotsView</span><span class="p">(</span><span class="n">getContext</span><span class="p">());</span>
+<span class="w">                </span><span class="n">LayoutParams</span><span class="w"> </span><span class="n">lp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">LayoutParams</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span><span class="w"> </span><span class="mi">50</span><span class="p">,</span><span class="w"> </span><span class="n">Gravity</span><span class="p">.</span><span class="na">CENTER_HORIZONTAL</span><span class="p">);</span>
+<span class="w">                </span><span class="n">addView</span><span class="p">(</span><span class="n">mThreeDotsView</span><span class="p">,</span><span class="w"> </span><span class="n">lp</span><span class="p">);</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">mThreeDotsView</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">LayoutParams</span><span class="w"> </span><span class="n">lp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">LayoutParams</span><span class="p">)</span><span class="w"> </span><span class="n">mThreeDotsView</span><span class="p">.</span><span class="na">getLayoutParams</span><span class="p">();</span>
+<span class="w">            </span><span class="kd">final</span><span class="w"> </span><span class="n">WindowConfiguration</span><span class="w"> </span><span class="n">winConfig</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">getResources</span><span class="p">().</span><span class="na">getConfiguration</span><span class="p">().</span><span class="na">windowConfiguration</span><span class="p">;</span>
+<span class="w">            </span><span class="n">Rect</span><span class="w"> </span><span class="n">bounds</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">winConfig</span><span class="p">.</span><span class="na">getBounds</span><span class="p">();</span>
+<span class="w">            </span><span class="n">Rect</span><span class="w"> </span><span class="n">maxBounds</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">winConfig</span><span class="p">.</span><span class="na">getMaxBounds</span><span class="p">();</span>
+<span class="w">            </span><span class="kt">boolean</span><span class="w"> </span><span class="n">isLandscape</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">maxBounds</span><span class="p">.</span><span class="na">width</span><span class="p">()</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">maxBounds</span><span class="p">.</span><span class="na">height</span><span class="p">();</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">isLandscape</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="n">lp</span><span class="p">.</span><span class="na">topMargin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">bounds</span><span class="p">.</span><span class="na">left</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">SystemBarUtils</span><span class="p">.</span><span class="na">getStatusBarHeight</span><span class="p">(</span><span class="n">getContext</span><span class="p">());</span>
+<span class="w">                </span><span class="n">lp</span><span class="p">.</span><span class="na">height</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">bounds</span><span class="p">.</span><span class="na">left</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="mi">80</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span class="p">;</span>
+<span class="w">            </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="n">lp</span><span class="p">.</span><span class="na">topMargin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">bounds</span><span class="p">.</span><span class="na">top</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">SystemBarUtils</span><span class="p">.</span><span class="na">getStatusBarHeight</span><span class="p">(</span><span class="n">getContext</span><span class="p">());</span>
+<span class="w">                </span><span class="n">lp</span><span class="p">.</span><span class="na">height</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">bounds</span><span class="p">.</span><span class="na">top</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="mi">80</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span class="p">;</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">mThreeDotsView</span><span class="p">.</span><span class="na">getParent</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="n">addView</span><span class="p">(</span><span class="n">mThreeDotsView</span><span class="p">,</span><span class="w"> </span><span class="n">lp</span><span class="p">);</span>
+<span class="w">            </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="n">mThreeDotsView</span><span class="p">.</span><span class="na">setLayoutParams</span><span class="p">(</span><span class="n">lp</span><span class="p">);</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">Exception</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Log</span><span class="p">.</span><span class="na">e</span><span class="p">(</span><span class="n">TAG</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;create DecorThreeDotsView error: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="na">getMessage</span><span class="p">());</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div></p>
+<h3 id="_5">高斯模糊<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<h4 id="_6">分屏应用拖拽模糊<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h4>
+<p>frameworks/base/libs/WindowManager/Shell/src/com/android/wm/shell/common/split/SplitDecorManager.java
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">onResizing</span><span class="p">(</span><span class="n">ActivityManager</span><span class="p">.</span><span class="na">RunningTaskInfo</span><span class="w"> </span><span class="n">resizingTask</span><span class="p">,</span><span class="w"> </span><span class="n">Rect</span><span class="w"> </span><span class="n">newBounds</span><span class="p">,</span>
+<span class="w">            </span><span class="n">Rect</span><span class="w"> </span><span class="n">sideBounds</span><span class="p">,</span><span class="w"> </span><span class="n">SurfaceControl</span><span class="p">.</span><span class="na">Transaction</span><span class="w"> </span><span class="n">t</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">offsetX</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">offsetY</span><span class="p">,</span>
+<span class="w">            </span><span class="kt">boolean</span><span class="w"> </span><span class="n">immediately</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">mBackgroundLeash</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">//...</span>
+<span class="w">        </span><span class="p">.</span><span class="na">setAlpha</span><span class="p">(</span><span class="n">mBackgroundLeash</span><span class="p">,</span><span class="w"> </span><span class="mf">0.5f</span><span class="p">)</span>
+<span class="w">        </span><span class="p">.</span><span class="na">setBackgroundBlurRadius</span><span class="p">(</span><span class="n">mBackgroundLeash</span><span class="p">,</span><span class="w"> </span><span class="mi">50</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">mGapBackgroundLeash</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">!</span><span class="n">immediately</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">//...</span>
+<span class="w">        </span><span class="p">.</span><span class="na">setAlpha</span><span class="p">(</span><span class="n">mGapBackgroundLeash</span><span class="p">,</span><span class="w"> </span><span class="mf">0.9f</span><span class="p">)</span>
+<span class="w">        </span><span class="p">.</span><span class="na">setBackgroundBlurRadius</span><span class="p">(</span><span class="n">mGapBackgroundLeash</span><span class="p">,</span><span class="w"> </span><span class="mi">50</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span><span class="w">            </span>
+<span class="p">}</span>
+</code></pre></div>
+应用没有被拉伸，需要进行scale结合crop？
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">applySurfaceChanges</span><span class="p">(</span><span class="n">SurfaceControl</span><span class="p">.</span><span class="na">Transaction</span><span class="w"> </span><span class="n">t</span><span class="p">,</span><span class="w"> </span><span class="n">SurfaceControl</span><span class="w"> </span><span class="n">leash1</span><span class="p">,</span>
+<span class="w">            </span><span class="n">SurfaceControl</span><span class="w"> </span><span class="n">leash2</span><span class="p">,</span><span class="w"> </span><span class="n">SurfaceControl</span><span class="w"> </span><span class="n">dimLayer1</span><span class="p">,</span><span class="w"> </span><span class="n">SurfaceControl</span><span class="w"> </span><span class="n">dimLayer2</span><span class="p">,</span>
+<span class="w">            </span><span class="kt">boolean</span><span class="w"> </span><span class="n">applyResizingOffset</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">//...</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">offset</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mTempPosition</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">mDividePosition</span><span class="p">;</span>
+<span class="w">    </span><span class="n">Log</span><span class="p">.</span><span class="na">e</span><span class="p">(</span><span class="s">&quot;iiii&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;applySurfaceChanges offset=&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">offset</span><span class="p">);</span>
+
+<span class="w">    </span><span class="n">getRefBounds1</span><span class="p">(</span><span class="n">mTempRect</span><span class="p">);</span>
+<span class="w">    </span><span class="n">t</span><span class="p">.</span><span class="na">setPosition</span><span class="p">(</span><span class="n">leash1</span><span class="p">,</span><span class="w"> </span><span class="n">mTempRect</span><span class="p">.</span><span class="na">left</span><span class="p">,</span><span class="w"> </span><span class="n">mTempRect</span><span class="p">.</span><span class="na">top</span><span class="p">)</span>
+<span class="w">            </span><span class="p">.</span><span class="na">setWindowCrop</span><span class="p">(</span><span class="n">leash1</span><span class="p">,</span><span class="w"> </span><span class="n">mTempRect</span><span class="p">.</span><span class="na">width</span><span class="p">(),</span><span class="w"> </span><span class="n">mTempRect</span><span class="p">.</span><span class="na">height</span><span class="p">())</span>
+<span class="w">            </span><span class="p">.</span><span class="na">setCornerRadius</span><span class="p">(</span><span class="n">leash1</span><span class="p">,</span><span class="w"> </span><span class="mi">30</span><span class="p">);</span>
+<span class="w">    </span><span class="n">getRefBounds2</span><span class="p">(</span><span class="n">mTempRect</span><span class="p">);</span>
+<span class="w">    </span><span class="n">t</span><span class="p">.</span><span class="na">setPosition</span><span class="p">(</span><span class="n">leash2</span><span class="p">,</span><span class="w"> </span><span class="n">mTempRect</span><span class="p">.</span><span class="na">left</span><span class="p">,</span><span class="w"> </span><span class="n">mTempRect</span><span class="p">.</span><span class="na">top</span><span class="p">)</span>
+<span class="w">            </span><span class="p">.</span><span class="na">setWindowCrop</span><span class="p">(</span><span class="n">leash2</span><span class="p">,</span><span class="w"> </span><span class="n">mTempRect</span><span class="p">.</span><span class="na">width</span><span class="p">(),</span><span class="w"> </span><span class="n">mTempRect</span><span class="p">.</span><span class="na">height</span><span class="p">())</span>
+<span class="w">            </span><span class="p">.</span><span class="na">setCornerRadius</span><span class="p">(</span><span class="n">leash1</span><span class="p">,</span><span class="w"> </span><span class="mi">30</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">//...</span>
+<span class="p">}</span>
+</code></pre></div></p>
+<h4 id="_7">分屏界面背景模糊<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h4>
+<p>直接模糊桌面无效
+？？？</p>
+<p>模糊实现api：</p>
+<p><a href="https://blog.csdn.net/abc6368765/article/details/127657069">https://blog.csdn.net/abc6368765/article/details/127657069</a>
+<a href="https://blog.csdn.net/liaosongmao1/article/details/130820665">https://blog.csdn.net/liaosongmao1/article/details/130820665</a></p>
 
 
 
