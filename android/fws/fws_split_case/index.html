@@ -3383,9 +3383,16 @@ applySurfaceChanges: 圆角裁剪
 <span class="w">            </span><span class="n">Rect</span><span class="w"> </span><span class="n">sideBounds</span><span class="p">,</span><span class="w"> </span><span class="n">SurfaceControl</span><span class="p">.</span><span class="na">Transaction</span><span class="w"> </span><span class="n">t</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">offsetX</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">offsetY</span><span class="p">,</span>
 <span class="w">            </span><span class="kt">boolean</span><span class="w"> </span><span class="n">immediately</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">mBackgroundLeash</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="c1">//...</span>
-<span class="w">        </span><span class="p">.</span><span class="na">setAlpha</span><span class="p">(</span><span class="n">mBackgroundLeash</span><span class="p">,</span><span class="w"> </span><span class="mf">0.5f</span><span class="p">)</span>
-<span class="w">        </span><span class="p">.</span><span class="na">setBackgroundBlurRadius</span><span class="p">(</span><span class="n">mBackgroundLeash</span><span class="p">,</span><span class="w"> </span><span class="mi">50</span><span class="p">);</span>
+<span class="w">        </span><span class="n">mBackgroundLeash</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">SurfaceControl</span><span class="p">.</span><span class="na">Builder</span><span class="p">(</span><span class="n">mSurfaceSession</span><span class="p">)</span>
+<span class="w">                </span><span class="p">.</span><span class="na">setParent</span><span class="p">(</span><span class="n">mHostLeash</span><span class="p">)</span>
+<span class="w">                </span><span class="p">.</span><span class="na">setFormat</span><span class="p">(</span><span class="n">PixelFormat</span><span class="p">.</span><span class="na">TRANSLUCENT</span><span class="p">)</span>
+<span class="w">                </span><span class="p">.</span><span class="na">setName</span><span class="p">(</span><span class="n">RESIZING_BACKGROUND_SURFACE_NAME</span><span class="p">)</span>
+<span class="w">                </span><span class="p">.</span><span class="na">setCallsite</span><span class="p">(</span><span class="s">&quot;SurfaceUtils.makeColorLayer&quot;</span><span class="p">)</span>
+<span class="w">                </span><span class="p">.</span><span class="na">setEffectLayer</span><span class="p">()</span>
+<span class="w">                </span><span class="p">.</span><span class="na">build</span><span class="p">();</span>
+
+<span class="w">        </span><span class="n">t</span><span class="p">.</span><span class="na">setBackgroundBlurRadius</span><span class="p">(</span><span class="n">mBackgroundLeash</span><span class="p">,</span><span class="w"> </span><span class="mi">50</span><span class="p">)</span>
+<span class="w">        </span><span class="p">.</span><span class="na">setLayer</span><span class="p">(</span><span class="n">mBackgroundLeash</span><span class="p">,</span><span class="w"> </span><span class="n">Integer</span><span class="p">.</span><span class="na">MAX_VALUE</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
 <span class="w">    </span><span class="p">}</span>
 
 <span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">mGapBackgroundLeash</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">!</span><span class="n">immediately</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -3416,8 +3423,46 @@ applySurfaceChanges: 圆角裁剪
 <span class="p">}</span>
 </code></pre></div></p>
 <h4 id="_7">分屏界面背景模糊<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h4>
-<p>直接模糊桌面无效
-？？？</p>
+<p>frameworks/base/core/java/android/service/wallpaper/WallpaperService.java
+<div class="highlight"><pre><span></span><code><span class="n">SurfaceControl</span><span class="w"> </span><span class="n">mMaskSurfaceControl</span><span class="p">;</span>
+<span class="kd">private</span><span class="w"> </span><span class="n">Surface</span><span class="w"> </span><span class="nf">getOrCreateBLASTSurface</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">width</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">height</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">format</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">Surface</span><span class="w"> </span><span class="n">ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">mBlastBufferQueue</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">//...</span>
+<span class="w">        </span><span class="n">createMaskSurfaceControl</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">//...</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">ret</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="kd">private</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">createMaskSurfaceControl</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">mMaskSurfaceControl</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">mMaskSurfaceControl</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">SurfaceControl</span><span class="p">.</span><span class="na">Builder</span><span class="p">()</span>
+<span class="w">                </span><span class="p">.</span><span class="na">setName</span><span class="p">(</span><span class="s">&quot;Wallpaper mask layer&quot;</span><span class="p">)</span>
+<span class="w">                </span><span class="p">.</span><span class="na">setCallsite</span><span class="p">(</span><span class="s">&quot;Wallpaper.Mask.Layer&quot;</span><span class="p">)</span>
+<span class="w">                </span><span class="p">.</span><span class="na">setParent</span><span class="p">(</span><span class="n">mBbqSurfaceControl</span><span class="p">)</span>
+<span class="w">                </span><span class="p">.</span><span class="na">setColorLayer</span><span class="p">()</span>
+<span class="w">                </span><span class="p">.</span><span class="na">build</span><span class="p">();</span>
+<span class="w">        </span><span class="n">SurfaceControl</span><span class="p">.</span><span class="na">Transaction</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">SurfaceControl</span><span class="p">.</span><span class="na">Transaction</span><span class="p">();</span>
+<span class="w">        </span><span class="n">t</span><span class="p">.</span><span class="na">setColor</span><span class="p">(</span><span class="n">mMaskSurfaceControl</span><span class="p">,</span><span class="w"> </span><span class="n">Color</span><span class="p">.</span><span class="na">valueOf</span><span class="p">(</span><span class="n">Color</span><span class="p">.</span><span class="na">WHITE</span><span class="p">).</span><span class="na">getComponents</span><span class="p">())</span>
+<span class="w">                </span><span class="p">.</span><span class="na">setAlpha</span><span class="p">(</span><span class="n">mMaskSurfaceControl</span><span class="p">,</span><span class="w"> </span><span class="mf">0.2f</span><span class="p">)</span>
+<span class="w">                </span><span class="p">.</span><span class="na">setBackgroundBlurRadius</span><span class="p">(</span><span class="n">mMaskSurfaceControl</span><span class="p">,</span><span class="w"> </span><span class="mi">50</span><span class="p">)</span>
+<span class="w">                </span><span class="p">.</span><span class="na">apply</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">showOrHideMaskSurfaceControl</span><span class="p">(</span><span class="kt">boolean</span><span class="w"> </span><span class="n">show</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">SurfaceControl</span><span class="p">.</span><span class="na">Transaction</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">SurfaceControl</span><span class="p">.</span><span class="na">Transaction</span><span class="p">();</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">show</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">t</span><span class="p">.</span><span class="na">show</span><span class="p">(</span><span class="n">mMaskSurfaceControl</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">t</span><span class="p">.</span><span class="na">hide</span><span class="p">(</span><span class="n">mMaskSurfaceControl</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="n">t</span><span class="p">.</span><span class="na">apply</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div>
+适当的地方调用showOrHideMaskSurfaceControl</p>
 <p>模糊实现api：</p>
 <p><a href="https://blog.csdn.net/abc6368765/article/details/127657069">https://blog.csdn.net/abc6368765/article/details/127657069</a>
 <a href="https://blog.csdn.net/liaosongmao1/article/details/130820665">https://blog.csdn.net/liaosongmao1/article/details/130820665</a></p>
