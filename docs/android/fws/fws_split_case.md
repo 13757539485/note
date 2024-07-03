@@ -1,3 +1,7 @@
+### 分屏UI定制
+#### 分屏背景透明显示壁纸
+方案一：
+
 frameworks/base/core/java/com/android/internal/policy/DecorView.java
 ```java
 protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
@@ -36,6 +40,19 @@ public void toggleWallpaper(boolean showWallpaper) {
     }
 }
 ```
+方案二：
+
+frameworks/base/services/core/java/com/android/server/wm/LetterboxUiController.java
+```java
+private void updateWallpaperForLetterbox(WindowState mainWindow) {
+    @LetterboxBackgroundType int letterboxBackgroundType =
+            mLetterboxConfiguration.getLetterboxBackgroundType();
+    //...
+    wallpaperShouldBeShown |= mainWindow.getWindowingMode() == WindowConfiguration.WINDOWING_MODE_MULTI_WINDOW;
+    //...
+}
+```
+#### 分隔栏修改
 frameworks/base/
 
 分割栏布局：libs/WindowManager/Shell/res/layout/split_divider.xml
@@ -52,7 +69,10 @@ libs/WindowManager/Shell/res/values/dimen.xml
 
 总宽度：split_divider_bar_width
 
-圆角裁剪相关：
+加载分割栏布局：
+libs/WindowManager/Shell/src/com/android/wm/shell/common/split/SplitWindowManager.java
+
+#### 圆角裁剪
 libs/WindowManager/Shell/src/com/android/wm/shell/common/split/SplitLayout.java
 
 updateBounds：设置分屏Rect
@@ -119,10 +139,8 @@ public void applySurfaceChanges(SurfaceControl.Transaction t, SurfaceControl lea
     //...
 }
 ```
-加载分割栏布局：
-libs/WindowManager/Shell/src/com/android/wm/shell/common/split/SplitWindowManager.java
 
-导航栏背景修改：
+#### 导航栏背景修改
 packages/SystemUI/src/com/android/systemui/navigationbar/NavigationBarTransitions.java
 ```java
 public NavigationBarTransitions(
@@ -149,4 +167,164 @@ val rootWindowInsets: WindowInsets = window.decorView.rootWindowInsets
         }
     }
 ```
-待解决：返回桌面动画消失
+
+### 应用添加bar
+DecorView中
+```java
+void onResourcesLoaded(LayoutInflater inflater, int layoutResource) {
+    if (mDecorCaptionView != null) {
+        //...
+    } else {
+        createDecorThreeDotsView();
+        //...
+    }
+    //...
+}
+
+@Override
+protected void onConfigurationChanged(Configuration newConfig) {
+    super.onConfigurationChanged(newConfig);
+
+    //...
+    createDecorThreeDotsView();
+
+    //...
+}
+
+private ThreeDotsView mThreeDotsView;
+
+private void createDecorThreeDotsView() {
+    try {
+        if (mThreeDotsView == null) {
+            final WindowManager.LayoutParams attrs = mWindow.getAttributes();
+            final boolean isApplication = attrs.type == TYPE_BASE_APPLICATION ||
+                    attrs.type == TYPE_APPLICATION || attrs.type == TYPE_DRAWN_APPLICATION;
+            final WindowConfiguration winConfig = getResources().getConfiguration().windowConfiguration;
+            Rect bounds = winConfig.getBounds();
+            boolean isActivity = mWindow != null && mWindow.getAppToken() != null && !mWindow.isFloating();
+            if (isApplication && isActivity && winConfig.getActivityType() != ACTIVITY_TYPE_HOME) {
+                mThreeDotsView = new ThreeDotsView(getContext());
+                LayoutParams lp = new LayoutParams(200, 50, Gravity.CENTER_HORIZONTAL);
+                addView(mThreeDotsView, lp);
+            }
+        }
+        if (mThreeDotsView != null) {
+            LayoutParams lp = (LayoutParams) mThreeDotsView.getLayoutParams();
+            final WindowConfiguration winConfig = getResources().getConfiguration().windowConfiguration;
+            Rect bounds = winConfig.getBounds();
+            Rect maxBounds = winConfig.getMaxBounds();
+            boolean isLandscape = maxBounds.width() > maxBounds.height();
+            if (isLandscape) {
+                lp.topMargin = bounds.left != 0 ? 0 : SystemBarUtils.getStatusBarHeight(getContext());
+                lp.height = bounds.left != 0 ? 80 : 50;
+            } else {
+                lp.topMargin = bounds.top != 0 ? 0 : SystemBarUtils.getStatusBarHeight(getContext());
+                lp.height = bounds.top != 0 ? 80 : 50;
+            }
+            if (mThreeDotsView.getParent() == null) {
+                addView(mThreeDotsView, lp);
+            } else {
+                mThreeDotsView.setLayoutParams(lp);
+            }
+        }
+    } catch (Exception e) {
+        Log.e(TAG, "create DecorThreeDotsView error: " + e.getMessage());
+    }
+}
+```
+
+### 高斯模糊
+#### 分屏应用拖拽模糊
+frameworks/base/libs/WindowManager/Shell/src/com/android/wm/shell/common/split/SplitDecorManager.java
+```java
+public void onResizing(ActivityManager.RunningTaskInfo resizingTask, Rect newBounds,
+            Rect sideBounds, SurfaceControl.Transaction t, int offsetX, int offsetY,
+            boolean immediately) {
+    if (mBackgroundLeash == null) {
+        mBackgroundLeash = new SurfaceControl.Builder(mSurfaceSession)
+                .setParent(mHostLeash)
+                .setFormat(PixelFormat.TRANSLUCENT)
+                .setName(RESIZING_BACKGROUND_SURFACE_NAME)
+                .setCallsite("SurfaceUtils.makeColorLayer")
+                .setEffectLayer()
+                .build();
+
+        t.setBackgroundBlurRadius(mBackgroundLeash, 50)
+        .setLayer(mBackgroundLeash, Integer.MAX_VALUE - 1);
+    }
+
+    if (mGapBackgroundLeash == null && !immediately) {
+        //...
+        .setAlpha(mGapBackgroundLeash, 0.9f)
+        .setBackgroundBlurRadius(mGapBackgroundLeash, 50)
+    }            
+}
+```
+应用没有被拉伸，需要进行scale结合crop？
+```java
+public void applySurfaceChanges(SurfaceControl.Transaction t, SurfaceControl leash1,
+            SurfaceControl leash2, SurfaceControl dimLayer1, SurfaceControl dimLayer2,
+            boolean applyResizingOffset) {
+    //...
+    int offset = mTempPosition - mDividePosition;
+    Log.e("iiii", "applySurfaceChanges offset=" + offset);
+
+    getRefBounds1(mTempRect);
+    t.setPosition(leash1, mTempRect.left, mTempRect.top)
+            .setWindowCrop(leash1, mTempRect.width(), mTempRect.height())
+            .setCornerRadius(leash1, 30);
+    getRefBounds2(mTempRect);
+    t.setPosition(leash2, mTempRect.left, mTempRect.top)
+            .setWindowCrop(leash2, mTempRect.width(), mTempRect.height())
+            .setCornerRadius(leash1, 30);
+
+    //...
+}
+```
+#### 分屏界面背景模糊
+frameworks/base/core/java/android/service/wallpaper/WallpaperService.java
+```java
+SurfaceControl mMaskSurfaceControl;
+private Surface getOrCreateBLASTSurface(int width, int height, int format) {
+    Surface ret = null;
+    if (mBlastBufferQueue == null) {
+        //...
+        createMaskSurfaceControl();
+    } else {
+        //...
+    }
+
+    return ret;
+}
+private void createMaskSurfaceControl() {
+    if (mMaskSurfaceControl == null) {
+        mMaskSurfaceControl = new SurfaceControl.Builder()
+                .setName("Wallpaper mask layer")
+                .setCallsite("Wallpaper.Mask.Layer")
+                .setParent(mBbqSurfaceControl)
+                .setColorLayer()
+                .build();
+        SurfaceControl.Transaction t = new SurfaceControl.Transaction();
+        t.setColor(mMaskSurfaceControl, Color.valueOf(Color.WHITE).getComponents())
+                .setAlpha(mMaskSurfaceControl, 0.2f)
+                .setBackgroundBlurRadius(mMaskSurfaceControl, 50)
+                .apply();
+    }
+}
+
+public void showOrHideMaskSurfaceControl(boolean show) {
+    SurfaceControl.Transaction t = new SurfaceControl.Transaction();
+    if (show) {
+        t.show(mMaskSurfaceControl);
+    } else {
+        t.hide(mMaskSurfaceControl);
+    }
+    t.apply();
+}
+```
+适当的地方调用showOrHideMaskSurfaceControl
+
+模糊实现api：
+
+https://blog.csdn.net/abc6368765/article/details/127657069
+https://blog.csdn.net/liaosongmao1/article/details/130820665
