@@ -19,9 +19,26 @@ adb shell dumpsys SurfaceFlinger
 ```
 ### SurfaceControl
 控制Surface的属性和层次结构，一个SurfaceControl关联一个Surface，底层会创建Surface一般不需要开发者创建和销毁
+#### API介绍
 
 ### SurfaceControl.Transaction
 用来操作SurfaceControl，比如透明度、大小、位置、圆角等属性，调用apply提交才会生效
+#### API介绍
+
+<a id="setBackgroundBlurRadius">setBackgroundBlurRadius</a>
+
+设置图层高斯模糊，硬件要求高(可能会导致设备卡顿，android12以上默认开启)
+
+开启方式
+
+源码编译方式：
+
+device/品牌/型号/xxx.mk中添加
+```mk
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.surface_flinger.supports_background_blur=1
+```
+root方式：vendor/build.prop文件中添加即可
 
 ### 通过View创建Surface图层
 ```java

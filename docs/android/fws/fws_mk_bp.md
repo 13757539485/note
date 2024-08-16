@@ -57,12 +57,12 @@ if (defaultIme == null) {
 }
 ```
 
-百度：com.baidu.input/.ImeService
-讯飞：com.iflytek.inputmethod/.FlyIME
-腾讯：com.tencent.qqpinyin/.QQPYInputMethodService
-谷歌：com.google.android.inputmethod.pinyin/.PinyinIME
-搜狗：com.sohu.inputmethod.sogou/.SogouIME
-触宝：com.cootek.smartinput5/.TouchPalIM
+- 百度：com.baidu.input/.ImeService
+- 讯飞：com.iflytek.inputmethod/.FlyIME
+- 腾讯：com.tencent.qqpinyin/.QQPYInputMethodService
+- 谷歌：com.google.android.inputmethod.pinyin/.PinyinIME
+- 搜狗：com.sohu.inputmethod.sogou/.SogouIME
+- 触宝：com.cootek.smartinput5/.TouchPalIM
 
 针对LOCAL_PREBUILT_JNI_LIBS := \
 
@@ -70,6 +70,13 @@ if (defaultIme == null) {
 ```shell
 find "$(pwd)" -type f -printf "%p#\n" > fullpaths.txt
 ```
+百度输入法编译报错解决：
+
+bp文件中添加
+```
+LOCAL_ENFORCE_USES_LIBRARIES := false
+```
+更多校验查看官方文档：https://source.android.google.cn/devices/tech/dalvik/art-class-loader-context?hl=zh-cn
 
 ### 开启Sta和Ap并发
 wifi模组：正基AP6275系列 模组支持STA+AP并发

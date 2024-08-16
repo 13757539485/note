@@ -287,24 +287,10 @@ void updateDragSurfaceLocked(boolean keepHandling, float x, float y) {
         return;
     }
     //...
-    float width = mScale == 1.0f ? mThumbOffsetX : mSurfaceControl.getWidth() * mScale / 2;
-    float height = mScale == 1.0f ? mThumbOffsetY : mSurfaceControl.getHeight() * mScale / 2;
+    float width = mSurfaceControl.getWidth() / 2;
+    float height =  mSurfaceControl.getHeight() / 2;
     mTransaction.setPosition(mSurfaceControl, x - width,
             y - height).apply();
-    //...
-}
-```
-修改拖拽取消/返回动画
-```java
-private ValueAnimator createReturnAnimationLocked() {
-    //...
-    PropertyValuesHolder.ofFloat(ANIMATED_PROPERTY_SCALE, mScale, 1),
-    //...
-}
-
-private ValueAnimator createCancelAnimationLocked() {
-    //...
-    PropertyValuesHolder.ofFloat(ANIMATED_PROPERTY_SCALE, mScale, 0),
     //...
 }
 ```

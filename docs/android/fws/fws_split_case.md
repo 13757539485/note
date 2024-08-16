@@ -282,9 +282,15 @@ public void applySurfaceChanges(SurfaceControl.Transaction t, SurfaceControl lea
 }
 ```
 #### 分屏界面背景模糊
-frameworks/base/core/java/android/service/wallpaper/WallpaperService.java
+原理：在壁纸图层上添加一层遮罩层
+
+源码路径：frameworks/base/core/java/android/service/wallpaper/WallpaperService.java
+
+##### 方式一
+直接使用SurfaceControl.Transaction中的[setBackgroundBlurRadius](./fws_surface.md#setBackgroundBlurRadius)
 ```java
 SurfaceControl mMaskSurfaceControl;
+SurfaceControl.Transaction mTransaction = new SurfaceControl.Transaction();
 private Surface getOrCreateBLASTSurface(int width, int height, int format) {
     Surface ret = null;
     if (mBlastBufferQueue == null) {
@@ -304,8 +310,7 @@ private void createMaskSurfaceControl() {
                 .setParent(mBbqSurfaceControl)
                 .setColorLayer()
                 .build();
-        SurfaceControl.Transaction t = new SurfaceControl.Transaction();
-        t.setColor(mMaskSurfaceControl, Color.valueOf(Color.WHITE).getComponents())
+        mTransaction.setColor(mMaskSurfaceControl, Color.valueOf(Color.WHITE).getComponents())
                 .setAlpha(mMaskSurfaceControl, 0.2f)
                 .setBackgroundBlurRadius(mMaskSurfaceControl, 50)
                 .apply();
@@ -313,15 +318,16 @@ private void createMaskSurfaceControl() {
 }
 
 public void showOrHideMaskSurfaceControl(boolean show) {
-    SurfaceControl.Transaction t = new SurfaceControl.Transaction();
     if (show) {
-        t.show(mMaskSurfaceControl);
+        mTransaction.show(mMaskSurfaceControl);
     } else {
-        t.hide(mMaskSurfaceControl);
+        mTransaction.hide(mMaskSurfaceControl);
     }
-    t.apply();
+    mTransaction.apply();
 }
 ```
+##### 方式二
+
 适当的地方调用showOrHideMaskSurfaceControl
 
 模糊实现api：

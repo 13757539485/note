@@ -56,13 +56,14 @@ nav:
               - 环境搭建: android/fws/fws_aosp.md
               - 编译相关: android/fws/fws_aosp_make.md
               - 小功能: android/fws/fws_mk_bp.md
-              - 传感器: 
+              - 传感器模块: 
                 - 源码: android/fws/fws_sensor.md
                 - 案例: android/fws/fws_sensor_case.md
-              - 拖拽: 
+              - 拖拽模块: 
                 - 源码: android/fws/fws_drag.md
                 - 案例: android/fws/fws_drag_case.md
-              - 分屏: 
+              - 分屏模块:
+                - 源码: android/fws/fws_split.md
                 - 案例: android/fws/fws_split_case.md
            - AOSP源码:  
               - Handler: android/fws/fws_handler.md

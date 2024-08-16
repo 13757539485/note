@@ -64,8 +64,11 @@ https://cs.android.com/android/platform/superproject/main
 ```shell
 repo init -u git://mirrors.ustc.edu.cn/aosp/platform/manifest -b android-13.0.0_r43
 ```
-其中-b查看地址：(挂vpn)
-https://source.android.com/setup/start/build-numbers?hl=zh_cn
+其中-b查看地址：
+
+~~https://source.android.com/setup/start/build-numbers?hl=zh_cn(挂vpn)~~
+
+https://source.android.google.cn/docs/setup/reference/build-numbers?hl=zh-cn
 
 Pixel6: TQ2A.230505.002对应分支android-13.0.0_r43
 
