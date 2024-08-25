@@ -11,13 +11,13 @@
         <link rel="canonical" href="https://13757539485.github.io/note/android/fws/fws_split_case/">
       
       
-        <link rel="prev" href="../fws_drag_case/">
+        <link rel="prev" href="../fws_split/">
       
       
-        <link rel="next" href="../fws_handler/">
+        <link rel="next" href="../fws_anim/">
       
       <link rel="icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.3">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.14">
     
     
       
@@ -25,10 +25,10 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.c4a75a56.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.85bb2934.min.css">
       
         
-        <link rel="stylesheet" href="../../../assets/stylesheets/palette.a0c5b2b5.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.a6bdf11c.min.css">
       
       
 
@@ -113,25 +113,31 @@
       </div>
     </div>
     
-      <form class="md-header__option" data-md-component="palette">
-        
+      
+        <form class="md-header__option" data-md-component="palette">
           
-          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="light-blue" data-md-color-accent="cyan"  aria-label="开启深色模式"  type="radio" name="__palette" id="__palette_1">
+            
+            
+            
+            <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="light-blue" data-md-color-accent="cyan"  aria-label="开启深色模式"  type="radio" name="__palette" id="__palette_1">
+            
+              <label class="md-header__button md-icon" title="开启深色模式" for="__palette_2" hidden>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+              </label>
+            
           
-            <label class="md-header__button md-icon" title="开启深色模式" for="__palette_2" hidden>
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
-            </label>
+            
+            
+            
+            <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="light-grey" data-md-color-accent="cyan"  aria-label="关闭深色模式"  type="radio" name="__palette" id="__palette_2">
+            
+              <label class="md-header__button md-icon" title="关闭深色模式" for="__palette_1" hidden>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+              </label>
+            
           
-        
-          
-          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="light-grey" data-md-color-accent="cyan"  aria-label="关闭深色模式"  type="radio" name="__palette" id="__palette_2">
-          
-            <label class="md-header__button md-icon" title="关闭深色模式" for="__palette_1" hidden>
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
-            </label>
-          
-        
-      </form>
+        </form>
+      
     
     
     
@@ -621,6 +627,20 @@
     <li class="md-nav__item">
       <a href="../../kotlin/kotlin_principle/" class="md-nav__link">
         原理
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../kotlin/kotlin_coroutine/" class="md-nav__link">
+        协程
       </a>
     </li>
   
@@ -1215,6 +1235,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../ui/ui_constraintLayout/" class="md-nav__link">
+        ConstraintLayout
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../ui/ui_anim/" class="md-nav__link">
         动画
       </a>
@@ -1346,14 +1380,14 @@
       
       
         <label class="md-nav__link" for="__nav_1_1_9_1_4" id="__nav_1_1_9_1_4_label" tabindex="0">
-          传感器
+          传感器模块
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_1_1_9_1_4_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_1_1_9_1_4">
           <span class="md-nav__icon md-icon"></span>
-          传感器
+          传感器模块
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -1408,14 +1442,14 @@
       
       
         <label class="md-nav__link" for="__nav_1_1_9_1_5" id="__nav_1_1_9_1_5_label" tabindex="0">
-          拖拽
+          拖拽模块
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_1_1_9_1_5_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_1_1_9_1_5">
           <span class="md-nav__icon md-icon"></span>
-          拖拽
+          拖拽模块
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -1472,16 +1506,30 @@
       
       
         <label class="md-nav__link" for="__nav_1_1_9_1_6" id="__nav_1_1_9_1_6_label" tabindex="0">
-          分屏
+          分屏模块
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_1_1_9_1_6_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_1_1_9_1_6">
           <span class="md-nav__icon md-icon"></span>
-          分屏
+          分屏模块
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fws_split/" class="md-nav__link">
+        源码
+      </a>
+    </li>
+  
+
+            
           
             
               
@@ -1564,10 +1612,23 @@
     应用添加bar
   </a>
   
+    <nav class="md-nav" aria-label="应用添加bar">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    源码以及资源配置
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     高斯模糊
   </a>
   
@@ -1575,15 +1636,49 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    分屏应用拖拽模糊
+  <a href="#_7" class="md-nav__link">
+    分屏应用拖拽模糊以及添加应用名称
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
+  <a href="#icon" class="md-nav__link">
+    分屏拖动icon不正确问题
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
     分屏界面背景模糊
+  </a>
+  
+    <nav class="md-nav" aria-label="分屏界面背景模糊">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    方式一(耗性能)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    方式二
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    动态控制模糊
   </a>
   
 </li>
@@ -1604,6 +1699,20 @@
           
         </ul>
       </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fws_anim/" class="md-nav__link">
+        系统动画
+      </a>
     </li>
   
 
@@ -3118,10 +3227,23 @@
     应用添加bar
   </a>
   
+    <nav class="md-nav" aria-label="应用添加bar">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    源码以及资源配置
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     高斯模糊
   </a>
   
@@ -3129,15 +3251,49 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    分屏应用拖拽模糊
+  <a href="#_7" class="md-nav__link">
+    分屏应用拖拽模糊以及添加应用名称
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
+  <a href="#icon" class="md-nav__link">
+    分屏拖动icon不正确问题
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
     分屏界面背景模糊
+  </a>
+  
+    <nav class="md-nav" aria-label="分屏界面背景模糊">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    方式一(耗性能)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    方式二
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    动态控制模糊
   </a>
   
 </li>
@@ -3215,6 +3371,8 @@ frameworks/base/core/java/com/android/internal/policy/PhoneWindow.java
 </code></pre></div></p>
 <h4 id="_2">分隔栏修改<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h4>
 <p>frameworks/base/</p>
+<p>libs/WindowManager/Shell/src/com/android/wm/shell/common/split/DividerView.java</p>
+<p>分割栏bar：mHandle(R.id.docked_divider_handle)</p>
 <p>分割栏布局：libs/WindowManager/Shell/res/layout/split_divider.xml</p>
 <p>分割栏背景：DockedDividerBackground</p>
 <p>libs/WindowManager/Shell/res/values-land/styles.xml
@@ -3225,7 +3383,11 @@ libs/WindowManager/Shell/res/values/dimen.xml</p>
 <p>总宽度：split_divider_bar_width</p>
 <p>加载分割栏布局：
 libs/WindowManager/Shell/src/com/android/wm/shell/common/split/SplitWindowManager.java</p>
+<p>启动分屏：</p>
+<p>frameworks/base/libs/WindowManager/Shell/src/com/android/wm/shell/splitscreen/StageCoordinator.java</p>
+<p>startTasksWithLegacyTransition</p>
 <h4 id="_3">圆角裁剪<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h4>
+<p>SplitWindowManager初始化在</p>
 <p>libs/WindowManager/Shell/src/com/android/wm/shell/common/split/SplitLayout.java</p>
 <p>updateBounds：设置分屏Rect
 <div class="highlight"><pre><span></span><code><span class="kd">private</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">updateBounds</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">position</span><span class="p">,</span><span class="w"> </span><span class="n">Rect</span><span class="w"> </span><span class="n">bounds1</span><span class="p">,</span><span class="w"> </span><span class="n">Rect</span><span class="w"> </span><span class="n">bounds2</span><span class="p">,</span><span class="w"> </span><span class="n">Rect</span><span class="w"> </span><span class="n">dividerBounds</span><span class="p">,</span>
@@ -3319,7 +3481,7 @@ applySurfaceChanges: 圆角裁剪
 <span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">mDecorCaptionView</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="c1">//...</span>
 <span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="n">createDecorThreeDotsView</span><span class="p">();</span>
+<span class="w">        </span><span class="n">createDecorPointBarView</span><span class="p">();</span>
 <span class="w">        </span><span class="c1">//...</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="w">    </span><span class="c1">//...</span>
@@ -3330,30 +3492,46 @@ applySurfaceChanges: 圆角裁剪
 <span class="w">    </span><span class="kd">super</span><span class="p">.</span><span class="na">onConfigurationChanged</span><span class="p">(</span><span class="n">newConfig</span><span class="p">);</span>
 
 <span class="w">    </span><span class="c1">//...</span>
-<span class="w">    </span><span class="n">createDecorThreeDotsView</span><span class="p">();</span>
+<span class="w">    </span><span class="n">createDecorPointBarView</span><span class="p">();</span>
 
 <span class="w">    </span><span class="c1">//...</span>
 <span class="p">}</span>
 
-<span class="kd">private</span><span class="w"> </span><span class="n">ThreeDotsView</span><span class="w"> </span><span class="n">mThreeDotsView</span><span class="p">;</span>
+<span class="kd">private</span><span class="w"> </span><span class="n">PointBarView</span><span class="w"> </span><span class="n">mPointBarView</span><span class="p">;</span>
 
-<span class="kd">private</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">createDecorThreeDotsView</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="kd">private</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">isActivity</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="c1">//不能判断出DialogFragment</span>
+<span class="w">    </span><span class="kt">boolean</span><span class="w"> </span><span class="n">isActivity</span><span class="p">;</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="s">&quot;com.tencent.mm&quot;</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">mContext</span><span class="p">.</span><span class="na">getPackageName</span><span class="p">()))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">isActivity</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mWindow</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">mWindow</span><span class="p">.</span><span class="na">getAppToken</span><span class="p">()</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">!</span><span class="n">mWindow</span><span class="p">.</span><span class="na">isFloating</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">isActivity</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mWindow</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">mWindow</span><span class="p">.</span><span class="na">getAppToken</span><span class="p">()</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">!</span><span class="n">mWindow</span><span class="p">.</span><span class="na">isFloating</span><span class="p">()</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">!</span><span class="n">mWindow</span><span class="p">.</span><span class="na">isTranslucent</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="n">Log</span><span class="p">.</span><span class="na">e</span><span class="p">(</span><span class="n">TAG</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;isActivity: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">isActivity</span><span class="p">);</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">isActivity</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">private</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">createDecorPointBarView</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">mThreeDotsView</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Log</span><span class="p">.</span><span class="na">e</span><span class="p">(</span><span class="n">TAG</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;createDecorPointBarView start:&quot;</span><span class="w"> </span><span class="o">+</span><span class="n">getContext</span><span class="p">().</span><span class="na">getPackageName</span><span class="p">());</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">mPointBarView</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">            </span><span class="kd">final</span><span class="w"> </span><span class="n">WindowManager</span><span class="p">.</span><span class="na">LayoutParams</span><span class="w"> </span><span class="n">attrs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mWindow</span><span class="p">.</span><span class="na">getAttributes</span><span class="p">();</span>
 <span class="w">            </span><span class="kd">final</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="n">isApplication</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">attrs</span><span class="p">.</span><span class="na">type</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">TYPE_BASE_APPLICATION</span><span class="w"> </span><span class="o">||</span>
 <span class="w">                    </span><span class="n">attrs</span><span class="p">.</span><span class="na">type</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">TYPE_APPLICATION</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">attrs</span><span class="p">.</span><span class="na">type</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">TYPE_DRAWN_APPLICATION</span><span class="p">;</span>
 <span class="w">            </span><span class="kd">final</span><span class="w"> </span><span class="n">WindowConfiguration</span><span class="w"> </span><span class="n">winConfig</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">getResources</span><span class="p">().</span><span class="na">getConfiguration</span><span class="p">().</span><span class="na">windowConfiguration</span><span class="p">;</span>
-<span class="w">            </span><span class="n">Rect</span><span class="w"> </span><span class="n">bounds</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">winConfig</span><span class="p">.</span><span class="na">getBounds</span><span class="p">();</span>
-<span class="w">            </span><span class="kt">boolean</span><span class="w"> </span><span class="n">isActivity</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mWindow</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">mWindow</span><span class="p">.</span><span class="na">getAppToken</span><span class="p">()</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">!</span><span class="n">mWindow</span><span class="p">.</span><span class="na">isFloating</span><span class="p">();</span>
-<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">isApplication</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">isActivity</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">winConfig</span><span class="p">.</span><span class="na">getActivityType</span><span class="p">()</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">ACTIVITY_TYPE_HOME</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                </span><span class="n">mThreeDotsView</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ThreeDotsView</span><span class="p">(</span><span class="n">getContext</span><span class="p">());</span>
-<span class="w">                </span><span class="n">LayoutParams</span><span class="w"> </span><span class="n">lp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">LayoutParams</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span><span class="w"> </span><span class="mi">50</span><span class="p">,</span><span class="w"> </span><span class="n">Gravity</span><span class="p">.</span><span class="na">CENTER_HORIZONTAL</span><span class="p">);</span>
-<span class="w">                </span><span class="n">addView</span><span class="p">(</span><span class="n">mThreeDotsView</span><span class="p">,</span><span class="w"> </span><span class="n">lp</span><span class="p">);</span>
+<span class="w">            </span><span class="c1">//自定义Launcher</span>
+<span class="w">            </span><span class="kt">boolean</span><span class="w"> </span><span class="n">isLauncher</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;xxx.xxx&quot;</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">getContext</span><span class="p">().</span><span class="na">getPackageName</span><span class="p">());</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">isLauncher</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">isActivity</span><span class="p">()</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">isApplication</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">winConfig</span><span class="p">.</span><span class="na">getActivityType</span><span class="p">()</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">WindowConfiguration</span><span class="p">.</span><span class="na">ACTIVITY_TYPE_HOME</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="n">LayoutParams</span><span class="w"> </span><span class="n">lp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">LayoutParams</span><span class="p">(</span><span class="mi">120</span><span class="p">,</span><span class="w"> </span><span class="mi">33</span><span class="p">,</span>
+<span class="w">                        </span><span class="n">Gravity</span><span class="p">.</span><span class="na">CENTER_HORIZONTAL</span><span class="p">);</span>
+<span class="w">                </span><span class="n">mPointBarView</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">PointBarView</span><span class="p">(</span><span class="n">getContext</span><span class="p">());</span>
+<span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">mPointBarView</span><span class="p">.</span><span class="na">getParent</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="n">post</span><span class="p">(()</span><span class="o">-&gt;</span><span class="w"> </span><span class="n">addView</span><span class="p">(</span><span class="n">mPointBarView</span><span class="p">,</span><span class="w"> </span><span class="n">lp</span><span class="p">));</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">                </span><span class="n">Log</span><span class="p">.</span><span class="na">e</span><span class="p">(</span><span class="n">TAG</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;create PointBarView success&quot;</span><span class="p">);</span>
 <span class="w">            </span><span class="p">}</span>
 <span class="w">        </span><span class="p">}</span>
-<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">mThreeDotsView</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="n">LayoutParams</span><span class="w"> </span><span class="n">lp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">LayoutParams</span><span class="p">)</span><span class="w"> </span><span class="n">mThreeDotsView</span><span class="p">.</span><span class="na">getLayoutParams</span><span class="p">();</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">mPointBarView</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">LayoutParams</span><span class="w"> </span><span class="n">lp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">LayoutParams</span><span class="p">)</span><span class="w"> </span><span class="n">mPointBarView</span><span class="p">.</span><span class="na">getLayoutParams</span><span class="p">();</span>
 <span class="w">            </span><span class="kd">final</span><span class="w"> </span><span class="n">WindowConfiguration</span><span class="w"> </span><span class="n">winConfig</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">getResources</span><span class="p">().</span><span class="na">getConfiguration</span><span class="p">().</span><span class="na">windowConfiguration</span><span class="p">;</span>
 <span class="w">            </span><span class="n">Rect</span><span class="w"> </span><span class="n">bounds</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">winConfig</span><span class="p">.</span><span class="na">getBounds</span><span class="p">();</span>
 <span class="w">            </span><span class="n">Rect</span><span class="w"> </span><span class="n">maxBounds</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">winConfig</span><span class="p">.</span><span class="na">getMaxBounds</span><span class="p">();</span>
@@ -3365,66 +3543,245 @@ applySurfaceChanges: 圆角裁剪
 <span class="w">                </span><span class="n">lp</span><span class="p">.</span><span class="na">topMargin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">bounds</span><span class="p">.</span><span class="na">top</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">SystemBarUtils</span><span class="p">.</span><span class="na">getStatusBarHeight</span><span class="p">(</span><span class="n">getContext</span><span class="p">());</span>
 <span class="w">                </span><span class="n">lp</span><span class="p">.</span><span class="na">height</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">bounds</span><span class="p">.</span><span class="na">top</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="mi">80</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span class="p">;</span>
 <span class="w">            </span><span class="p">}</span>
-<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">mThreeDotsView</span><span class="p">.</span><span class="na">getParent</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                </span><span class="n">addView</span><span class="p">(</span><span class="n">mThreeDotsView</span><span class="p">,</span><span class="w"> </span><span class="n">lp</span><span class="p">);</span>
+<span class="w">            </span><span class="n">mPointBarView</span><span class="p">.</span><span class="na">hidePopupWindowIfNeeded</span><span class="p">();</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">mPointBarView</span><span class="p">.</span><span class="na">getParent</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="n">addView</span><span class="p">(</span><span class="n">mPointBarView</span><span class="p">,</span><span class="w"> </span><span class="n">lp</span><span class="p">);</span>
 <span class="w">            </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                </span><span class="n">mThreeDotsView</span><span class="p">.</span><span class="na">setLayoutParams</span><span class="p">(</span><span class="n">lp</span><span class="p">);</span>
+<span class="w">                </span><span class="n">mPointBarView</span><span class="p">.</span><span class="na">setLayoutParams</span><span class="p">(</span><span class="n">lp</span><span class="p">);</span>
 <span class="w">            </span><span class="p">}</span>
 <span class="w">        </span><span class="p">}</span>
 <span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">Exception</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="n">Log</span><span class="p">.</span><span class="na">e</span><span class="p">(</span><span class="n">TAG</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;create DecorThreeDotsView error: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="na">getMessage</span><span class="p">());</span>
+<span class="w">        </span><span class="n">Log</span><span class="p">.</span><span class="na">e</span><span class="p">(</span><span class="n">TAG</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;create DecorPointBarView error: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="na">getMessage</span><span class="p">());</span>
 <span class="w">    </span><span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div></p>
-<h3 id="_5">高斯模糊<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
-<h4 id="_6">分屏应用拖拽模糊<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h4>
-<p>frameworks/base/libs/WindowManager/Shell/src/com/android/wm/shell/common/split/SplitDecorManager.java
-<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">onResizing</span><span class="p">(</span><span class="n">ActivityManager</span><span class="p">.</span><span class="na">RunningTaskInfo</span><span class="w"> </span><span class="n">resizingTask</span><span class="p">,</span><span class="w"> </span><span class="n">Rect</span><span class="w"> </span><span class="n">newBounds</span><span class="p">,</span>
-<span class="w">            </span><span class="n">Rect</span><span class="w"> </span><span class="n">sideBounds</span><span class="p">,</span><span class="w"> </span><span class="n">SurfaceControl</span><span class="p">.</span><span class="na">Transaction</span><span class="w"> </span><span class="n">t</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">offsetX</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">offsetY</span><span class="p">,</span>
-<span class="w">            </span><span class="kt">boolean</span><span class="w"> </span><span class="n">immediately</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">mBackgroundLeash</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="n">mBackgroundLeash</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">SurfaceControl</span><span class="p">.</span><span class="na">Builder</span><span class="p">(</span><span class="n">mSurfaceSession</span><span class="p">)</span>
-<span class="w">                </span><span class="p">.</span><span class="na">setParent</span><span class="p">(</span><span class="n">mHostLeash</span><span class="p">)</span>
-<span class="w">                </span><span class="p">.</span><span class="na">setFormat</span><span class="p">(</span><span class="n">PixelFormat</span><span class="p">.</span><span class="na">TRANSLUCENT</span><span class="p">)</span>
-<span class="w">                </span><span class="p">.</span><span class="na">setName</span><span class="p">(</span><span class="n">RESIZING_BACKGROUND_SURFACE_NAME</span><span class="p">)</span>
-<span class="w">                </span><span class="p">.</span><span class="na">setCallsite</span><span class="p">(</span><span class="s">&quot;SurfaceUtils.makeColorLayer&quot;</span><span class="p">)</span>
-<span class="w">                </span><span class="p">.</span><span class="na">setEffectLayer</span><span class="p">()</span>
-<span class="w">                </span><span class="p">.</span><span class="na">build</span><span class="p">();</span>
-
-<span class="w">        </span><span class="n">t</span><span class="p">.</span><span class="na">setBackgroundBlurRadius</span><span class="p">(</span><span class="n">mBackgroundLeash</span><span class="p">,</span><span class="w"> </span><span class="mi">50</span><span class="p">)</span>
-<span class="w">        </span><span class="p">.</span><span class="na">setLayer</span><span class="p">(</span><span class="n">mBackgroundLeash</span><span class="p">,</span><span class="w"> </span><span class="n">Integer</span><span class="p">.</span><span class="na">MAX_VALUE</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
-<span class="w">    </span><span class="p">}</span>
-
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">mGapBackgroundLeash</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">!</span><span class="n">immediately</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="c1">//...</span>
-<span class="w">        </span><span class="p">.</span><span class="na">setAlpha</span><span class="p">(</span><span class="n">mGapBackgroundLeash</span><span class="p">,</span><span class="w"> </span><span class="mf">0.9f</span><span class="p">)</span>
-<span class="w">        </span><span class="p">.</span><span class="na">setBackgroundBlurRadius</span><span class="p">(</span><span class="n">mGapBackgroundLeash</span><span class="p">,</span><span class="w"> </span><span class="mi">50</span><span class="p">)</span>
-<span class="w">    </span><span class="p">}</span><span class="w">            </span>
 <span class="p">}</span>
 </code></pre></div>
-应用没有被拉伸，需要进行scale结合crop？
-<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">applySurfaceChanges</span><span class="p">(</span><span class="n">SurfaceControl</span><span class="p">.</span><span class="na">Transaction</span><span class="w"> </span><span class="n">t</span><span class="p">,</span><span class="w"> </span><span class="n">SurfaceControl</span><span class="w"> </span><span class="n">leash1</span><span class="p">,</span>
-<span class="w">            </span><span class="n">SurfaceControl</span><span class="w"> </span><span class="n">leash2</span><span class="p">,</span><span class="w"> </span><span class="n">SurfaceControl</span><span class="w"> </span><span class="n">dimLayer1</span><span class="p">,</span><span class="w"> </span><span class="n">SurfaceControl</span><span class="w"> </span><span class="n">dimLayer2</span><span class="p">,</span>
-<span class="w">            </span><span class="kt">boolean</span><span class="w"> </span><span class="n">applyResizingOffset</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+状态栏变化处理
+<div class="highlight"><pre><span></span><code><span class="nd">@Override</span>
+<span class="kd">public</span><span class="w"> </span><span class="n">WindowInsets</span><span class="w"> </span><span class="nf">onApplyWindowInsets</span><span class="p">(</span><span class="n">WindowInsets</span><span class="w"> </span><span class="n">insets</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="c1">//...</span>
-<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">offset</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mTempPosition</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">mDividePosition</span><span class="p">;</span>
-<span class="w">    </span><span class="n">Log</span><span class="p">.</span><span class="na">e</span><span class="p">(</span><span class="s">&quot;iiii&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;applySurfaceChanges offset=&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">offset</span><span class="p">);</span>
+<span class="w">    </span><span class="n">adjustPointBarLayoutParams</span><span class="p">(</span><span class="n">insets</span><span class="p">);</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">insets</span><span class="p">;</span>
+<span class="p">}</span><span class="w"> </span>
 
-<span class="w">    </span><span class="n">getRefBounds1</span><span class="p">(</span><span class="n">mTempRect</span><span class="p">);</span>
-<span class="w">    </span><span class="n">t</span><span class="p">.</span><span class="na">setPosition</span><span class="p">(</span><span class="n">leash1</span><span class="p">,</span><span class="w"> </span><span class="n">mTempRect</span><span class="p">.</span><span class="na">left</span><span class="p">,</span><span class="w"> </span><span class="n">mTempRect</span><span class="p">.</span><span class="na">top</span><span class="p">)</span>
-<span class="w">            </span><span class="p">.</span><span class="na">setWindowCrop</span><span class="p">(</span><span class="n">leash1</span><span class="p">,</span><span class="w"> </span><span class="n">mTempRect</span><span class="p">.</span><span class="na">width</span><span class="p">(),</span><span class="w"> </span><span class="n">mTempRect</span><span class="p">.</span><span class="na">height</span><span class="p">())</span>
-<span class="w">            </span><span class="p">.</span><span class="na">setCornerRadius</span><span class="p">(</span><span class="n">leash1</span><span class="p">,</span><span class="w"> </span><span class="mi">30</span><span class="p">);</span>
-<span class="w">    </span><span class="n">getRefBounds2</span><span class="p">(</span><span class="n">mTempRect</span><span class="p">);</span>
-<span class="w">    </span><span class="n">t</span><span class="p">.</span><span class="na">setPosition</span><span class="p">(</span><span class="n">leash2</span><span class="p">,</span><span class="w"> </span><span class="n">mTempRect</span><span class="p">.</span><span class="na">left</span><span class="p">,</span><span class="w"> </span><span class="n">mTempRect</span><span class="p">.</span><span class="na">top</span><span class="p">)</span>
-<span class="w">            </span><span class="p">.</span><span class="na">setWindowCrop</span><span class="p">(</span><span class="n">leash2</span><span class="p">,</span><span class="w"> </span><span class="n">mTempRect</span><span class="p">.</span><span class="na">width</span><span class="p">(),</span><span class="w"> </span><span class="n">mTempRect</span><span class="p">.</span><span class="na">height</span><span class="p">())</span>
-<span class="w">            </span><span class="p">.</span><span class="na">setCornerRadius</span><span class="p">(</span><span class="n">leash1</span><span class="p">,</span><span class="w"> </span><span class="mi">30</span><span class="p">);</span>
+<span class="kd">private</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">adjustPointBarLayoutParams</span><span class="p">(</span><span class="n">WindowInsets</span><span class="w"> </span><span class="n">insets</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">Log</span><span class="p">.</span><span class="na">e</span><span class="p">(</span><span class="n">TAG</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;adjustPointBarLayoutParams: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">insets</span><span class="p">.</span><span class="na">getSystemWindowInsetsAsRect</span><span class="p">());</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">mPointBarView</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">mPointBarView</span><span class="p">.</span><span class="na">getLayoutParams</span><span class="p">()</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="kd">final</span><span class="w"> </span><span class="n">WindowConfiguration</span><span class="w"> </span><span class="n">winConfig</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">getResources</span><span class="p">().</span><span class="na">getConfiguration</span><span class="p">().</span><span class="na">windowConfiguration</span><span class="p">;</span>
+<span class="w">            </span><span class="kt">boolean</span><span class="w"> </span><span class="n">isSplit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">winConfig</span><span class="p">.</span><span class="na">getBounds</span><span class="p">().</span><span class="na">left</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">            </span><span class="n">LayoutParams</span><span class="w"> </span><span class="n">layoutParams</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">LayoutParams</span><span class="p">)</span><span class="w"> </span><span class="n">mPointBarView</span><span class="p">.</span><span class="na">getLayoutParams</span><span class="p">();</span>
+<span class="w">            </span><span class="kt">boolean</span><span class="w"> </span><span class="n">statusBarVisible</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">insets</span><span class="p">.</span><span class="na">isVisible</span><span class="p">(</span><span class="n">WindowInsets</span><span class="p">.</span><span class="na">Type</span><span class="p">.</span><span class="na">statusBars</span><span class="p">())</span>
+<span class="w">                    </span><span class="o">||</span><span class="w"> </span><span class="n">insets</span><span class="p">.</span><span class="na">getSystemWindowInsetTop</span><span class="p">()</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">            </span><span class="n">layoutParams</span><span class="p">.</span><span class="na">topMargin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">isSplit</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">getTopHeight</span><span class="p">(</span><span class="n">statusBarVisible</span><span class="p">);</span>
+<span class="w">            </span><span class="n">mPointBarView</span><span class="p">.</span><span class="na">post</span><span class="p">(()</span><span class="o">-&gt;</span><span class="p">{</span>
+<span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">mPointBarView</span><span class="p">.</span><span class="na">getParent</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="n">addView</span><span class="p">(</span><span class="n">mPointBarView</span><span class="p">,</span><span class="w"> </span><span class="n">layoutParams</span><span class="p">);</span>
+<span class="w">                </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="n">mPointBarView</span><span class="p">.</span><span class="na">setLayoutParams</span><span class="p">(</span><span class="n">layoutParams</span><span class="p">);</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">                </span><span class="n">Log</span><span class="p">.</span><span class="na">e</span><span class="p">(</span><span class="n">TAG</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;adjustPointBarLayoutParams result: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">layoutParams</span><span class="p">.</span><span class="na">topMargin</span><span class="p">);</span>
+<span class="w">            </span><span class="p">});</span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">Exception</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">Log</span><span class="p">.</span><span class="na">e</span><span class="p">(</span><span class="n">TAG</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;adjustPointBarLayoutParams error: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="na">getMessage</span><span class="p">());</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
 
-<span class="w">    </span><span class="c1">//...</span>
+<span class="kd">private</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">getTopHeight</span><span class="p">(</span><span class="kt">boolean</span><span class="w"> </span><span class="n">statusBarVisible</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">boolean</span><span class="w"> </span><span class="n">isWx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;com.tencent.mm&quot;</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">mContext</span><span class="p">.</span><span class="na">getPackageName</span><span class="p">());</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">topHeight</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">isWx</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="mi">86</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">99</span><span class="p">;</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">statusBarVisible</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">topHeight</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">topHeight</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">86</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">private</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">isStatusBarVisible</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">getRootWindowInsets</span><span class="p">()</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">getRootWindowInsets</span><span class="p">().</span><span class="na">isVisible</span><span class="p">(</span><span class="n">WindowInsets</span><span class="p">.</span><span class="na">Type</span><span class="p">.</span><span class="na">statusBars</span><span class="p">());</span>
 <span class="p">}</span>
 </code></pre></div></p>
-<h4 id="_7">分屏界面背景模糊<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h4>
-<p>frameworks/base/core/java/android/service/wallpaper/WallpaperService.java
+<h4 id="_5">源码以及资源配置<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h4>
+<p>添加引用，能在java代码中调用资源id
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;java-symbol</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;layout&quot;</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;point_bar_popup&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="nt">&lt;java-symbol</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;drawable&quot;</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;icon_point_bar_left&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="nt">&lt;java-symbol</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;drawable&quot;</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;icon_point_bar_right&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="nt">&lt;java-symbol</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;drawable&quot;</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;icon_point_bar_float&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="nt">&lt;java-symbol</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;drawable&quot;</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;dots&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="nt">&lt;java-symbol</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;drawable&quot;</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;drag_text_bg&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="nt">&lt;java-symbol</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;style&quot;</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;Animation.PopupWindow.HfcBar&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+</code></pre></div>
+PopupWindow动画
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;style</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;Animation.PopupWindow.HfcBar&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;item</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;windowEnterAnimation&quot;</span><span class="nt">&gt;</span>@anim/cariad_popup_enter<span class="nt">&lt;/item&gt;</span>
+<span class="w">    </span><span class="nt">&lt;item</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;windowExitAnimation&quot;</span><span class="nt">&gt;</span>@anim/cariad_popup_exit<span class="nt">&lt;/item&gt;</span>
+<span class="nt">&lt;/style&gt;</span>
+</code></pre></div>
+View源码</p>
+<p><a href="../code/fw/PointBarView.java">PointBarView</a></p>
+<p><a href="../code/fw/PointBarLinearLayout.java">PointBarLinearLayout</a></p>
+<p><a href="../code/fw/PointBarImageView.java">PointBarImageView</a></p>
+<h3 id="_6">高斯模糊<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<h4 id="_7">分屏应用拖拽模糊以及添加应用名称<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h4>
+<p>frameworks/base/libs/WindowManager/Shell/src/com/android/wm/shell/common/split/SplitLayout.java
+<div class="highlight"><pre><span></span><code><span class="kd">private</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">mTempPosition</span><span class="p">;</span>
+<span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">getTempPosition</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">mTempPosition</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">mDividePosition</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="kd">private</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">updateBounds</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">position</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<span class="w">  </span><span class="n">mTempPosition</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">position</span><span class="p">;</span>
+<span class="w">  </span><span class="c1">//...</span>
+<span class="p">}</span>
+
+<span class="nd">@Override</span>
+<span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">onLayoutSizeChanging</span><span class="p">(</span><span class="n">SplitLayout</span><span class="w"> </span><span class="n">layout</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">mSyncQueue</span><span class="p">.</span><span class="na">runInSync</span><span class="p">(</span><span class="n">t</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">updateSurfaceBounds</span><span class="p">(</span><span class="n">layout</span><span class="p">,</span><span class="w"> </span><span class="n">t</span><span class="p">);</span>
+<span class="w">        </span><span class="n">mMainStage</span><span class="p">.</span><span class="na">onResizing</span><span class="p">(</span><span class="n">getMainStageBounds</span><span class="p">(),</span><span class="w"> </span><span class="n">t</span><span class="p">,</span><span class="w"> </span><span class="n">layout</span><span class="p">.</span><span class="na">getTempPosition</span><span class="p">());</span>
+<span class="w">        </span><span class="n">mSideStage</span><span class="p">.</span><span class="na">onResizing</span><span class="p">(</span><span class="n">getSideStageBounds</span><span class="p">(),</span><span class="w"> </span><span class="n">t</span><span class="p">,</span><span class="w"> </span><span class="n">layout</span><span class="p">.</span><span class="na">getTempPosition</span><span class="p">());</span>
+<span class="w">    </span><span class="p">});</span>
+<span class="p">}</span>
+</code></pre></div></p>
+<p>frameworks/base/libs/WindowManager/Shell/src/com/android/wm/shell/common/split/SplitDecorManager.java</p>
+<p>布局
+frameworks/base/libs/WindowManager/Shell/res/layout/split_decor.xml
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;TextView</span>
+<span class="w">    </span><span class="na">android:id=</span><span class="s">&quot;@+id/split_resizing_name&quot;</span>
+<span class="w">    </span><span class="na">android:layout_width=</span><span class="s">&quot;wrap_content&quot;</span>
+<span class="w">    </span><span class="na">android:layout_height=</span><span class="s">&quot;wrap_content&quot;</span>
+<span class="w">    </span><span class="na">android:layout_marginTop=</span><span class="s">&quot;25dp&quot;</span>
+<span class="w">    </span><span class="na">android:textColor=</span><span class="s">&quot;#FF000000&quot;</span>
+<span class="w">    </span><span class="na">android:visibility=</span><span class="s">&quot;gone&quot;</span>
+<span class="w">    </span><span class="na">android:maxLines=</span><span class="s">&quot;1&quot;</span>
+<span class="w">    </span><span class="na">android:ellipsize=</span><span class="s">&quot;end&quot;</span>
+<span class="w">    </span><span class="na">android:textSize=</span><span class="s">&quot;27sp&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+</code></pre></div>
+在java代码中mResizingIconView初始化的地方初始化文本组件</p>
+<div class="highlight"><pre><span></span><code><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">ICON_RADIUS</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">17</span><span class="p">;</span>
+<span class="kd">private</span><span class="w"> </span><span class="n">TextView</span><span class="w"> </span><span class="n">mResizingTextView</span><span class="p">;</span>
+<span class="kd">private</span><span class="w"> </span><span class="n">SurfaceControl</span><span class="w"> </span><span class="n">mScreenshotLeash</span><span class="p">;</span>
+<span class="kd">private</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">mIconLeashWidth</span><span class="p">,</span><span class="w"> </span><span class="n">mIconLeashHeight</span><span class="p">;</span>
+
+<span class="n">mResizingTextView</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rootLayout</span><span class="p">.</span><span class="na">findViewById</span><span class="p">(</span><span class="n">R</span><span class="p">.</span><span class="na">id</span><span class="p">.</span><span class="na">split_resizing_name</span><span class="p">);</span>
+
+<span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">onResizing</span><span class="p">(</span><span class="n">ActivityManager</span><span class="p">.</span><span class="na">RunningTaskInfo</span><span class="w"> </span><span class="n">resizingTask</span><span class="p">,</span><span class="w"> </span><span class="n">Rect</span><span class="w"> </span><span class="n">newBounds</span><span class="p">,</span>
+<span class="w">            </span><span class="n">Rect</span><span class="w"> </span><span class="n">sideBounds</span><span class="p">,</span><span class="w"> </span><span class="n">SurfaceControl</span><span class="p">.</span><span class="na">Transaction</span><span class="w"> </span><span class="n">t</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">offsetX</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">offsetY</span><span class="p">,</span>
+<span class="w">            </span><span class="kt">boolean</span><span class="w"> </span><span class="n">immediately</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">tempPosition</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">//...</span>
+<span class="w">    </span><span class="kt">boolean</span><span class="w"> </span><span class="n">isLeftLeash</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">newBounds</span><span class="p">.</span><span class="na">left</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">SystemBarUtils</span><span class="p">.</span><span class="na">SPLIT_LEFT_RIGHT_PADDING</span><span class="p">;</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">mScreenshotLeash</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">//添加应用截图层</span>
+<span class="w">        </span><span class="n">Rect</span><span class="w"> </span><span class="n">temp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Rect</span><span class="p">(</span><span class="n">newBounds</span><span class="p">);</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">isLeftLeash</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">temp</span><span class="p">.</span><span class="na">offset</span><span class="p">(</span><span class="o">-</span><span class="n">SystemBarUtils</span><span class="p">.</span><span class="na">SPLIT_LEFT_RIGHT_PADDING</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="n">newBounds</span><span class="p">.</span><span class="na">top</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">temp</span><span class="p">.</span><span class="na">offset</span><span class="p">(</span><span class="o">-</span><span class="n">newBounds</span><span class="p">.</span><span class="na">left</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="n">newBounds</span><span class="p">.</span><span class="na">top</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="n">mScreenshotLeash</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ScreenshotUtils</span><span class="p">.</span><span class="na">takeScreenshot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="w"> </span><span class="n">mHostLeash</span><span class="p">,</span><span class="w"> </span><span class="n">temp</span><span class="p">,</span><span class="w"> </span><span class="n">SPLIT_DIVIDER_LAYER</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="n">t</span><span class="p">.</span><span class="na">setPosition</span><span class="p">(</span><span class="n">mScreenshotLeash</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">oriWidth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">isLeftLeash</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">newBounds</span><span class="p">.</span><span class="na">width</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">tempPosition</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">newBounds</span><span class="p">.</span><span class="na">width</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">tempPosition</span><span class="p">;</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">oriWidth</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">float</span><span class="w"> </span><span class="n">scaleX</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">newBounds</span><span class="p">.</span><span class="na">width</span><span class="p">()</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">1.0f</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">oriWidth</span><span class="p">;</span>
+<span class="w">        </span><span class="kt">float</span><span class="w"> </span><span class="n">bgRadius</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SystemBarUtils</span><span class="p">.</span><span class="na">SPLIT_WINDOW_CORNER_RADIUS</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">scaleX</span><span class="p">;</span>
+<span class="w">        </span><span class="n">t</span><span class="p">.</span><span class="na">setMatrix</span><span class="p">(</span><span class="n">mScreenshotLeash</span><span class="p">,</span><span class="w"> </span><span class="n">scaleX</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mf">1.0f</span><span class="p">);</span>
+<span class="w">        </span><span class="n">t</span><span class="p">.</span><span class="na">setCornerRadius</span><span class="p">(</span><span class="n">mScreenshotLeash</span><span class="p">,</span><span class="w"> </span><span class="n">bgRadius</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">mBackgroundLeash</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">//...</span>
+<span class="w">        </span><span class="n">t</span><span class="p">.</span><span class="na">setColor</span><span class="p">(</span><span class="n">mBackgroundLeash</span><span class="p">,</span><span class="w"> </span><span class="n">Color</span><span class="p">.</span><span class="na">valueOf</span><span class="p">(</span><span class="n">Color</span><span class="p">.</span><span class="na">WHITE</span><span class="p">).</span><span class="na">getComponents</span><span class="p">())</span>
+<span class="w">                </span><span class="p">.</span><span class="na">setAlpha</span><span class="p">(</span><span class="n">mBackgroundLeash</span><span class="p">,</span><span class="w"> </span><span class="mf">0.85f</span><span class="p">)</span>
+<span class="w">                </span><span class="p">.</span><span class="na">setBackgroundBlurRadius</span><span class="p">(</span><span class="n">mBackgroundLeash</span><span class="p">,</span><span class="w"> </span><span class="mi">50</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">mIcon</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">resizingTask</span><span class="p">.</span><span class="na">topActivityInfo</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">mResizingIconView</span><span class="p">.</span><span class="na">setOutlineProvider</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">ViewOutlineProvider</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nd">@Override</span>
+<span class="w">            </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">getOutline</span><span class="p">(</span><span class="n">View</span><span class="w"> </span><span class="n">view</span><span class="p">,</span><span class="w"> </span><span class="n">Outline</span><span class="w"> </span><span class="n">outline</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="n">outline</span><span class="p">.</span><span class="na">setRoundRect</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">view</span><span class="p">.</span><span class="na">getWidth</span><span class="p">(),</span><span class="w"> </span><span class="n">view</span><span class="p">.</span><span class="na">getHeight</span><span class="p">(),</span>
+<span class="w">                        </span><span class="n">ICON_RADIUS</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">view</span><span class="p">.</span><span class="na">getContext</span><span class="p">().</span><span class="na">getResources</span><span class="p">().</span><span class="na">getDisplayMetrics</span><span class="p">().</span><span class="na">density</span><span class="p">);</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">});</span>
+<span class="w">        </span><span class="n">mResizingIconView</span><span class="p">.</span><span class="na">setClipToOutline</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+<span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">appName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">getAppNameFromActivityInfo</span><span class="p">(</span><span class="n">mResizingIconView</span><span class="p">.</span><span class="na">getContext</span><span class="p">(),</span>
+<span class="w">                </span><span class="n">resizingTask</span><span class="p">.</span><span class="na">topActivityInfo</span><span class="p">);</span>
+<span class="w">        </span><span class="n">mResizingTextView</span><span class="p">.</span><span class="na">setText</span><span class="p">(</span><span class="n">appName</span><span class="p">);</span>
+<span class="w">        </span><span class="n">mResizingTextView</span><span class="p">.</span><span class="na">setVisibility</span><span class="p">(</span><span class="n">View</span><span class="p">.</span><span class="na">VISIBLE</span><span class="p">);</span>
+<span class="w">        </span><span class="c1">//...</span>
+<span class="w">        </span><span class="n">DisplayMetrics</span><span class="w"> </span><span class="n">displayMetrics</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mResizingIconView</span><span class="p">.</span><span class="na">getContext</span><span class="p">().</span><span class="na">getResources</span><span class="p">().</span><span class="na">getDisplayMetrics</span><span class="p">();</span>
+<span class="w">        </span><span class="n">lp</span><span class="p">.</span><span class="na">width</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mIconLeashWidth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">displayMetrics</span><span class="p">.</span><span class="na">widthPixels</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+
+<span class="w">        </span><span class="n">TextPaint</span><span class="w"> </span><span class="n">paint</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mResizingTextView</span><span class="p">.</span><span class="na">getPaint</span><span class="p">();</span>
+<span class="w">        </span><span class="n">paint</span><span class="p">.</span><span class="na">setTextSize</span><span class="p">(</span><span class="n">mResizingTextView</span><span class="p">.</span><span class="na">getTextSize</span><span class="p">());</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">textViewWidth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">newBounds</span><span class="p">.</span><span class="na">width</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">mResizingTextView</span><span class="p">.</span><span class="na">getPaddingLeft</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">mResizingTextView</span><span class="p">.</span><span class="na">getPaddingRight</span><span class="p">();</span>
+
+<span class="w">        </span><span class="n">StaticLayout</span><span class="w"> </span><span class="n">staticLayout</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">StaticLayout</span><span class="p">.</span><span class="na">Builder</span><span class="p">.</span><span class="na">obtain</span><span class="p">(</span><span class="n">appName</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">appName</span><span class="p">.</span><span class="na">length</span><span class="p">(),</span><span class="w"> </span><span class="n">paint</span><span class="p">,</span><span class="w"> </span><span class="n">textViewWidth</span><span class="p">)</span>
+<span class="w">                </span><span class="p">.</span><span class="na">setMaxLines</span><span class="p">(</span><span class="n">mResizingTextView</span><span class="p">.</span><span class="na">getMaxLines</span><span class="p">())</span>
+<span class="w">                </span><span class="p">.</span><span class="na">setLineSpacing</span><span class="p">(</span><span class="n">mResizingTextView</span><span class="p">.</span><span class="na">getLineSpacingExtra</span><span class="p">(),</span><span class="w"> </span><span class="n">mResizingTextView</span><span class="p">.</span><span class="na">getLineSpacingMultiplier</span><span class="p">())</span>
+<span class="w">                </span><span class="p">.</span><span class="na">setIncludePad</span><span class="p">(</span><span class="n">mResizingTextView</span><span class="p">.</span><span class="na">getIncludeFontPadding</span><span class="p">())</span>
+<span class="w">                </span><span class="p">.</span><span class="na">build</span><span class="p">();</span>
+
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">totalHeight</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">staticLayout</span><span class="p">.</span><span class="na">getHeight</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">mResizingTextView</span><span class="p">.</span><span class="na">getPaddingTop</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">mResizingTextView</span><span class="p">.</span><span class="na">getPaddingBottom</span><span class="p">();</span>
+<span class="w">        </span><span class="n">mIconLeashHeight</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="mi">100</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">displayMetrics</span><span class="p">.</span><span class="na">density</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">totalHeight</span><span class="p">);</span>
+<span class="w">        </span><span class="n">lp</span><span class="p">.</span><span class="na">height</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mIconLeashHeight</span><span class="p">;</span>
+<span class="w">        </span><span class="c1">//...</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="n">t</span><span class="p">.</span><span class="na">setPosition</span><span class="p">(</span><span class="n">mIconLeash</span><span class="p">,</span><span class="w"> </span><span class="n">newBounds</span><span class="p">.</span><span class="na">width</span><span class="p">()</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">2.0f</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">mIconLeashWidth</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">2.0f</span><span class="p">,</span>
+<span class="w">        </span><span class="n">newBounds</span><span class="p">.</span><span class="na">height</span><span class="p">()</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">2.0f</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">mIconLeashHeight</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">2.0f</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">getAppNameFromActivityInfo</span><span class="p">(</span><span class="n">Context</span><span class="w"> </span><span class="n">context</span><span class="p">,</span><span class="w"> </span><span class="n">ActivityInfo</span><span class="w"> </span><span class="n">activityInfo</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">PackageManager</span><span class="w"> </span><span class="n">packageManager</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">context</span><span class="p">.</span><span class="na">getPackageManager</span><span class="p">();</span>
+<span class="w">    </span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">activityInfo</span><span class="p">.</span><span class="na">applicationInfo</span><span class="p">.</span><span class="na">loadLabel</span><span class="p">(</span><span class="n">packageManager</span><span class="p">).</span><span class="na">toString</span><span class="p">();</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">name</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">onResized</span><span class="p">(</span><span class="n">Rect</span><span class="w"> </span><span class="n">newBounds</span><span class="p">,</span><span class="w"> </span><span class="n">SurfaceControl</span><span class="p">.</span><span class="na">Transaction</span><span class="w"> </span><span class="n">t</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">   </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">mScreenshotLeash</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">t</span><span class="p">.</span><span class="na">remove</span><span class="p">(</span><span class="n">mScreenshotLeash</span><span class="p">);</span>
+<span class="w">            </span><span class="n">mScreenshotLeash</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">   </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">mIcon</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">//...    </span>
+<span class="w">            </span><span class="n">mResizingTextView</span><span class="p">.</span><span class="na">setVisibility</span><span class="p">(</span><span class="n">View</span><span class="p">.</span><span class="na">GONE</span><span class="p">);</span>
+<span class="w">            </span><span class="n">mResizingTextView</span><span class="p">.</span><span class="na">setText</span><span class="p">(</span><span class="s">&quot;&quot;</span><span class="p">);</span>
+<span class="w">       </span><span class="c1">//... </span>
+<span class="w">   </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">release</span><span class="p">(</span><span class="n">SurfaceControl</span><span class="p">.</span><span class="na">Transaction</span><span class="w"> </span><span class="n">t</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">//...</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">mScreenshotLeash</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">t</span><span class="p">.</span><span class="na">remove</span><span class="p">(</span><span class="n">mScreenshotLeash</span><span class="p">);</span>
+<span class="w">            </span><span class="n">mScreenshotLeash</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="c1">//...</span>
+<span class="p">}</span>
+</code></pre></div>
+<h4 id="icon">分屏拖动icon不正确问题<a class="headerlink" href="#icon" title="Permanent link">&para;</a></h4>
+<p>frameworks/base/libs/WindowManager/Shell/src/com/android/wm/shell/splitscreen/StageTaskListener.java</p>
+<p>通过包名处理
+<div class="highlight"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">onResizing</span><span class="p">(</span><span class="n">Rect</span><span class="w"> </span><span class="n">newBounds</span><span class="p">,</span><span class="w"> </span><span class="n">SurfaceControl</span><span class="p">.</span><span class="na">Transaction</span><span class="w"> </span><span class="n">t</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">tempPosition</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">mSplitDecorManager</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">mRootTaskInfo</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">mRootTaskInfo</span><span class="p">.</span><span class="na">topActivity</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="s">&quot;xxx.xxx.xxx&quot;</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">mRootTaskInfo</span><span class="p">.</span><span class="na">topActivity</span><span class="p">.</span><span class="na">getPackageName</span><span class="p">()))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="kt">int</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mChildrenTaskInfo</span><span class="p">.</span><span class="na">size</span><span class="p">();</span>
+<span class="w">            </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">size</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="n">ActivityManager</span><span class="p">.</span><span class="na">RunningTaskInfo</span><span class="w"> </span><span class="n">runningTaskInfo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mChildrenTaskInfo</span><span class="p">.</span><span class="na">valueAt</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+<span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">runningTaskInfo</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">runningTaskInfo</span><span class="p">.</span><span class="na">topActivity</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="s">&quot;xxx.xxx.xxx&quot;</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">runningTaskInfo</span><span class="p">.</span><span class="na">topActivity</span><span class="p">.</span><span class="na">getPackageName</span><span class="p">()))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                        </span><span class="n">Log</span><span class="p">.</span><span class="na">e</span><span class="p">(</span><span class="n">TAG</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;onResizing child: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">runningTaskInfo</span><span class="p">.</span><span class="na">topActivity</span><span class="p">.</span><span class="na">toShortString</span><span class="p">()</span><span class="w"> </span><span class="p">);</span>
+<span class="w">                        </span><span class="n">mSplitDecorManager</span><span class="p">.</span><span class="na">onResizing</span><span class="p">(</span><span class="n">runningTaskInfo</span><span class="p">,</span><span class="w"> </span><span class="n">newBounds</span><span class="p">,</span><span class="w"> </span><span class="n">t</span><span class="p">,</span><span class="w"> </span><span class="n">tempPosition</span><span class="p">);</span>
+<span class="w">                        </span><span class="k">break</span><span class="p">;</span>
+<span class="w">                    </span><span class="p">}</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">mSplitDecorManager</span><span class="p">.</span><span class="na">onResizing</span><span class="p">(</span><span class="n">mRootTaskInfo</span><span class="p">,</span><span class="w"> </span><span class="n">newBounds</span><span class="p">,</span><span class="w"> </span><span class="n">t</span><span class="p">,</span><span class="w"> </span><span class="n">tempPosition</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></p>
+<h4 id="_8">分屏界面背景模糊<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h4>
+<p>原理：在壁纸图层上添加一层遮罩层</p>
+<p>源码路径：frameworks/base/core/java/android/service/wallpaper/WallpaperService.java</p>
+<h5 id="_9">方式一(耗性能)<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h5>
+<p>直接使用SurfaceControl.Transaction中的<a href="../fws_surface/#setBackgroundBlurRadius">setBackgroundBlurRadius</a>
 <div class="highlight"><pre><span></span><code><span class="n">SurfaceControl</span><span class="w"> </span><span class="n">mMaskSurfaceControl</span><span class="p">;</span>
+<span class="n">SurfaceControl</span><span class="p">.</span><span class="na">Transaction</span><span class="w"> </span><span class="n">mTransaction</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">SurfaceControl</span><span class="p">.</span><span class="na">Transaction</span><span class="p">();</span>
 <span class="kd">private</span><span class="w"> </span><span class="n">Surface</span><span class="w"> </span><span class="nf">getOrCreateBLASTSurface</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">width</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">height</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">format</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="n">Surface</span><span class="w"> </span><span class="n">ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span>
 <span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">mBlastBufferQueue</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -3444,8 +3801,7 @@ applySurfaceChanges: 圆角裁剪
 <span class="w">                </span><span class="p">.</span><span class="na">setParent</span><span class="p">(</span><span class="n">mBbqSurfaceControl</span><span class="p">)</span>
 <span class="w">                </span><span class="p">.</span><span class="na">setColorLayer</span><span class="p">()</span>
 <span class="w">                </span><span class="p">.</span><span class="na">build</span><span class="p">();</span>
-<span class="w">        </span><span class="n">SurfaceControl</span><span class="p">.</span><span class="na">Transaction</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">SurfaceControl</span><span class="p">.</span><span class="na">Transaction</span><span class="p">();</span>
-<span class="w">        </span><span class="n">t</span><span class="p">.</span><span class="na">setColor</span><span class="p">(</span><span class="n">mMaskSurfaceControl</span><span class="p">,</span><span class="w"> </span><span class="n">Color</span><span class="p">.</span><span class="na">valueOf</span><span class="p">(</span><span class="n">Color</span><span class="p">.</span><span class="na">WHITE</span><span class="p">).</span><span class="na">getComponents</span><span class="p">())</span>
+<span class="w">        </span><span class="n">mTransaction</span><span class="p">.</span><span class="na">setColor</span><span class="p">(</span><span class="n">mMaskSurfaceControl</span><span class="p">,</span><span class="w"> </span><span class="n">Color</span><span class="p">.</span><span class="na">valueOf</span><span class="p">(</span><span class="n">Color</span><span class="p">.</span><span class="na">WHITE</span><span class="p">).</span><span class="na">getComponents</span><span class="p">())</span>
 <span class="w">                </span><span class="p">.</span><span class="na">setAlpha</span><span class="p">(</span><span class="n">mMaskSurfaceControl</span><span class="p">,</span><span class="w"> </span><span class="mf">0.2f</span><span class="p">)</span>
 <span class="w">                </span><span class="p">.</span><span class="na">setBackgroundBlurRadius</span><span class="p">(</span><span class="n">mMaskSurfaceControl</span><span class="p">,</span><span class="w"> </span><span class="mi">50</span><span class="p">)</span>
 <span class="w">                </span><span class="p">.</span><span class="na">apply</span><span class="p">();</span>
@@ -3453,19 +3809,241 @@ applySurfaceChanges: 圆角裁剪
 <span class="p">}</span>
 
 <span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">showOrHideMaskSurfaceControl</span><span class="p">(</span><span class="kt">boolean</span><span class="w"> </span><span class="n">show</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">SurfaceControl</span><span class="p">.</span><span class="na">Transaction</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">SurfaceControl</span><span class="p">.</span><span class="na">Transaction</span><span class="p">();</span>
 <span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">show</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="n">t</span><span class="p">.</span><span class="na">show</span><span class="p">(</span><span class="n">mMaskSurfaceControl</span><span class="p">);</span>
+<span class="w">        </span><span class="n">mTransaction</span><span class="p">.</span><span class="na">show</span><span class="p">(</span><span class="n">mMaskSurfaceControl</span><span class="p">);</span>
 <span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="n">t</span><span class="p">.</span><span class="na">hide</span><span class="p">(</span><span class="n">mMaskSurfaceControl</span><span class="p">);</span>
+<span class="w">        </span><span class="n">mTransaction</span><span class="p">.</span><span class="na">hide</span><span class="p">(</span><span class="n">mMaskSurfaceControl</span><span class="p">);</span>
 <span class="w">    </span><span class="p">}</span>
-<span class="w">    </span><span class="n">t</span><span class="p">.</span><span class="na">apply</span><span class="p">();</span>
+<span class="w">    </span><span class="n">mTransaction</span><span class="p">.</span><span class="na">apply</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div></p>
+<h5 id="_10">方式二<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h5>
+<p>原理：获取壁纸然后进行模糊处理，再添加图层</p>
+<p>frameworks/base/core/java/android/service/wallpaper/WallpaperService.java
+<div class="highlight"><pre><span></span><code><span class="n">SurfaceControl</span><span class="w"> </span><span class="n">mMaskSurfaceControl</span><span class="p">;</span>
+
+<span class="n">SurfaceControl</span><span class="p">.</span><span class="na">Transaction</span><span class="w"> </span><span class="n">mTransaction</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">SurfaceControl</span><span class="p">.</span><span class="na">Transaction</span><span class="p">();</span>
+
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Engine</span><span class="w"> </span><span class="p">{</span>
+<span class="cm">/**</span>
+<span class="cm"> * @hide</span>
+<span class="cm"> */</span>
+<span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">onMaskData</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">detach</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">//...</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">mCreated</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">destroyMaskSurface</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">private</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">destroyMaskSurface</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">mMaskSurfaceControl</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">mTransaction</span><span class="p">.</span><span class="na">remove</span><span class="p">(</span><span class="n">mMaskSurfaceControl</span><span class="p">).</span><span class="na">apply</span><span class="p">();</span>
+<span class="w">        </span><span class="n">mMaskSurfaceControl</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+<span class="cm">/**</span>
+<span class="cm">     * Show mask on wallpaper when enter split mode</span>
+<span class="cm">     * @hide</span>
+<span class="cm">     * @param show whether show mask</span>
+<span class="cm">     */</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">showOrHideMaskSurfaceControl</span><span class="p">(</span><span class="kt">boolean</span><span class="w"> </span><span class="n">show</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">mMaskSurfaceControl</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">Log</span><span class="p">.</span><span class="na">e</span><span class="p">(</span><span class="n">TAG</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;showOrHideMaskSurfaceControl error due to mMaskSurfaceControl is null: show = [&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">show</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;]&quot;</span><span class="p">);</span>
+<span class="w">            </span><span class="k">return</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">show</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">mTransaction</span><span class="p">.</span><span class="na">show</span><span class="p">(</span><span class="n">mMaskSurfaceControl</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">mTransaction</span><span class="p">.</span><span class="na">hide</span><span class="p">(</span><span class="n">mMaskSurfaceControl</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="n">mTransaction</span><span class="p">.</span><span class="na">apply</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">updateMaskData</span><span class="p">(</span><span class="n">Bitmap</span><span class="w"> </span><span class="n">bitmap</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Bitmap</span><span class="w"> </span><span class="n">blur</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SystemBarUtils</span><span class="p">.</span><span class="na">blurBitmap</span><span class="p">(</span><span class="n">mDisplayContext</span><span class="p">,</span><span class="w"> </span><span class="n">bitmap</span><span class="p">,</span><span class="w"> </span><span class="mf">0.3f</span><span class="p">,</span><span class="w"> </span><span class="mf">25.0f</span><span class="p">);</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">width</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">bitmap</span><span class="p">.</span><span class="na">getWidth</span><span class="p">();</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">height</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">bitmap</span><span class="p">.</span><span class="na">getHeight</span><span class="p">();</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">format</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">PixelFormat</span><span class="p">.</span><span class="na">RGBA_8888</span><span class="p">;</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">usage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">GraphicBuffer</span><span class="p">.</span><span class="na">USAGE_HW_TEXTURE</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">GraphicBuffer</span><span class="p">.</span><span class="na">USAGE_SW_WRITE_OFTEN</span><span class="p">;</span>
+<span class="w">        </span><span class="n">GraphicBuffer</span><span class="w"> </span><span class="n">graphicBuffer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">GraphicBuffer</span><span class="p">.</span><span class="na">create</span><span class="p">(</span><span class="n">width</span><span class="p">,</span><span class="w"> </span><span class="n">height</span><span class="p">,</span><span class="w"> </span><span class="n">format</span><span class="p">,</span><span class="w"> </span><span class="n">usage</span><span class="p">);</span>
+
+<span class="w">        </span><span class="n">Canvas</span><span class="w"> </span><span class="n">canvas</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">graphicBuffer</span><span class="p">.</span><span class="na">lockCanvas</span><span class="p">();</span>
+<span class="w">        </span><span class="n">canvas</span><span class="p">.</span><span class="na">drawBitmap</span><span class="p">(</span><span class="n">blur</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="kc">null</span><span class="p">);</span>
+<span class="w">        </span><span class="n">graphicBuffer</span><span class="p">.</span><span class="na">unlockCanvasAndPost</span><span class="p">(</span><span class="n">canvas</span><span class="p">);</span>
+<span class="w">        </span><span class="n">mTransaction</span><span class="p">.</span><span class="na">setBuffer</span><span class="p">(</span><span class="n">mMaskSurfaceControl</span><span class="p">,</span><span class="w"> </span><span class="n">graphicBuffer</span><span class="p">);</span>
+<span class="w">        </span><span class="n">mTransaction</span><span class="p">.</span><span class="na">apply</span><span class="p">();</span>
+
+<span class="w">        </span><span class="n">onMaskData</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">createMaskSurfaceControl</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Log</span><span class="p">.</span><span class="na">e</span><span class="p">(</span><span class="n">TAG</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;createMaskSurfaceControl: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">mMaskSurfaceControl</span><span class="p">);</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">mMaskSurfaceControl</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">mMaskSurfaceControl</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">SurfaceControl</span><span class="p">.</span><span class="na">Builder</span><span class="p">()</span>
+<span class="w">                    </span><span class="p">.</span><span class="na">setName</span><span class="p">(</span><span class="s">&quot;Wallpaper mask layer&quot;</span><span class="p">)</span>
+<span class="w">                    </span><span class="p">.</span><span class="na">setCallsite</span><span class="p">(</span><span class="s">&quot;Wallpaper.Mask.Layer&quot;</span><span class="p">)</span>
+<span class="w">                    </span><span class="p">.</span><span class="na">setParent</span><span class="p">(</span><span class="n">mSurfaceControl</span><span class="p">)</span>
+<span class="w">                    </span><span class="p">.</span><span class="na">setFormat</span><span class="p">(</span><span class="n">PixelFormat</span><span class="p">.</span><span class="na">TRANSLUCENT</span><span class="p">)</span>
+<span class="w">                    </span><span class="p">.</span><span class="na">setBLASTLayer</span><span class="p">()</span>
+<span class="w">                    </span><span class="p">.</span><span class="na">build</span><span class="p">();</span>
+<span class="w">            </span><span class="n">mTransaction</span><span class="p">.</span><span class="na">setColorSpace</span><span class="p">(</span><span class="n">mMaskSurfaceControl</span><span class="p">,</span><span class="w"> </span><span class="n">ColorSpace</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">ColorSpace</span><span class="p">.</span><span class="na">Named</span><span class="p">.</span><span class="na">SRGB</span><span class="p">))</span>
+<span class="w">                    </span><span class="p">.</span><span class="na">apply</span><span class="p">();</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">Surface</span><span class="w"> </span><span class="nf">getOrCreateBLASTSurface</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">width</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">height</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">format</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">//...</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">mBlastBufferQueue</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">createMaskSurfaceControl</span><span class="p">();</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="c1">//...</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">reportShown</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">mConnection</span><span class="p">.</span><span class="na">engineShown</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">mEngine</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">mEngine</span><span class="p">.</span><span class="na">updateMaskData</span><span class="p">(</span><span class="n">mWallpaperManager</span><span class="p">.</span><span class="na">getBitmap</span><span class="p">(</span><span class="kc">false</span><span class="p">));</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></p>
+<p>在子类中每次壁纸切换的时候更新模糊图层</p>
+<p>frameworks/base/packages/SystemUI/src/com/android/systemui/ImageWallpaper.java
+<div class="highlight"><pre><span></span><code><span class="kd">class</span> <span class="nc">GLEngine</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">Engine</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">DisplayListener</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">onMaskData</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">super</span><span class="p">.</span><span class="na">onMaskData</span><span class="p">();</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">isShowMask</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">showOrHideMaskSurfaceControl</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
-适当的地方调用showOrHideMaskSurfaceControl</p>
-<p>模糊实现api：</p>
+模糊实现api：</p>
 <p><a href="https://blog.csdn.net/abc6368765/article/details/127657069">https://blog.csdn.net/abc6368765/article/details/127657069</a>
 <a href="https://blog.csdn.net/liaosongmao1/article/details/130820665">https://blog.csdn.net/liaosongmao1/article/details/130820665</a></p>
+<div class="highlight"><pre><span></span><code><span class="cm">/**</span>
+<span class="cm"> * Blur the bitmap</span>
+<span class="cm"> * @param context the context</span>
+<span class="cm"> * @param bitmap pending bitmap</span>
+<span class="cm"> * @param scale scale the bitmap to achieve more blur</span>
+<span class="cm"> * @param radius blur radius between 0~25</span>
+<span class="cm"> * @return</span>
+<span class="cm"> */</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="n">Bitmap</span><span class="w"> </span><span class="nf">blurBitmap</span><span class="p">(</span><span class="n">Context</span><span class="w"> </span><span class="n">context</span><span class="p">,</span><span class="w"> </span><span class="n">Bitmap</span><span class="w"> </span><span class="n">bitmap</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">scale</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">radius</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">bitmap</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="n">Log</span><span class="p">.</span><span class="na">i</span><span class="p">(</span><span class="s">&quot;TAG&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;blurBitmap bitmap: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">bitmap</span><span class="p">.</span><span class="na">getByteCount</span><span class="p">());</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">oriWidth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">bitmap</span><span class="p">.</span><span class="na">getWidth</span><span class="p">();</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">oriHeight</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">bitmap</span><span class="p">.</span><span class="na">getHeight</span><span class="p">();</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">scaleWidth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Math</span><span class="p">.</span><span class="na">round</span><span class="p">(</span><span class="n">oriWidth</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">scale</span><span class="p">);</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">scaleHeight</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Math</span><span class="p">.</span><span class="na">round</span><span class="p">(</span><span class="n">oriHeight</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">scale</span><span class="p">);</span>
+<span class="w">    </span><span class="n">Bitmap</span><span class="w"> </span><span class="n">scaledBitmap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Bitmap</span><span class="p">.</span><span class="na">createScaledBitmap</span><span class="p">(</span><span class="n">bitmap</span><span class="p">,</span><span class="w"> </span><span class="n">scaleWidth</span><span class="p">,</span><span class="w"> </span><span class="n">scaleHeight</span><span class="p">,</span><span class="w"> </span><span class="kc">false</span><span class="p">);</span>
+<span class="w">    </span><span class="c1">// 用需要创建高斯模糊bitmap创建一个空的bitmap</span>
+<span class="w">    </span><span class="n">Bitmap</span><span class="w"> </span><span class="n">outBitmap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Bitmap</span><span class="p">.</span><span class="na">createBitmap</span><span class="p">(</span><span class="n">scaledBitmap</span><span class="p">);</span>
+<span class="w">    </span><span class="c1">// 初始化Renderscript，该类提供了RenderScript context，创建其他RS类之前必须先创建这个类，其控制RenderScript的初始化，资源管理及释放</span>
+<span class="w">    </span><span class="n">RenderScript</span><span class="w"> </span><span class="n">rs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">RenderScript</span><span class="p">.</span><span class="na">create</span><span class="p">(</span><span class="n">context</span><span class="p">);</span>
+<span class="w">    </span><span class="c1">// 创建高斯模糊对象</span>
+<span class="w">    </span><span class="n">ScriptIntrinsicBlur</span><span class="w"> </span><span class="n">blurScript</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ScriptIntrinsicBlur</span><span class="p">.</span><span class="na">create</span><span class="p">(</span><span class="n">rs</span><span class="p">,</span><span class="w"> </span><span class="n">Element</span><span class="p">.</span><span class="na">U8_4</span><span class="p">(</span><span class="n">rs</span><span class="p">));</span>
+<span class="w">    </span><span class="c1">// 创建Allocations，此类是将数据传递给RenderScript内核的主要方法，并制定一个后备类型存储给定类型</span>
+<span class="w">    </span><span class="n">Allocation</span><span class="w"> </span><span class="n">allIn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Allocation</span><span class="p">.</span><span class="na">createFromBitmap</span><span class="p">(</span><span class="n">rs</span><span class="p">,</span><span class="w"> </span><span class="n">scaledBitmap</span><span class="p">);</span>
+<span class="w">    </span><span class="n">Allocation</span><span class="w"> </span><span class="n">allOut</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Allocation</span><span class="p">.</span><span class="na">createFromBitmap</span><span class="p">(</span><span class="n">rs</span><span class="p">,</span><span class="w"> </span><span class="n">outBitmap</span><span class="p">);</span>
+<span class="w">    </span><span class="c1">//设定模糊度(注：Radius最大只能设置25.f)</span>
+<span class="w">    </span><span class="n">blurScript</span><span class="p">.</span><span class="na">setRadius</span><span class="p">(</span><span class="n">radius</span><span class="p">);</span>
+<span class="w">    </span><span class="c1">// Perform the Renderscript</span>
+<span class="w">    </span><span class="n">blurScript</span><span class="p">.</span><span class="na">setInput</span><span class="p">(</span><span class="n">allIn</span><span class="p">);</span>
+<span class="w">    </span><span class="n">blurScript</span><span class="p">.</span><span class="na">forEach</span><span class="p">(</span><span class="n">allOut</span><span class="p">);</span>
+<span class="w">    </span><span class="c1">// Copy the final bitmap created by the out Allocation to the outBitmap</span>
+<span class="w">    </span><span class="n">allOut</span><span class="p">.</span><span class="na">copyTo</span><span class="p">(</span><span class="n">outBitmap</span><span class="p">);</span>
+<span class="w">    </span><span class="c1">// recycle the original bitmap</span>
+<span class="w">    </span><span class="n">bitmap</span><span class="p">.</span><span class="na">recycle</span><span class="p">();</span>
+<span class="w">    </span><span class="c1">// After finishing everything, we destroy the Renderscript.</span>
+<span class="w">    </span><span class="n">rs</span><span class="p">.</span><span class="na">destroy</span><span class="p">();</span>
+<span class="w">    </span><span class="n">Bitmap</span><span class="w"> </span><span class="n">recBitmap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Bitmap</span><span class="p">.</span><span class="na">createScaledBitmap</span><span class="p">(</span><span class="n">outBitmap</span><span class="p">,</span><span class="w"> </span><span class="n">oriWidth</span><span class="p">,</span><span class="w"> </span><span class="n">oriHeight</span><span class="p">,</span><span class="w"> </span><span class="kc">true</span><span class="p">);</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">applyDarkness</span><span class="p">(</span><span class="n">recBitmap</span><span class="p">,</span><span class="w"> </span><span class="mf">0.2f</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="n">Bitmap</span><span class="w"> </span><span class="nf">applyDarkness</span><span class="p">(</span><span class="n">Bitmap</span><span class="w"> </span><span class="n">image</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">darkness</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">image</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="n">Bitmap</span><span class="w"> </span><span class="n">outputBitmap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Bitmap</span><span class="p">.</span><span class="na">createBitmap</span><span class="p">(</span><span class="n">image</span><span class="p">.</span><span class="na">getWidth</span><span class="p">(),</span><span class="w"> </span><span class="n">image</span><span class="p">.</span><span class="na">getHeight</span><span class="p">(),</span><span class="w"> </span><span class="n">image</span><span class="p">.</span><span class="na">getConfig</span><span class="p">());</span>
+<span class="w">    </span><span class="n">Canvas</span><span class="w"> </span><span class="n">canvas</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Canvas</span><span class="p">(</span><span class="n">outputBitmap</span><span class="p">);</span>
+<span class="w">    </span><span class="n">canvas</span><span class="p">.</span><span class="na">drawBitmap</span><span class="p">(</span><span class="n">image</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="kc">null</span><span class="p">);</span>
+
+<span class="w">    </span><span class="n">Paint</span><span class="w"> </span><span class="n">paint</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Paint</span><span class="p">();</span>
+<span class="w">    </span><span class="n">paint</span><span class="p">.</span><span class="na">setColor</span><span class="p">(</span><span class="n">Color</span><span class="p">.</span><span class="na">BLACK</span><span class="p">);</span>
+<span class="w">    </span><span class="n">paint</span><span class="p">.</span><span class="na">setAlpha</span><span class="p">((</span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="n">darkness</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">255</span><span class="p">));</span>
+<span class="w">    </span><span class="n">canvas</span><span class="p">.</span><span class="na">drawRect</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">image</span><span class="p">.</span><span class="na">getWidth</span><span class="p">(),</span><span class="w"> </span><span class="n">image</span><span class="p">.</span><span class="na">getHeight</span><span class="p">(),</span><span class="w"> </span><span class="n">paint</span><span class="p">);</span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">outputBitmap</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<h4 id="_11">动态控制模糊<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h4>
+<p>frameworks/base/packages/SystemUI/src/com/android/systemui/ImageWallpaper.java
+<div class="highlight"><pre><span></span><code><span class="kd">private</span><span class="w"> </span><span class="n">Engine</span><span class="w"> </span><span class="n">mEngine</span><span class="p">;</span>
+
+<span class="kd">private</span><span class="w"> </span><span class="n">WallpaperReceive</span><span class="w"> </span><span class="n">mWallpaperReceive</span><span class="p">;</span>
+
+<span class="kt">boolean</span><span class="w"> </span><span class="n">isShowMask</span><span class="p">;</span>
+
+<span class="nd">@Override</span>
+<span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">onCreate</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">//...</span>
+<span class="w">    </span><span class="n">mWallpaperReceive</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">WallpaperReceive</span><span class="p">();</span>
+<span class="w">    </span><span class="n">IntentFilter</span><span class="w"> </span><span class="n">filter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">IntentFilter</span><span class="p">();</span>
+<span class="w">    </span><span class="n">filter</span><span class="p">.</span><span class="na">addAction</span><span class="p">(</span><span class="s">&quot;action.wallpaper.mask_visibility&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="n">registerReceiver</span><span class="p">(</span><span class="n">mWallpaperReceive</span><span class="p">,</span><span class="w"> </span><span class="n">filter</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;com.android.systemui.permission.WALLPAPER_MASK&quot;</span><span class="p">,</span><span class="w"> </span><span class="kc">null</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nd">@Override</span>
+<span class="kd">public</span><span class="w"> </span><span class="n">Engine</span><span class="w"> </span><span class="nf">onCreateEngine</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">mEngine</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">GLEngine</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="nd">@Override</span>
+<span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">onDestroy</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">//...</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">mWallpaperReceive</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">unregisterReceiver</span><span class="p">(</span><span class="n">mWallpaperReceive</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">private</span><span class="w"> </span><span class="kd">class</span> <span class="nc">WallpaperReceive</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">BroadcastReceiver</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">onReceive</span><span class="p">(</span><span class="n">Context</span><span class="w"> </span><span class="n">context</span><span class="p">,</span><span class="w"> </span><span class="n">Intent</span><span class="w"> </span><span class="n">intent</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Log</span><span class="p">.</span><span class="na">d</span><span class="p">(</span><span class="n">TAG</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;onReceive() called with: context = [&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">context</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;], intent = [&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">intent</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;]&quot;</span><span class="o">+</span><span class="w"> </span><span class="k">this</span><span class="p">);</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="s">&quot;action.wallpaper.mask_visibility&quot;</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">intent</span><span class="p">.</span><span class="na">getAction</span><span class="p">()))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">mEngine</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="kt">boolean</span><span class="w"> </span><span class="n">maskShow</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">intent</span><span class="p">.</span><span class="na">getBooleanExtra</span><span class="p">(</span><span class="s">&quot;mask&quot;</span><span class="p">,</span><span class="w"> </span><span class="kc">false</span><span class="p">);</span>
+<span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">isShowMask</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">maskShow</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="n">Log</span><span class="p">.</span><span class="na">i</span><span class="p">(</span><span class="n">TAG</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;onReceive not update surface&quot;</span><span class="p">);</span>
+<span class="w">                    </span><span class="k">return</span><span class="p">;</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">                </span><span class="n">mEngine</span><span class="p">.</span><span class="na">showOrHideMaskSurfaceControl</span><span class="p">(</span><span class="n">maskShow</span><span class="p">);</span>
+<span class="w">                </span><span class="n">isShowMask</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">maskShow</span><span class="p">;</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+用于广播仅限同签名应用使用，保证只能系统应用控制</p>
+<p>frameworks/base/packages/SystemUI/AndroidManifest.xml</p>
+<p><permission android:name="com.android.systemui.permission.WALLPAPER_MASK"
+    android:protectionLevel="signature" /></p>
+<p>具体控制代码
+<div class="highlight"><pre><span></span><code><span class="kd">private</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">showOrHideWallpaperMask</span><span class="p">(</span><span class="kt">boolean</span><span class="w"> </span><span class="n">isShow</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">Intent</span><span class="w"> </span><span class="n">intent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Intent</span><span class="p">(</span><span class="s">&quot;action.wallpaper.mask_visibility&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="n">intent</span><span class="p">.</span><span class="na">putExtra</span><span class="p">(</span><span class="s">&quot;mask&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">isShow</span><span class="p">);</span>
+<span class="w">    </span><span class="n">context</span><span class="p">.</span><span class="na">sendBroadcast</span><span class="p">(</span><span class="n">intent</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></p>
 
 
 
@@ -3503,7 +4081,7 @@ applySurfaceChanges: 圆角裁剪
       
     
     <a href="https://github.com/13757539485" target="_blank" rel="noopener" title="github.com" class="md-social__link">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
     </a>
   
 </div>
@@ -3520,7 +4098,7 @@ applySurfaceChanges: 圆角裁剪
     <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "search.suggest", "search.highlight"], "search": "../../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.efa0ade1.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.b4d07000.min.js"></script>
       
     
   </body>
