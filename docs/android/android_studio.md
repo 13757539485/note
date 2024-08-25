@@ -147,3 +147,31 @@ as插件：CMake simple highlighter
 ### gradle下载源
 
 https://mirrors.huaweicloud.com/repository/maven/
+
+http://mirrors.cloud.tencent.com/gradle/
+
+替换：
+.gradle/wrapper/dists/
+
+### 常见异常
+
+1. 提示此应用专为旧版android打造...，底部显示全屏
+
+    将minSdkVersion修改成24或以上
+
+2. java转kt后启动Activity失败
+
+    app项目的gradle中加kotlin插件
+```gradle
+plugins {
+    //...
+    id 'org.jetbrains.kotlin.android'
+}
+```
+根目录的gradle对应
+```gradle
+plugins {
+    //...
+    id 'org.jetbrains.kotlin.android' version '1.8.10' apply false
+}
+```

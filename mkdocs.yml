@@ -17,6 +17,7 @@ nav:
            - 类: android/kotlin/kotlin_class.md
            - 实战应用: android/kotlin/kotlin_code.md
            - 原理: android/kotlin/kotlin_principle.md
+           - 协程: android/kotlin/kotlin_coroutine.md
         - 数据结构: android/java/java_collection.md
         - 设计模式: android/design_mode.md
         - 通信相关: 
@@ -50,6 +51,7 @@ nav:
               - View&lifecycle: android/ui/ui_view.md
            - WebView: android/ui/ui_webview.md
            - Camera: android/ui/ui_camera.md
+           - ConstraintLayout: android/ui/ui_constraintLayout.md
            - 动画: android/ui/ui_anim.md
         - Framework:
            - AOSP开发:  
@@ -62,9 +64,10 @@ nav:
               - 拖拽模块: 
                 - 源码: android/fws/fws_drag.md
                 - 案例: android/fws/fws_drag_case.md
-              - 分屏模块:
+              - 分屏模块: 
                 - 源码: android/fws/fws_split.md
                 - 案例: android/fws/fws_split_case.md
+              - 系统动画: android/fws/fws_anim.md
            - AOSP源码:  
               - Handler: android/fws/fws_handler.md
               - IPC通信: android/fws/fws_process.md

@@ -22,7 +22,13 @@ implementation("androidx.camera:camera-video:${cameraxVersion}")
 implementation("androidx.camera:camera-view:${cameraxVersion}")
 implementation("androidx.camera:camera-extensions:${cameraxVersion}")
 ```
-
+添加预览view
+```xml
+<androidx.camera.view.PreviewView
+    android:id="@+id/cameraPreView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" />
+```
 ### 权限申请
 ```kotlin
 companion object {

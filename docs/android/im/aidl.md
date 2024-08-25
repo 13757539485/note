@@ -113,7 +113,9 @@ private val iRemoteCallback: IRemoteCallback = MyCallback()
 
 inner class MyCallback : IRemoteCallback.Stub() {
     override fun onMessageReceived(message: String) {
-        // 处理server端返回消息
+        MainScope().launch {
+            // 处理server端返回消息
+        }
     }
 }
 private val serviceConnection: ServiceConnection = object : ServiceConnection {
@@ -148,6 +150,7 @@ bindService(intent, serviceConnection, BIND_AUTO_CREATE)
 </queries>
 ```
 注：
+
 1. registerCallback的意义在于server也可主动sendMsg给client(也可使用异步)，否则直接利用返回值即可
 2. 获取server或者client标记可通过getCallingPid()确认
 #### 同应用不同进程

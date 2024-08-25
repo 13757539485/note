@@ -132,7 +132,7 @@ public final boolean startDragAndDrop(ClipData data, DragShadowBuilder shadowBui
     //...
 ```
 
-#### 关键点：拖拽结束处理
+#### 关键点：拖拽中和拖拽结束处理
 
 frameworks/base/core/java/android/view/ViewRootImpl.java
 
@@ -140,63 +140,88 @@ frameworks/base/core/java/android/view/ViewRootImpl.java
 ```java
 private void handleDragEvent(DragEvent event) {
     // ...
-    boolean customResult = HfcDragViewHelper.getInstance().handleDragEvent(event, mBasePackageName，mContext);
+    CariadDragHelper.getInstance().preHandleDragEvent(event, mBasePackageName);
     // Now dispatch the drag/drop event
     boolean result = mView.dispatchDragEvent(event);
-    if (customResult) {
-        // 不执行拖拽返回动画，应用假装支持拖拽接收
-        result = true;
-        HfcDragViewHelper.getInstance().sendAllowDragApp(mContext, event.mClipData, mBasePackageName);
-        Log.e("HfcDragViewHelper", "replace result to custom result:" + mBasePackageName);
-    }
-
+    result = CariadDragHelper.getInstance()
+            .handleDragEvent(event, mBasePackageName, result, mWindowSession, mWindow);
     // ...
 }
 ```
 用来处理拖拽结束逻辑
 ```java
-public boolean handleDragEvent(DragEvent event, String basePackageName, Context context) {
-    if (event == null) {
-        Log.e(TAG, "handleDragEvent event is null");
-        return false;
-    }
-    boolean result = false;
+public void preHandleDragEvent(DragEvent event, String basePackageName) {
     if (DragEvent.ACTION_DROP == event.mAction) {
-        if (mCurrentDragView != null && mCurrentDragView.mContext != null &&
-                checkPkg(mCurrentDragView.mContext.getPackageName(), basePackageName)) {
-            Log.e(TAG, "mClipData set null");
-            if (!"com.hfc.manager".equals(basePackageName)) {
-                event.mClipData = null;//是否允许自身应用拖拽接收
-            } else {
-                result = true;
-            }
-        } else {
-            // 高德和美图接收拖拽
-            if ("com.mt.mtxx.mtxx".equals(basePackageName) ||
-                    "com.autonavi.minimap".equals(basePackageName)) {
-                Log.e(TAG, "simulate drag and drop:" + mCurrentDragView);
-                result = true;
-            }
-        }
-    } else if (DragEvent.ACTION_DRAG_ENDED == event.mAction) {
         if (mCurrentDragView != null) {
-            Log.e(TAG, "hasDrag reset false: " + mCurrentDragView);
-            showBar(mCurrentDragView.mContext, false, event.mClipData);
-            mCurrentDragView.hasDrag = false;
-            mCurrentDragView = null;
+            if (!"com.example.drop1".equals(basePackageName)) {
+                event.mClipData = null;//不允许自身应用拖拽接收
+            }
         }
     }
+}
+
+public boolean handleDragEvent(DragEvent event, String basePackageName,
+    boolean oriResult, IWindowSession windowSession,
+    ViewRootImpl.W window) {
+    //处理拖拽逻辑
     return result;
 }
 ```
 
-源码工具类
+具体源码工具类
 
-[HfcDragViewHelper](./code/HfcDragViewHelper.java)
+[HfcDragViewHelper](./code/fw/HfcDragViewHelper.java)
 
-#### 关键点：拖拽动画、大小
+#### 关键点：拖拽数据传递处理、动画、大小
+从framework到service是通过aidl的形式，原生接口(IWindowSession windowSession)具体为performDrag方法
+
+frameworks/base/core/java/android/view/IWindowSession.aidl
+
+添加新接口
+```java
+//传递拖拽信息相关，拖拽中和拖拽结束等
+boolean notifyDropStatus(boolean oriResult, boolean isOtherWindow, IWindow window,
+    in DragEvent event, String packageName);
+
+//用于保存拖拽视图
+void savaBitmap(in ParcelFileDescriptor pfd, in RemoteCallback callback);
+
+//用于通知分享栏显示隐藏
+void shareBarShowOrHide(String action, String targetPackage, in ClipData data);
+```
+[IHfcDrag](./code/services/IHfcDrag.aidl)
+
+[IHfcDragListener](./code/services/IHfcDragListener.aidl)
+
+##### 图片保存
+其中saveBitmap为何不直接保存？
+
+当前拖拽代码是在View中即最终运行进程是当前应用进程，如果此应用没有读写权限就无法保存图片，需要通过aidl绑定某个应用(自定义的系统应用中最好)来保存图片
+
+IWindowSession.aidl具体实现类之一
+
+frameworks/base/services/core/java/com/android/server/wm/Session.java
+
+```java
+@Override
+public boolean notifyDropStatus(boolean oriResult, boolean isOtherWindow, IWindow window, DragEvent event, String packageName) {
+    return this.mDragDropController.notifyDropStatus(oriResult, isOtherWindow, window, event, packageName);
+}
+
+@Override
+public void savaBitmap(android.os.ParcelFileDescriptor pfd, RemoteCallback callback) {
+    this.mDragDropController.saveBitmap(pfd, callback);
+}
+
+@Override
+public void shareBarShowOrHide(String action, String targetPackage, android.content.ClipData data) {
+    this.mDragDropController.shareBarShowOrHide(action, targetPackage, data);
+}
+```
+注：uid为1000的应用不允许调用拖拽(startDragAndDrop)接口，解决在validateAndResolveDragMimeTypeExtras方法中通过包名允许即可
 
 frameworks/base/services/core/java/com/android/server/wm/DragDropController.java
+
 
 ```java
 IBinder performDrag(int callerPid, int callerUid, IWindow window, int flags, SurfaceControl surface, int touchSource, float touchX, float touchY, float thumbCenterX, float thumbCenterY, ClipData data) {
@@ -209,75 +234,39 @@ IBinder performDrag(int callerPid, int callerUid, IWindow window, int flags, Sur
     mDragState.startDragLocked(); //启动动画
     //...
 }
+
+boolean notifyDropStatus(boolean oriResult, boolean isOtherWindow, IWindow window, DragEvent event, String packageName) {
+    if (this.mDragState == null) {
+        return false;
+    }
+    return mDragState.notifyDropStatus(oriResult, isOtherWindow, window, event, packageName);
+}
+
+public void saveBitmap(ParcelFileDescriptor pfd, RemoteCallback callback) {
+    HfcDragTransitManager.getInstance().bindShareService(mService.mContext, (isBind, iBinder) -> {
+        CariadDragTransitManager.getInstance().saveBitmap(pfd, callback);
+    });
+}
+
+public void shareBarShowOrHide(String action, String targetPackage, ClipData data) {
+    HfcDragTransitManager.getInstance().bindShareService(mService.mContext, (isBind, iBinder) -> {
+        CariadDragTransitManager.getInstance().shareBarShowOrHide(action, targetPackage, data);
+    });
+}
 ```
+
+[HfcDragTransitManager](./code/services/HfcDragTransitManager.java)
 
 frameworks/base/services/core/java/com/android/server/wm/DragState.java
 
-执行拖拽居中缩放动画以及alpha动画
+执行拖拽动画
 ```java
 void startDragLocked() {
     createShowAnimationLocked();
 }
 
-private float mScale = 1.0f;
-
 private void createShowAnimationLocked() {
-    int maxValue = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 200,
-            mService.mContext.getResources().getDisplayMetrics());
-    int width = mSurfaceControl.getWidth();
-    int height = mSurfaceControl.getHeight();
-    if (width > height) {
-        mScale = width > maxValue ? maxValue * 1.0f / width : 1.0f;
-    } else {
-        mScale = height > maxValue ? maxValue * 1.0f / height : 1.0f;
-    }
-
-    Matrix matrix = new Matrix();
-    float[] matrixValues = new float[9];
-    final ValueAnimator animator = ValueAnimator.ofPropertyValuesHolder(
-            PropertyValuesHolder.ofFloat(ANIMATED_PROPERTY_SCALE, 1, 1.2f, mScale),
-            PropertyValuesHolder.ofFloat(
-                    ANIMATED_PROPERTY_ALPHA, 1, mOriginalAlpha));
-    animator.addUpdateListener(animation -> {
-        if (mSurfaceControl == null && animation.isRunning()) {
-            animation.cancel();
-            return;
-        }
-        try (SurfaceControl.Transaction transaction =
-                        mService.mTransactionFactory.get()) {
-            transaction.setAlpha(
-                    mSurfaceControl,
-                    (float) animation.getAnimatedValue(ANIMATED_PROPERTY_ALPHA));
-            float tmpScale = (float) animation.getAnimatedValue(ANIMATED_PROPERTY_SCALE);
-            float scaleCenterX = mCurrentX;
-            float scaleCenterY = mCurrentY;
-            matrix.setScale(tmpScale, tmpScale, scaleCenterX, scaleCenterY);
-            matrix.postTranslate((scaleCenterX - (float) width / 2) * tmpScale,
-                    (scaleCenterY - (float) height / 2) * tmpScale);
-            transaction.setMatrix(mSurfaceControl, matrix, matrixValues);
-            transaction.apply();
-        }
-    });
-    animator.setDuration(200);
-    animator.setInterpolator(mCubicEaseOutInterpolator);
-    animator.addListener(new Animator.AnimatorListener() {
-        @Override
-        public void onAnimationStart(Animator animator) {}
-
-        @Override
-        public void onAnimationCancel(Animator animator) {}
-
-        @Override
-        public void onAnimationRepeat(Animator animator) {}
-
-        @Override
-        public void onAnimationEnd(Animator animation) {
-            mAnimationCompleted = true;
-            mDragDropController.sendHandlerMessage(MSG_ANIMATION_END, null);
-        }
-    });
-
-    mService.mAnimationHandler.post(() -> animator.start());
+    //动画
 }
 ```
 修改拖动时视图不居中问题
@@ -294,3 +283,16 @@ void updateDragSurfaceLocked(boolean keepHandling, float x, float y) {
     //...
 }
 ```
+
+具体动画以及拓展功能源码
+
+动画：固定从1.2倍缩放当本身大小
+
+拓展功能：拖拽过程中，如果拖动到接收的应用显示如+图标，不支持显示x图标，应用存在多个分享接收功能显示其他图标
+
+[DragAnim](./code/services/DragAnim.java)
+
+#### app端实现
+功能包括：保存图片，显示分享框，查询支持分享的应用，高德地图查询等
+
+[sharebar](./code/sharebar.zip)

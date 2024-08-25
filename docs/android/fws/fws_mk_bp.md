@@ -288,3 +288,10 @@ FlagWithInput("--whitelist ",
             android.PathForSource(ctx, "frameworks/base/config/hiddenapi-sdk.txt")).
 ```
 对应路径添加文件hiddenapi-sdk.txt
+
+##### 窗口模糊
+对于Android12开启系统窗口模式
+
+/device/设备/型号/xxx.mk
+PRODUCT_PROPERTY_OVERRIDES += \
+       ro.surface_flinger.supports_background_blur=1 
