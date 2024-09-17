@@ -6,14 +6,16 @@
 |优点|有图形化界面可以直接启动模拟器(需关闭hyper-v)|编译速度快，占用体积小，方便和windows之间操作|编译速度快，独立系统，可使用模拟器，源码在window下也可访问|
 |缺点|不流畅，编译速度慢，占用体积大，不能同时使用Android子系统|无图形化界面，网络独立不方便使用vpn，无法使用模拟器|系统占用空间，和window交互不便|
 
-### 2.下载Android源码镜像包
+### 2.下载Android源码镜像包(可跳过)
+磁盘空间小可使用[传统方式](#original)下载源码
+
 在ubuntu系统中打开终端，执行命令：wget -c 地址如下
 
 https://mirrors.ustc.edu.cn/aosp-monthly/aosp-latest.tar
 或者
 https://mirrors.tuna.tsinghua.edu.cn/aosp-monthly/aosp-latest.tar
 
-文件大概60GB
+文件大概80GB
 
 校验：md5sum aosp-latest.tar (较慢)
 
@@ -72,39 +74,6 @@ https://source.android.google.cn/docs/setup/reference/build-numbers?hl=zh-cn
 
 Pixel6: TQ2A.230505.002对应分支android-13.0.0_r43
 
-报错：
-Repo command failed: RepoUnhandledExceptionError
-	GitCommandError: 'reset --keep v2.44^0' on repo failed
-stderr: error: Entry 'project.py' not uptodate. Cannot merge.
-fatal: 不能重置索引文件至版本 'v2.44^0'。
-
-解决：
-```shell
-cd .repo/repo/
-git pull
-```
-
-报错：
-error.GitError: manifests rev-list ('^1013d985f70641b2cc05943f57fab5824d9e2ff3', 'HEAD', '--'): fatal: bad revision 'HEAD'
-
-解决：
-```shell
-cd .repo/manifests
-git reset --hard 1013d985f70641b2cc05943f57fab5824d9e2ff3
-git pull
-```
-报错：git config --global --add safe.directory /xxx/xxx
-
-解决：
-```shell
-git config --global --add safe.directory "*"
-```
-文件权限被修改
-
-解决：
-```shell
-repo forall -c git config --add core.filemode false
-```
 #### 添加交换内存
 如果已经存在swapfile，先关闭
 ```shell
@@ -124,10 +93,23 @@ sudo swapon /swapfile
 ```shell
 /swapfile                                 none      swap    sw          0       0
 ```
-同步代码： (较慢)
-```shell
-repo sync
+
+#### <a id="original">使用传统同步代码</a>
+节省空间，编辑.repo/manifests.git/config
+
+在[remote "origin"]节点下添加
 ```
+[remote "origin"]
+	//..
+	depth = 1
+    no-tags = true
+```
+#### 同步代码
+较慢
+```shell
+repo sync -c -j20
+```
+[报错问题见](./fw_aosp_error.md#tar_error)
 #### 安装依赖
 安装jdk
 ```shell
@@ -241,6 +223,10 @@ make android.car-stubs 仅包含没有被@SystemApi修饰的方法，且不含�
 
 成功后jar在out\soong.intermediates\packages\services\Car\car-lib\android.car\android_common\javac\
 
+pixel手机刷入车载系统
+
+https://source.android.com/docs/automotive/start/pixelxl?hl=zh-cn
+
 ### 8.刷机(可跳过)
 谷歌原生手机地址：
 
@@ -248,32 +234,7 @@ make android.car-stubs 仅包含没有被@SystemApi修饰的方法，且不含�
 
 OTA包：https://developers.google.com/android/ota
 
-刷机编译的包
-
-adb和fastboot报错
-
-no permissions (missing udev rules? user is in the plugdev group)
-
-解决：
-```shell
-lsusb
-```
-输出：Bus 001 Device 009: ID 18d1:4ee7 Google Inc. Nexus/Pixel Device (charging + debug)
-```shell
-cd /etc/udev/rules.d/
-sudo vi 51-android.rules
-添加内容：
-SUBSYSTEM=="usb", ATTRS{idVendor}=="18d1", ATTRS{idProduct}=="4ee7",MODE="0666"
-```
-设置权限
-```shell
-sudo chmod a+x 51-android.rules
-```
-fastboot相同解决
-
-Bus 001 Device 014: ID 18d1:4ee0 Google Inc. Nexus/Pixel Device (fastboot)
-SUBSYSTEM=="usb", ATTRS{idVendor}=="18d1", ATTRS{idProduct}=="4ee0",MODE="0666"
-
+#### 刷机编译的包
 解锁设备
 ```shell
 fastboot flashing unlock
@@ -295,6 +256,8 @@ b分区相关
 fastboot set_active other
 fastboot --slot=other flash bootloader bootloader.img
 ```
+
+[报错问题见](./fw_aosp_error.md#adb_error)
 
 wifi感叹号处理
 ```shell
@@ -383,3 +346,42 @@ https://dl.google.com/android/asfp/asfp-2023.2.1.19-linux.deb
 使用教程：
 
 https://juejin.cn/post/7316927971095576630
+
+### 12.源码仓库本地管理
+1.移动硬盘作为远程仓库
+
+挂载目录：/media/xxx/xxx/
+
+新建目录如aosp，初始化裸仓库
+```bash
+cd aosp
+git init --bare
+```
+会出现HEAD、branches、config、description、hooks、info、objects、refs文件或文件夹
+
+2.本地aosp源码
+
+删除.repo/
+```bash
+git init
+git checkout -b my-branch
+
+echo "Initial commit" > README.md
+git add README.md
+git commit -m "Initial commit"
+
+git remote add xxx(远程仓库名随意) /media/xxx/xxx/aosp
+```
+确保git remote add成功
+```bash
+git remote -v
+```
+输出类似
+```bash
+xxx	/media/xxx/xxx/aosp/ (fetch)
+xxx	/media/xxx/xxx/aosp/ (push)
+```
+配置push并推送
+```
+git push --set-upstream xxx my-branch
+```
