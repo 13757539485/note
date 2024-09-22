@@ -5,6 +5,91 @@
 ### Display
 ### SurfaceView
 ### TextureView
+#### 显示一张图片
+```kotlin
+binding.textureView.surfaceTextureListener = object : TextureView.SurfaceTextureListener {
+    override fun onSurfaceTextureAvailable(
+        surfaceTexture: SurfaceTexture,
+        width: Int,
+        height: Int
+    ) {
+        drawBitmapToTextureView(surfaceTexture, width, height)
+    }
+
+    override fun onSurfaceTextureSizeChanged(
+        surfaceTexture: SurfaceTexture,
+        width: Int,
+        height: Int
+    ) {}
+
+    override fun onSurfaceTextureDestroyed(surfaceTexture: SurfaceTexture): Boolean {
+        return false
+    }
+
+    override fun onSurfaceTextureUpdated(surfaceTexture: SurfaceTexture) {}
+}
+
+private fun drawBitmapToTextureView(surfaceTexture: SurfaceTexture, width: Int, height: Int) {
+    // 创建一个 Surface 对象
+    val surface = Surface(surfaceTexture)
+
+    val bitmap = BitmapFactory.decodeResource(resources, R.mipmap.test)
+
+    // 获取 Canvas
+    var canvas: Canvas? = null
+    val matrix = Matrix()
+    try {
+        canvas = surface.lockCanvas(null)
+        if (canvas != null) {
+            // 清空 Canvas
+            canvas.drawColor(0, PorterDuff.Mode.CLEAR)
+            // 计算变换矩阵以适应 TextureView 的大小
+            val srcRect = RectF(0f, 0f, bitmap.width.toFloat(), bitmap.height.toFloat())
+            val dstRect = RectF(0f, 0f, width.toFloat(), height.toFloat())
+            matrix.setRectToRect(srcRect, dstRect, Matrix.ScaleToFit.FILL)
+
+            // 应用变换矩阵并绘制图片
+            canvas.drawBitmap(bitmap, matrix, null)
+        }
+    } catch (e: Exception) {
+        e.printStackTrace()
+    } finally {
+        if (canvas != null) {
+            // 解锁 Canvas 并提交绘制
+            surface.unlockCanvasAndPost(canvas)
+        }
+    }
+
+    // 释放 Surface
+    surface.release()
+}
+```
+其中铺满Textureview还可以通过scale形式
+```kotlin
+// 计算缩放比例以适应 TextureView 的大小
+val scaleX = width.toFloat() / bitmap.width
+val scaleY = height.toFloat() / bitmap.height
+val scale = scaleX.coerceAtLeast(scaleY) // 使用最大缩放比例以确保图片占满 TextureView
+
+// 设置变换矩阵
+matrix.setScale(scale, scale)
+```
+#### 截图
+获取bitmap
+```kotlin
+val bitmap =
+    binding.textureView.getBitmap(binding.textureView.width, binding.textureView.height)
+```
+截取部分区域
+```kotlin
+bitmap?.let {
+    val regionBitmap = Bitmap.createBitmap(
+        bitmap, 0, 0,
+        100,
+        50)
+    )
+}
+```
 ### Canvas
 Android中的画布
 ### Surface
