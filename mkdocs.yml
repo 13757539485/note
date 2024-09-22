@@ -53,6 +53,7 @@ nav:
            - Camera: android/ui/ui_camera.md
            - ConstraintLayout: android/ui/ui_constraintLayout.md
            - 动画: android/ui/ui_anim.md
+           - Bitmap: android/api/Bitmap.md
         - Framework:
            - AOSP开发:  
               - 环境搭建: android/fws/fws_aosp.md
