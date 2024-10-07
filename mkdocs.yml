@@ -79,12 +79,7 @@ nav:
               - App进程启动: android/fws/fws_app_start.md
               - Android图形系统: android/fws/fws_surface.md
            - RK3588J: android/fws/fws_rk.md
-           - IPC通信: android/fws/fws_process.md
-           - WMS: android/fws/fws_wms.md
-           - AMS/ATMS: android/fws/fws_ams.md
-           - PMS: android/fws/fws_pms.md
-           - Android启动流程: android/fws/fws_android_start.md
-           - App进程启动: android/fws/fws_app_start.md
+           - LineageOS: android/fws/fws_lineage_os.md
         - 性能优化: 
            - 启动优化: android/performance/android_start.md
            - 内存优化: 
@@ -215,5 +210,7 @@ extra:
 
 plugins:
   - search
+  - encryptcontent:
+        password_file: 'passwords.yml'
 
-copyright: Copyright &copy; 2023俞梨 # 左下角的版权声明
+copyright: Copyright &copy; 2024 俞梨 # 左下角的版权声明
