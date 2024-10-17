@@ -2,6 +2,10 @@
 ```
 ifconfig
 ```
+#### 查看ubuntu版本信息
+```
+lsb_release -a
+```
 #### 文件夹去除小锁
 ```
 sudo chmod -R 777 路径(文件夹或文件)
@@ -150,3 +154,31 @@ du -sh 文件夹
 sudo apt-get install hdparm
 sudo hdparm -Tt /dev/sda
 ```
+#### apt update报错
+在ubuntu22.10上
+
+E: The repository 'https://mirrors.tuna.tsinghua.edu.cn/ubuntu kinetic Release' does not have a Release file.
+
+解决：
+
+编译/etc/apt/sources.list
+
+复制内容
+```
+# 默认注释了源码镜像以提高 apt update 速度，如有需要可自行取消注释
+deb http://mirrors.ustc.edu.cn/ubuntu-old-releases/ubuntu kinetic main restricted universe multiverse
+#deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ kinetic main restricted universe multiverse
+deb http://mirrors.ustc.edu.cn/ubuntu-old-releases/ubuntu kinetic-updates main restricted universe multiverse
+#deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ kinetic-updates main restricted universe multiverse
+deb http://mirrors.ustc.edu.cn/ubuntu-old-releases/ubuntu kinetic-backports main restricted universe multiverse
+#deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ kinetic-backports main restricted universe multiverse
+
+deb http://mirrors.ustc.edu.cn/ubuntu-old-releases/ubuntu kinetic-security main restricted universe multiverse
+#deb-src http://security.ubuntu.com/ubuntu/ kinetic-security main restricted universe multiverse
+
+# 预发布软件源，不建议启用
+# deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ kinetic-proposed main restricted universe multiverse
+# deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ kinetic-proposed main restricted universe mul
+```
+
+https://mirrors.ustc.edu.cn/help/ubuntu-old-releases.html

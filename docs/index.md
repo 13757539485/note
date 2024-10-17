@@ -15,6 +15,13 @@ linux：
 sudo pip install mkdocs
 ```
 
+## 升级和查看版本
+```
+pip install --upgrade mkdocs
+
+mkdocs --version
+```
+
 ## 创建项目
 ```
 mkdocs new xxx
@@ -102,7 +109,53 @@ theme:
     text: Microsoft YaHei
     code: Courier New
 ```
+### 网页加密插件
+```
+pip install mkdocs-encrypt-plugin
+```
+[官方文档](https://github.com/unverbuggt/mkdocs-encryptcontent-plugin/blob/version3/README.md)
 
+在mkdocs.yml中配置插件
+```
+plugins:
+  - encryptcontent:
+        password_file: 'xxx.yml'
+```
+其中xxx.yml使用来配置各种密码，如
+```
+classified: '000'
+confidential:
+    - '111'
+    - '222'
+secret:
+    user1: '333'
+    user2: '444'
+```
+某个md文件中调用
+
+1. classified
+```
+---
+level: classified
+---
+```
+则打开页面是需要输入classified对应的密码
+2. confidential
+```
+---
+level: confidential
+user: 0
+---
+```
+则打开页面是需要输入第一个密码即111
+3. secret
+```
+---
+level: secret
+user: user1
+---
+```
+则打开页面是需要输入用户名和对应密码
 ### 其他配置(可忽略)
 ```
 markdown_extensions:

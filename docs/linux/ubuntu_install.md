@@ -147,3 +147,97 @@ export JAVA_HOME=/media/yuli/E/Software/android-studio-linux/jbr
 export CLASSPATH=.:${JAVA_HOME}/bin
 export PATH=${JAVA_HOME}/bin:/media/yuli/E/Software/AndroidSDKlinux/platform-tools:$PATH
 ```
+
+#### 迁移系统
+1. U盘启动选try ubuntu
+
+2. 打开磁盘工具
+
+查看系统路径以及新硬盘路径，如
+
+当前系统所在硬盘为/dev/nvme1n1p1
+
+新硬盘路径为/dev/nvme0n1p1
+
+3. 打开终端
+
+分别执行
+```
+sudo -i
+
+dd if=dev/nvme1n1p1 of=/dev/nvme0n1p1
+```
+查看复制进度，分别执行
+```
+sudo -i
+
+watch -n 5 killall -USR1 dd
+```
+4. 更新新硬盘分区
+```
+umount /dev/nvme0n1p1
+e2fsck -f /dev/nvme0n1p1
+resize2fs /dev/nvme0n1p1
+```
+5. 更新uuid
+```
+uuidgen | xargs tune2fs /dev/nvme0n1p1 -U
+```
+6. 修复引导
+```
+sudo add-apt-repository ppa:yannubuntu/boot-repair
+
+sudo apt update
+
+sudo apt install boot-repair -y
+```
+[update报错](../linux/linux_command.md#apt_update)
+
+报错Unable to locate package boot-repair
+
+```
+cd /etc/apt/sources.list.d
+```
+将kinetic(22.10版本不维护)
+```
+deb http://ppa.launchpad.net/yannubuntu/boot-repair/ubuntu kinetic main
+```
+改成jammy(22.04版本不维护)
+```
+deb http://ppa.launchpad.net/yannubuntu/boot-repair/ubuntu jammy main
+```
+各版本：http://ppa.launchpad.net/yannubuntu/boot-repair/ubuntu/dists/
+
+启动boot-repair
+```
+sudo boot-repair
+```
+展开高级选项
+
+![boot-repair](../linux/boot-repair.png)
+
+OS to boot by default选择nvme0n1p1，apply即可
+
+7. 修改启动项
+查看所有分区的uuid
+```
+sudo blkid
+```
+打开/etc/fstab，对比确认uuid是否正确
+比如EFI分区，fstab中是否为C45C-35DA
+```
+/dev/nvme1n1p1: LABEL_FATBOOT="SYSTEM" LABEL="SYSTEM" UUID="C45C-35DA" BLOCK_SIZE="512" TYPE="vfat" PARTLABEL="EFI system partition" PARTUUID="ebce88d0-cf4e-49db-8f60-6d1782375532"
+```
+或者在fstab中的其他如刚复制完的硬盘，确认blkid列出的uuid存在
+```
+UUID=356ea4ad-399f-4ea7-a761-8f1465ef2472 /               ext4    errors=remount-ro 0       1
+```
+
+如有不存在现在会导致开机失败，报failed to start remount root and kernel file system
+
+8. 重启验证
+
+将老的硬盘拔除，如果重启启动列表选择有多个ubuntu，开机后执行
+```
+sudo update-grub
+```

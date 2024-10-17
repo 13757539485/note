@@ -69,6 +69,7 @@ nav:
                 - 源码: android/fws/fws_split.md
                 - 案例: android/fws/fws_split_case.md
               - 系统动画: android/fws/fws_anim.md
+              - 开机动画: android/fws/fws_boot.md
            - AOSP源码:  
               - Handler: android/fws/fws_handler.md
               - IPC通信: android/fws/fws_process.md

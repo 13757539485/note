@@ -347,7 +347,16 @@ https://dl.google.com/android/asfp/asfp-2023.2.1.19-linux.deb
 
 https://juejin.cn/post/7316927971095576630
 
-### 12.源码仓库本地管理
+### 12.AIDEGen导入源码
+配置as路径
+
+vi ~/.bashrc
+```
+export ANDROID_HOME=/opt/android-studio-for-platform
+export PATH=$PATH:$ANDROID_HOME/bin
+```
+
+### 13.源码仓库本地管理
 1.移动硬盘作为远程仓库
 
 挂载目录：/media/xxx/xxx/
