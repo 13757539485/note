@@ -8,16 +8,20 @@
       
       
       
-        <link rel="canonical" href="https://13757539485.github.io/note/android/performance/android_jvmti/">
+        <link rel="canonical" href="https://13757539485.github.io/note/android/fws/fws_boot/">
       
       
+        <link rel="prev" href="../fws_anim/">
+      
+      
+        <link rel="next" href="../fws_handler/">
       
       <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.1.3">
     
     
       
-        <title>Android jvmti - 我的笔记</title>
+        <title>开机动画 - 我的笔记</title>
       
     
     
@@ -68,6 +72,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -97,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Android jvmti
+              开机动画
             
           </span>
         </div>
@@ -179,6 +188,8 @@
         
   
   
+    
+  
 
 
   
@@ -195,7 +206,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../java/java_basic/" class="md-tabs__link">
+      <a href="../../java/java_basic/" class="md-tabs__link md-tabs__link--active">
         Android系统
       </a>
     </li>
@@ -347,14 +358,16 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" checked>
       
       
       
@@ -363,7 +376,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_1">
           <span class="md-nav__icon md-icon"></span>
           Android系统
@@ -374,14 +387,16 @@
               
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_1" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_1" checked>
       
       
       
@@ -390,7 +405,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_1_label" aria-expanded="false">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_1_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_1_1">
           <span class="md-nav__icon md-icon"></span>
           学习笔记
@@ -1261,14 +1276,16 @@
               
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_1_9" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_1_9" checked>
       
       
       
@@ -1277,7 +1294,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_1_1_9_label" aria-expanded="false">
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_1_1_9_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_1_1_9">
           <span class="md-nav__icon md-icon"></span>
           Framework
@@ -1288,14 +1305,16 @@
               
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_1_9_1" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_1_9_1" checked>
       
       
       
@@ -1304,7 +1323,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_1_1_9_1_label" aria-expanded="false">
+      <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_1_1_9_1_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_1_1_9_1">
           <span class="md-nav__icon md-icon"></span>
           AOSP开发
@@ -1317,7 +1336,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../fws/fws_aosp/" class="md-nav__link">
+      <a href="../fws_aosp/" class="md-nav__link">
         环境搭建
       </a>
     </li>
@@ -1331,7 +1350,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../fws/fws_aosp_make/" class="md-nav__link">
+      <a href="../fws_aosp_make/" class="md-nav__link">
         编译相关
       </a>
     </li>
@@ -1345,7 +1364,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../fws/fws_mk_bp/" class="md-nav__link">
+      <a href="../fws_mk_bp/" class="md-nav__link">
         小功能
       </a>
     </li>
@@ -1386,7 +1405,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../fws/fws_sensor/" class="md-nav__link">
+      <a href="../fws_sensor/" class="md-nav__link">
         源码
       </a>
     </li>
@@ -1400,8 +1419,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../fws/fws_sensor_case/" class="md-nav__link">
-        [Protected] 案例
+      <a href="../fws_sensor_case/" class="md-nav__link">
+        案例
       </a>
     </li>
   
@@ -1448,7 +1467,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../fws/fws_drag/" class="md-nav__link">
+      <a href="../fws_drag/" class="md-nav__link">
         源码
       </a>
     </li>
@@ -1462,8 +1481,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../fws/fws_drag_case/" class="md-nav__link">
-        [Protected] 案例
+      <a href="../fws_drag_case/" class="md-nav__link">
+        案例
       </a>
     </li>
   
@@ -1510,7 +1529,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../fws/fws_split/" class="md-nav__link">
+      <a href="../fws_split/" class="md-nav__link">
         源码
       </a>
     </li>
@@ -1524,8 +1543,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../fws/fws_split_case/" class="md-nav__link">
-        [Protected] 案例
+      <a href="../fws_split_case/" class="md-nav__link">
+        案例
       </a>
     </li>
   
@@ -1545,7 +1564,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../fws/fws_anim/" class="md-nav__link">
+      <a href="../fws_anim/" class="md-nav__link">
         [Protected] 系统动画
       </a>
     </li>
@@ -1557,11 +1576,103 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../../fws/fws_boot/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          开机动画
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         开机动画
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    总体介绍
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    源码分析
+  </a>
+  
+    <nav class="md-nav" aria-label="源码分析">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    源码路径
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    启动流程
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    结束流程
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opengl" class="md-nav__link">
+    opengl绘制
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#zip" class="md-nav__link">
+    zip形式绘制
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    实战
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1607,7 +1718,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../fws/fws_handler/" class="md-nav__link">
+      <a href="../fws_handler/" class="md-nav__link">
         Handler
       </a>
     </li>
@@ -1621,7 +1732,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../fws/fws_process/" class="md-nav__link">
+      <a href="../fws_process/" class="md-nav__link">
         IPC通信
       </a>
     </li>
@@ -1635,7 +1746,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../fws/fws_wms/" class="md-nav__link">
+      <a href="../fws_wms/" class="md-nav__link">
         WMS
       </a>
     </li>
@@ -1649,7 +1760,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../fws/fws_ams/" class="md-nav__link">
+      <a href="../fws_ams/" class="md-nav__link">
         AMS/ATMS
       </a>
     </li>
@@ -1663,7 +1774,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../fws/fws_pms/" class="md-nav__link">
+      <a href="../fws_pms/" class="md-nav__link">
         PMS
       </a>
     </li>
@@ -1677,7 +1788,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../fws/fws_android_start/" class="md-nav__link">
+      <a href="../fws_android_start/" class="md-nav__link">
         Android启动流程
       </a>
     </li>
@@ -1691,7 +1802,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../fws/fws_app_start/" class="md-nav__link">
+      <a href="../fws_app_start/" class="md-nav__link">
         App进程启动
       </a>
     </li>
@@ -1705,7 +1816,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../fws/fws_surface/" class="md-nav__link">
+      <a href="../fws_surface/" class="md-nav__link">
         Android图形系统
       </a>
     </li>
@@ -1726,7 +1837,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../fws/fws_rk/" class="md-nav__link">
+      <a href="../fws_rk/" class="md-nav__link">
         RK3588J
       </a>
     </li>
@@ -1740,7 +1851,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../fws/fws_lineage_os/" class="md-nav__link">
+      <a href="../fws_lineage_os/" class="md-nav__link">
         LineageOS
       </a>
     </li>
@@ -1788,7 +1899,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../android_start/" class="md-nav__link">
+      <a href="../../performance/android_start/" class="md-nav__link">
         启动优化
       </a>
     </li>
@@ -1829,7 +1940,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../android_memory_base/" class="md-nav__link">
+      <a href="../../performance/android_memory_base/" class="md-nav__link">
         基础知识
       </a>
     </li>
@@ -1843,7 +1954,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../android_memory_commond/" class="md-nav__link">
+      <a href="../../performance/android_memory_commond/" class="md-nav__link">
         系统命令
       </a>
     </li>
@@ -1857,7 +1968,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../android_memory_leak/" class="md-nav__link">
+      <a href="../../performance/android_memory_leak/" class="md-nav__link">
         内存泄漏优化
       </a>
     </li>
@@ -1871,7 +1982,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../android_memory_shake/" class="md-nav__link">
+      <a href="../../performance/android_memory_shake/" class="md-nav__link">
         内存抖动优化
       </a>
     </li>
@@ -1885,7 +1996,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../android_memory_oom/" class="md-nav__link">
+      <a href="../../performance/android_memory_oom/" class="md-nav__link">
         内存溢出优化
       </a>
     </li>
@@ -1899,7 +2010,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../android_datastructure/" class="md-nav__link">
+      <a href="../../performance/android_datastructure/" class="md-nav__link">
         数据结构优化
       </a>
     </li>
@@ -1913,7 +2024,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../android_bitmap/" class="md-nav__link">
+      <a href="../../performance/android_bitmap/" class="md-nav__link">
         Bitmap优化
       </a>
     </li>
@@ -1961,7 +2072,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../android_anr/" class="md-nav__link">
+      <a href="../../performance/android_anr/" class="md-nav__link">
         ANR监控
       </a>
     </li>
@@ -1975,7 +2086,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../android_crash/" class="md-nav__link">
+      <a href="../../performance/android_crash/" class="md-nav__link">
         Crash监控
       </a>
     </li>
@@ -1996,7 +2107,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../android_ui/" class="md-nav__link">
+      <a href="../../performance/android_ui/" class="md-nav__link">
         UI优化
       </a>
     </li>
@@ -2010,7 +2121,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../android_network/" class="md-nav__link">
+      <a href="../../performance/android_network/" class="md-nav__link">
         网络优化
       </a>
     </li>
@@ -2024,7 +2135,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../android_apk_cut/" class="md-nav__link">
+      <a href="../../performance/android_apk_cut/" class="md-nav__link">
         瘦身优化
       </a>
     </li>
@@ -2038,7 +2149,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../android_storage/" class="md-nav__link">
+      <a href="../../performance/android_storage/" class="md-nav__link">
         储存优化
       </a>
     </li>
@@ -2052,7 +2163,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../android_battery/" class="md-nav__link">
+      <a href="../../performance/android_battery/" class="md-nav__link">
         电池优化
       </a>
     </li>
@@ -2066,7 +2177,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../android_mat/" class="md-nav__link">
+      <a href="../../performance/android_mat/" class="md-nav__link">
         Mat工具
       </a>
     </li>
@@ -2080,7 +2191,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../android_leakcanary/" class="md-nav__link">
+      <a href="../../performance/android_leakcanary/" class="md-nav__link">
         LeakCanary
       </a>
     </li>
@@ -2094,7 +2205,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../android_koom/" class="md-nav__link">
+      <a href="../../performance/android_koom/" class="md-nav__link">
         KOOM
       </a>
     </li>
@@ -2954,6 +3065,76 @@
   
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    总体介绍
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    源码分析
+  </a>
+  
+    <nav class="md-nav" aria-label="源码分析">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    源码路径
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    启动流程
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    结束流程
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opengl" class="md-nav__link">
+    opengl绘制
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#zip" class="md-nav__link">
+    zip形式绘制
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    实战
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2967,9 +3148,240 @@
                   
 
 
-  <h1>Android jvmti</h1>
+  <h1>开机动画</h1>
 
+<h3 id="_1">总体介绍<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
+<p>不依赖于view实现</p>
+<p>逐帧动画：灵活、细腻，图片太大会不流畅</p>
+<p>动画文件存放路径：/system/media/</p>
+<p>Opengl动画：通过编程绘制动画，跨平台，绘制二维、三维等复杂动画或视图</p>
+<h3 id="_2">源码分析<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<h4 id="_3">源码路径<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h4>
+<p>1.bootanimation: frameworks/base/cmds/bootanimation/</p>
+<p>相关文件</p>
+<p>frameworks/base/cmds/bootanimation/bootanim.rc</p>
+<p>编译生成：out/target/product/oriole/system/bin/bootanimation</p>
+<p>2.surfaceflinger: frameworks/native/services/surfaceflinger/</p>
+<p>相关文件</p>
+<p>frameworks/native/services/surfaceflinger/
+- surfaceflinger.rc
+- main_surfaceflinger.cpp
+- SurfaceFlinger.cpp
+- StartPropertySetThread.cpp</p>
+<p>编译生成：out/target/product/oriole/system/bin/surfaceflinger</p>
+<p>3.init: system/core/init/</p>
+<p>system/core/init/
+- main.cpp
+- init.cpp
+- property_service.cpp</p>
+<p>编译生成：out/target/product/oriole/system/bin/init</p>
+<h4 id="_4">启动流程<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h4>
+<p>init.rc调用surfaceflinger.rc和bootanim.rc</p>
+<p>其中bootanim服务不会被启动，会执行disabled，但是bootanim这个service会被记录添加到Service列表中
+<div class="highlight"><pre><span></span><code>service bootanim /system/bin/bootanimation
+    class core animation
+    user graphics
+    group graphics audio
+    disabled
+    oneshot
+    ioprio rt 0
+    task_profiles MaxPerformance
+</code></pre></div>
+main_surfaceflinger.cpp
+<div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="o">**</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">//...</span>
+<span class="w">    </span><span class="n">sp</span><span class="o">&lt;</span><span class="n">SurfaceFlinger</span><span class="o">&gt;</span><span class="w"> </span><span class="n">flinger</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">surfaceflinger</span><span class="o">::</span><span class="n">createSurfaceFlinger</span><span class="p">();</span>
+<span class="w">    </span><span class="c1">//...</span>
+<span class="w">    </span><span class="n">flinger</span><span class="o">-&gt;</span><span class="n">init</span><span class="p">();</span>
+<span class="w">    </span><span class="c1">//...</span>
+<span class="w">    </span><span class="n">flinger</span><span class="o">-&gt;</span><span class="n">run</span><span class="p">();</span>
+<span class="w">    </span><span class="c1">//...</span>
+<span class="p">}</span>
+</code></pre></div>
+SurfaceFlinger.cpp
+<div class="highlight"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">SurfaceFlinger::init</span><span class="p">()</span><span class="w"> </span><span class="n">FTL_FAKE_GUARD</span><span class="p">(</span><span class="n">kMainThreadContext</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">//...</span>
+<span class="w">    </span><span class="n">mStartPropertySetThread</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">getFactory</span><span class="p">().</span><span class="n">createStartPropertySetThread</span><span class="p">(</span><span class="n">presentFenceReliable</span><span class="p">);</span>
 
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">mStartPropertySetThread</span><span class="o">-&gt;</span><span class="n">Start</span><span class="p">()</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">NO_ERROR</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">ALOGE</span><span class="p">(</span><span class="s">&quot;Run StartPropertySetThread failed!&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="c1">//...</span>
+<span class="p">}</span>
+</code></pre></div>
+StartPropertySetThread.cpp，启动线程，调用Start后回调用threadLoop
+<div class="highlight"><pre><span></span><code><span class="n">status_t</span><span class="w"> </span><span class="nf">StartPropertySetThread::Start</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">run</span><span class="p">(</span><span class="s">&quot;SurfaceFlinger::StartPropertySetThread&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">PRIORITY_NORMAL</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">bool</span><span class="w"> </span><span class="nf">StartPropertySetThread::threadLoop</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">//...</span>
+<span class="w">    </span><span class="c1">// Clear BootAnimation exit flag</span>
+<span class="w">    </span><span class="n">property_set</span><span class="p">(</span><span class="s">&quot;service.bootanim.exit&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;0&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="n">property_set</span><span class="p">(</span><span class="s">&quot;service.bootanim.progress&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;0&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="c1">// Start BootAnimation if not started</span>
+<span class="w">    </span><span class="n">property_set</span><span class="p">(</span><span class="s">&quot;ctl.start&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;bootanim&quot;</span><span class="p">);</span><span class="c1">//启动bootanim进程</span>
+<span class="w">    </span><span class="c1">// Exit immediately</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></p>
+<p>main.cpp
+<div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="o">**</span><span class="w"> </span><span class="n">argv</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">//...</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">strcmp</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="w"> </span><span class="s">&quot;second_stage&quot;</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">SecondStageMain</span><span class="p">(</span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="n">argv</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="c1">//...</span>
+<span class="p">}</span>
+</code></pre></div>
+init.cpp
+<div class="highlight"><pre><span></span><code><span class="n">nt</span><span class="w"> </span><span class="nf">SecondStageMain</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="o">**</span><span class="w"> </span><span class="n">argv</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">//...</span>
+<span class="w">    </span><span class="n">PropertyInit</span><span class="p">();</span>
+<span class="w">    </span><span class="c1">//...</span>
+<span class="w">    </span><span class="n">StartPropertyService</span><span class="p">(</span><span class="o">&amp;</span><span class="n">property_fd</span><span class="p">);</span>
+<span class="w">    </span><span class="c1">//...</span>
+<span class="w">    </span><span class="n">HandleControlMessages</span><span class="p">();</span>
+<span class="w">    </span><span class="c1">//...</span>
+<span class="p">}</span>
+</code></pre></div>
+property_service.cpp，创建socket并创建线程来监听property_set设置的属性
+<div class="highlight"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">StartPropertyService</span><span class="p">(</span><span class="kt">int</span><span class="o">*</span><span class="w"> </span><span class="n">epoll_socket</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">//...</span>
+<span class="w">    </span><span class="o">*</span><span class="n">epoll_socket</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">from_init_socket</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sockets</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+<span class="w">    </span><span class="n">init_socket</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sockets</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
+<span class="w">    </span><span class="n">StartSendingMessages</span><span class="p">();</span>
+
+<span class="w">    </span><span class="n">StartThread</span><span class="p">(</span><span class="n">PROP_SERVICE_FOR_SYSTEM_NAME</span><span class="p">,</span><span class="w"> </span><span class="mo">0660</span><span class="p">,</span><span class="w"> </span><span class="n">AID_SYSTEM</span><span class="p">,</span><span class="w"> </span><span class="n">property_service_for_system_thread</span><span class="p">,</span>
+<span class="w">                </span><span class="nb">true</span><span class="p">);</span>
+<span class="w">    </span><span class="n">StartThread</span><span class="p">(</span><span class="n">PROP_SERVICE_NAME</span><span class="p">,</span><span class="w"> </span><span class="mo">0666</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">property_service_thread</span><span class="p">,</span><span class="w"> </span><span class="nb">false</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">//...</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+<span class="kt">void</span><span class="w"> </span><span class="n">StartThread</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">mode</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">gid</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="kr">thread</span><span class="o">&amp;</span><span class="w"> </span><span class="n">t</span><span class="p">,</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">listen_init</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">fd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="k">auto</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CreateSocket</span><span class="p">(</span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">SOCK_STREAM</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">SOCK_CLOEXEC</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">SOCK_NONBLOCK</span><span class="p">,</span>
+<span class="w">                                   </span><span class="cm">/*passcred=*/</span><span class="nb">false</span><span class="p">,</span><span class="w"> </span><span class="cm">/*should_listen=*/</span><span class="nb">false</span><span class="p">,</span><span class="w"> </span><span class="n">mode</span><span class="p">,</span><span class="w"> </span><span class="cm">/*uid=*/</span><span class="mi">0</span><span class="p">,</span>
+<span class="w">                                   </span><span class="cm">/*gid=*/</span><span class="n">gid</span><span class="p">,</span><span class="w"> </span><span class="cm">/*socketcon=*/</span><span class="p">{});</span>
+<span class="w">        </span><span class="n">result</span><span class="p">.</span><span class="n">ok</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">fd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="n">result</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">LOG</span><span class="p">(</span><span class="n">FATAL</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;start_property_service socket creation failed: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">result</span><span class="p">.</span><span class="n">error</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="n">listen</span><span class="p">(</span><span class="n">fd</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">);</span>
+
+<span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">new_thread</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="kr">thread</span><span class="p">(</span><span class="n">PropertyServiceThread</span><span class="p">,</span><span class="w"> </span><span class="n">fd</span><span class="p">,</span><span class="w"> </span><span class="n">listen_init</span><span class="p">);</span>
+<span class="w">    </span><span class="n">t</span><span class="p">.</span><span class="n">swap</span><span class="p">(</span><span class="n">new_thread</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+启动线程PropertyServiceThread
+<div class="highlight"><pre><span></span><code><span class="k">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">PropertyServiceThread</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">fd</span><span class="p">,</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">listen_init</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">Epoll</span><span class="w"> </span><span class="n">epoll</span><span class="p">;</span>
+<span class="w">    </span><span class="c1">//...</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="k">auto</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">epoll</span><span class="p">.</span><span class="n">RegisterHandler</span><span class="p">(</span><span class="n">fd</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">bind</span><span class="p">(</span><span class="n">handle_property_set_fd</span><span class="p">,</span><span class="w"> </span><span class="n">fd</span><span class="p">));</span>
+<span class="w">        </span><span class="o">!</span><span class="n">result</span><span class="p">.</span><span class="n">ok</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">LOG</span><span class="p">(</span><span class="n">FATAL</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">result</span><span class="p">.</span><span class="n">error</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="c1">//...</span>
+<span class="p">}</span>
+<span class="k">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">handle_property_set_fd</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">fd</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">//...</span>
+<span class="w">    </span><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="no">PROP_MSG_SETPROP</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">//...</span>
+<span class="w">        </span><span class="k">auto</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">HandlePropertySetNoSocket</span><span class="p">(</span><span class="n">prop_name</span><span class="p">,</span><span class="w"> </span><span class="n">prop_value</span><span class="p">,</span><span class="w"> </span><span class="n">source_context</span><span class="p">,</span><span class="w"> </span><span class="n">cr</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">error</span><span class="p">);</span>
+<span class="w">    </span><span class="c1">//...</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="no">PROP_MSG_SETPROP2</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">auto</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">HandlePropertySet</span><span class="p">(</span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">value</span><span class="p">,</span><span class="w"> </span><span class="n">source_context</span><span class="p">,</span><span class="w"> </span><span class="n">cr</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">socket</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">error</span><span class="p">);</span>
+<span class="w">    </span><span class="c1">//...</span>
+<span class="p">}</span>
+</code></pre></div>
+最终会调用HandlePropertySet，之前设置的是ctl.start
+<div class="highlight"><pre><span></span><code><span class="n">std</span><span class="o">::</span><span class="n">optional</span><span class="o">&lt;</span><span class="kt">uint32_t</span><span class="o">&gt;</span><span class="w"> </span><span class="n">HandlePropertySet</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span><span class="w"> </span><span class="n">value</span><span class="p">,</span>
+<span class="w">                                          </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span><span class="w"> </span><span class="n">source_context</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">ucred</span><span class="o">&amp;</span><span class="w"> </span><span class="n">cr</span><span class="p">,</span>
+<span class="w">                                          </span><span class="n">SocketConnection</span><span class="o">*</span><span class="w"> </span><span class="n">socket</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">*</span><span class="w"> </span><span class="n">error</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">//...</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">StartsWith</span><span class="p">(</span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;ctl.&quot;</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="p">{</span><span class="n">SendControlMessage</span><span class="p">(</span><span class="n">name</span><span class="p">.</span><span class="n">c_str</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="n">value</span><span class="p">,</span><span class="w"> </span><span class="n">cr</span><span class="p">.</span><span class="n">pid</span><span class="p">,</span><span class="w"> </span><span class="n">socket</span><span class="p">,</span><span class="w"> </span><span class="n">error</span><span class="p">)};</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="c1">//...</span>
+<span class="p">}</span>
+
+<span class="k">static</span><span class="w"> </span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">SendControlMessage</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span><span class="w"> </span><span class="n">msg</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="kt">pid_t</span><span class="w"> </span><span class="n">pid</span><span class="p">,</span>
+<span class="w">                                   </span><span class="n">SocketConnection</span><span class="o">*</span><span class="w"> </span><span class="n">socket</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">*</span><span class="w"> </span><span class="n">error</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">//...</span>
+<span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="n">queue_success</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">QueueControlMessage</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">pid</span><span class="p">,</span><span class="w"> </span><span class="n">fd</span><span class="p">);</span>
+<span class="w">    </span><span class="c1">//...</span>
+<span class="p">}</span>
+</code></pre></div>
+init.cpp
+<div class="highlight"><pre><span></span><code><span class="kt">bool</span><span class="w"> </span><span class="nf">QueueControlMessage</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span><span class="w"> </span><span class="n">message</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="kt">pid_t</span><span class="w"> </span><span class="n">pid</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">fd</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">//...</span>
+<span class="w">    </span><span class="n">pending_control_messages</span><span class="p">.</span><span class="n">push</span><span class="p">({</span><span class="n">message</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">pid</span><span class="p">,</span><span class="w"> </span><span class="n">fd</span><span class="p">});</span>
+<span class="w">    </span><span class="n">WakeMainInitThread</span><span class="p">();</span>
+<span class="w">    </span><span class="c1">//...</span>
+<span class="p">}</span>
+</code></pre></div>
+WakeMainInitThread会触发HandleControlMessages
+<div class="highlight"><pre><span></span><code><span class="k">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">HandleControlMessages</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">lock</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">unique_lock</span><span class="p">{</span><span class="n">pending_control_messages_lock</span><span class="p">};</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">pending_control_messages</span><span class="p">.</span><span class="n">empty</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">auto</span><span class="w"> </span><span class="n">control_message</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pending_control_messages</span><span class="p">.</span><span class="n">front</span><span class="p">();</span>
+<span class="w">        </span><span class="n">pending_control_messages</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span>
+<span class="w">        </span><span class="n">lock</span><span class="p">.</span><span class="n">unlock</span><span class="p">();</span>
+<span class="w">        </span><span class="kt">bool</span><span class="w"> </span><span class="n">success</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">HandleControlMessage</span><span class="p">(</span><span class="n">control_message</span><span class="p">.</span><span class="n">message</span><span class="p">,</span><span class="w"> </span><span class="n">control_message</span><span class="p">.</span><span class="n">name</span><span class="p">,</span>
+<span class="w">                                            </span><span class="n">control_message</span><span class="p">.</span><span class="n">pid</span><span class="p">);</span>
+<span class="w">        </span><span class="c1">//...</span>
+<span class="w">        </span><span class="n">lock</span><span class="p">.</span><span class="n">lock</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="c1">//...</span>
+<span class="p">}</span>
+<span class="k">static</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="nf">HandleControlMessage</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string_view</span><span class="w"> </span><span class="n">message</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span><span class="w"> </span><span class="n">name</span><span class="p">,</span>
+<span class="w">                                 </span><span class="kt">pid_t</span><span class="w"> </span><span class="n">from_pid</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">//...</span>
+<span class="w">    </span><span class="n">Service</span><span class="o">*</span><span class="w"> </span><span class="n">service</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">;</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ConsumePrefix</span><span class="p">(</span><span class="o">&amp;</span><span class="n">action</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;interface_&quot;</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">service</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ServiceList</span><span class="o">::</span><span class="n">GetInstance</span><span class="p">().</span><span class="n">FindInterface</span><span class="p">(</span><span class="n">name</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">service</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ServiceList</span><span class="o">::</span><span class="n">GetInstance</span><span class="p">().</span><span class="n">FindService</span><span class="p">(</span><span class="n">name</span><span class="p">);</span><span class="n">通过name</span><span class="o">=</span><span class="n">bootanim找到对应的服务</span><span class="err">，</span><span class="n">init的时候被记录到ServiceList并disabled的</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="o">&amp;</span><span class="w"> </span><span class="n">map</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">GetControlMessageMap</span><span class="p">();</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">map</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="n">action</span><span class="p">);</span><span class="c1">//action=start</span>
+<span class="w">    </span><span class="c1">//...</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="o">&amp;</span><span class="w"> </span><span class="n">function</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">it</span><span class="o">-&gt;</span><span class="n">second</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="k">auto</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">function</span><span class="p">(</span><span class="n">service</span><span class="p">);</span><span class="w"> </span><span class="o">!</span><span class="n">result</span><span class="p">.</span><span class="n">ok</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">//...</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="c1">//...</span>
+<span class="p">}</span>
+<span class="k">static</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">map</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">,</span><span class="w"> </span><span class="n">ControlMessageFunction</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">less</span><span class="o">&lt;&gt;&gt;&amp;</span><span class="w"> </span><span class="n">GetControlMessageMap</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// clang-format off</span>
+<span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">map</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">,</span><span class="w"> </span><span class="n">ControlMessageFunction</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">less</span><span class="o">&lt;&gt;&gt;</span><span class="w"> </span><span class="n">control_message_functions</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="p">{</span><span class="s">&quot;sigstop_on&quot;</span><span class="p">,</span><span class="w">        </span><span class="p">[](</span><span class="k">auto</span><span class="o">*</span><span class="w"> </span><span class="n">service</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">service</span><span class="o">-&gt;</span><span class="n">set_sigstop</span><span class="p">(</span><span class="nb">true</span><span class="p">);</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">Result</span><span class="o">&lt;</span><span class="kt">void</span><span class="o">&gt;</span><span class="p">{};</span><span class="w"> </span><span class="p">}},</span>
+<span class="w">        </span><span class="p">{</span><span class="s">&quot;sigstop_off&quot;</span><span class="p">,</span><span class="w">       </span><span class="p">[](</span><span class="k">auto</span><span class="o">*</span><span class="w"> </span><span class="n">service</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">service</span><span class="o">-&gt;</span><span class="n">set_sigstop</span><span class="p">(</span><span class="nb">false</span><span class="p">);</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">Result</span><span class="o">&lt;</span><span class="kt">void</span><span class="o">&gt;</span><span class="p">{};</span><span class="w"> </span><span class="p">}},</span>
+<span class="w">        </span><span class="p">{</span><span class="s">&quot;oneshot_on&quot;</span><span class="p">,</span><span class="w">        </span><span class="p">[](</span><span class="k">auto</span><span class="o">*</span><span class="w"> </span><span class="n">service</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">service</span><span class="o">-&gt;</span><span class="n">set_oneshot</span><span class="p">(</span><span class="nb">true</span><span class="p">);</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">Result</span><span class="o">&lt;</span><span class="kt">void</span><span class="o">&gt;</span><span class="p">{};</span><span class="w"> </span><span class="p">}},</span>
+<span class="w">        </span><span class="p">{</span><span class="s">&quot;oneshot_off&quot;</span><span class="p">,</span><span class="w">       </span><span class="p">[](</span><span class="k">auto</span><span class="o">*</span><span class="w"> </span><span class="n">service</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">service</span><span class="o">-&gt;</span><span class="n">set_oneshot</span><span class="p">(</span><span class="nb">false</span><span class="p">);</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">Result</span><span class="o">&lt;</span><span class="kt">void</span><span class="o">&gt;</span><span class="p">{};</span><span class="w"> </span><span class="p">}},</span>
+<span class="w">        </span><span class="p">{</span><span class="s">&quot;start&quot;</span><span class="p">,</span><span class="w">             </span><span class="n">DoControlStart</span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span><span class="s">&quot;stop&quot;</span><span class="p">,</span><span class="w">              </span><span class="n">DoControlStop</span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span><span class="s">&quot;restart&quot;</span><span class="p">,</span><span class="w">           </span><span class="n">DoControlRestart</span><span class="p">},</span>
+<span class="w">    </span><span class="p">};</span>
+<span class="w">    </span><span class="c1">// clang-format on</span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">control_message_functions</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="k">static</span><span class="w"> </span><span class="n">Result</span><span class="o">&lt;</span><span class="kt">void</span><span class="o">&gt;</span><span class="w"> </span><span class="n">DoControlStart</span><span class="p">(</span><span class="n">Service</span><span class="o">*</span><span class="w"> </span><span class="n">service</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">service</span><span class="o">-&gt;</span><span class="n">Start</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div>
+即bootanim这个服务又被启动了</p>
+<h4 id="_5">结束流程<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h4>
+<h3 id="opengl">opengl绘制<a class="headerlink" href="#opengl" title="Permanent link">&para;</a></h3>
+<h3 id="zip">zip形式绘制<a class="headerlink" href="#zip" title="Permanent link">&para;</a></h3>
+<h3 id="_6">实战<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<p><a href="../fws_boot_case/">案例</a></p>
 
 
 

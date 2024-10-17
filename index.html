@@ -1558,6 +1558,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="android/fws/fws_boot/" class="md-nav__link">
+        开机动画
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -2974,27 +2988,34 @@
       
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
-    创建项目
+    升级和查看版本
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
-    查看预览
+    创建项目
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
-    生成网页
+    查看预览
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_5" class="md-nav__link">
+    生成网页
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
     发布
   </a>
   
@@ -3016,14 +3037,21 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     配置主题
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
+  <a href="#_8" class="md-nav__link">
+    网页加密插件
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
     其他配置(可忽略)
   </a>
   
@@ -3062,18 +3090,23 @@
 linux：
 <div class="highlight"><pre><span></span><code>sudo pip install mkdocs
 </code></pre></div></p>
-<h2 id="_2">创建项目<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h2 id="_2">升级和查看版本<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>pip install --upgrade mkdocs
+
+mkdocs --version
+</code></pre></div>
+<h2 id="_3">创建项目<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code>mkdocs new xxx
 </code></pre></div>
-<h2 id="_3">查看预览<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<h2 id="_4">查看预览<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <p><div class="highlight"><pre><span></span><code>cd xxx
 mkdocs serve
 </code></pre></div>
 在http://127.0.0.1:8000进行查看</p>
-<h2 id="_4">生成网页<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<h2 id="_5">生成网页<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code>mkdocs build
 </code></pre></div>
-<h2 id="_5">发布<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<h2 id="_6">发布<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
 <ol>
 <li>github配置</li>
 </ol>
@@ -3121,7 +3154,7 @@ git push -u origin main
 <p><div class="highlight"><pre><span></span><code>pip install mkdocs-material
 </code></pre></div>
 linux需要使用sudo</p>
-<h3 id="_6">配置主题<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<h3 id="_7">配置主题<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code>theme: 
   name: material
   language: zh
@@ -3134,7 +3167,48 @@ linux需要使用sudo</p>
     text: Microsoft YaHei
     code: Courier New
 </code></pre></div>
-<h3 id="_7">其他配置(可忽略)<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<h3 id="_8">网页加密插件<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<p><div class="highlight"><pre><span></span><code>pip install mkdocs-encrypt-plugin
+</code></pre></div>
+<a href="https://github.com/unverbuggt/mkdocs-encryptcontent-plugin/blob/version3/README.md">官方文档</a></p>
+<p>在mkdocs.yml中配置插件
+<div class="highlight"><pre><span></span><code>plugins:
+  - encryptcontent:
+        password_file: &#39;xxx.yml&#39;
+</code></pre></div>
+其中xxx.yml使用来配置各种密码，如
+<div class="highlight"><pre><span></span><code>classified: &#39;000&#39;
+confidential:
+    - &#39;111&#39;
+    - &#39;222&#39;
+secret:
+    user1: &#39;333&#39;
+    user2: &#39;444&#39;
+</code></pre></div>
+某个md文件中调用</p>
+<ol>
+<li>classified
+<div class="highlight"><pre><span></span><code>---
+level: classified
+---
+</code></pre></div>
+则打开页面是需要输入classified对应的密码</li>
+<li>confidential
+<div class="highlight"><pre><span></span><code>---
+level: confidential
+user: 0
+---
+</code></pre></div>
+则打开页面是需要输入第一个密码即111</li>
+<li>secret
+<div class="highlight"><pre><span></span><code>---
+level: secret
+user: user1
+---
+</code></pre></div>
+则打开页面是需要输入用户名和对应密码</li>
+</ol>
+<h3 id="_9">其他配置(可忽略)<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
 <p><div class="highlight"><pre><span></span><code>markdown_extensions:
   - admonition
   - codehilite:

@@ -1524,8 +1524,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#12" class="md-nav__link">
-    12.源码仓库本地管理
+  <a href="#12aidegen" class="md-nav__link">
+    12.AIDEGen导入源码
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13" class="md-nav__link">
+    13.源码仓库本地管理
   </a>
   
 </li>
@@ -1761,6 +1768,20 @@
     <li class="md-nav__item">
       <a href="../fws_anim/" class="md-nav__link">
         [Protected] 系统动画
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fws_boot/" class="md-nav__link">
+        开机动画
       </a>
     </li>
   
@@ -3319,8 +3340,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#12" class="md-nav__link">
-    12.源码仓库本地管理
+  <a href="#12aidegen" class="md-nav__link">
+    12.AIDEGen导入源码
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13" class="md-nav__link">
+    13.源码仓库本地管理
   </a>
   
 </li>
@@ -3612,7 +3640,13 @@ sudo<span class="w"> </span>sysctl<span class="w"> </span>-p<span class="w"> </s
 <p><a href="https://dl.google.com/android/asfp/asfp-2023.2.1.19-linux.deb">https://dl.google.com/android/asfp/asfp-2023.2.1.19-linux.deb</a></p>
 <p>使用教程：</p>
 <p><a href="https://juejin.cn/post/7316927971095576630">https://juejin.cn/post/7316927971095576630</a></p>
-<h3 id="12">12.源码仓库本地管理<a class="headerlink" href="#12" title="Permanent link">&para;</a></h3>
+<h3 id="12aidegen">12.AIDEGen导入源码<a class="headerlink" href="#12aidegen" title="Permanent link">&para;</a></h3>
+<p>配置as路径</p>
+<p>vi ~/.bashrc
+<div class="highlight"><pre><span></span><code>export ANDROID_HOME=/opt/android-studio-for-platform
+export PATH=$PATH:$ANDROID_HOME/bin
+</code></pre></div></p>
+<h3 id="13">13.源码仓库本地管理<a class="headerlink" href="#13" title="Permanent link">&para;</a></h3>
 <p>1.移动硬盘作为远程仓库</p>
 <p>挂载目录：/media/xxx/xxx/</p>
 <p>新建目录如aosp，初始化裸仓库

@@ -1564,6 +1564,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../android/fws/fws_boot/" class="md-nav__link">
+        开机动画
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -2674,6 +2688,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    迁移系统
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -3166,6 +3187,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    迁移系统
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -3301,6 +3329,83 @@ export JAVA_HOME=/media/yuli/E/Software/android-studio-linux/jbr
 export CLASSPATH=.:${JAVA_HOME}/bin
 export PATH=${JAVA_HOME}/bin:/media/yuli/E/Software/AndroidSDKlinux/platform-tools:$PATH
 </code></pre></div>
+<h4 id="_5">迁移系统<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h4>
+<ol>
+<li>
+<p>U盘启动选try ubuntu</p>
+</li>
+<li>
+<p>打开磁盘工具</p>
+</li>
+</ol>
+<p>查看系统路径以及新硬盘路径，如</p>
+<p>当前系统所在硬盘为/dev/nvme1n1p1</p>
+<p>新硬盘路径为/dev/nvme0n1p1</p>
+<ol>
+<li>打开终端</li>
+</ol>
+<p>分别执行
+<div class="highlight"><pre><span></span><code>sudo -i
+
+dd if=dev/nvme1n1p1 of=/dev/nvme0n1p1
+</code></pre></div>
+查看复制进度，分别执行
+<div class="highlight"><pre><span></span><code>sudo -i
+
+watch -n 5 killall -USR1 dd
+</code></pre></div>
+4. 更新新硬盘分区
+<div class="highlight"><pre><span></span><code>umount /dev/nvme0n1p1
+e2fsck -f /dev/nvme0n1p1
+resize2fs /dev/nvme0n1p1
+</code></pre></div>
+5. 更新uuid
+<div class="highlight"><pre><span></span><code>uuidgen | xargs tune2fs /dev/nvme0n1p1 -U
+</code></pre></div>
+6. 修复引导
+<div class="highlight"><pre><span></span><code>sudo add-apt-repository ppa:yannubuntu/boot-repair
+
+sudo apt update
+
+sudo apt install boot-repair -y
+</code></pre></div>
+<a href="../linux_command/#apt_update">update报错</a></p>
+<p>报错Unable to locate package boot-repair</p>
+<p><div class="highlight"><pre><span></span><code>cd /etc/apt/sources.list.d
+</code></pre></div>
+将kinetic(22.10版本不维护)
+<div class="highlight"><pre><span></span><code>deb http://ppa.launchpad.net/yannubuntu/boot-repair/ubuntu kinetic main
+</code></pre></div>
+改成jammy(22.04版本不维护)
+<div class="highlight"><pre><span></span><code>deb http://ppa.launchpad.net/yannubuntu/boot-repair/ubuntu jammy main
+</code></pre></div>
+各版本：<a href="http://ppa.launchpad.net/yannubuntu/boot-repair/ubuntu/dists/">http://ppa.launchpad.net/yannubuntu/boot-repair/ubuntu/dists/</a></p>
+<p>启动boot-repair
+<div class="highlight"><pre><span></span><code>sudo boot-repair
+</code></pre></div>
+展开高级选项</p>
+<p><img alt="boot-repair" src="../boot-repair.png" /></p>
+<p>OS to boot by default选择nvme0n1p1，apply即可</p>
+<ol>
+<li>修改启动项
+查看所有分区的uuid
+<div class="highlight"><pre><span></span><code>sudo blkid
+</code></pre></div>
+打开/etc/fstab，对比确认uuid是否正确
+比如EFI分区，fstab中是否为C45C-35DA
+<div class="highlight"><pre><span></span><code>/dev/nvme1n1p1: LABEL_FATBOOT=&quot;SYSTEM&quot; LABEL=&quot;SYSTEM&quot; UUID=&quot;C45C-35DA&quot; BLOCK_SIZE=&quot;512&quot; TYPE=&quot;vfat&quot; PARTLABEL=&quot;EFI system partition&quot; PARTUUID=&quot;ebce88d0-cf4e-49db-8f60-6d1782375532&quot;
+</code></pre></div>
+或者在fstab中的其他如刚复制完的硬盘，确认blkid列出的uuid存在
+<div class="highlight"><pre><span></span><code>UUID=356ea4ad-399f-4ea7-a761-8f1465ef2472 /               ext4    errors=remount-ro 0       1
+</code></pre></div></li>
+</ol>
+<p>如有不存在现在会导致开机失败，报failed to start remount root and kernel file system</p>
+<ol>
+<li>重启验证</li>
+</ol>
+<p>将老的硬盘拔除，如果重启启动列表选择有多个ubuntu，开机后执行
+<div class="highlight"><pre><span></span><code>sudo update-grub
+</code></pre></div></p>
 
 
 
