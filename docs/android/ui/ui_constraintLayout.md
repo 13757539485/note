@@ -1,10 +1,11 @@
 #### 使用百分比
+百分比控制组件大小
 ```xml
 <style name="ParentDefaultStyle">
-        <item name="android:layout_width">0dp</item>
-        <item name="android:layout_height">0dp</item>
-        <item name="layout_constraintWidth_default">percent</item>
-        <item name="layout_constraintHeight_default">percent</item>
+    <item name="android:layout_width">0dp</item>
+    <item name="android:layout_height">0dp</item>
+    <item name="layout_constraintWidth_default">percent</item>
+    <item name="layout_constraintHeight_default">percent</item>
 </style>
 ```
 设置组件宽高1：1
@@ -34,3 +35,17 @@
     app:layout_constraintTop_toTopOf="parent" /> 
 
 ```
+
+#### Group
+控制多个组件显示和隐藏
+```xml
+<androidx.constraintlayout.widget.Group
+    android:id="@+id/groupLayout"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:visibility="gone"
+    app:constraint_referenced_ids="id1,id2,id3" />
+```
+使用：
+
+bindng.groupLayout.isVisible = true/false

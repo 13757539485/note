@@ -288,3 +288,8 @@ https://github.com/scwang90/SmartRefreshLayout
 
 ### <a id="xx_p">XXPermissions</a>
 https://github.com/getActivity/XXPermissions
+
+### ImmersionBar
+处理状态栏的库
+
+https://github.com/gyf-dev/ImmersionBar

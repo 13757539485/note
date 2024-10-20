@@ -154,7 +154,7 @@ du -sh 文件夹
 sudo apt-get install hdparm
 sudo hdparm -Tt /dev/sda
 ```
-#### apt update报错
+#### <a id="apt_update">apt update报错</a>
 在ubuntu22.10上
 
 E: The repository 'https://mirrors.tuna.tsinghua.edu.cn/ubuntu kinetic Release' does not have a Release file.
@@ -182,3 +182,10 @@ deb http://mirrors.ustc.edu.cn/ubuntu-old-releases/ubuntu kinetic-security main 
 ```
 
 https://mirrors.ustc.edu.cn/help/ubuntu-old-releases.html
+
+### rar解压
+```shell
+sudo apt-get install unrar
+
+unrar x -p密码 文件
+```

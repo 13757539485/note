@@ -42,6 +42,8 @@ nav:
            - HTTP协议: android/network/net_http.md
            - WebSocket协议: android/network/net_websocket.md
         - 高级UI: 
+           - Jetpack:
+              - viewmodel: android/jetpack/viewmodel.md
            - RecycleView:
               - 基本使用: android/ui/recyclerview/ui_recyclerview.md
               - 多选案例: android/ui/recyclerview/ui_stagger.md
@@ -54,6 +56,7 @@ nav:
            - ConstraintLayout: android/ui/ui_constraintLayout.md
            - 动画: android/ui/ui_anim.md
            - Bitmap: android/api/Bitmap.md
+           - 分屏适配: android/ui/ui_split.md
         - Framework:
            - AOSP开发:  
               - 环境搭建: android/fws/fws_aosp.md

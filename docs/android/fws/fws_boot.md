@@ -23,6 +23,7 @@ frameworks/base/cmds/bootanimation/bootanim.rc
 相关文件
 
 frameworks/native/services/surfaceflinger/
+
 - surfaceflinger.rc
 - main_surfaceflinger.cpp
 - SurfaceFlinger.cpp
@@ -32,7 +33,10 @@ frameworks/native/services/surfaceflinger/
 
 3.init: system/core/init/
 
+相关文件
+
 system/core/init/
+
 - main.cpp
 - init.cpp
 - property_service.cpp
@@ -94,6 +98,7 @@ bool StartPropertySetThread::threadLoop() {
     return false;
 }
 ```
+为何property_set就能启动bootanim服务呢，在init进程启动时会监听属性并启动相应服务
 
 main.cpp
 ```cpp

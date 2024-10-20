@@ -1,9 +1,9 @@
 ### 自定义view之lifecycle
 ```kotlin
-abstract class BaseView @JvmOverloads constructor(
+abstract class BaseConstraintLayout @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null,
     defStyleAttr: Int = 0
-) : FrameLayout(context, attrs, defStyleAttr), LifecycleOwner {
+) : ConstraintLayout(context, attrs, defStyleAttr), LifecycleOwner {
 
     private val lifecycleRegistry by lazy { LifecycleRegistry(this) }
 
@@ -25,3 +25,207 @@ abstract class BaseView @JvmOverloads constructor(
         get() = lifecycleRegistry
 }
 ```
+### 自定义view之裁剪区域
+自定义属性：
+```xml
+<declare-styleable name="CutStatusBarView">
+    // 布局中是否排除状态栏
+    <attr name="statusBarAdapter" format="boolean" />
+    // 布局中是否排除导航栏
+    <attr name="navigationBarAdapter" format="boolean" />
+    // 布局中是否排除刘海区
+    <attr name="cutoutAdapter" format="boolean" />
+</declare-styleable>
+```
+源码：
+```kotlin
+open class CutStatusBarView(
+    context: Context,
+    attrs: AttributeSet? = null,
+) : ConstraintLayout(context, attrs, 0) {
+    private var statusBarAdapter: Boolean = true
+    private var navigationBarAdapter: Boolean = true
+    private var cutoutAdapter: Boolean = true
+
+    init {
+        val obtainStyledAttributes =
+            context.obtainStyledAttributes(attrs, R.styleable.CutStatusBarView)
+        statusBarAdapter =
+            obtainStyledAttributes.getBoolean(R.styleable.CutStatusBarView_statusBarAdapter, true)
+        navigationBarAdapter = obtainStyledAttributes.getBoolean(
+            R.styleable.CutStatusBarView_navigationBarAdapter,
+            true
+        )
+        cutoutAdapter =
+            obtainStyledAttributes.getBoolean(R.styleable.CutStatusBarView_cutoutAdapter, true)
+        obtainStyledAttributes.recycle()
+    }
+
+    override fun onApplyWindowInsets(insets: WindowInsets?): WindowInsets {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+            insets?.let {
+                setPadding(
+                    if (cutoutAdapter) it.getInsets(WindowInsets.Type.displayCutout()).left else 0,
+                    if (statusBarAdapter) it.getInsets(WindowInsets.Type.statusBars()).top else 0,
+                    0,
+                    if (navigationBarAdapter) it.getInsets(WindowInsets.Type.navigationBars()).bottom else 0
+                )
+            }
+        } else {
+            setPadding(
+                if (cutoutAdapter && context is Activity) ImmersionBar.getNotchHeight(context as Activity) else 0,
+                if (statusBarAdapter) ImmersionBar.getStatusBarHeight(context) else 0,
+                0,
+                if (navigationBarAdapter) ImmersionBar.getNavigationBarHeight(context) else 0
+            )
+        }
+        return super.onApplyWindowInsets(insets)
+    }
+}
+```
+兼容低版本需要添加状态栏[immersionbar](../android_github.md#immersionbar)处理库
+
+### 竖向SeekBar
+自定义属性：
+```xml
+<declare-styleable name="VerticalSeekBar">
+    <attr name="barRotation" format="enum" >
+        <enum name="top" value="90" />
+        <enum name="bottom" value="-90" />
+    </attr>
+</declare-styleable>
+```
+源码：
+```kotlin
+class VerticalSeekBar(context: Context, attrs: AttributeSet?) : AppCompatSeekBar(
+    context, attrs
+), OnSeekBarChangeListener {
+    private var barRotation: Int = 90
+    private var startAndStopListener: StartAndStopListener? = null
+    private var touchListener: ((isTouch: Boolean)->Unit)? = null
+
+    init {
+        val obtainStyledAttributes =
+            context.obtainStyledAttributes(attrs, R.styleable.VerticalSeekBar)
+        barRotation = obtainStyledAttributes.getInt(R.styleable.VerticalSeekBar_barRotation, 90)
+        obtainStyledAttributes.recycle()
+        setOnSeekBarChangeListener(this)
+    }
+
+    override fun onSizeChanged(w: Int, h: Int, oldW: Int, oldH: Int) {
+        super.onSizeChanged(h, w, oldW, oldH)
+    }
+
+    @Synchronized
+    override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
+        super.onMeasure(heightMeasureSpec, widthMeasureSpec)
+        setMeasuredDimension(measuredHeight, measuredWidth)
+    }
+
+    override fun onDraw(c: Canvas) {
+        when (barRotation) {
+            90 -> {
+                c.rotate(90f)
+                c.translate(0f, -width.toFloat())
+            }
+
+            -90 -> {
+                c.rotate(-90f)
+                c.translate(-height.toFloat(), 0f)
+            }
+        }
+        super.onDraw(c)
+    }
+
+    @Synchronized
+    override fun setProgress(progress: Int) {
+        super.setProgress(progress)
+        onSizeChanged(width, height, 0, 0)
+    }
+
+    private fun calculateRotationProgress(y: Float) {
+        if (barRotation == -90) {
+            progress = max - (max * y / height).toInt()
+        } else if (barRotation == 90) {
+            progress = (max * y / height).toInt()
+        }
+    }
+
+    override fun onTouchEvent(event: MotionEvent): Boolean {
+        when (event.action) {
+            MotionEvent.ACTION_DOWN -> {
+                startAndStopListener?.startChange(this)
+                calculateRotationProgress(event.y)
+                this.touchListener?.invoke(true)
+            }
+
+            MotionEvent.ACTION_MOVE -> {
+                calculateRotationProgress(event.y)
+            }
+
+            MotionEvent.ACTION_UP, MotionEvent.ACTION_CANCEL -> {
+                startAndStopListener?.stopChange(this, progress)
+                this.touchListener?.invoke(false)
+            }
+
+            else -> return super.onTouchEvent(event)
+        }
+        return true
+    }
+
+    fun setStartAndStopListener(startAndStopListener: StartAndStopListener?) {
+        this.startAndStopListener = startAndStopListener
+    }
+
+    fun setTouchListener(block: (isTouch: Boolean) -> Unit) {
+        this.touchListener = block
+    }
+
+    interface StartAndStopListener {
+        fun startChange(seekBar: VerticalSeekBar)
+        fun onChange(seekBar: VerticalSeekBar, progress: Int, fromUser: Boolean)
+        fun stopChange(seekBar: VerticalSeekBar, progress: Int)
+    }
+
+    override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
+        startAndStopListener?.onChange(this@VerticalSeekBar, progress, fromUser)
+    }
+
+    override fun onStartTrackingTouch(seekBar: SeekBar?) {
+    }
+
+    override fun onStopTrackingTouch(seekBar: SeekBar?) {
+    }
+}
+```
+### Viewbindng使用
+[开启viewbinding](../android_studio.md#viewbinding)
+
+如果XXXBinding是merge作为根布局
+```kotlin
+private val binding: XXXBinding =
+    XXXBinding.inflate(LayoutInflater.from(context), this)
+```
+
+如果XXXBinding是非merge作为根布局
+```kotlin
+private val binding: XXXBinding =
+    XXXBinding.inflate(LayoutInflater.from(context), this, true)
+```
+
+#### Activity/Fragment中include的使用
+IncludeXXXBinding根布局是非merge
+```xml
+<include
+    android:id="@+id/includeLayout"
+    layout="@layout/include_xxx_device" />
+```
+可以使用binding.includeLayout.xxx来调用include_xxx_device中的组件
+
+IncludeXXXBinding根布局是merge情况下只能以下方式
+```kotlin
+private val binding by lazy { ActivityMainBinding.inflate(layoutInflater) }
+private lateinit var includeXXXBinding: IncludeXXXBinding
+includeNXXXBinding = IncludeXXXBinding.bind(binding.root)
+```
+include_xxx_device不需要申明id，使用includeNXXXBinding.xxx来调用include_xxx_device中的组件，也使用于非merge

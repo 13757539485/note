@@ -294,4 +294,34 @@ FlagWithInput("--whitelist ",
 
 /device/设备/型号/xxx.mk
 PRODUCT_PROPERTY_OVERRIDES += \
-       ro.surface_flinger.supports_background_blur=1 
+       ro.surface_flinger.supports_background_blur=1
+
+### 导入jar或aar步骤
+Android.bp中
+```bp
+java_import {
+    name: "my_module_jar",
+    jars: [
+        "libs/my_module.jar", 
+        "libs/kotlinx-coroutines-core-jvm-1.6.0.jar",
+    ],
+}
+android_library_import {
+    name:"my_module_aar",
+    aars: [
+        "libs/my_module-debug.aar", 
+    ],
+    sdk_version: "current",
+}
+```
+如在framework/base/Android.bp调用
+```
+java_library {
+    name: "framework-minus-apex",
+    //...
+    static_libs: [
+       "my_module_jar",
+       "my_module_aar",
+    ],
+}
+```

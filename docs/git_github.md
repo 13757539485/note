@@ -227,3 +227,5 @@ repo forall -c 'git clean -fdx' # 清理未跟踪文件和目录
 repo forall -c 'git reset --hard HEAD' # 硬重置所有模块到HEAD
 repo forall -c 'git stash drop' # 删除暂存区的改动（如果前面执行了stash
 ```
+
+git push origin HEAD:refs/for/master

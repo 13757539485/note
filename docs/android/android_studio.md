@@ -113,8 +113,13 @@ buildFeatures {
     aidl = true
 }
 ```
-
-### <a id="ndk_config">ndk配置</a>
+#### <a id="viewbinding">ViewBinding开启</a>
+```gradle
+buildFeatures {
+    viewBinding = true
+}
+```
+#### <a id="ndk_config">ndk配置</a>
 ```gradle
 android {
     //...
@@ -144,6 +149,38 @@ android {
 ```
 as插件：CMake simple highlighter
 
+#### gradle与kts
+##### 使用阿里源
+kts版本，settings.gradle.kts
+```kts
+maven{ url = uri("https://maven.aliyun.com/repository/google") }
+maven{ url = uri("https://maven.aliyun.com/repository/gradle-plugin") }
+maven{ url = uri("https://maven.aliyun.com/repository/public") }
+maven{ url = uri("https://maven.aliyun.com/repository/jcenter") }
+maven{ url = uri("https://jitpack.io") }
+```
+gradle版本，settings.gradle
+```gradle
+maven{ url 'https://maven.aliyun.com/repository/google'}
+maven{ url 'https://maven.aliyun.com/repository/gradle-plugin'}
+maven{ url 'https://maven.aliyun.com/repository/public'}
+maven{ url 'https://maven.aliyun.com/repository/jcenter'}
+maven{ url 'https://jitpack.io' }
+```
+#### aar依赖
+新建文件夹如xxx_aar，创建build.gradle.kts，内容：
+```kts
+configurations.maybeCreate("default")
+artifacts.add("default",file("xxx.aar"))
+```
+注册模块settings.gradle.kts
+```kts
+include(":local_aar:xxx_aa")
+```
+引用这个module
+```kts
+implementation(project(":local_aar:xxx_aa"))
+```
 ### gradle下载源
 
 https://mirrors.huaweicloud.com/repository/maven/
