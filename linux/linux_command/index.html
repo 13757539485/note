@@ -1069,12 +1069,60 @@
       
       
         <label class="md-nav__link" for="__nav_1_1_8_1" id="__nav_1_1_8_1_label" tabindex="0">
-          RecycleView
+          Jetpack
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_1_1_8_1_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_1_1_8_1">
+          <span class="md-nav__icon md-icon"></span>
+          Jetpack
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../android/jetpack/viewmodel/" class="md-nav__link">
+        viewmodel
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_1_8_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_1_8_2" id="__nav_1_1_8_2_label" tabindex="0">
+          RecycleView
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_1_1_8_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_1_1_8_2">
           <span class="md-nav__icon md-icon"></span>
           RecycleView
         </label>
@@ -1140,17 +1188,17 @@
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_1_8_2" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_1_8_3" >
       
       
       
-        <label class="md-nav__link" for="__nav_1_1_8_2" id="__nav_1_1_8_2_label" tabindex="0">
+        <label class="md-nav__link" for="__nav_1_1_8_3" id="__nav_1_1_8_3_label" tabindex="0">
           View
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_1_1_8_2_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_1_1_8_2">
+      <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_1_1_8_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_1_1_8_3">
           <span class="md-nav__icon md-icon"></span>
           View
         </label>
@@ -1255,6 +1303,20 @@
     <li class="md-nav__item">
       <a href="../../android/api/Bitmap/" class="md-nav__link">
         Bitmap
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../android/ui/ui_split/" class="md-nav__link">
+        分屏适配
       </a>
     </li>
   
@@ -2826,6 +2888,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#rar" class="md-nav__link">
+    rar解压
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -3299,6 +3368,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#rar" class="md-nav__link">
+    rar解压
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -3433,7 +3509,7 @@ find . -name &quot;*&quot; -type f | xargs grep &quot;xxx&quot;
 <div class="highlight"><pre><span></span><code>sudo apt-get install hdparm
 sudo hdparm -Tt /dev/sda
 </code></pre></div>
-<h4 id="apt-update">apt update报错<a class="headerlink" href="#apt-update" title="Permanent link">&para;</a></h4>
+<h4 id="apt-update"><a id="apt_update">apt update报错</a><a class="headerlink" href="#apt-update" title="Permanent link">&para;</a></h4>
 <p>在ubuntu22.10上</p>
 <p>E: The repository '<a href="https://mirrors.tuna.tsinghua.edu.cn/ubuntu">https://mirrors.tuna.tsinghua.edu.cn/ubuntu</a> kinetic Release' does not have a Release file.</p>
 <p>解决：</p>
@@ -3455,6 +3531,11 @@ deb http://mirrors.ustc.edu.cn/ubuntu-old-releases/ubuntu kinetic-security main 
 # deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ kinetic-proposed main restricted universe mul
 </code></pre></div></p>
 <p><a href="https://mirrors.ustc.edu.cn/help/ubuntu-old-releases.html">https://mirrors.ustc.edu.cn/help/ubuntu-old-releases.html</a></p>
+<h3 id="rar">rar解压<a class="headerlink" href="#rar" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>unrar
+
+unrar<span class="w"> </span>x<span class="w"> </span>-p密码<span class="w"> </span>文件
+</code></pre></div>
 
 
 

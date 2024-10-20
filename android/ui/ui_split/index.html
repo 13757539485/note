@@ -8,20 +8,20 @@
       
       
       
-        <link rel="canonical" href="https://13757539485.github.io/note/android/performance/android_crash/">
+        <link rel="canonical" href="https://13757539485.github.io/note/android/ui/ui_split/">
       
       
-        <link rel="prev" href="../android_anr/">
+        <link rel="prev" href="../../api/Bitmap/">
       
       
-        <link rel="next" href="../android_ui/">
+        <link rel="next" href="../../fws/fws_aosp/">
       
       <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.1.3">
     
     
       
-        <title>Crash监控 - 我的笔记</title>
+        <title>分屏适配 - 我的笔记</title>
       
     
     
@@ -73,7 +73,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#java-crash" class="md-skip">
+        <a href="#xml" class="md-skip">
           跳转至
         </a>
       
@@ -106,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Crash监控
+              分屏适配
             
           </span>
         </div>
@@ -1034,14 +1034,16 @@
               
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_1_8" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_1_8" checked>
       
       
       
@@ -1050,7 +1052,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_1_1_8_label" aria-expanded="false">
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_1_1_8_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_1_1_8">
           <span class="md-nav__icon md-icon"></span>
           高级UI
@@ -1138,7 +1140,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ui/recyclerview/ui_recyclerview/" class="md-nav__link">
+      <a href="../recyclerview/ui_recyclerview/" class="md-nav__link">
         基本使用
       </a>
     </li>
@@ -1152,7 +1154,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ui/recyclerview/ui_stagger/" class="md-nav__link">
+      <a href="../recyclerview/ui_stagger/" class="md-nav__link">
         多选案例
       </a>
     </li>
@@ -1166,7 +1168,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ui/recyclerview/ui_source_code/" class="md-nav__link">
+      <a href="../recyclerview/ui_source_code/" class="md-nav__link">
         源码解析
       </a>
     </li>
@@ -1228,7 +1230,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ui/ui_view/" class="md-nav__link">
+      <a href="../ui_view/" class="md-nav__link">
         View&lifecycle
       </a>
     </li>
@@ -1249,7 +1251,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ui/ui_webview/" class="md-nav__link">
+      <a href="../ui_webview/" class="md-nav__link">
         WebView
       </a>
     </li>
@@ -1263,7 +1265,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ui/ui_camera/" class="md-nav__link">
+      <a href="../ui_camera/" class="md-nav__link">
         Camera
       </a>
     </li>
@@ -1277,7 +1279,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ui/ui_constraintLayout/" class="md-nav__link">
+      <a href="../ui_constraintLayout/" class="md-nav__link">
         ConstraintLayout
       </a>
     </li>
@@ -1291,7 +1293,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ui/ui_anim/" class="md-nav__link">
+      <a href="../ui_anim/" class="md-nav__link">
         动画
       </a>
     </li>
@@ -1317,11 +1319,75 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../../ui/ui_split/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          分屏适配
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         分屏适配
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#xml" class="md-nav__link">
+    xml适配
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    数据保存/恢复
+  </a>
+  
+    <nav class="md-nav" aria-label="数据保存/恢复">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#activity" class="md-nav__link">
+    Activity
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fragment" class="md-nav__link">
+    Fragment
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1836,16 +1902,14 @@
               
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_1_10" checked>
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_1_10" >
       
       
       
@@ -1854,7 +1918,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_1_1_10_label" aria-expanded="true">
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_1_1_10_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_1_1_10">
           <span class="md-nav__icon md-icon"></span>
           性能优化
@@ -1867,7 +1931,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../android_start/" class="md-nav__link">
+      <a href="../../performance/android_start/" class="md-nav__link">
         启动优化
       </a>
     </li>
@@ -1908,7 +1972,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../android_memory_base/" class="md-nav__link">
+      <a href="../../performance/android_memory_base/" class="md-nav__link">
         基础知识
       </a>
     </li>
@@ -1922,7 +1986,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../android_memory_commond/" class="md-nav__link">
+      <a href="../../performance/android_memory_commond/" class="md-nav__link">
         系统命令
       </a>
     </li>
@@ -1936,7 +2000,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../android_memory_leak/" class="md-nav__link">
+      <a href="../../performance/android_memory_leak/" class="md-nav__link">
         内存泄漏优化
       </a>
     </li>
@@ -1950,7 +2014,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../android_memory_shake/" class="md-nav__link">
+      <a href="../../performance/android_memory_shake/" class="md-nav__link">
         内存抖动优化
       </a>
     </li>
@@ -1964,7 +2028,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../android_memory_oom/" class="md-nav__link">
+      <a href="../../performance/android_memory_oom/" class="md-nav__link">
         内存溢出优化
       </a>
     </li>
@@ -1978,7 +2042,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../android_datastructure/" class="md-nav__link">
+      <a href="../../performance/android_datastructure/" class="md-nav__link">
         数据结构优化
       </a>
     </li>
@@ -1992,7 +2056,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../android_bitmap/" class="md-nav__link">
+      <a href="../../performance/android_bitmap/" class="md-nav__link">
         Bitmap优化
       </a>
     </li>
@@ -2011,16 +2075,14 @@
               
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_1_10_3" checked>
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_1_10_3" >
       
       
       
@@ -2029,7 +2091,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_1_1_10_3_label" aria-expanded="true">
+      <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_1_1_10_3_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_1_1_10_3">
           <span class="md-nav__icon md-icon"></span>
           稳定性优化
@@ -2042,7 +2104,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../android_anr/" class="md-nav__link">
+      <a href="../../performance/android_anr/" class="md-nav__link">
         ANR监控
       </a>
     </li>
@@ -2054,109 +2116,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Crash监控
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../performance/android_crash/" class="md-nav__link">
         Crash监控
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="目录">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#java-crash" class="md-nav__link">
-    java crash监控
-  </a>
-  
-    <nav class="md-nav" aria-label="java crash监控">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    线下
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    线上
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#native-crash" class="md-nav__link">
-    native crash监控
-  </a>
-  
-    <nav class="md-nav" aria-label="native crash监控">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    线下
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    线上
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    配置分析工具
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#xcrash" class="md-nav__link">
-    XCrash
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -2175,7 +2139,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../android_ui/" class="md-nav__link">
+      <a href="../../performance/android_ui/" class="md-nav__link">
         UI优化
       </a>
     </li>
@@ -2189,7 +2153,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../android_network/" class="md-nav__link">
+      <a href="../../performance/android_network/" class="md-nav__link">
         网络优化
       </a>
     </li>
@@ -2203,7 +2167,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../android_apk_cut/" class="md-nav__link">
+      <a href="../../performance/android_apk_cut/" class="md-nav__link">
         瘦身优化
       </a>
     </li>
@@ -2217,7 +2181,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../android_storage/" class="md-nav__link">
+      <a href="../../performance/android_storage/" class="md-nav__link">
         储存优化
       </a>
     </li>
@@ -2231,7 +2195,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../android_battery/" class="md-nav__link">
+      <a href="../../performance/android_battery/" class="md-nav__link">
         电池优化
       </a>
     </li>
@@ -2245,7 +2209,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../android_mat/" class="md-nav__link">
+      <a href="../../performance/android_mat/" class="md-nav__link">
         Mat工具
       </a>
     </li>
@@ -2259,7 +2223,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../android_leakcanary/" class="md-nav__link">
+      <a href="../../performance/android_leakcanary/" class="md-nav__link">
         LeakCanary
       </a>
     </li>
@@ -2273,7 +2237,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../android_koom/" class="md-nav__link">
+      <a href="../../performance/android_koom/" class="md-nav__link">
         KOOM
       </a>
     </li>
@@ -3140,70 +3104,36 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#java-crash" class="md-nav__link">
-    java crash监控
+  <a href="#xml" class="md-nav__link">
+    xml适配
   </a>
   
-    <nav class="md-nav" aria-label="java crash监控">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
-    线下
+    数据保存/恢复
   </a>
   
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    线上
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#native-crash" class="md-nav__link">
-    native crash监控
-  </a>
-  
-    <nav class="md-nav" aria-label="native crash监控">
+    <nav class="md-nav" aria-label="数据保存/恢复">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    线下
+  <a href="#activity" class="md-nav__link">
+    Activity
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    线上
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    配置分析工具
+  <a href="#fragment" class="md-nav__link">
+    Fragment
   </a>
   
 </li>
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#xcrash" class="md-nav__link">
-    XCrash
-  </a>
   
 </li>
       
@@ -3222,183 +3152,102 @@
                   
 
 
-  <h1>Crash监控</h1>
+  <h1>分屏适配</h1>
 
-<h3 id="java-crash">java crash监控<a class="headerlink" href="#java-crash" title="Permanent link">&para;</a></h3>
-<h4 id="_1">线下<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h4>
-<p>直接通过logcat定位</p>
-<h4 id="_2">线上<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h4>
-<p>实现原理：注册自己的监听，系统提供捕获异常监听接口</p>
-<p>默认在RuntimeInit中设置(KillApplicationHandler)
-<div class="highlight"><pre><span></span><code><span class="n">Thread</span><span class="p">.</span><span class="na">setDefaultUncaughtExceptionHandler</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">KillApplicationHandler</span><span class="p">(</span><span class="n">loggingHandler</span><span class="p">))</span>
+<p>官方案例：</p>
+<p><a href="https://developer.android.google.cn/guide/topics/large-screens/large-screen-canonical-layouts?hl=zh-cn&amp;authuser=2">https://developer.android.google.cn/guide/topics/large-screens/large-screen-canonical-layouts?hl=zh-cn&amp;authuser=2</a></p>
+<h3 id="xml">xml适配<a class="headerlink" href="#xml" title="Permanent link">&para;</a></h3>
+<p>新建layout目录，会根据显示大小找对应的layout目录
+<div class="highlight"><pre><span></span><code>layout default
+layout-w100dp 1/3
+layout-w600dp 1/2
+layout-w840dp 2/3
+layout-w960dp full
 </code></pre></div></p>
-<p>自定义处理
-<div class="highlight"><pre><span></span><code><span class="kd">class</span><span class="w"> </span><span class="nc">CrashHandler</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">UncaughtExceptionHandler</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="nv">defaultUncaughtExceptionHandler</span><span class="p">:</span><span class="w"> </span><span class="n">UncaughtExceptionHandler? </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span>
+<h3 id="_1">数据保存/恢复<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
+<h4 id="activity">Activity<a class="headerlink" href="#activity" title="Permanent link">&para;</a></h4>
+<p>传统方案：
+<div class="highlight"><pre><span></span><code><span class="kd">override</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">onSaveInstanceState</span><span class="p">(</span><span class="n">outState</span><span class="p">:</span><span class="w"> </span><span class="n">Bundle</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">super</span><span class="p">.</span><span class="na">onSaveInstanceState</span><span class="p">(</span><span class="n">outState</span><span class="p">,</span><span class="w"> </span><span class="n">outPersistentState</span><span class="p">)</span>
+<span class="w">    </span><span class="n">outState</span><span class="p">.</span><span class="na">putString</span><span class="p">(</span><span class="s">&quot;xxx&quot;</span><span class="p">,</span><span class="n">xxx</span><span class="p">)</span>
+<span class="p">}</span>
 
-<span class="w">    </span><span class="k">init</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="n">defaultUncaughtExceptionHandler</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Thread</span><span class="p">.</span><span class="na">getDefaultUncaughtExceptionHandler</span><span class="p">()</span>
-<span class="w">        </span><span class="n">Thread</span><span class="p">.</span><span class="na">setDefaultUncaughtExceptionHandler</span><span class="p">(</span><span class="k">this</span><span class="p">)</span><span class="c1">//替换掉默认KillApplicationHandler</span>
-<span class="w">    </span><span class="p">}</span>
-
-<span class="w">    </span><span class="kd">override</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">uncaughtException</span><span class="p">(</span><span class="n">t</span><span class="p">:</span><span class="w"> </span><span class="n">Thread</span><span class="p">,</span><span class="w"> </span><span class="n">e</span><span class="p">:</span><span class="w"> </span><span class="n">Throwable</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="kd">val</span><span class="w"> </span><span class="nv">dir</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">File</span><span class="p">(</span><span class="n">BaseApplication</span><span class="p">.</span><span class="na">instance</span><span class="p">.</span><span class="na">externalCacheDir</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;crash_info&quot;</span><span class="p">)</span>
-<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">dir</span><span class="p">.</span><span class="na">exists</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="n">dir</span><span class="p">.</span><span class="na">mkdirs</span><span class="p">()</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">        </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="c1">//存到本地也可以上传到服务器</span>
-<span class="w">            </span><span class="kd">val</span><span class="w"> </span><span class="nv">logFile</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">File</span><span class="p">(</span><span class="n">dir</span><span class="p">,</span><span class="w">  </span><span class="s">&quot;</span><span class="si">${</span><span class="n">System</span><span class="p">.</span><span class="na">currentTimeMillis</span><span class="p">()</span><span class="si">}</span><span class="s">.txt&quot;</span><span class="p">)</span>
-<span class="w">            </span><span class="kd">val</span><span class="w"> </span><span class="nv">pw</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">PrintWriter</span><span class="p">(</span><span class="n">FileWriter</span><span class="p">(</span><span class="n">logFile</span><span class="p">))</span>
-<span class="w">            </span><span class="n">pw</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;thread: </span><span class="si">${</span><span class="n">t</span><span class="p">.</span><span class="na">name</span><span class="si">}</span><span class="s">&quot;</span><span class="p">)</span>
-<span class="w">            </span><span class="n">e</span><span class="p">.</span><span class="na">printStackTrace</span><span class="p">(</span><span class="n">pw</span><span class="p">)</span>
-<span class="w">            </span><span class="n">pw</span><span class="p">.</span><span class="na">flush</span><span class="p">()</span>
-<span class="w">            </span><span class="n">pw</span><span class="p">.</span><span class="na">close</span><span class="p">()</span>
-<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">e</span><span class="p">:</span><span class="w"> </span><span class="n">Exception</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="n">e</span><span class="p">.</span><span class="na">printStackTrace</span><span class="p">()</span>
-<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">finally</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="n">defaultUncaughtExceptionHandler</span><span class="o">?.</span><span class="na">uncaughtException</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="w"> </span><span class="n">e</span><span class="p">)</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">    </span><span class="p">}</span>
+<span class="kd">override</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">onRestoreInstanceState</span><span class="p">(</span><span class="n">savedInstanceState</span><span class="p">:</span><span class="w"> </span><span class="n">Bundle</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">super</span><span class="p">.</span><span class="na">onRestoreInstanceState</span><span class="p">(</span><span class="n">savedInstanceState</span><span class="p">,</span><span class="w"> </span><span class="n">persistentState</span><span class="p">)</span>
+<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">str</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">savedInstanceState</span><span class="p">.</span><span class="na">getString</span><span class="p">(</span><span class="s">&quot;xxx&quot;</span><span class="p">)</span>
 <span class="p">}</span>
 </code></pre></div>
-crash文件会在/sdcard/Android/cache/crash_info/下生成</p>
-<h3 id="native-crash">native crash监控<a class="headerlink" href="#native-crash" title="Permanent link">&para;</a></h3>
-<h4 id="_3">线下<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h4>
-<p>通过墓碑文件定位</p>
-<p>native crash日志存放点，路径为/data/tombstones/，一般不允许直接读取，可通过adb bugreport导出</p>
-<h4 id="_4">线上<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h4>
-<p>实现原理：和java层类似，通过注册监听linux信号，需要在c++层实现</p>
-<p>常见崩溃信号
-|信号|描述|
-|--|--|
-|SIGSEGV|内存引用无效，如空指针|
-|SIGBUS|访问内存对象的未定义部分|
-|SIGFPE|算术运算错误，如除以0|
-|SIGILL|非法指令，如执行垃圾或特权指令|
-|SIGSYS|糟糕的系统调用|
-|SIGXCPU|超过CPU时间限制|
-|SIGXFSZ|文件大小限制|</p>
-<p><a href="../../android_studio/#ndk_config">ndk工程配置</a></p>
-<p>借助google的<a href="https://github.com/google/breakpad">breakpad</a>添加自定义监听</p>
-<p>大致配置流程</p>
-<p>复制源码到cpp目录</p>
-<p><img alt="ndk3" src="../../../img/ndk/ndk3.png" /></p>
-<p>添加cmake配置文件，其实是将breakpad源码中的/android/google_breakpad/Android.mk进行转化，最终代码
-<div class="highlight"><pre><span></span><code><span class="nb">cmake_minimum_required</span><span class="p">(</span><span class="s">VERSION</span><span class="w"> </span><span class="s">3.22.1</span><span class="p">)</span>
-<span class="c">#对于mk文件中的LOCAL_C_INCLUDES</span>
-<span class="nb">include_directories</span><span class="p">(</span><span class="s">src</span><span class="w"> </span><span class="s">src/common/android/include</span><span class="p">)</span>
-<span class="c">#开启arm汇编支持，.s属于汇编源码</span>
-<span class="nb">enable_language</span><span class="p">(</span><span class="s">ASM</span><span class="p">)</span>
+<a href="../../jetpack/viewmodel/#activity">ViewModel方案</a></p>
+<h4 id="fragment">Fragment<a class="headerlink" href="#fragment" title="Permanent link">&para;</a></h4>
+<p>传统方案：
+<div class="highlight"><pre><span></span><code><span class="kd">override</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">onSaveInstanceState</span><span class="p">(</span><span class="n">outState</span><span class="p">:</span><span class="w"> </span><span class="n">Bundle</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">super</span><span class="p">.</span><span class="na">onSaveInstanceState</span><span class="p">(</span><span class="n">outState</span><span class="p">,</span><span class="w"> </span><span class="n">outPersistentState</span><span class="p">)</span>
+<span class="w">    </span><span class="n">outState</span><span class="p">.</span><span class="na">putString</span><span class="p">(</span><span class="s">&quot;xxx&quot;</span><span class="p">,</span><span class="n">xxx</span><span class="p">)</span>
+<span class="p">}</span>
 
-<span class="c">#生成libbreakpad.a 指定源码，对于mk中的LOCAL_SRC_FILES和LOCAL_MODULE</span>
-<span class="nb">add_library</span><span class="p">(</span><span class="s">breakpad</span><span class="w"> </span><span class="s">STATIC</span>
-<span class="w">        </span><span class="s">src/client/linux/crash_generation/crash_generation_client.cc</span>
-<span class="w">        </span><span class="s">src/client/linux/dump_writer_common/thread_info.cc</span>
-<span class="w">        </span><span class="s">src/client/linux/dump_writer_common/ucontext_reader.cc</span>
-<span class="w">        </span><span class="s">src/client/linux/handler/exception_handler.cc</span>
-<span class="w">        </span><span class="s">src/client/linux/handler/minidump_descriptor.cc</span>
-<span class="w">        </span><span class="s">src/client/linux/log/log.cc</span>
-<span class="w">        </span><span class="s">src/client/linux/microdump_writer/microdump_writer.cc</span>
-<span class="w">        </span><span class="s">src/client/linux/minidump_writer/linux_dumper.cc</span>
-<span class="w">        </span><span class="s">src/client/linux/minidump_writer/linux_ptrace_dumper.cc</span>
-<span class="w">        </span><span class="s">src/client/linux/minidump_writer/minidump_writer.cc</span>
-<span class="w">        </span><span class="s">src/client/minidump_file_writer.cc</span>
-<span class="w">        </span><span class="s">src/common/convert_UTF.cc</span>
-<span class="w">        </span><span class="s">src/common/md5.cc</span>
-<span class="w">        </span><span class="s">src/common/string_conversion.cc</span>
-<span class="w">        </span><span class="s">src/common/linux/breakpad_getcontext.S</span>
-<span class="w">        </span><span class="s">src/common/linux/elfutils.cc</span>
-<span class="w">        </span><span class="s">src/common/linux/file_id.cc</span>
-<span class="w">        </span><span class="s">src/common/linux/guid_creator.cc</span>
-<span class="w">        </span><span class="s">src/common/linux/linux_libc_support.cc</span>
-<span class="w">        </span><span class="s">src/common/linux/memory_mapped_file.cc</span>
-<span class="w">        </span><span class="s">src/common/linux/safe_readlink.cc</span><span class="p">)</span>
-
-<span class="c">#链接log库对应mk中的LOCAL_EXPORT_LDLIBS</span>
-<span class="nb">target_link_libraries</span><span class="p">(</span><span class="s">breakpad</span><span class="w"> </span><span class="s">log</span><span class="p">)</span>
+<span class="kd">override</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">onViewStateRestored</span><span class="p">(</span><span class="n">savedInstanceState</span><span class="p">:</span><span class="w"> </span><span class="n">Bundle?)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">super</span><span class="p">.</span><span class="na">onRestoreInstanceState</span><span class="p">(</span><span class="n">savedInstanceState</span><span class="p">,</span><span class="w"> </span><span class="n">persistentState</span><span class="p">)</span>
+<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">str</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">savedInstanceState</span><span class="o">?.</span><span class="na">getString</span><span class="p">(</span><span class="s">&quot;xxx&quot;</span><span class="p">)</span>
+<span class="p">}</span>
 </code></pre></div>
-在自己的cmake文件中引入breakpad
-<div class="highlight"><pre><span></span><code><span class="nb">cmake_minimum_required</span><span class="p">(</span><span class="s">VERSION</span><span class="w"> </span><span class="s">3.22.1</span><span class="p">)</span>
+<a href="../../jetpack/viewmodel/#fragment">ViewModel方案</a>
+<div class="highlight"><pre><span></span><code>#### View
+以自定义SeekBar为例(系统自带的SeekBar不会保存max属性)
+```kotlin
+override fun onSaveInstanceState(): Parcelable {
+    val superState = super.onSaveInstanceState()
+    val ss = SavedState(superState)
+    ss.progress = progress
+    ss.secondaryProgress = secondaryProgress
+    ss.max = max
+    return ss
+}
 
-<span class="nb">project</span><span class="p">(</span><span class="s2">&quot;jetpack&quot;</span><span class="p">)</span>
+override fun onRestoreInstanceState(state: Parcelable?) {
+    val ss = state as SavedState
+    super.onRestoreInstanceState(ss.superState)
+    max = ss.max
+    progress = ss.progress
+    secondaryProgress = ss.secondaryProgress
+}
 
-<span class="c">#引入breakpad头文件</span>
-<span class="nb">include_directories</span><span class="p">(</span><span class="s">breakpad/src</span><span class="w"> </span><span class="s">breakpad/src/common/android/include</span><span class="p">)</span>
+class SavedState : BaseSavedState {
+    var progress: Int = 0
+    var secondaryProgress: Int = 0
+    var max: Int = 0
 
-<span class="nb">add_library</span><span class="p">(</span><span class="o">${</span><span class="nv">CMAKE_PROJECT_NAME</span><span class="o">}</span><span class="w"> </span><span class="s">SHARED</span><span class="w"> </span><span class="s">jetpack.cpp</span><span class="p">)</span>
+    internal constructor(superState: Parcelable?) : super(superState)
+    private constructor(parcel: Parcel) : super(parcel) {
+        progress = parcel.readInt()
+        secondaryProgress = parcel.readInt()
+        max = parcel.readInt()
+    }
 
-<span class="c">#引入breakpad的cmake文件，执行并生成libbreakpad.a</span>
-<span class="nb">add_subdirectory</span><span class="p">(</span><span class="s">breakpad</span><span class="p">)</span>
+    override fun writeToParcel(out: Parcel, flags: Int) {
+        super.writeToParcel(out, flags)
+        out.writeInt(progress)
+        out.writeInt(secondaryProgress)
+        out.writeInt(max)
+    }
 
-<span class="nb">target_link_libraries</span><span class="p">(</span><span class="o">${</span><span class="nv">CMAKE_PROJECT_NAME</span><span class="o">}</span><span class="w"> </span><span class="s">android</span><span class="w"> </span><span class="s">breakpad</span><span class="w"> </span><span class="s">log</span><span class="p">)</span>
-</code></pre></div>
-cpp实现
-<div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;jni.h&quot;</span>
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;android/log.h&quot;</span>
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;client/linux/handler/minidump_descriptor.h&quot;</span>
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;client/linux/handler/exception_handler.h&quot;</span>
+    companion object {
+        @JvmField
+        val CREATOR: Parcelable.Creator&lt;SavedState&gt; = object : Parcelable.Creator&lt;SavedState&gt; {
+            override fun createFromParcel(source: Parcel): SavedState {
+                return SavedState(source)
+            }
 
-<span class="k">extern</span><span class="w"> </span><span class="s">&quot;C&quot;</span>
-<span class="n">JNIEXPORT</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">JNICALL</span>
-<span class="n">Java_com_hfc_jetpack_NativeCrash_testNativeCrash</span><span class="p">(</span><span class="n">JNIEnv</span><span class="w"> </span><span class="o">*</span><span class="n">env</span><span class="p">,</span><span class="w"> </span><span class="n">jobject</span><span class="w"> </span><span class="n">thiz</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">;</span>
-<span class="w">    </span><span class="o">*</span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="c1">//报空指针</span>
-<span class="p">}</span>
+            override fun newArray(size: Int): Array&lt;SavedState?&gt; {
+                return arrayOfNulls(size)
+            }
+        }
+    }
 
-<span class="c1">//回调接口函数</span>
-<span class="kt">bool</span><span class="w"> </span><span class="n">DumpCallback</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">google_breakpad</span><span class="o">::</span><span class="n">MinidumpDescriptor</span><span class="w"> </span><span class="o">&amp;</span><span class="n">descriptor</span><span class="p">,</span>
-<span class="w">                  </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">context</span><span class="p">,</span>
-<span class="w">                  </span><span class="kt">bool</span><span class="w"> </span><span class="n">succeeded</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">__android_log_print</span><span class="p">(</span><span class="n">ANDROID_LOG_ERROR</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;native&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;native crash:%s&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">descriptor</span><span class="p">.</span><span class="n">path</span><span class="p">());</span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="c1">//注册crash监听函数</span>
-<span class="k">extern</span><span class="w"> </span><span class="s">&quot;C&quot;</span>
-<span class="n">JNIEXPORT</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">JNICALL</span>
-<span class="n">Java_com_hfc_jetpack_NativeCrash_initNativeCrash</span><span class="p">(</span><span class="n">JNIEnv</span><span class="w"> </span><span class="o">*</span><span class="n">env</span><span class="p">,</span><span class="w"> </span><span class="n">jobject</span><span class="w"> </span><span class="n">thiz</span><span class="p">,</span><span class="w"> </span><span class="n">jstring</span><span class="w"> </span><span class="n">path_</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">env</span><span class="o">-&gt;</span><span class="n">GetStringUTFChars</span><span class="p">(</span><span class="n">path_</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
-
-<span class="w">    </span><span class="n">__android_log_print</span><span class="p">(</span><span class="n">ANDROID_LOG_INFO</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;native&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;===&gt; %s&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">path</span><span class="p">);</span>
-<span class="w">    </span><span class="n">google_breakpad</span><span class="o">::</span><span class="n">MinidumpDescriptor</span><span class="w"> </span><span class="nf">descriptor</span><span class="p">(</span><span class="n">path</span><span class="p">);</span>
-<span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="n">google_breakpad</span><span class="o">::</span><span class="n">ExceptionHandler</span><span class="w"> </span><span class="nf">eh</span><span class="p">(</span><span class="n">descriptor</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">,</span><span class="w"> </span><span class="n">DumpCallback</span><span class="p">,</span>
-<span class="w">                                                </span><span class="nb">NULL</span><span class="p">,</span><span class="w"> </span><span class="nb">true</span><span class="p">,</span><span class="w"> </span><span class="mi">-1</span><span class="p">);</span>
-
-<span class="w">    </span><span class="n">env</span><span class="o">-&gt;</span><span class="n">ReleaseStringUTFChars</span><span class="p">(</span><span class="n">path_</span><span class="p">,</span><span class="w"> </span><span class="n">path</span><span class="p">);</span>
-<span class="p">}</span>
+    override fun describeContents(): Int {
+        return 0
+    }
+}
 </code></pre></div></p>
-<p>测试代码
-<div class="highlight"><pre><span></span><code><span class="kd">object</span><span class="w"> </span><span class="nc">NativeCrash</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">init</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">loadLibrary</span><span class="p">(</span><span class="s">&quot;jetpack&quot;</span><span class="p">)</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="w">    </span><span class="kd">external</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">testNativeCrash</span><span class="p">()</span>
-
-<span class="w">    </span><span class="kd">external</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">initNativeCrash</span><span class="p">(</span><span class="n">path</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span><span class="p">)</span>
-<span class="p">}</span>
-
-<span class="kd">val</span><span class="w"> </span><span class="nv">dir</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">File</span><span class="p">(</span><span class="n">BaseApplication</span><span class="p">.</span><span class="na">instance</span><span class="p">.</span><span class="na">externalCacheDir</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;native_crash&quot;</span><span class="p">)</span>
-<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">dir</span><span class="p">.</span><span class="na">exists</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">dir</span><span class="p">.</span><span class="na">mkdirs</span><span class="p">()</span>
-<span class="p">}</span>
-<span class="n">NativeCrash</span><span class="p">.</span><span class="na">initNativeCrash</span><span class="p">(</span><span class="n">dir</span><span class="p">.</span><span class="na">absolutePath</span><span class="p">)</span>
-<span class="n">NativeCrash</span><span class="p">.</span><span class="na">testNativeCrash</span><span class="p">()</span>
-</code></pre></div>
-墓碑文件会在/sdcard/Android/cache/native_crash/下生成xxx.dmp</p>
-<h4 id="_5">配置分析工具<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h4>
-<p>环境变量添加：</p>
-<p>AndroidStudio\plugins\android-ndk\resources\lldb\bin</p>
-<p>AndroidSDK\ndk\25.1.8937393\toolchains\llvm\prebuilt\windows-x86_64\bin</p>
-<p>minidump_stackwalk.exe分析BreakPad中dump出来的dmp文件
-<div class="highlight"><pre><span></span><code>minidump_stackwalk xxx.dump &gt;crash.txt
-</code></pre></div>
-llvm-addr2line.exe定位so报错位置
-<div class="highlight"><pre><span></span><code>llvm-addr2line -f -C -e xxx.so 0xaaaa(crash.txt有记录)
-</code></pre></div>
-也可以使用IDA工具分析(arm貌似无法反汇编，即看不到伪代码)</p>
-<h3 id="xcrash">XCrash<a class="headerlink" href="#xcrash" title="Permanent link">&para;</a></h3>
-<p>爱奇艺 <a href="https://github.com/iqiyi/xCrash">https://github.com/iqiyi/xCrash</a></p>
 
 
 

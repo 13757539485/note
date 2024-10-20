@@ -1073,12 +1073,60 @@
       
       
         <label class="md-nav__link" for="__nav_1_1_8_1" id="__nav_1_1_8_1_label" tabindex="0">
-          RecycleView
+          Jetpack
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_1_1_8_1_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_1_1_8_1">
+          <span class="md-nav__icon md-icon"></span>
+          Jetpack
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../jetpack/viewmodel/" class="md-nav__link">
+        viewmodel
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_1_8_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_1_8_2" id="__nav_1_1_8_2_label" tabindex="0">
+          RecycleView
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_1_1_8_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_1_1_8_2">
           <span class="md-nav__icon md-icon"></span>
           RecycleView
         </label>
@@ -1144,17 +1192,17 @@
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_1_8_2" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_1_8_3" >
       
       
       
-        <label class="md-nav__link" for="__nav_1_1_8_2" id="__nav_1_1_8_2_label" tabindex="0">
+        <label class="md-nav__link" for="__nav_1_1_8_3" id="__nav_1_1_8_3_label" tabindex="0">
           View
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_1_1_8_2_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_1_1_8_2">
+      <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_1_1_8_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_1_1_8_3">
           <span class="md-nav__icon md-icon"></span>
           View
         </label>
@@ -1259,6 +1307,20 @@
     <li class="md-nav__item">
       <a href="../../api/Bitmap/" class="md-nav__link">
         Bitmap
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ui/ui_split/" class="md-nav__link">
+        分屏适配
       </a>
     </li>
   
@@ -3163,17 +3225,22 @@
 <p>编译生成：out/target/product/oriole/system/bin/bootanimation</p>
 <p>2.surfaceflinger: frameworks/native/services/surfaceflinger/</p>
 <p>相关文件</p>
-<p>frameworks/native/services/surfaceflinger/
-- surfaceflinger.rc
-- main_surfaceflinger.cpp
-- SurfaceFlinger.cpp
-- StartPropertySetThread.cpp</p>
+<p>frameworks/native/services/surfaceflinger/</p>
+<ul>
+<li>surfaceflinger.rc</li>
+<li>main_surfaceflinger.cpp</li>
+<li>SurfaceFlinger.cpp</li>
+<li>StartPropertySetThread.cpp</li>
+</ul>
 <p>编译生成：out/target/product/oriole/system/bin/surfaceflinger</p>
 <p>3.init: system/core/init/</p>
-<p>system/core/init/
-- main.cpp
-- init.cpp
-- property_service.cpp</p>
+<p>相关文件</p>
+<p>system/core/init/</p>
+<ul>
+<li>main.cpp</li>
+<li>init.cpp</li>
+<li>property_service.cpp</li>
+</ul>
 <p>编译生成：out/target/product/oriole/system/bin/init</p>
 <h4 id="_4">启动流程<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h4>
 <p>init.rc调用surfaceflinger.rc和bootanim.rc</p>
@@ -3224,7 +3291,8 @@ StartPropertySetThread.cpp，启动线程，调用Start后回调用threadLoop
 <span class="w">    </span><span class="c1">// Exit immediately</span>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
 <span class="p">}</span>
-</code></pre></div></p>
+</code></pre></div>
+为何property_set就能启动bootanim服务呢，在init进程启动时会监听属性并启动相应服务</p>
 <p>main.cpp
 <div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="o">**</span><span class="w"> </span><span class="n">argv</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="c1">//...</span>
