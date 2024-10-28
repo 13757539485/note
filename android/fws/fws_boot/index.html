@@ -3446,6 +3446,62 @@ WakeMainInitThread会触发HandleControlMessages
 </code></pre></div>
 即bootanim这个服务又被启动了</p>
 <h4 id="_5">结束流程<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h4>
+<p>frameworks/base/cmds/bootanimation/bootanimation_main.cpp
+<div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="c1">//...</span>
+<span class="w">    </span><span class="n">sp</span><span class="o">&lt;</span><span class="n">BootAnimation</span><span class="o">&gt;</span><span class="w"> </span><span class="n">boot</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">BootAnimation</span><span class="p">(</span><span class="n">audioplay</span><span class="o">::</span><span class="n">createAnimationCallbacks</span><span class="p">());</span>
+<span class="w">    </span><span class="c1">//...</span>
+<span class="p">}</span>
+</code></pre></div>
+BootAnimation.cpp,BootAnimation本身是一个Thread
+<div class="highlight"><pre><span></span><code><span class="n">BootAnimation</span><span class="o">::</span><span class="n">BootAnimation</span><span class="p">(</span><span class="n">sp</span><span class="o">&lt;</span><span class="n">Callbacks</span><span class="o">&gt;</span><span class="w"> </span><span class="n">callbacks</span><span class="p">)</span>
+<span class="w">        </span><span class="o">:</span><span class="w"> </span><span class="n">Thread</span><span class="p">(</span><span class="nb">false</span><span class="p">),</span><span class="w"> </span><span class="n">mLooper</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Looper</span><span class="p">(</span><span class="nb">false</span><span class="p">)),</span><span class="w"> </span><span class="n">mClockEnabled</span><span class="p">(</span><span class="nb">true</span><span class="p">),</span><span class="w"> </span><span class="n">mTimeIsAccurate</span><span class="p">(</span><span class="nb">false</span><span class="p">),</span>
+<span class="w">        </span><span class="n">mTimeFormat12Hour</span><span class="p">(</span><span class="nb">false</span><span class="p">),</span><span class="w"> </span><span class="n">mTimeCheckThread</span><span class="p">(</span><span class="k">nullptr</span><span class="p">),</span><span class="w"> </span><span class="n">mCallbacks</span><span class="p">(</span><span class="n">callbacks</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">//..</span>
+<span class="p">}</span>
+</code></pre></div>
+接着执行~BootAnimation(),先释放动画
+<div class="highlight"><pre><span></span><code><span class="n">BootAnimation</span><span class="o">::~</span><span class="n">BootAnimation</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">//...</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">mAnimation</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">releaseAnimation</span><span class="p">(</span><span class="n">mAnimation</span><span class="p">);</span>
+<span class="w">        </span><span class="n">mAnimation</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="c1">//...</span>
+<span class="p">}</span>
+</code></pre></div>
+Thread会加载onFirstRef,预加载动画文件
+<div class="highlight"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">BootAnimation::onFirstRef</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">//...</span>
+<span class="w">    </span><span class="n">preloadAnimation</span><span class="p">();</span>
+<span class="w">    </span><span class="c1">//...</span>
+<span class="p">}</span>
+</code></pre></div>
+执行readyToRun，最后执行threadLoop
+<div class="highlight"><pre><span></span><code><span class="kt">bool</span><span class="w"> </span><span class="nf">BootAnimation::threadLoop</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">//...</span>
+<span class="w">    </span><span class="n">initShaders</span><span class="p">();</span>
+
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">mZipFileName</span><span class="p">.</span><span class="n">empty</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">ALOGD</span><span class="p">(</span><span class="s">&quot;No animation file&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">android</span><span class="p">();</span><span class="c1">//默认的android logo动画</span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">movie</span><span class="p">();</span><span class="c1">//动画文件</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="n">mCallbacks</span><span class="o">-&gt;</span><span class="n">shutdown</span><span class="p">();</span>
+<span class="w">    </span><span class="n">eglMakeCurrent</span><span class="p">(</span><span class="n">mDisplay</span><span class="p">,</span><span class="w"> </span><span class="n">EGL_NO_SURFACE</span><span class="p">,</span><span class="w"> </span><span class="n">EGL_NO_SURFACE</span><span class="p">,</span><span class="w"> </span><span class="n">EGL_NO_CONTEXT</span><span class="p">);</span>
+<span class="w">    </span><span class="n">eglDestroyContext</span><span class="p">(</span><span class="n">mDisplay</span><span class="p">,</span><span class="w"> </span><span class="n">mContext</span><span class="p">);</span>
+<span class="w">    </span><span class="n">eglDestroySurface</span><span class="p">(</span><span class="n">mDisplay</span><span class="p">,</span><span class="w"> </span><span class="n">mSurface</span><span class="p">);</span>
+<span class="w">    </span><span class="n">mFlingerSurface</span><span class="p">.</span><span class="n">clear</span><span class="p">();</span>
+<span class="w">    </span><span class="n">mFlingerSurfaceControl</span><span class="p">.</span><span class="n">clear</span><span class="p">();</span>
+<span class="w">    </span><span class="n">eglTerminate</span><span class="p">(</span><span class="n">mDisplay</span><span class="p">);</span>
+<span class="w">    </span><span class="n">eglReleaseThread</span><span class="p">();</span>
+<span class="w">    </span><span class="n">IPCThreadState</span><span class="o">::</span><span class="n">self</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">stopProcess</span><span class="p">();</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">result</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></p>
 <h3 id="opengl">opengl绘制<a class="headerlink" href="#opengl" title="Permanent link">&para;</a></h3>
 <h3 id="zip">zip形式绘制<a class="headerlink" href="#zip" title="Permanent link">&para;</a></h3>
 <h3 id="_6">实战<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
