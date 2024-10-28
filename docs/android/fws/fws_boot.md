@@ -261,7 +261,67 @@ static Result<void> DoControlStart(Service* service) {
 ```
 即bootanim这个服务又被启动了
 #### 结束流程
+frameworks/base/cmds/bootanimation/bootanimation_main.cpp
+```cpp
+int main()
+{
+    //...
+    sp<BootAnimation> boot = new BootAnimation(audioplay::createAnimationCallbacks());
+    //...
+}
+```
+BootAnimation.cpp,BootAnimation本身是一个Thread
+```cpp
+BootAnimation::BootAnimation(sp<Callbacks> callbacks)
+        : Thread(false), mLooper(new Looper(false)), mClockEnabled(true), mTimeIsAccurate(false),
+        mTimeFormat12Hour(false), mTimeCheckThread(nullptr), mCallbacks(callbacks) {
+    //..
+}
+```
+接着执行~BootAnimation(),先释放动画
+```cpp
+BootAnimation::~BootAnimation() {
+    //...
+    if (mAnimation != nullptr) {
+        releaseAnimation(mAnimation);
+        mAnimation = nullptr;
+    }
+    //...
+}
+```
+Thread会加载onFirstRef,预加载动画文件
+```cpp
+void BootAnimation::onFirstRef() {
+    //...
+    preloadAnimation();
+    //...
+}
+```
+执行readyToRun，最后执行threadLoop
+```cpp
+bool BootAnimation::threadLoop() {
+    //...
+    initShaders();
 
+    if (mZipFileName.empty()) {
+        ALOGD("No animation file");
+        result = android();//默认的android logo动画
+    } else {
+        result = movie();//动画文件
+    }
+
+    mCallbacks->shutdown();
+    eglMakeCurrent(mDisplay, EGL_NO_SURFACE, EGL_NO_SURFACE, EGL_NO_CONTEXT);
+    eglDestroyContext(mDisplay, mContext);
+    eglDestroySurface(mDisplay, mSurface);
+    mFlingerSurface.clear();
+    mFlingerSurfaceControl.clear();
+    eglTerminate(mDisplay);
+    eglReleaseThread();
+    IPCThreadState::self()->stopProcess();
+    return result;
+}
+```
 ### opengl绘制
 
 ### zip形式绘制

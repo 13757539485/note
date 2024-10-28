@@ -325,3 +325,37 @@ java_library {
     ],
 }
 ```
+
+### mk转bp
+mk语法：https://blog.csdn.net/u012514113/article/details/124384430
+
+使用androidmk工具
+
+路径：out/host/linux-x86/bin/androidmk
+
+没有则执行
+```
+m -j blueprint_tools
+```
+
+mk转bp命令
+```
+androidmk /xxx/Android.mk > /xxx/Andoroid.bp
+```
+
+预装应用可卸载(待测试)
+```
+LOCAL_PATH := $(call my-dir)
+
+include $(CLEAR_VARS)
+
+LOCAL_MODULE := Test
+LOCAL_SRC_FILES := Test.apk
+LOCAL_MODULE_CLASS := APPS
+LOCAL_MODULE_TAGS := optional
+LOCAL_CERTIFICATE := platform
+LOCAL_MODULE_SUFFIX := $(COMMON_ANDROID_PACKAGE_SUFFIX)
+LOCAL_MODULE_PATH := $(TARGET_OUT_DATA_APPS)//重点这一句
+
+include $(BUILD_PREBUILT)
+```
