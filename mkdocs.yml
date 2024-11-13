@@ -54,7 +54,9 @@ nav:
            - WebView: android/ui/ui_webview.md
            - Camera: android/ui/ui_camera.md
            - ConstraintLayout: android/ui/ui_constraintLayout.md
-           - 动画: android/ui/ui_anim.md
+           - 动画: 
+              - 动画方案: android/ui/anim/anim.md
+              - 其他: android/ui/ui_anim.md
            - Bitmap: android/api/Bitmap.md
            - 分屏适配: android/ui/ui_split.md
         - Framework:

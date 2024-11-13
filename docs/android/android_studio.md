@@ -167,7 +167,7 @@ maven{ url 'https://maven.aliyun.com/repository/public'}
 maven{ url 'https://maven.aliyun.com/repository/jcenter'}
 maven{ url 'https://jitpack.io' }
 ```
-#### aar依赖
+#### <a id="kts_aar">aar依赖</a>
 新建文件夹如xxx_aar，创建build.gradle.kts，内容：
 ```kts
 configurations.maybeCreate("default")

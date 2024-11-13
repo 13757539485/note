@@ -60,7 +60,11 @@ https://cs.android.com/android/platform/superproject/main
 
 9.0之前：http://androidxref.com
 
-5.0-14.0+: http://aospxref.com
+5.0-14.0+: 
+
+~~http://aospxref.com~~
+
+http://xrefandroid.com/
 
 进入目录aosp执行
 ```shell
@@ -75,6 +79,28 @@ https://source.android.google.cn/docs/setup/reference/build-numbers?hl=zh-cn
 Pixel6: TQ2A.230505.002对应分支android-13.0.0_r43
 
 #### 添加交换内存
+1. zram
+
+安装
+```shell
+sudo apt-get install zram-config
+```
+启动
+```shell
+sudo systemctl enable zram-config
+sudo systemctl start zram-config
+```
+查看使用情况
+```shell
+sudo zramctl
+```
+禁用
+```shell
+sudo systemctl stop zram-config
+sudo systemctl disable zram-config
+```
+2. swap
+
 如果已经存在swapfile，先关闭
 ```shell
 sudo swapoff /swapfile

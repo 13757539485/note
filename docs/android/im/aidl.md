@@ -37,7 +37,8 @@ oneway: 异步
 ### 进程间通信
 #### 不同应用
 ![aidl1](../../img/aidl/aidl1.png)
-##### server端
+
+##### ipc模块
 在aidl目录下package目录下创建两个aidl文件
 ```aidl
 package xxx;
@@ -53,6 +54,124 @@ interface IRemote {
     void unregisterCallback(in IRemoteCallback callback);
 }
 ```
+创建管理类，采用java代码是为了兼容性，由于此模块是提供出去的，若是kotlin，目标项目kotlin版本可能与当前模块不同导致编译出错
+```java
+public class IpcManager {
+    public static final String TAG = "IpcManager";
+
+    private IpcManager() {
+    }
+
+    public static IpcManager getInstance() {
+        return Holder.singleton;
+    }
+
+    private static class Holder {
+        private static final IpcManager singleton = new IpcManager();
+    }
+
+    private IRemote binder = null;
+    private ILeLinkCallback callback = null;
+
+    private final ServiceConnection serviceConnection = new ServiceConnection() {
+        @Override
+        public void onServiceConnected(ComponentName name, IBinder service) {
+            binder = IRemote.Stub.asInterface(service);
+            Log.d(TAG, "onServiceConnected binder=" + binder);
+            if (callback != null) {
+                try {
+                    binder.registerCallback(callback);
+                    Log.d(TAG, "onServiceConnected register callback");
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    Log.e(TAG, "onServiceConnected error: " + e.getMessage());
+                }
+            }
+        }
+
+        @Override
+        public void onServiceDisconnected(ComponentName name) {
+            if (callback != null) {
+                try {
+                    binder.unregisterCallback(callback);
+                    Log.d(TAG, "onServiceDisconnected unregister callback");
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    Log.e(TAG, "onServiceDisconnected error: " + e.getMessage());
+                }
+            }
+            binder = null;
+        }
+    };
+
+    public void init(Context context) {
+        if (binder != null) {
+            Log.e(TAG, "IRemote already init");
+            return;
+        }
+        Intent intent = new Intent();
+        intent.setAction("xxx.xxx.xxx");//Server端保持一致
+        intent.setClassName("packageName",
+            "serviceClassName");//Server端Service的信息
+        context.getApplicationContext().bindService(intent, serviceConnection,
+            Context.BIND_AUTO_CREATE);
+    }
+
+    public void sendMsg(String msg) {
+        try {
+            if (binder != null) {
+                binder.sendMsg(msg);
+                Log.d(TAG, "sendMsg msg:" + msg);
+            } else {
+                Log.e(TAG, "sendMsg() error: binder is null");
+            }
+        } catch (Exception e) {
+            Log.d(TAG, "sendMsg() error: " + e.getMessage());
+        }
+    }
+
+    public void subscribe(IRemoteCallback callback) {
+        this.callback = callback;
+        if (binder != null) {
+            try {
+                binder.registerCallback(callback);
+                Log.d(TAG, "subscribe() called");
+            } catch (Exception e) {
+                Log.e(TAG, "subscribe() error: " + e.getMessage());
+            }
+        } else {
+            Log.e(TAG, "call init()");
+        }
+    }
+
+    public void unSubscribe() {
+        if (binder != null && callback != null) {
+            try {
+                binder.unregisterCallback(callback);
+                callback = null;
+                Log.d(TAG, "unSubscribe() called");
+            } catch (Exception e) {
+                Log.e(TAG, "unSubscribe() error: " + e.getMessage());
+            }
+        } else {
+            Log.e(TAG, "call init()");
+        }
+    }
+
+    public void destroy(Context context) {
+        if (binder == null) {
+            Log.e(TAG, "IRemote not init");
+            return;
+        }
+        context.getApplicationContext().unbindService(serviceConnection);
+    }
+}
+```
+##### server端
+依赖上面ipc模块
+```kts
+api(project(":ipc"))
+```
 创建管理类
 ```kotlin
 object AidlManager {
@@ -60,25 +179,38 @@ object AidlManager {
 
     private val callbackList by lazy { RemoteCallbackList<IRemoteCallback>() }
 
+    fun onMessageReceived(msg: String?) {
+        val callbackCount = callbackList.beginBroadcast()
+        for (i in 0 until callbackCount) {
+            try {
+                log(TAG, "aidl onMessageReceived() called $msg")
+                callbackList.getBroadcastItem(i).onMessageReceived(msg)
+            } catch (e: RemoteException) {
+                log(TAG, "onReceive: ${e.message}")
+            }
+        }
+        callbackList.finishBroadcast()
+    }
+
     val binder: IRemote.Stub = object : IRemote.Stub() {
         override fun sendMsg(msg: String) {
-            val callbackCount = callbackList.beginBroadcast()
-            for (i in 0 until callbackCount) {
-                try {
-                    callbackList.getBroadcastItem(i).onMessageReceived(msg)
-                } catch (e: RemoteException) {
-                    Log.e(TAG, "sendMsg: ${e.message}")
-                }
-            }
-            callbackList.finishBroadcast()
+            //处理收到client的消息
         }
 
         override fun registerCallback(callback: IRemoteCallback) {
-            callbackList.register(callback)
+            try {
+                callbackList.register(callback)
+            } catch (e: Exception) {
+                e.printStackTrace()
+            }
         }
 
         override fun unregisterCallback(callback: IRemoteCallback) {
-            callbackList.unregister(callback)
+            try {
+                callbackList.unregister(callback)
+            } catch (e: Exception) {
+                e.printStackTrace()
+            }
         }
     }
 }
@@ -105,55 +237,41 @@ class AidlServerService : Service() {
     </intent-filter>
 </service>
 ```
-##### client端
-复制整个server端的aidl目录，package必须和server保持一致
+server端主动发消息给client
 ```kotlin
-private var mIRemote: IRemote? = null
-private val iRemoteCallback: IRemoteCallback = MyCallback()
-
-inner class MyCallback : IRemoteCallback.Stub() {
-    override fun onMessageReceived(message: String) {
-        MainScope().launch {
-            // 处理server端返回消息
-        }
-    }
-}
-private val serviceConnection: ServiceConnection = object : ServiceConnection {
-    override fun onServiceConnected(name: ComponentName, service: IBinder) {
-        mIRemote = IRemote.Stub.asInterface(service)
-        try {
-            mIRemote!!.registerCallback(iRemoteCallback)
-        } catch (e: RemoteException) {
-            Log.e(TAG, "onServiceConnected: ${e.message}")
-        }
-    }
-
-    override fun onServiceDisconnected(name: ComponentName) {
-        try {
-            mIRemote!!.unregisterCallback(iRemoteCallback)
-            mIRemote = null
-        } catch (e: RemoteException) {
-            Log.e(TAG, "onServiceDisconnected: ${e.message}")
-        }
-    }
-}
-//绑定服务
-val intent = Intent(IRemote::class.java.name)
-intent.action = "service.aidlserver"//保持和server配置一致
-intent.setPackage("server包名")
-bindService(intent, serviceConnection, BIND_AUTO_CREATE)
+AidlManager.onMessageReceived("xxx")
 ```
+##### client端
+依赖上面ipc模块
+```kts
+api(project(":ipc"))
+```
+或者[依赖aar](../android_studio.md#kts_aar)
+
 配置清单文件，manifest标签下添加应用感知能力
 ```xml
 <queries>
     <package android:name="server包名" />
 </queries>
 ```
+使用
+```kotlin
+private val remoteCallback = object: IRemoteCallback(){
+    override fun onMessageReceived(msg: String?) {
+        //处理收到server端的消息
+    }
+}
+IpcManager.getInstance().init(applicationContext)
+IpcManager.getInstance().subscribe(remoteCallback)
+
+//取消回调
+IpcManager.getInstance().unSubscribe()
+```
 注：
 
 1. registerCallback的意义在于server也可主动sendMsg给client(也可使用异步)，否则直接利用返回值即可
 2. 获取server或者client标记可通过getCallingPid()确认
 #### 同应用不同进程
-和不同应用类似，不需要复制aidl文件夹和配置queries
+和不同应用类似，不需要复制aidl(aar)和配置queries
 ### 其他
 android studio不能创建aidl[无法新建AIDL文件](../android_studio.md#aidl-create)
