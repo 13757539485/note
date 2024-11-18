@@ -1,4 +1,4 @@
-### 自定义view之lifecycle
+### <a id="view_lifecycle">自定义view之lifecycle</a>
 ```kotlin
 abstract class BaseConstraintLayout @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null,
@@ -85,119 +85,6 @@ open class CutStatusBarView(
 ```
 兼容低版本需要添加状态栏[immersionbar](../android_github.md#immersionbar)处理库
 
-### 竖向SeekBar
-自定义属性：
-```xml
-<declare-styleable name="VerticalSeekBar">
-    <attr name="barRotation" format="enum" >
-        <enum name="top" value="90" />
-        <enum name="bottom" value="-90" />
-    </attr>
-</declare-styleable>
-```
-源码：
-```kotlin
-class VerticalSeekBar(context: Context, attrs: AttributeSet?) : AppCompatSeekBar(
-    context, attrs
-), OnSeekBarChangeListener {
-    private var barRotation: Int = 90
-    private var startAndStopListener: StartAndStopListener? = null
-    private var touchListener: ((isTouch: Boolean)->Unit)? = null
-
-    init {
-        val obtainStyledAttributes =
-            context.obtainStyledAttributes(attrs, R.styleable.VerticalSeekBar)
-        barRotation = obtainStyledAttributes.getInt(R.styleable.VerticalSeekBar_barRotation, 90)
-        obtainStyledAttributes.recycle()
-        setOnSeekBarChangeListener(this)
-    }
-
-    override fun onSizeChanged(w: Int, h: Int, oldW: Int, oldH: Int) {
-        super.onSizeChanged(h, w, oldW, oldH)
-    }
-
-    @Synchronized
-    override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
-        super.onMeasure(heightMeasureSpec, widthMeasureSpec)
-        setMeasuredDimension(measuredHeight, measuredWidth)
-    }
-
-    override fun onDraw(c: Canvas) {
-        when (barRotation) {
-            90 -> {
-                c.rotate(90f)
-                c.translate(0f, -width.toFloat())
-            }
-
-            -90 -> {
-                c.rotate(-90f)
-                c.translate(-height.toFloat(), 0f)
-            }
-        }
-        super.onDraw(c)
-    }
-
-    @Synchronized
-    override fun setProgress(progress: Int) {
-        super.setProgress(progress)
-        onSizeChanged(width, height, 0, 0)
-    }
-
-    private fun calculateRotationProgress(y: Float) {
-        if (barRotation == -90) {
-            progress = max - (max * y / height).toInt()
-        } else if (barRotation == 90) {
-            progress = (max * y / height).toInt()
-        }
-    }
-
-    override fun onTouchEvent(event: MotionEvent): Boolean {
-        when (event.action) {
-            MotionEvent.ACTION_DOWN -> {
-                startAndStopListener?.startChange(this)
-                calculateRotationProgress(event.y)
-                this.touchListener?.invoke(true)
-            }
-
-            MotionEvent.ACTION_MOVE -> {
-                calculateRotationProgress(event.y)
-            }
-
-            MotionEvent.ACTION_UP, MotionEvent.ACTION_CANCEL -> {
-                startAndStopListener?.stopChange(this, progress)
-                this.touchListener?.invoke(false)
-            }
-
-            else -> return super.onTouchEvent(event)
-        }
-        return true
-    }
-
-    fun setStartAndStopListener(startAndStopListener: StartAndStopListener?) {
-        this.startAndStopListener = startAndStopListener
-    }
-
-    fun setTouchListener(block: (isTouch: Boolean) -> Unit) {
-        this.touchListener = block
-    }
-
-    interface StartAndStopListener {
-        fun startChange(seekBar: VerticalSeekBar)
-        fun onChange(seekBar: VerticalSeekBar, progress: Int, fromUser: Boolean)
-        fun stopChange(seekBar: VerticalSeekBar, progress: Int)
-    }
-
-    override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
-        startAndStopListener?.onChange(this@VerticalSeekBar, progress, fromUser)
-    }
-
-    override fun onStartTrackingTouch(seekBar: SeekBar?) {
-    }
-
-    override fun onStopTrackingTouch(seekBar: SeekBar?) {
-    }
-}
-```
 ### Viewbindng使用
 [开启viewbinding](../android_studio.md#viewbinding)
 
@@ -229,3 +116,42 @@ private lateinit var includeXXXBinding: IncludeXXXBinding
 includeNXXXBinding = IncludeXXXBinding.bind(binding.root)
 ```
 include_xxx_device不需要申明id，使用includeNXXXBinding.xxx来调用include_xxx_device中的组件，也使用于非merge
+
+### 常见拓展
+禁止快速点击
+```kotlin
+fun View.click(listener: (view: View) -> Unit) {
+    val minTime = 500L
+    var lastTime = 0L
+    this.setOnClickListener {
+        val tmpTime = System.currentTimeMillis()
+        if (tmpTime - lastTime > minTime) {
+            lastTime = tmpTime
+            listener.invoke(this)
+        } else {
+            Log.d("UI", "点击过快，取消触发")
+        }
+    }
+}
+```
+单位转化
+```kotlin
+fun View.dp2px(dpValue: Float): Int = context.dp2px(dpValue)
+
+fun View.px2dp(dpValue: Float): Int = context.px2dp(dpValue)
+
+fun Context.dp2px(dipValue: Float): Int {
+    return TypedValue.applyDimension(
+        TypedValue.COMPLEX_UNIT_DIP,
+        dipValue, resources.displayMetrics
+    ).toInt()
+}
+
+fun Context.px2dp(pxValue: Float): Int {
+    return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE)
+        TypedValue.deriveDimension(
+            TypedValue.COMPLEX_UNIT_DIP,
+            pxValue, resources.displayMetrics
+        ).toInt() else (pxValue / resources.displayMetrics.density).toInt()
+}
+```

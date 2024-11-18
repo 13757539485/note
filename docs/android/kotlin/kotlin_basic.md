@@ -48,3 +48,14 @@ String模版使用${}方式，其中{}部分场景可省略
 原因是kotlin必须使用var或val申明，且会自动生成get/set方法，而属性=字段+get/set
 
 get方法不能被private修饰
+
+### base64
+```kotlin
+fun encodeBase64(content: String) : String{
+    return String(Base64.getEncoder().encode(content.toByteArray()))
+}
+
+fun decodeBase64(content: String) : String{
+    return String(Base64.getDecoder().decode(content.toByteArray()))
+}
+```

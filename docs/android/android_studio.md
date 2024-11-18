@@ -190,6 +190,35 @@ http://mirrors.cloud.tencent.com/gradle/
 替换：
 .gradle/wrapper/dists/
 
+### gradle签名
+```kts
+signingConfigs {
+    create("keystore") {
+        storeFile = file("../app_key")
+        storePassword = "123456"
+        keyAlias = "app_key"
+        keyPassword = "123456"
+    }
+}
+buildTypes {
+    release {
+        signingConfig = signingConfigs.getByName("keystore")
+        isMinifyEnabled = false
+        proguardFiles(
+            getDefaultProguardFile("proguard-android-optimize.txt"),
+            "proguard-rules.pro"
+        )
+    }
+    debug {
+        signingConfig = signingConfigs.getByName("keystore")
+        isMinifyEnabled = false
+        proguardFiles(
+            getDefaultProguardFile("proguard-android-optimize.txt"),
+            "proguard-rules.pro"
+        )
+    }
+}
+```
 ### 常见异常
 
 1. 提示此应用专为旧版android打造...，底部显示全屏

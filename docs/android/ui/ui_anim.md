@@ -16,7 +16,7 @@ CPU主导，每个窗口关联一个Surface，lockCanvas方法获取一个Canvas
 
 GPU主导
 
-#### 转场动画
+### 转场动画
 https://blog.csdn.net/chennai1101/article/details/81984104
 
 z轴修改问题：只能循环修改ViewGroup的clipChildren属性
@@ -27,3 +27,5 @@ z轴修改问题：只能循环修改ViewGroup的clipChildren属性
     clipAllViewGroup(v.parent as ViewGroup, clipChild)
 }
 ```
+### 属性动画
+[旋转动画](../github/rotation.md#anim_rotation)

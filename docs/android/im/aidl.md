@@ -181,15 +181,16 @@ object AidlManager {
 
     fun onMessageReceived(msg: String?) {
         val callbackCount = callbackList.beginBroadcast()
-        for (i in 0 until callbackCount) {
-            try {
+        try {
+            for (i in 0 until callbackCount) {
                 log(TAG, "aidl onMessageReceived() called $msg")
                 callbackList.getBroadcastItem(i).onMessageReceived(msg)
-            } catch (e: RemoteException) {
-                log(TAG, "onReceive: ${e.message}")
             }
+        } catch (e: RemoteException) {
+                log(TAG, "onReceive: ${e.message}")
+        } finally {
+            callbackList.finishBroadcast()
         }
-        callbackList.finishBroadcast()
     }
 
     val binder: IRemote.Stub = object : IRemote.Stub() {

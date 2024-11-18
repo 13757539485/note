@@ -216,24 +216,9 @@ ServiceMethod<?> loadServiceMethod(Method method) {
 ```
 主要是通过动态代理(含反射机制)，然后解析注解封装请求所需的信息并创建默认的okhttp请求体进行请求
 
-### Glide
-官方网址：https://github.com/bumptech/glide
+### [Glide](./github/glide.md)
 
-Glide.with().load().into()
-
-with：空白Fragment管理生命周期(ui线程才会创建、如果是application也不创建)，同步到RequestManager方便管理类似ImageViewTarget等类
-
-load：构建出RequestBuilder对象
-
-into：运行队列 等待队列 活动缓存 内存缓存 网络模型
-
-源码分析：
-
-https://blog.csdn.net/u013347784/article/details/125728996
-
-默认是网络请求是使用HttpURLConnection
-
-活动缓存、内存缓存、磁盘缓存
+### [Gson](./github/gson.md)
 
 ### <a id="coil">Coil</a>
 官方网址：https://github.com/coil-kt/coil
@@ -252,36 +237,7 @@ https://github.com/GcsSloop/pager-layoutmanager
 
 3.实现吸顶效果：https://github.com/donkingliang/ConsecutiveScroller
 
-4.快速使用<a id="BaseRecyclerViewAdapterHelper">BaseRecyclerViewAdapterHelper</a>：https://github.com/CymChad/BaseRecyclerViewAdapterHelper
-```kotlin
-implementation（"io.github.cymchad:BaseRecyclerViewAdapterHelper4:4.1.2")
-```
-基本使用(官方案例)
-```kotlin
-class TestAdapter : BaseQuickAdapter<Status, TestAdapter.VH>() {
-
-    // 自定义ViewHolder类
-    class VH(
-        parent: ViewGroup,
-        val binding: LayoutAnimationBinding = LayoutAnimationBinding.inflate(
-            LayoutInflater.from(parent.context), parent, false
-        ),
-    ) : RecyclerView.ViewHolder(binding.root)
-
-    override fun onCreateViewHolder(context: Context, parent: ViewGroup, viewType: Int): VH {
-        // 返回一个 ViewHolder
-        return VH(parent)
-    }
-
-    override fun onBindViewHolder(holder: VH, position: Int, item: Status?) {
-        // 设置item数据
-    }
-}
-```
-注：添加数据集合内部是直接赋值的形式，因此是引用，如果需要保证初始数据，可new一个集合
-```kotlin
-rvAdapter.submitList(mutableListOf<Media>().also { it.addAll(imgUrls) })
-```
+4.[BaseRecyclerViewAdapterHelper](./github/quick_adapter.md)
 
 ### <a id="smart-fresh">下拉刷新库</a>
 https://github.com/scwang90/SmartRefreshLayout
@@ -293,3 +249,5 @@ https://github.com/getActivity/XXPermissions
 处理状态栏的库
 
 https://github.com/gyf-dev/ImmersionBar
+
+### [屏幕适配](./github/autosize.md)

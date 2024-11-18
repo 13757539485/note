@@ -30,6 +30,8 @@ nav:
            - Netty: android/im/netty.md
            - 蓝牙: android/im/bluetooth.md
            - nfc: android/im/nfc.md
+           - Mqtt: android/im/mqtt.md
+           - FlowBus: android/im/flow_bus.md
         - 并发编程:
            - 基础概念: android/java/java_base.md
            - 线程: android/java/java_thread.md
@@ -41,6 +43,11 @@ nav:
            - TCP协议: android/network/net_tcp.md
            - HTTP协议: android/network/net_http.md
            - WebSocket协议: android/network/net_websocket.md
+        - 系统api:
+           - 亮度: android/system/brightness.md
+           - 音量: android/system/volume.md
+           - Application: android/system/application.md
+           - Activity: android/system/activity.md
         - 高级UI: 
            - Jetpack:
               - viewmodel: android/jetpack/viewmodel.md
@@ -51,12 +58,17 @@ nav:
            - View:
               - View基础: android/android_ui.md
               - View&lifecycle: android/ui/ui_view.md
+              - SeekBar: android/ui/seekbar.md
+              - ProgressBar: android/ui/progressbar.md
+              - TextView: android/ui/textview.md
            - WebView: android/ui/ui_webview.md
            - Camera: android/ui/ui_camera.md
            - ConstraintLayout: android/ui/ui_constraintLayout.md
            - 动画: 
               - 动画方案: android/ui/anim/anim.md
-              - 其他: android/ui/ui_anim.md
+              - 基础: android/ui/ui_anim.md
+              - gif: android/github/gif.md
+              - lottie: android/github/lottie.md
            - Bitmap: android/api/Bitmap.md
            - 分屏适配: android/ui/ui_split.md
         - Framework:
@@ -75,10 +87,12 @@ nav:
                 - 案例: android/fws/fws_split_case.md
               - 系统动画: android/fws/fws_anim.md
               - 开机动画: android/fws/fws_boot.md
+              - WMS:
+                - 源码: android/fws/fws_wms.md
+                - 案例: android/fws/fws_wms_case.md
            - AOSP源码:  
               - Handler: android/fws/fws_handler.md
               - IPC通信: android/fws/fws_process.md
-              - WMS: android/fws/fws_wms.md
               - AMS/ATMS: android/fws/fws_ams.md
               - PMS: android/fws/fws_pms.md
               - Android启动流程: android/fws/fws_android_start.md
