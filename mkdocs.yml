@@ -44,8 +44,8 @@ nav:
            - HTTP协议: android/network/net_http.md
            - WebSocket协议: android/network/net_websocket.md
         - 系统api:
-           - 亮度: android/system/brightness.md
-           - 音量: android/system/volume.md
+           - 系统亮度: android/system/brightness.md
+           - 媒体音量: android/system/volume.md
            - Application: android/system/application.md
            - Activity: android/system/activity.md
         - 高级UI: 
@@ -56,8 +56,8 @@ nav:
               - 多选案例: android/ui/recyclerview/ui_stagger.md
               - 源码解析: android/ui/recyclerview/ui_source_code.md
            - View:
-              - View基础: android/android_ui.md
-              - View&lifecycle: android/ui/ui_view.md
+              - View源码: android/android_ui.md
+              - View定制: android/ui/ui_view.md
               - SeekBar: android/ui/seekbar.md
               - ProgressBar: android/ui/progressbar.md
               - TextView: android/ui/textview.md
@@ -87,9 +87,12 @@ nav:
                 - 案例: android/fws/fws_split_case.md
               - 系统动画: android/fws/fws_anim.md
               - 开机动画: android/fws/fws_boot.md
+              - 系统壁纸: android/fws/fws_wallpaper.md
               - WMS:
                 - 源码: android/fws/fws_wms.md
-                - 案例: android/fws/fws_wms_case.md
+                - 分析工具: android/fws/fws_wms_tool.md
+                - 日志: android/fws/fws_log.md
+                - 案例: android/fws/wms/fws_wms_case.md
            - AOSP源码:  
               - Handler: android/fws/fws_handler.md
               - IPC通信: android/fws/fws_process.md
@@ -129,6 +132,7 @@ nav:
         - Apk相关: android/android_build_apk.md
         - Compose: android/android_compose.md
         - AS相关: android/android_studio.md
+        - 常用网站: android/resource.md
         # - NDK: android/android_ndk.md
         - Flutter: android/android_flutter.md
         - 面试题: android/android_interview.md
@@ -164,7 +168,6 @@ nav:
 - 其他学习: 
     - Excel: excel.md
     - Markdown: markdown.md
-    - AI: ai.md
 theme: 
   name: material
   language: zh

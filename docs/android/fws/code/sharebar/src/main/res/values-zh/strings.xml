@@ -1,0 +1,4 @@
+<resources>
+    <string name="amap_action_search">搜索</string>
+    <string name="amap_action_navigate">导航</string>
+</resources>

@@ -46,6 +46,7 @@ open class CutStatusBarView(
     private var statusBarAdapter: Boolean = true
     private var navigationBarAdapter: Boolean = true
     private var cutoutAdapter: Boolean = true
+    private val windowManager by lazy { context.getSystemService(Context.WINDOW_SERVICE) as WindowManager }
 
     init {
         val obtainStyledAttributes =
@@ -62,20 +63,26 @@ open class CutStatusBarView(
     }
 
     override fun onApplyWindowInsets(insets: WindowInsets?): WindowInsets {
+        Log.d("CutStatusBarView", "onApplyWindowInsets() called with: insets = $insets")
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
             insets?.let {
                 setPadding(
                     if (cutoutAdapter) it.getInsets(WindowInsets.Type.displayCutout()).left else 0,
                     if (statusBarAdapter) it.getInsets(WindowInsets.Type.statusBars()).top else 0,
-                    0,
+                    if (cutoutAdapter) it.getInsets(WindowInsets.Type.displayCutout()).right else 0,
                     if (navigationBarAdapter) it.getInsets(WindowInsets.Type.navigationBars()).bottom else 0
                 )
             }
         } else {
+            val rotation = windowManager.defaultDisplay.rotation
             setPadding(
-                if (cutoutAdapter && context is Activity) ImmersionBar.getNotchHeight(context as Activity) else 0,
+                if (cutoutAdapter && context is Activity && rotation == Surface.ROTATION_90) ImmersionBar.getNotchHeight(
+                    context as Activity
+                ) else 0,
                 if (statusBarAdapter) ImmersionBar.getStatusBarHeight(context) else 0,
-                0,
+                if (cutoutAdapter && context is Activity && rotation == Surface.ROTATION_270) ImmersionBar.getNotchHeight(
+                    context as Activity
+                ) else 0,
                 if (navigationBarAdapter) ImmersionBar.getNavigationBarHeight(context) else 0
             )
         }

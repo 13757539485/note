@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application>
+        <provider
+            android:name=".core.ShareFileProvider"
+            android:authorities="com.cariad.m2.share"
+            android:enabled="true"
+            android:exported="true"
+            android:grantUriPermissions="true">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_provider_paths"/>
+        </provider>
+
+        <service
+            android:name=".core.ShareBarService"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.cariad.m2.action.SHARE" />
+            </intent-filter>
+        </service>
+
+        <receiver
+            android:name=".core.ShareReceiver"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="action.sharebar.show" />
+                <action android:name="action.sharebar.hide" />
+                <action android:name="action.sharebar.card.show" />
+                <action android:name="action.sharebar.custom.pkg_drag" />
+            </intent-filter>
+        </receiver>
+    </application>
+
+</manifest>

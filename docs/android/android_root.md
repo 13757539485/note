@@ -21,7 +21,7 @@ adb push libmagiskboot.so /data/local/tmp/magiskboot
 
 ![kernelsu](../img/android/kernelsu.png)
 
-下载对应AnyKernel3-android13-5.10.149_2023-01.zip 
+下载对应AnyKernel3-android13-5.10.198_2023-12.zip 
 
 推送到手机
 ```shell
@@ -64,3 +64,39 @@ https://github.com/tsailin-bit/ZygiskNext/
 https://github.com/magiskmodule/Zygisk-on-KernelSU
 
 和Zygisk-Next互斥
+
+### Xposed开发
+```kts
+maven {
+    url "https://api.xposed.info/"
+}
+compileOnly 'de.robv.android.xposed:api:82'
+```
+assets文件夹中添加xxx.kt,内容为：包名.类型
+
+xxx.kt以hook类ViewGroup中的dispatchTouchEvent方法为例
+```kotlin
+class XXXHook : IXposedHookZygoteInit {
+    @Throws(Throwable::class)
+    override fun initZygote(startupParam: StartupParam) {
+        XposedBridge.hookAllMethods(
+            ViewGroup::class.java,
+            "dispatchTouchEvent",
+            object : XC_MethodHook() {
+                @Throws(Throwable::class)
+                override fun beforeHookedMethod(param: MethodHookParam) {
+                    handleTouchEvent(param.thisObject as View, param.args[0] as MotionEvent)
+                }
+            })
+    }
+}
+```
+清单文件中添加
+```xml
+<meta-data
+    android:name="xposedmodule" android:value="true"/>
+<meta-data
+    android:name="xposedminversion" android:value="93"/>
+<meta-data
+    android:name="xposeddescription" android:value="hook事件分发"/>
+```

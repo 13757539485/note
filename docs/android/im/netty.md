@@ -195,3 +195,160 @@ lifecycleScope.launch {
     AlbumClientHandler.sendMsg(bitmapsFlow)
 }
 ```
+
+### 全新封装
+#### 自定义解码器
+[CustomMessageDecoder](./code/src/com/hfc/netty/decoder/CustomMessageDecoder.kt)
+#### 自定义编码器
+[CustomMessageEncoder](./code/src/com/hfc/netty/encoder/CustomMessageEncoder.kt)
+#### 自定义数据包
+[CustomMessage](./code/src/com/hfc/netty/pack/CustomMessage.kt)
+#### 自定义客户端
+[NettyClient](./code/src/com/hfc/netty/NettyClient.kt)
+
+[ClientHandler](./code/src/com/hfc/netty/ClientHandler.kt)
+#### 自定义服务端
+[NettyServer](./code/src/com/hfc/netty/NettyServer.kt)
+
+[ServerHandler](./code/src/com/hfc/netty/ServerHandler.kt)
+#### 监听回调
+[IHandlerCallback](./code/src/com/hfc/netty/IHandlerCallback.kt)
+
+### 自动连接功能
+自动获取ip：
+
+[NsdManager](./nsdmanager.md)
+
+Server端
+```kotlin
+class NsdServerActivity : AppCompatActivity() {
+    private val nettyServer by lazy { NettyServer() }
+    private val binding by lazy { ActivityNsdServerBinding.inflate(layoutInflater) }
+    private val mainScope by lazy { MainScope() }
+    private val devices by lazy { mutableListOf<String>() }
+
+    private val nettyCallback by lazy {
+        object : IHandlerCallback {
+            override fun channelActive(deviceName: String) {
+                mainScope.launch {
+                    if (!devices.contains(deviceName)) {
+                        devices.add(deviceName)
+                    }
+                    binding.txtDevice.text = "设备：$devices"
+                }
+            }
+
+            override fun channelInActive(deviceName: String, extraMsg: String) {
+                if (deviceName == "") {
+                    Log.d(
+                        "ServerHandler",
+                        "ServerHandler connect error"
+                    )
+                    return
+                }
+                mainScope.launch {
+                    if (devices.contains(deviceName)) {
+                        devices.remove(deviceName)
+                    }
+                    binding.txtDevice.text = "设备：$devices"
+                }
+            }
+
+            override fun onReceive(msg: CustomMessage) {
+                mainScope.launch {
+                    binding.txtMsg.text = "来自${msg.name}的消息${msg.content},类型为${msg.type}"
+                    if (msg.bitmap != null) {
+                        binding.imgShow.setImageBitmap(msg.bitmap)
+                    }
+                }
+            }
+        }
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(binding.root)
+        NsdExtManager.init(this)
+        binding.btnNsdConnect.setOnCheckedChangeListener { buttonView, isChecked ->
+            if (isChecked) {
+                NsdExtManager.startServer(1222) { isRegistered: Boolean, msg: String ->
+                    if (isRegistered) {
+                        nettyServer.start(1222, nettyCallback)
+                    } else {
+                        nettyServer.stop()
+                    }
+                }
+            } else {
+                NsdExtManager.stopServer()
+                nettyServer.stop()
+            }
+        }
+        binding.btnSendStr.setOnClickListener {
+            nettyServer.sendMessageByName(CustomMessage("samsung", "music", "action:play", null))
+        }
+        binding.btnSendAll.setOnClickListener {
+            nettyServer.sendMessageByAll(CustomMessage("Server","controller", "action:volume_up", null))
+        }
+        binding.btnSendBitmap.setOnClickListener {
+            nettyServer.sendMessageByName(CustomMessage("samsung", "guess", "",
+                BitmapFactory.decodeResource(resources, R.mipmap.test1)))
+        }
+    }
+}
+```
+Client端
+```kotlin
+class NsdClientActivity : AppCompatActivity() {
+    private val binding by lazy { ActivityNsdClientBinding.inflate(layoutInflater) }
+    private val nsdClient by lazy { NettyClient() }
+    private val mainScope by lazy { MainScope() }
+    private val nettyCallback by lazy { object : IHandlerCallback {
+        override fun channelActive(deviceName: String) {
+            mainScope.launch {
+                binding.txtMsg.text = "建立连接"
+                binding.btnNsdConnect.isChecked = true
+            }
+        }
+
+        override fun channelInActive(deviceName: String, extraMsg: String) {
+            mainScope.launch {
+                binding.txtMsg.text = "断开连接"
+                binding.btnNsdConnect.isChecked = false
+            }
+        }
+
+        override fun onReceive(msg: CustomMessage) {
+            mainScope.launch {
+                binding.txtMsg.text = "来自${msg.name}的消息${msg.content},类型为${msg.type}"
+                if (msg.bitmap != null) {
+                    binding.imgShow.setImageBitmap(msg.bitmap)
+                }
+            }
+        }
+    } }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(binding.root)
+        NsdExtManager.init(this)
+        binding.btnNsdConnect.setOnCheckedChangeListener { button, isChecked ->
+            if (!button.isPressed) return@setOnCheckedChangeListener
+            if (isChecked) {
+                NsdExtManager.startClient { ip, port ->
+                    nsdClient.start(ip, port, nettyCallback)
+                }
+            } else {
+                NsdExtManager.stopClient()
+                nsdClient.stop()
+            }
+        }
+        binding.btnSendStr.setOnClickListener {
+            nsdClient.sendMessage(CustomMessage(Build.BRAND, "music", "action:pause", null))
+        }
+        binding.btnSendBitmap.setOnClickListener {
+            nsdClient.sendMessage(CustomMessage(Build.BRAND, "guess", "",
+                BitmapFactory.decodeResource(resources, R.mipmap.test3)))
+        }
+    }
+}
+```

@@ -1,0 +1,4 @@
+<resources>
+    <string name="amap_action_search">\u0020Search</string>
+    <string name="amap_action_navigate">\u0020Navigate</string>
+</resources>

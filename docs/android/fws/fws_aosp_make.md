@@ -40,7 +40,6 @@
 |--|--|--|
 |init|make init|mmm system/core/init|
 |zygote|make app_process|mmm frameworks/base/cmds/app_process|
-|system_server|make services|mmm frameworks/base/services|
 |framework-res|make framework-res|mmm frameworks/base/core/res|
 |framework-jni|make libandroid_runtime|mmm frameworks/base/core/jni|
 |framework|framework-minus-apex|mmm frameworks/base/core/java|

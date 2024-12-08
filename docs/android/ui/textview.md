@@ -149,7 +149,19 @@ class ImageTextView(context: Context, attrs: AttributeSet?
 }
 ```
 
-### 斜体修复
+### 字体设置
+系统字体斜体
+```xml
+android:textStyle="italic"
+```
+使用字体
+```kotlin
+val typeface =
+    Typeface.createFromAsset(requireActivity().assets, "Helvetica-BoldOblique.ttf")
+binding.xxx.setTypeface(typeface, Typeface.ITALIC)
+```
+字体下载: [谷歌字体](../resource.md#google_font)
+#### 斜体修复
 ```kotlin
 class FixTextView(
     context: Context, 
@@ -172,10 +184,4 @@ class FixTextView(
         canvas.drawText(text, -left.toFloat(), top.toFloat(), paint)
     }
 }
-
-android:textStyle="italic"
-
-val typeface =
-    Typeface.createFromAsset(requireActivity().assets, "Helvetica-BoldOblique.ttf")
-binding.xxx.setTypeface(typeface, Typeface.ITALIC)
 ```

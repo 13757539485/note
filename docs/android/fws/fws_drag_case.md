@@ -143,10 +143,10 @@ frameworks/base/core/java/android/view/ViewRootImpl.java
 ```java
 private void handleDragEvent(DragEvent event) {
     // ...
-    CariadDragHelper.getInstance().preHandleDragEvent(event, mBasePackageName);
+    HfcDragViewHelper.getInstance().preHandleDragEvent(event, mBasePackageName);
     // Now dispatch the drag/drop event
     boolean result = mView.dispatchDragEvent(event);
-    result = CariadDragHelper.getInstance()
+    result = HfcDragViewHelper.getInstance()
             .handleDragEvent(event, mBasePackageName, result, mWindowSession, mWindow);
     // ...
 }
@@ -247,13 +247,13 @@ boolean notifyDropStatus(boolean oriResult, boolean isOtherWindow, IWindow windo
 
 public void saveBitmap(ParcelFileDescriptor pfd, RemoteCallback callback) {
     HfcDragTransitManager.getInstance().bindShareService(mService.mContext, (isBind, iBinder) -> {
-        CariadDragTransitManager.getInstance().saveBitmap(pfd, callback);
+        HfcDragTransitManager.getInstance().saveBitmap(pfd, callback);
     });
 }
 
 public void shareBarShowOrHide(String action, String targetPackage, ClipData data) {
     HfcDragTransitManager.getInstance().bindShareService(mService.mContext, (isBind, iBinder) -> {
-        CariadDragTransitManager.getInstance().shareBarShowOrHide(action, targetPackage, data);
+        HfcDragTransitManager.getInstance().shareBarShowOrHide(action, targetPackage, data);
     });
 }
 ```
