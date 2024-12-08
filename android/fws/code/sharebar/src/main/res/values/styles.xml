@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="ShareBarWindowAnimation">
+        <item name="android:windowEnterAnimation">@anim/sharebar_enter</item>
+        <item name="android:windowExitAnimation">@anim/sharebar_exit</item>
+    </style>
+
+    <style name="ShareBarCardWindowAnimation">
+        <item name="android:windowEnterAnimation">@anim/sharebar_card_enter</item>
+        <item name="android:windowExitAnimation">@anim/sharebar_card_exit</item>
+    </style>
+</resources>

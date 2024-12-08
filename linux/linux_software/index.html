@@ -1083,7 +1083,7 @@
   
     <li class="md-nav__item">
       <a href="../../android/system/brightness/" class="md-nav__link">
-        亮度
+        系统亮度
       </a>
     </li>
   
@@ -1097,7 +1097,7 @@
   
     <li class="md-nav__item">
       <a href="../../android/system/volume/" class="md-nav__link">
-        音量
+        媒体音量
       </a>
     </li>
   
@@ -1324,7 +1324,7 @@
   
     <li class="md-nav__item">
       <a href="../../android/android_ui/" class="md-nav__link">
-        View基础
+        View源码
       </a>
     </li>
   
@@ -1338,7 +1338,7 @@
   
     <li class="md-nav__item">
       <a href="../../android/ui/ui_view/" class="md-nav__link">
-        View&lifecycle
+        View定制
       </a>
     </li>
   
@@ -1876,23 +1876,37 @@
   
   
   
+    <li class="md-nav__item">
+      <a href="../../android/fws/fws_wallpaper/" class="md-nav__link">
+        系统壁纸
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
     
     <li class="md-nav__item md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_1_10_1_9" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_1_10_1_10" >
       
       
       
-        <label class="md-nav__link" for="__nav_1_1_10_1_9" id="__nav_1_1_10_1_9_label" tabindex="0">
+        <label class="md-nav__link" for="__nav_1_1_10_1_10" id="__nav_1_1_10_1_10_label" tabindex="0">
           WMS
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_1_1_10_1_9_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_1_1_10_1_9">
+      <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_1_1_10_1_10_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_1_1_10_1_10">
           <span class="md-nav__icon md-icon"></span>
           WMS
         </label>
@@ -1918,7 +1932,35 @@
   
   
     <li class="md-nav__item">
-      <a href="../../android/fws/fws_wms_case/" class="md-nav__link">
+      <a href="../../android/fws/fws_wms_tool.md" class="md-nav__link">
+        分析工具
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../android/fws/fws_log.md" class="md-nav__link">
+        日志
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../android/fws/wms/fws_wms_case/" class="md-nav__link">
         [Protected] 案例
       </a>
     </li>
@@ -2587,6 +2629,20 @@
     <li class="md-nav__item">
       <a href="../../android/android_studio/" class="md-nav__link">
         AS相关
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../android/resource/" class="md-nav__link">
+        常用网站
       </a>
     </li>
   
@@ -3278,20 +3334,6 @@
 
             
           
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../ai/" class="md-nav__link">
-        AI
-      </a>
-    </li>
-  
-
-            
-          
         </ul>
       </nav>
     </li>
@@ -3339,6 +3381,23 @@
 <li>系统-键盘-键盘快捷键-自定义快捷键-(添加名称火焰截图，命令flameshot gui，快捷键如Alt+A)</li>
 <li>截图黑屏问题：设置-关于-系统窗口，如果是WayLand需修改成x11，sudo vi /etc/gdm3/custom.conf，WaylandEnable=false去掉#，保存并重启电脑</li>
 </ul>
+<p>Clash：<a href="https://ikuuu.one">https://ikuuu.one</a></p>
+<p>建议直接在星火商店中下载window版本，导入yaml即可</p>
+<p>ubuntu中需要在设置中配置，设置-网络-网络代理，如图配置</p>
+<p><img alt="clash" src="../clash_vpn.png" /></p>
+<p>127.0.0.1 7890</p>
+<p>localhost, 127.0.0.0/8, ::1</p>
+<p><a id="linux_terminal">终端中不起作用解决</a></p>
+<p>配置git代理
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>http.proxy<span class="w"> </span>http://127.0.0.1:7890
+git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>https.proxy<span class="w"> </span>http://127.0.0.1:7890
+</code></pre></div>
+或者git config --local</p>
+<p>取消代理
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>--unset<span class="w"> </span>http.proxy
+git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>--unset<span class="w"> </span>https.proxy
+</code></pre></div></p>
+<p>浏览器某些网站打不开解决：clash选择规则模式</p>
 
 
 

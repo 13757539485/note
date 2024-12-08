@@ -1090,7 +1090,7 @@
   
     <li class="md-nav__item">
       <a href="../system/brightness/" class="md-nav__link">
-        亮度
+        系统亮度
       </a>
     </li>
   
@@ -1104,7 +1104,7 @@
   
     <li class="md-nav__item">
       <a href="../system/volume/" class="md-nav__link">
-        音量
+        媒体音量
       </a>
     </li>
   
@@ -1331,7 +1331,7 @@
   
     <li class="md-nav__item">
       <a href="../android_ui/" class="md-nav__link">
-        View基础
+        View源码
       </a>
     </li>
   
@@ -1345,7 +1345,7 @@
   
     <li class="md-nav__item">
       <a href="../ui/ui_view/" class="md-nav__link">
-        View&lifecycle
+        View定制
       </a>
     </li>
   
@@ -1883,23 +1883,37 @@
   
   
   
+    <li class="md-nav__item">
+      <a href="../fws/fws_wallpaper/" class="md-nav__link">
+        系统壁纸
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
     
     <li class="md-nav__item md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_1_10_1_9" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_1_10_1_10" >
       
       
       
-        <label class="md-nav__link" for="__nav_1_1_10_1_9" id="__nav_1_1_10_1_9_label" tabindex="0">
+        <label class="md-nav__link" for="__nav_1_1_10_1_10" id="__nav_1_1_10_1_10_label" tabindex="0">
           WMS
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_1_1_10_1_9_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_1_1_10_1_9">
+      <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_1_1_10_1_10_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_1_1_10_1_10">
           <span class="md-nav__icon md-icon"></span>
           WMS
         </label>
@@ -1925,7 +1939,35 @@
   
   
     <li class="md-nav__item">
-      <a href="../fws/fws_wms_case/" class="md-nav__link">
+      <a href="../fws/fws_wms_tool.md" class="md-nav__link">
+        分析工具
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fws/fws_log.md" class="md-nav__link">
+        日志
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fws/wms/fws_wms_case/" class="md-nav__link">
         案例
       </a>
     </li>
@@ -2606,6 +2648,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../resource/" class="md-nav__link">
+        常用网站
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../android_flutter/" class="md-nav__link">
         Flutter
       </a>
@@ -2744,6 +2800,13 @@
         <li class="md-nav__item">
   <a href="#zygisk-on-kernelsu" class="md-nav__link">
     Zygisk-on-KernelSU
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#xposed" class="md-nav__link">
+    Xposed开发
   </a>
   
 </li>
@@ -3342,20 +3405,6 @@
 
             
           
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../ai/" class="md-nav__link">
-        AI
-      </a>
-    </li>
-  
-
-            
-          
         </ul>
       </nav>
     </li>
@@ -3421,6 +3470,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#xposed" class="md-nav__link">
+    Xposed开发
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -3451,7 +3507,7 @@
 <p>下载AnyKernel3(<a href="https://github.com/tiann/KernelSU/releases/tag/v0.9.0">https://github.com/tiann/KernelSU/releases/tag/v0.9.0</a>) 中的 Image</p>
 <p>根据手机设置内核版本</p>
 <p><img alt="kernelsu" src="../../img/android/kernelsu.png" /></p>
-<p>下载对应AnyKernel3-android13-5.10.149_2023-01.zip </p>
+<p>下载对应AnyKernel3-android13-5.10.198_2023-12.zip </p>
 <p>推送到手机
 <div class="highlight"><pre><span></span><code>adb<span class="w"> </span>push<span class="w"> </span>boot.img<span class="w"> </span>/data/local/tmp/
 adb<span class="w"> </span>push<span class="w"> </span>Image<span class="w"> </span>/data/local/tmp/
@@ -3482,6 +3538,37 @@ mv<span class="w"> </span>-f<span class="w"> </span>Image<span class="w"> </span
 <h3 id="zygisk-on-kernelsu">Zygisk-on-KernelSU<a class="headerlink" href="#zygisk-on-kernelsu" title="Permanent link">&para;</a></h3>
 <p><a href="https://github.com/magiskmodule/Zygisk-on-KernelSU">https://github.com/magiskmodule/Zygisk-on-KernelSU</a></p>
 <p>和Zygisk-Next互斥</p>
+<h3 id="xposed">Xposed开发<a class="headerlink" href="#xposed" title="Permanent link">&para;</a></h3>
+<p><div class="highlight"><pre><span></span><code>maven {
+    url &quot;https://api.xposed.info/&quot;
+}
+compileOnly &#39;de.robv.android.xposed:api:82&#39;
+</code></pre></div>
+assets文件夹中添加xxx.kt,内容为：包名.类型</p>
+<p>xxx.kt以hook类ViewGroup中的dispatchTouchEvent方法为例
+<div class="highlight"><pre><span></span><code><span class="kd">class</span><span class="w"> </span><span class="nc">XXXHook</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">IXposedHookZygoteInit</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nd">@Throws</span><span class="p">(</span><span class="n">Throwable</span><span class="o">::</span><span class="n">class</span><span class="p">)</span>
+<span class="w">    </span><span class="kd">override</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">initZygote</span><span class="p">(</span><span class="n">startupParam</span><span class="p">:</span><span class="w"> </span><span class="n">StartupParam</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">XposedBridge</span><span class="p">.</span><span class="na">hookAllMethods</span><span class="p">(</span>
+<span class="w">            </span><span class="n">ViewGroup</span><span class="o">::</span><span class="n">class</span><span class="p">.</span><span class="na">java</span><span class="p">,</span>
+<span class="w">            </span><span class="s">&quot;dispatchTouchEvent&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="k">object</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="nc">XC_MethodHook</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nd">@Throws</span><span class="p">(</span><span class="n">Throwable</span><span class="o">::</span><span class="n">class</span><span class="p">)</span>
+<span class="w">                </span><span class="kd">override</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">beforeHookedMethod</span><span class="p">(</span><span class="n">param</span><span class="p">:</span><span class="w"> </span><span class="n">MethodHookParam</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="n">handleTouchEvent</span><span class="p">(</span><span class="n">param</span><span class="p">.</span><span class="na">thisObject</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">View</span><span class="p">,</span><span class="w"> </span><span class="n">param</span><span class="p">.</span><span class="na">args</span><span class="o">[</span><span class="m">0</span><span class="o">]</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">MotionEvent</span><span class="p">)</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">})</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+清单文件中添加
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;meta-data</span>
+<span class="w">    </span><span class="na">android:name=</span><span class="s">&quot;xposedmodule&quot;</span><span class="w"> </span><span class="na">android:value=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;meta-data</span>
+<span class="w">    </span><span class="na">android:name=</span><span class="s">&quot;xposedminversion&quot;</span><span class="w"> </span><span class="na">android:value=</span><span class="s">&quot;93&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;meta-data</span>
+<span class="w">    </span><span class="na">android:name=</span><span class="s">&quot;xposeddescription&quot;</span><span class="w"> </span><span class="na">android:value=</span><span class="s">&quot;hook事件分发&quot;</span><span class="nt">/&gt;</span>
+</code></pre></div></p>
 
 
 

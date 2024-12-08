@@ -1082,7 +1082,7 @@
   
     <li class="md-nav__item">
       <a href="../../system/brightness/" class="md-nav__link">
-        亮度
+        系统亮度
       </a>
     </li>
   
@@ -1096,7 +1096,7 @@
   
     <li class="md-nav__item">
       <a href="../../system/volume/" class="md-nav__link">
-        音量
+        媒体音量
       </a>
     </li>
   
@@ -1323,7 +1323,7 @@
   
     <li class="md-nav__item">
       <a href="../../android_ui/" class="md-nav__link">
-        View基础
+        View源码
       </a>
     </li>
   
@@ -1337,7 +1337,7 @@
   
     <li class="md-nav__item">
       <a href="../../ui/ui_view/" class="md-nav__link">
-        View&lifecycle
+        View定制
       </a>
     </li>
   
@@ -1875,23 +1875,37 @@
   
   
   
+    <li class="md-nav__item">
+      <a href="../../fws/fws_wallpaper/" class="md-nav__link">
+        系统壁纸
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
     
     <li class="md-nav__item md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_1_10_1_9" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_1_10_1_10" >
       
       
       
-        <label class="md-nav__link" for="__nav_1_1_10_1_9" id="__nav_1_1_10_1_9_label" tabindex="0">
+        <label class="md-nav__link" for="__nav_1_1_10_1_10" id="__nav_1_1_10_1_10_label" tabindex="0">
           WMS
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_1_1_10_1_9_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_1_1_10_1_9">
+      <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_1_1_10_1_10_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_1_1_10_1_10">
           <span class="md-nav__icon md-icon"></span>
           WMS
         </label>
@@ -1917,7 +1931,35 @@
   
   
     <li class="md-nav__item">
-      <a href="../../fws/fws_wms_case/" class="md-nav__link">
+      <a href="../../fws/fws_wms_tool.md" class="md-nav__link">
+        分析工具
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fws/fws_log.md" class="md-nav__link">
+        日志
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fws/wms/fws_wms_case/" class="md-nav__link">
         [Protected] 案例
       </a>
     </li>
@@ -2586,6 +2628,20 @@
     <li class="md-nav__item">
       <a href="../../android_studio/" class="md-nav__link">
         AS相关
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../resource/" class="md-nav__link">
+        常用网站
       </a>
     </li>
   
@@ -3267,20 +3323,6 @@
 
             
           
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../ai/" class="md-nav__link">
-        AI
-      </a>
-    </li>
-  
-
-            
-          
         </ul>
       </nav>
     </li>
@@ -3325,6 +3367,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#ip" class="md-nav__link">
+    自动获取ip功能
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -3343,132 +3392,218 @@
   <h1>Udp</h1>
 
 <h3 id="_1">服务端<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
-<p>object UdpTask {
-    private val timer by lazy { Timer() }
-    private val timerTask by lazy {
-        object : TimerTask() {
-            override fun run() {
-                Log.d("yuli", "schedule to send ip")
-                try {
-                    udpSocket.send(sendPacket)
-                } catch (e: Exception) {
-                    Log.e("yuli", "run: ${e.message}")
-                }
-            }
-        }
-    }
-    private val udpSocket by lazy {
-        DatagramSocket().apply { broadcast = true }
-    }
-    private val helloMsg by lazy { "hello".toByteArray() }</p>
-<div class="codehilite"><pre><span></span><code>private val sendPacket by lazy {
-    DatagramPacket(
-        helloMsg,
-        helloMsg.size,
-        InetAddress.getByName(&quot;255.255.255.255&quot;),
-        12344
-    )
-}
+<div class="highlight"><pre><span></span><code><span class="kd">object</span><span class="w"> </span><span class="nc">UdpTask</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">timer</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">lazy</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">Timer</span><span class="p">()</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">timerTask</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">lazy</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">object</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="nc">TimerTask</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="kd">override</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">run</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="n">Log</span><span class="p">.</span><span class="na">d</span><span class="p">(</span><span class="s">&quot;yuli&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;schedule to send ip&quot;</span><span class="p">)</span>
+<span class="w">                </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="n">udpSocket</span><span class="p">.</span><span class="na">send</span><span class="p">(</span><span class="n">sendPacket</span><span class="p">)</span>
+<span class="w">                </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">e</span><span class="p">:</span><span class="w"> </span><span class="n">Exception</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="n">Log</span><span class="p">.</span><span class="na">e</span><span class="p">(</span><span class="s">&quot;yuli&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;run: </span><span class="si">${</span><span class="n">e</span><span class="p">.</span><span class="na">message</span><span class="si">}</span><span class="s">&quot;</span><span class="p">)</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">udpSocket</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">lazy</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">DatagramSocket</span><span class="p">().</span><span class="na">apply</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">broadcast</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">helloMsg</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">lazy</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s">&quot;hello&quot;</span><span class="p">.</span><span class="na">toByteArray</span><span class="p">()</span><span class="w"> </span><span class="p">}</span>
 
-fun sayHelloForJava() {
-    MainScope().launch {
-        sayHello()
-    }
-}
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">sendPacket</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">lazy</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">DatagramPacket</span><span class="p">(</span>
+<span class="w">            </span><span class="n">helloMsg</span><span class="p">,</span>
+<span class="w">            </span><span class="n">helloMsg</span><span class="p">.</span><span class="na">size</span><span class="p">,</span>
+<span class="w">            </span><span class="n">InetAddress</span><span class="p">.</span><span class="na">getByName</span><span class="p">(</span><span class="s">&quot;255.255.255.255&quot;</span><span class="p">),</span>
+<span class="w">            </span><span class="m">12344</span>
+<span class="w">        </span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
 
-suspend fun sayHello(){
-    try {
-        sayHelloInner()
-    } catch (e: Exception) {
-        e.printStackTrace()
-        Log.e(&quot;yuli&quot;, &quot;run: ${e.message}&quot;)
-    } finally {
-        udpSocket.close()
-        Log.d(&quot;yuli&quot;, &quot;close socket&quot;)
-    }
-}
+<span class="w">    </span><span class="kd">fun</span><span class="w"> </span><span class="nf">sayHelloForJava</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">MainScope</span><span class="p">().</span><span class="na">launch</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">sayHello</span><span class="p">()</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
 
-private suspend fun sayHelloInner() {
-    withContext(Dispatchers.IO) {
-        udpSocket.send(sendPacket)
-        timer.scheduleAtFixedRate(timerTask, 1000, 1000)
-    }
+<span class="w">    </span><span class="kd">suspend</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">sayHello</span><span class="p">(){</span>
+<span class="w">        </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">sayHelloInner</span><span class="p">()</span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">e</span><span class="p">:</span><span class="w"> </span><span class="n">Exception</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">e</span><span class="p">.</span><span class="na">printStackTrace</span><span class="p">()</span>
+<span class="w">            </span><span class="n">Log</span><span class="p">.</span><span class="na">e</span><span class="p">(</span><span class="s">&quot;yuli&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;run: </span><span class="si">${</span><span class="n">e</span><span class="p">.</span><span class="na">message</span><span class="si">}</span><span class="s">&quot;</span><span class="p">)</span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">finally</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">udpSocket</span><span class="p">.</span><span class="na">close</span><span class="p">()</span>
+<span class="w">            </span><span class="n">Log</span><span class="p">.</span><span class="na">d</span><span class="p">(</span><span class="s">&quot;yuli&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;close socket&quot;</span><span class="p">)</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
 
-    withContext(Dispatchers.IO) {
-        Log.d(&quot;yuli&quot;, &quot;ready while to receive ok&quot;)
-        while (true) {
-            val receiveData = ByteArray(1024)
-            val receivePacket = DatagramPacket(receiveData, receiveData.size)
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">suspend</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">sayHelloInner</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">withContext</span><span class="p">(</span><span class="n">Dispatchers</span><span class="p">.</span><span class="na">IO</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">udpSocket</span><span class="p">.</span><span class="na">send</span><span class="p">(</span><span class="n">sendPacket</span><span class="p">)</span>
+<span class="w">            </span><span class="n">timer</span><span class="p">.</span><span class="na">scheduleAtFixedRate</span><span class="p">(</span><span class="n">timerTask</span><span class="p">,</span><span class="w"> </span><span class="m">1000</span><span class="p">,</span><span class="w"> </span><span class="m">1000</span><span class="p">)</span>
+<span class="w">        </span><span class="p">}</span>
 
-            udpSocket.receive(receivePacket)
-            val responseMessage = String(receivePacket.data, 0, receivePacket.length)
-            Log.d(&quot;yuli&quot;, &quot;receive: $responseMessage&quot;)
-            if (&quot;ok&quot; == responseMessage) {
-                timer.cancel()
-                break
-            }
-        }
-    }
-}
+<span class="w">        </span><span class="n">withContext</span><span class="p">(</span><span class="n">Dispatchers</span><span class="p">.</span><span class="na">IO</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">Log</span><span class="p">.</span><span class="na">d</span><span class="p">(</span><span class="s">&quot;yuli&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;ready while to receive ok&quot;</span><span class="p">)</span>
+<span class="w">            </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="kc">true</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="kd">val</span><span class="w"> </span><span class="nv">receiveData</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ByteArray</span><span class="p">(</span><span class="m">1024</span><span class="p">)</span>
+<span class="w">                </span><span class="kd">val</span><span class="w"> </span><span class="nv">receivePacket</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DatagramPacket</span><span class="p">(</span><span class="n">receiveData</span><span class="p">,</span><span class="w"> </span><span class="n">receiveData</span><span class="p">.</span><span class="na">size</span><span class="p">)</span>
 
-fun stop(){
-    timer.cancel()
-    try {
-        udpSocket.close()
-    } catch (e: Exception) {
-        e.printStackTrace()
-    }
-}
+<span class="w">                </span><span class="n">udpSocket</span><span class="p">.</span><span class="na">receive</span><span class="p">(</span><span class="n">receivePacket</span><span class="p">)</span>
+<span class="w">                </span><span class="kd">val</span><span class="w"> </span><span class="nv">responseMessage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">String</span><span class="p">(</span><span class="n">receivePacket</span><span class="p">.</span><span class="na">data</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="n">receivePacket</span><span class="p">.</span><span class="na">length</span><span class="p">)</span>
+<span class="w">                </span><span class="n">Log</span><span class="p">.</span><span class="na">d</span><span class="p">(</span><span class="s">&quot;yuli&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;receive: </span><span class="si">$</span><span class="n">responseMessage</span><span class="s">&quot;</span><span class="p">)</span>
+<span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="s">&quot;ok&quot;</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">responseMessage</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="n">timer</span><span class="p">.</span><span class="na">cancel</span><span class="p">()</span>
+<span class="w">                    </span><span class="k">break</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">fun</span><span class="w"> </span><span class="nf">stop</span><span class="p">(){</span>
+<span class="w">        </span><span class="n">timer</span><span class="p">.</span><span class="na">cancel</span><span class="p">()</span>
+<span class="w">        </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">udpSocket</span><span class="p">.</span><span class="na">close</span><span class="p">()</span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">e</span><span class="p">:</span><span class="w"> </span><span class="n">Exception</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">e</span><span class="p">.</span><span class="na">printStackTrace</span><span class="p">()</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
 </code></pre></div>
-
-<p>}</p>
 <h3 id="_2">客户端<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
-<p>object UdpTask {
-    private val udpSocket by lazy {
-        DatagramSocket(12344).apply { broadcast = true }
-    }</p>
-<div class="codehilite"><pre><span></span><code>fun receiveHelloForJava(callback: (String) -&gt; Unit) {
-    MainScope().launch {
-        receiveHello(callback)
-    }
-}
+<div class="highlight"><pre><span></span><code><span class="kd">object</span><span class="w"> </span><span class="nc">UdpTask</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">udpSocket</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">lazy</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">DatagramSocket</span><span class="p">(</span><span class="m">12344</span><span class="p">).</span><span class="na">apply</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">broadcast</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
 
-suspend fun receiveHello(callback: (String) -&gt; Unit) {
-    try {
-        receiveHelloInner(callback)
-    } catch (e: Exception) {
-        e.printStackTrace()
-    } finally {
-        udpSocket.close()
-        Log.d(&quot;yuli&quot;, &quot;close socket&quot;)
-    }
-}
+<span class="w">    </span><span class="kd">fun</span><span class="w"> </span><span class="nf">receiveHelloForJava</span><span class="p">(</span><span class="n">callback</span><span class="p">:</span><span class="w"> </span><span class="p">(</span><span class="kt">String</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">Unit</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">MainScope</span><span class="p">().</span><span class="na">launch</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">receiveHello</span><span class="p">(</span><span class="n">callback</span><span class="p">)</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
 
-private suspend fun receiveHelloInner(callback: (String) -&gt; Unit) {
-    withContext(Dispatchers.IO) {
-        while (true) {
-            val receiveData = ByteArray(1024)
-            val receivePacket = DatagramPacket(receiveData, receiveData.size)
+<span class="w">    </span><span class="kd">suspend</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">receiveHello</span><span class="p">(</span><span class="n">callback</span><span class="p">:</span><span class="w"> </span><span class="p">(</span><span class="kt">String</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">Unit</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">receiveHelloInner</span><span class="p">(</span><span class="n">callback</span><span class="p">)</span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">e</span><span class="p">:</span><span class="w"> </span><span class="n">Exception</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">e</span><span class="p">.</span><span class="na">printStackTrace</span><span class="p">()</span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">finally</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">udpSocket</span><span class="p">.</span><span class="na">close</span><span class="p">()</span>
+<span class="w">            </span><span class="n">Log</span><span class="p">.</span><span class="na">d</span><span class="p">(</span><span class="s">&quot;yuli&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;close socket&quot;</span><span class="p">)</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
 
-            udpSocket.receive(receivePacket)
-            val ip = receivePacket.address.hostAddress ?: &quot;&quot;
-            Log.e(&quot;yuli&quot;, &quot;recvIp: $ip&quot;)
-            if (ip.isNotEmpty()) {
-                callback(ip)
-                val confirm = &quot;ok&quot;.toByteArray()
-                val packet = DatagramPacket(confirm, confirm.size,
-                    receivePacket.address,
-                    receivePacket.port)
-                udpSocket.send(packet)
-                Log.e(&quot;yuli&quot;, &quot;send ok&quot;)
-                break
-            }
-        }
-    }
-}
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">suspend</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">receiveHelloInner</span><span class="p">(</span><span class="n">callback</span><span class="p">:</span><span class="w"> </span><span class="p">(</span><span class="kt">String</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">Unit</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">withContext</span><span class="p">(</span><span class="n">Dispatchers</span><span class="p">.</span><span class="na">IO</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="kc">true</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="kd">val</span><span class="w"> </span><span class="nv">receiveData</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ByteArray</span><span class="p">(</span><span class="m">1024</span><span class="p">)</span>
+<span class="w">                </span><span class="kd">val</span><span class="w"> </span><span class="nv">receivePacket</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DatagramPacket</span><span class="p">(</span><span class="n">receiveData</span><span class="p">,</span><span class="w"> </span><span class="n">receiveData</span><span class="p">.</span><span class="na">size</span><span class="p">)</span>
+
+<span class="w">                </span><span class="n">udpSocket</span><span class="p">.</span><span class="na">receive</span><span class="p">(</span><span class="n">receivePacket</span><span class="p">)</span>
+<span class="w">                </span><span class="kd">val</span><span class="w"> </span><span class="nv">ip</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">receivePacket</span><span class="p">.</span><span class="na">address</span><span class="p">.</span><span class="na">hostAddress</span><span class="w"> </span><span class="o">?:</span><span class="w"> </span><span class="s">&quot;&quot;</span>
+<span class="w">                </span><span class="n">Log</span><span class="p">.</span><span class="na">e</span><span class="p">(</span><span class="s">&quot;yuli&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;recvIp: </span><span class="si">$</span><span class="n">ip</span><span class="s">&quot;</span><span class="p">)</span>
+<span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ip</span><span class="p">.</span><span class="na">isNotEmpty</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="n">callback</span><span class="p">(</span><span class="n">ip</span><span class="p">)</span>
+<span class="w">                    </span><span class="kd">val</span><span class="w"> </span><span class="nv">confirm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;ok&quot;</span><span class="p">.</span><span class="na">toByteArray</span><span class="p">()</span>
+<span class="w">                    </span><span class="kd">val</span><span class="w"> </span><span class="nv">packet</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DatagramPacket</span><span class="p">(</span><span class="n">confirm</span><span class="p">,</span><span class="w"> </span><span class="n">confirm</span><span class="p">.</span><span class="na">size</span><span class="p">,</span>
+<span class="w">                        </span><span class="n">receivePacket</span><span class="p">.</span><span class="na">address</span><span class="p">,</span>
+<span class="w">                        </span><span class="n">receivePacket</span><span class="p">.</span><span class="na">port</span><span class="p">)</span>
+<span class="w">                    </span><span class="n">udpSocket</span><span class="p">.</span><span class="na">send</span><span class="p">(</span><span class="n">packet</span><span class="p">)</span>
+<span class="w">                    </span><span class="n">Log</span><span class="p">.</span><span class="na">e</span><span class="p">(</span><span class="s">&quot;yuli&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;send ok&quot;</span><span class="p">)</span>
+<span class="w">                    </span><span class="k">break</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
 </code></pre></div>
+<h3 id="ip">自动获取ip功能<a class="headerlink" href="#ip" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="kd">object</span><span class="w"> </span><span class="nc">UdpExtManager</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">const</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">TAG</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;UdpExtManager&quot;</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">isClientRunning</span><span class="p">:</span><span class="w"> </span><span class="n">AtomicBoolean</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">AtomicBoolean</span><span class="p">(</span><span class="kc">false</span><span class="p">)</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">isServerRunning</span><span class="p">:</span><span class="w"> </span><span class="n">AtomicBoolean</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">AtomicBoolean</span><span class="p">(</span><span class="kc">false</span><span class="p">)</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">ioScope</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CoroutineScope</span><span class="p">(</span><span class="n">Dispatchers</span><span class="p">.</span><span class="na">IO</span><span class="p">)</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="nv">clientScope</span><span class="p">:</span><span class="w"> </span><span class="n">Job? </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="nv">serverScope</span><span class="p">:</span><span class="w"> </span><span class="n">Job? </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span>
 
-<p>}</p>
+<span class="w">    </span><span class="kd">fun</span><span class="w"> </span><span class="nf">startClient</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">clientScope</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ioScope</span><span class="p">.</span><span class="na">launch</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="n">isClientRunning</span><span class="p">.</span><span class="na">set</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span>
+<span class="w">                </span><span class="kd">val</span><span class="w"> </span><span class="nv">group</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">InetAddress</span><span class="p">.</span><span class="na">getByName</span><span class="p">(</span><span class="s">&quot;239.255.255.250&quot;</span><span class="p">)</span>
+<span class="w">                </span><span class="kd">val</span><span class="w"> </span><span class="nv">socket</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">MulticastSocket</span><span class="p">(</span><span class="m">1998</span><span class="p">)</span>
+<span class="w">                </span><span class="n">socket</span><span class="p">.</span><span class="na">joinGroup</span><span class="p">(</span><span class="n">group</span><span class="p">)</span>
+<span class="w">                </span><span class="kd">val</span><span class="w"> </span><span class="nv">buffer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ByteArray</span><span class="p">(</span><span class="m">1024</span><span class="p">)</span>
+<span class="w">                </span><span class="kd">val</span><span class="w"> </span><span class="nv">packet</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DatagramPacket</span><span class="p">(</span><span class="n">buffer</span><span class="p">,</span><span class="w"> </span><span class="n">buffer</span><span class="p">.</span><span class="na">size</span><span class="p">)</span>
+<span class="w">                </span><span class="n">Log</span><span class="p">.</span><span class="na">d</span><span class="p">(</span><span class="n">TAG</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Received SSDP message start: &quot;</span><span class="p">)</span>
+<span class="w">                </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">isClientRunning</span><span class="p">.</span><span class="na">get</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="n">socket</span><span class="p">.</span><span class="na">receive</span><span class="p">(</span><span class="n">packet</span><span class="p">)</span>
+<span class="w">                    </span><span class="kd">val</span><span class="w"> </span><span class="nv">received</span><span class="w"> </span><span class="o">=</span>
+<span class="w">                        </span><span class="kt">String</span><span class="p">(</span><span class="n">packet</span><span class="p">.</span><span class="na">data</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="n">packet</span><span class="p">.</span><span class="na">length</span><span class="p">)</span>
+<span class="w">                    </span><span class="n">Log</span><span class="p">.</span><span class="na">d</span><span class="p">(</span><span class="n">TAG</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Received SSDP message: </span><span class="si">$</span><span class="n">received</span><span class="s">&quot;</span><span class="p">)</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">                </span><span class="n">socket</span><span class="p">.</span><span class="na">close</span><span class="p">()</span>
+<span class="w">            </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">e</span><span class="p">:</span><span class="w"> </span><span class="n">IOException</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="n">e</span><span class="p">.</span><span class="na">printStackTrace</span><span class="p">()</span>
+<span class="w">                </span><span class="n">isClientRunning</span><span class="p">.</span><span class="na">set</span><span class="p">(</span><span class="kc">false</span><span class="p">)</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">fun</span><span class="w"> </span><span class="nf">stopClient</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">isClientRunning</span><span class="p">.</span><span class="na">set</span><span class="p">(</span><span class="kc">false</span><span class="p">)</span>
+<span class="w">        </span><span class="n">clientScope</span><span class="o">?.</span><span class="na">cancel</span><span class="p">()</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">fun</span><span class="w"> </span><span class="nf">startServer</span><span class="p">(</span><span class="n">ipAddress</span><span class="p">:</span><span class="w"> </span><span class="kt">String?</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Log</span><span class="p">.</span><span class="na">d</span><span class="p">(</span><span class="n">TAG</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;get IP address </span><span class="si">$</span><span class="n">ipAddress</span><span class="s">&quot;</span><span class="p">)</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ipAddress</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">return</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="kd">val</span><span class="w"> </span><span class="nv">message</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ipAddress</span>
+
+<span class="w">        </span><span class="c1">// 使用UDP多播发送消息</span>
+<span class="w">        </span><span class="n">serverScope</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ioScope</span><span class="p">.</span><span class="na">launch</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">isServerRunning</span><span class="p">.</span><span class="na">set</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span>
+<span class="w">            </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="kd">val</span><span class="w"> </span><span class="nv">group</span><span class="w"> </span><span class="o">=</span>
+<span class="w">                    </span><span class="n">InetAddress</span><span class="p">.</span><span class="na">getByName</span><span class="p">(</span><span class="n">replaceLastWith255</span><span class="p">(</span><span class="n">ipAddress</span><span class="p">))</span>
+<span class="w">                </span><span class="kd">val</span><span class="w"> </span><span class="nv">socket</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DatagramSocket</span><span class="p">()</span>
+<span class="w">                </span><span class="n">socket</span><span class="p">.</span><span class="na">broadcast</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
+<span class="w">                </span><span class="kd">val</span><span class="w"> </span><span class="nv">msgBytes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">message</span><span class="p">.</span><span class="na">toByteArray</span><span class="p">()</span>
+<span class="w">                </span><span class="kd">val</span><span class="w"> </span><span class="nv">packet</span><span class="w"> </span><span class="o">=</span>
+<span class="w">                    </span><span class="n">DatagramPacket</span><span class="p">(</span><span class="n">msgBytes</span><span class="p">,</span><span class="w"> </span><span class="n">msgBytes</span><span class="p">.</span><span class="na">size</span><span class="p">,</span><span class="w"> </span><span class="n">group</span><span class="p">,</span><span class="w"> </span><span class="m">1998</span><span class="p">)</span>
+<span class="w">                </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">isServerRunning</span><span class="p">.</span><span class="na">get</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="n">socket</span><span class="p">.</span><span class="na">send</span><span class="p">(</span><span class="n">packet</span><span class="p">)</span>
+<span class="w">                    </span><span class="n">delay</span><span class="p">(</span><span class="m">10000L</span><span class="p">)</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">                </span><span class="n">Log</span><span class="p">.</span><span class="na">d</span><span class="p">(</span><span class="n">TAG</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;SSDP broadcast sent.&quot;</span><span class="p">)</span>
+<span class="w">                </span><span class="n">socket</span><span class="p">.</span><span class="na">close</span><span class="p">()</span>
+<span class="w">            </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">e</span><span class="p">:</span><span class="w"> </span><span class="n">Exception</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="n">e</span><span class="p">.</span><span class="na">printStackTrace</span><span class="p">()</span>
+<span class="w">                </span><span class="n">Log</span><span class="p">.</span><span class="na">d</span><span class="p">(</span><span class="n">TAG</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Failed to send SSDP broadcast.&quot;</span><span class="p">)</span>
+<span class="w">                </span><span class="n">isServerRunning</span><span class="p">.</span><span class="na">set</span><span class="p">(</span><span class="kc">false</span><span class="p">)</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">fun</span><span class="w"> </span><span class="nf">stopServer</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">isServerRunning</span><span class="p">.</span><span class="na">set</span><span class="p">(</span><span class="kc">false</span><span class="p">)</span>
+<span class="w">        </span><span class="n">serverScope</span><span class="o">?.</span><span class="na">cancel</span><span class="p">()</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">replaceLastWith255</span><span class="p">(</span><span class="n">ipAddress</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span><span class="p">):</span><span class="w"> </span><span class="kt">String?</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">val</span><span class="w"> </span><span class="nv">segments</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ipAddress</span><span class="p">.</span><span class="na">split</span><span class="p">(</span><span class="s">&quot;\\.&quot;</span><span class="p">.</span><span class="na">toRegex</span><span class="p">()).</span><span class="na">dropLastWhile</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nb">it</span><span class="p">.</span><span class="na">isEmpty</span><span class="p">()</span><span class="w"> </span><span class="p">}</span>
+<span class="w">            </span><span class="p">.</span><span class="na">toTypedArray</span><span class="p">()</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">segments</span><span class="p">.</span><span class="na">size</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="m">4</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">Log</span><span class="p">.</span><span class="na">d</span><span class="p">(</span><span class="n">TAG</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Invalid IP address format: </span><span class="si">$</span><span class="n">ipAddress</span><span class="s">&quot;</span><span class="p">)</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="n">segments</span><span class="o">[</span><span class="m">3</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;255&quot;</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="p">.</span><span class="na">join</span><span class="p">(</span><span class="s">&quot;.&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="n">segments</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
 
 
 

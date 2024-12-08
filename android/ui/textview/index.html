@@ -1092,7 +1092,7 @@
   
     <li class="md-nav__item">
       <a href="../../system/brightness/" class="md-nav__link">
-        亮度
+        系统亮度
       </a>
     </li>
   
@@ -1106,7 +1106,7 @@
   
     <li class="md-nav__item">
       <a href="../../system/volume/" class="md-nav__link">
-        音量
+        媒体音量
       </a>
     </li>
   
@@ -1337,7 +1337,7 @@
   
     <li class="md-nav__item">
       <a href="../../android_ui/" class="md-nav__link">
-        View基础
+        View源码
       </a>
     </li>
   
@@ -1351,7 +1351,7 @@
   
     <li class="md-nav__item">
       <a href="../ui_view/" class="md-nav__link">
-        View&lifecycle
+        View定制
       </a>
     </li>
   
@@ -1430,8 +1430,21 @@
       
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
+    字体设置
+  </a>
+  
+    <nav class="md-nav" aria-label="字体设置">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
     斜体修复
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1933,23 +1946,37 @@
   
   
   
+    <li class="md-nav__item">
+      <a href="../../fws/fws_wallpaper/" class="md-nav__link">
+        系统壁纸
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
     
     <li class="md-nav__item md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_1_10_1_9" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_1_10_1_10" >
       
       
       
-        <label class="md-nav__link" for="__nav_1_1_10_1_9" id="__nav_1_1_10_1_9_label" tabindex="0">
+        <label class="md-nav__link" for="__nav_1_1_10_1_10" id="__nav_1_1_10_1_10_label" tabindex="0">
           WMS
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_1_1_10_1_9_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_1_1_10_1_9">
+      <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_1_1_10_1_10_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_1_1_10_1_10">
           <span class="md-nav__icon md-icon"></span>
           WMS
         </label>
@@ -1975,7 +2002,35 @@
   
   
     <li class="md-nav__item">
-      <a href="../../fws/fws_wms_case/" class="md-nav__link">
+      <a href="../../fws/fws_wms_tool.md" class="md-nav__link">
+        分析工具
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fws/fws_log.md" class="md-nav__link">
+        日志
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fws/wms/fws_wms_case/" class="md-nav__link">
         [Protected] 案例
       </a>
     </li>
@@ -2644,6 +2699,20 @@
     <li class="md-nav__item">
       <a href="../../android_studio/" class="md-nav__link">
         AS相关
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../resource/" class="md-nav__link">
+        常用网站
       </a>
     </li>
   
@@ -3325,20 +3394,6 @@
 
             
           
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../ai/" class="md-nav__link">
-        AI
-      </a>
-    </li>
-  
-
-            
-          
         </ul>
       </nav>
     </li>
@@ -3378,8 +3433,21 @@
       
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
+    字体设置
+  </a>
+  
+    <nav class="md-nav" aria-label="字体设置">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
     斜体修复
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -3548,7 +3616,17 @@
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div></p>
-<h3 id="_2">斜体修复<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<h3 id="_2">字体设置<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<p>系统字体斜体
+<div class="highlight"><pre><span></span><code>android:textStyle=&quot;italic&quot;
+</code></pre></div>
+使用字体
+<div class="highlight"><pre><span></span><code><span class="kd">val</span><span class="w"> </span><span class="nv">typeface</span><span class="w"> </span><span class="o">=</span>
+<span class="w">    </span><span class="n">Typeface</span><span class="p">.</span><span class="na">createFromAsset</span><span class="p">(</span><span class="n">requireActivity</span><span class="p">().</span><span class="na">assets</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Helvetica-BoldOblique.ttf&quot;</span><span class="p">)</span>
+<span class="n">binding</span><span class="p">.</span><span class="na">xxx</span><span class="p">.</span><span class="na">setTypeface</span><span class="p">(</span><span class="n">typeface</span><span class="p">,</span><span class="w"> </span><span class="n">Typeface</span><span class="p">.</span><span class="na">ITALIC</span><span class="p">)</span>
+</code></pre></div>
+字体下载: <a href="../../resource/#google_font">谷歌字体</a></p>
+<h4 id="_3">斜体修复<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kd">class</span><span class="w"> </span><span class="nc">FixTextView</span><span class="p">(</span>
 <span class="w">    </span><span class="n">context</span><span class="p">:</span><span class="w"> </span><span class="n">Context</span><span class="p">,</span><span class="w"> </span>
 <span class="w">    </span><span class="n">attrs</span><span class="p">:</span><span class="w"> </span><span class="n">AttributeSet?</span>
@@ -3570,12 +3648,6 @@
 <span class="w">        </span><span class="n">canvas</span><span class="p">.</span><span class="na">drawText</span><span class="p">(</span><span class="n">text</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="n">left</span><span class="p">.</span><span class="na">toFloat</span><span class="p">(),</span><span class="w"> </span><span class="n">top</span><span class="p">.</span><span class="na">toFloat</span><span class="p">(),</span><span class="w"> </span><span class="n">paint</span><span class="p">)</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
-
-<span class="n">android</span><span class="p">:</span><span class="n">textStyle</span><span class="o">=</span><span class="s">&quot;italic&quot;</span>
-
-<span class="kd">val</span><span class="w"> </span><span class="nv">typeface</span><span class="w"> </span><span class="o">=</span>
-<span class="w">    </span><span class="n">Typeface</span><span class="p">.</span><span class="na">createFromAsset</span><span class="p">(</span><span class="n">requireActivity</span><span class="p">().</span><span class="na">assets</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Helvetica-BoldOblique.ttf&quot;</span><span class="p">)</span>
-<span class="n">binding</span><span class="p">.</span><span class="na">xxx</span><span class="p">.</span><span class="na">setTypeface</span><span class="p">(</span><span class="n">typeface</span><span class="p">,</span><span class="w"> </span><span class="n">Typeface</span><span class="p">.</span><span class="na">ITALIC</span><span class="p">)</span>
 </code></pre></div>
 
 

@@ -1,0 +1,64 @@
+plugins {
+    id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
+}
+android {
+    namespace 'com.cariad.m2.sharebar'
+    compileSdk 33
+    
+    defaultConfig {
+        minSdk 24
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    
+    signingConfigs {
+        //rk3588的系统签名
+        rk3588Config {
+            storeFile file("../keys/rk3588.jks") //签名文件路径
+            storePassword "rk3588"
+            keyAlias "rk3588"
+            keyPassword "rk3588"
+        }
+
+        //simulator车机签名
+        simulatorConfig {
+            storeFile file("../keys/simulator.jks") //签名文件路径
+            storePassword "123456"
+            keyAlias "simulator"
+            keyPassword "123456"
+        }
+    }
+    
+    buildTypes {
+        debug {
+            signingConfig signingConfigs.simulatorConfig
+        }
+        release {
+            signingConfig signingConfigs.rk3588Config
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
+    }
+    
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    buildFeatures{
+        viewBinding = true
+        aidl = true
+    }
+}
+
+dependencies {
+    implementation project(':common_lib')
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'com.google.android.material:material:1.9.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+    implementation 'com.google.android.flexbox:flexbox:3.0.0'
+
+}

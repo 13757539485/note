@@ -21,7 +21,7 @@
     
     
       
-        <title>View&lifecycle - 我的笔记</title>
+        <title>View定制 - 我的笔记</title>
       
     
     
@@ -106,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              View&lifecycle
+              View定制
             
           </span>
         </div>
@@ -1092,7 +1092,7 @@
   
     <li class="md-nav__item">
       <a href="../../system/brightness/" class="md-nav__link">
-        亮度
+        系统亮度
       </a>
     </li>
   
@@ -1106,7 +1106,7 @@
   
     <li class="md-nav__item">
       <a href="../../system/volume/" class="md-nav__link">
-        音量
+        媒体音量
       </a>
     </li>
   
@@ -1337,7 +1337,7 @@
   
     <li class="md-nav__item">
       <a href="../../android_ui/" class="md-nav__link">
-        View基础
+        View源码
       </a>
     </li>
   
@@ -1358,12 +1358,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          View&lifecycle
+          View定制
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        View&lifecycle
+        View定制
       </a>
       
         
@@ -1960,23 +1960,37 @@
   
   
   
+    <li class="md-nav__item">
+      <a href="../../fws/fws_wallpaper/" class="md-nav__link">
+        系统壁纸
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
     
     <li class="md-nav__item md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_1_10_1_9" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_1_10_1_10" >
       
       
       
-        <label class="md-nav__link" for="__nav_1_1_10_1_9" id="__nav_1_1_10_1_9_label" tabindex="0">
+        <label class="md-nav__link" for="__nav_1_1_10_1_10" id="__nav_1_1_10_1_10_label" tabindex="0">
           WMS
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_1_1_10_1_9_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_1_1_10_1_9">
+      <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_1_1_10_1_10_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_1_1_10_1_10">
           <span class="md-nav__icon md-icon"></span>
           WMS
         </label>
@@ -2002,7 +2016,35 @@
   
   
     <li class="md-nav__item">
-      <a href="../../fws/fws_wms_case/" class="md-nav__link">
+      <a href="../../fws/fws_wms_tool.md" class="md-nav__link">
+        分析工具
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fws/fws_log.md" class="md-nav__link">
+        日志
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fws/wms/fws_wms_case/" class="md-nav__link">
         [Protected] 案例
       </a>
     </li>
@@ -2671,6 +2713,20 @@
     <li class="md-nav__item">
       <a href="../../android_studio/" class="md-nav__link">
         AS相关
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../resource/" class="md-nav__link">
+        常用网站
       </a>
     </li>
   
@@ -3352,20 +3408,6 @@
 
             
           
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../ai/" class="md-nav__link">
-        AI
-      </a>
-    </li>
-  
-
-            
-          
         </ul>
       </nav>
     </li>
@@ -3452,7 +3494,7 @@
                   
 
 
-  <h1>View&lifecycle</h1>
+  <h1>View定制</h1>
 
 <h3 id="viewlifecycle"><a id="view_lifecycle">自定义view之lifecycle</a><a class="headerlink" href="#viewlifecycle" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="kd">abstract</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nc">BaseConstraintLayout</span><span class="w"> </span><span class="nd">@JvmOverloads</span><span class="w"> </span><span class="k">constructor</span><span class="p">(</span>
@@ -3499,6 +3541,7 @@
 <span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="nv">statusBarAdapter</span><span class="p">:</span><span class="w"> </span><span class="kt">Boolean</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
 <span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="nv">navigationBarAdapter</span><span class="p">:</span><span class="w"> </span><span class="kt">Boolean</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
 <span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="nv">cutoutAdapter</span><span class="p">:</span><span class="w"> </span><span class="kt">Boolean</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">windowManager</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">lazy</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">context</span><span class="p">.</span><span class="na">getSystemService</span><span class="p">(</span><span class="n">Context</span><span class="p">.</span><span class="na">WINDOW_SERVICE</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">WindowManager</span><span class="w"> </span><span class="p">}</span>
 
 <span class="w">    </span><span class="k">init</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="kd">val</span><span class="w"> </span><span class="nv">obtainStyledAttributes</span><span class="w"> </span><span class="o">=</span>
@@ -3515,20 +3558,26 @@
 <span class="w">    </span><span class="p">}</span>
 
 <span class="w">    </span><span class="kd">override</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">onApplyWindowInsets</span><span class="p">(</span><span class="n">insets</span><span class="p">:</span><span class="w"> </span><span class="n">WindowInsets?)</span><span class="p">:</span><span class="w"> </span><span class="n">WindowInsets</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Log</span><span class="p">.</span><span class="na">d</span><span class="p">(</span><span class="s">&quot;CutStatusBarView&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;onApplyWindowInsets() called with: insets = </span><span class="si">$</span><span class="n">insets</span><span class="s">&quot;</span><span class="p">)</span>
 <span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">Build</span><span class="p">.</span><span class="na">VERSION</span><span class="p">.</span><span class="na">SDK_INT</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">Build</span><span class="p">.</span><span class="na">VERSION_CODES</span><span class="p">.</span><span class="na">R</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">            </span><span class="n">insets</span><span class="o">?.</span><span class="na">let</span><span class="w"> </span><span class="p">{</span>
 <span class="w">                </span><span class="n">setPadding</span><span class="p">(</span>
 <span class="w">                    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">cutoutAdapter</span><span class="p">)</span><span class="w"> </span><span class="nb">it</span><span class="p">.</span><span class="na">getInsets</span><span class="p">(</span><span class="n">WindowInsets</span><span class="p">.</span><span class="na">Type</span><span class="p">.</span><span class="na">displayCutout</span><span class="p">()).</span><span class="na">left</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="m">0</span><span class="p">,</span>
 <span class="w">                    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">statusBarAdapter</span><span class="p">)</span><span class="w"> </span><span class="nb">it</span><span class="p">.</span><span class="na">getInsets</span><span class="p">(</span><span class="n">WindowInsets</span><span class="p">.</span><span class="na">Type</span><span class="p">.</span><span class="na">statusBars</span><span class="p">()).</span><span class="na">top</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="m">0</span><span class="p">,</span>
-<span class="w">                    </span><span class="m">0</span><span class="p">,</span>
+<span class="w">                    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">cutoutAdapter</span><span class="p">)</span><span class="w"> </span><span class="nb">it</span><span class="p">.</span><span class="na">getInsets</span><span class="p">(</span><span class="n">WindowInsets</span><span class="p">.</span><span class="na">Type</span><span class="p">.</span><span class="na">displayCutout</span><span class="p">()).</span><span class="na">right</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="m">0</span><span class="p">,</span>
 <span class="w">                    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">navigationBarAdapter</span><span class="p">)</span><span class="w"> </span><span class="nb">it</span><span class="p">.</span><span class="na">getInsets</span><span class="p">(</span><span class="n">WindowInsets</span><span class="p">.</span><span class="na">Type</span><span class="p">.</span><span class="na">navigationBars</span><span class="p">()).</span><span class="na">bottom</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="m">0</span>
 <span class="w">                </span><span class="p">)</span>
 <span class="w">            </span><span class="p">}</span>
 <span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="kd">val</span><span class="w"> </span><span class="nv">rotation</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">windowManager</span><span class="p">.</span><span class="na">defaultDisplay</span><span class="p">.</span><span class="na">rotation</span>
 <span class="w">            </span><span class="n">setPadding</span><span class="p">(</span>
-<span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">cutoutAdapter</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">context</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">Activity</span><span class="p">)</span><span class="w"> </span><span class="n">ImmersionBar</span><span class="p">.</span><span class="na">getNotchHeight</span><span class="p">(</span><span class="n">context</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">Activity</span><span class="p">)</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="m">0</span><span class="p">,</span>
+<span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">cutoutAdapter</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">context</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">Activity</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">rotation</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">Surface</span><span class="p">.</span><span class="na">ROTATION_90</span><span class="p">)</span><span class="w"> </span><span class="n">ImmersionBar</span><span class="p">.</span><span class="na">getNotchHeight</span><span class="p">(</span>
+<span class="w">                    </span><span class="n">context</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">Activity</span>
+<span class="w">                </span><span class="p">)</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="m">0</span><span class="p">,</span>
 <span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">statusBarAdapter</span><span class="p">)</span><span class="w"> </span><span class="n">ImmersionBar</span><span class="p">.</span><span class="na">getStatusBarHeight</span><span class="p">(</span><span class="n">context</span><span class="p">)</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="m">0</span><span class="p">,</span>
-<span class="w">                </span><span class="m">0</span><span class="p">,</span>
+<span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">cutoutAdapter</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">context</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">Activity</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">rotation</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">Surface</span><span class="p">.</span><span class="na">ROTATION_270</span><span class="p">)</span><span class="w"> </span><span class="n">ImmersionBar</span><span class="p">.</span><span class="na">getNotchHeight</span><span class="p">(</span>
+<span class="w">                    </span><span class="n">context</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">Activity</span>
+<span class="w">                </span><span class="p">)</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="m">0</span><span class="p">,</span>
 <span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">navigationBarAdapter</span><span class="p">)</span><span class="w"> </span><span class="n">ImmersionBar</span><span class="p">.</span><span class="na">getNavigationBarHeight</span><span class="p">(</span><span class="n">context</span><span class="p">)</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="m">0</span>
 <span class="w">            </span><span class="p">)</span>
 <span class="w">        </span><span class="p">}</span>
