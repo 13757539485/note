@@ -3826,12 +3826,12 @@ chmod<span class="w"> </span>+x<span class="w"> </span>~/bin/repo
 <p><del><a href="http://aospxref.com">http://aospxref.com</a></del></p>
 <p><a href="http://xrefandroid.com/">http://xrefandroid.com/</a></p>
 <p>进入目录aosp执行
-<div class="highlight"><pre><span></span><code>repo<span class="w"> </span>init<span class="w"> </span>-u<span class="w"> </span>git://mirrors.ustc.edu.cn/aosp/platform/manifest<span class="w"> </span>-b<span class="w"> </span>android-13.0.0_r43
+<div class="highlight"><pre><span></span><code>repo<span class="w"> </span>init<span class="w"> </span>-u<span class="w"> </span>git://mirrors.ustc.edu.cn/aosp/platform/manifest<span class="w"> </span>-b<span class="w"> </span>android-15.0.0_r3
 </code></pre></div>
 其中-b查看地址：</p>
 <p><del><a href="https://source.android.com/setup/start/build-numbers?hl=zh_cn(挂vpn">https://source.android.com/setup/start/build-numbers?hl=zh_cn(挂vpn</a>)</del></p>
 <p><a href="https://source.android.google.cn/docs/setup/reference/build-numbers?hl=zh-cn">https://source.android.google.cn/docs/setup/reference/build-numbers?hl=zh-cn</a></p>
-<p>Pixel6: TQ2A.230505.002对应分支android-13.0.0_r43</p>
+<p>Pixel6: AP3A.241005.015.A2对应分支android-15.0.0_r3</p>
 <h4 id="_1">添加交换内存<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h4>
 <ol>
 <li>zram</li>
@@ -3866,7 +3866,7 @@ sudo<span class="w"> </span>swapon<span class="w"> </span>/swapfile
 <div class="highlight"><pre><span></span><code>/swapfile<span class="w">                                 </span>none<span class="w">      </span>swap<span class="w">    </span>sw<span class="w">          </span><span class="m">0</span><span class="w">       </span><span class="m">0</span>
 </code></pre></div></p>
 <h4 id="_2"><a id="original">使用传统同步代码</a><a class="headerlink" href="#_2" title="Permanent link">&para;</a></h4>
-<p>节省空间，编辑.repo/manifests.git/config</p>
+<p>在执行repo init xxx后为节省空间，编辑.repo/manifests.git/config</p>
 <p>在[remote "origin"]节点下添加
 <div class="highlight"><pre><span></span><code>[remote &quot;origin&quot;]
     //..
@@ -3909,7 +3909,7 @@ swappiness值为0表示优先使用物理内存，值为100则优先使用swap�
 <h3 id="5google">5.驱动下载(针对google手机，可跳过)<a class="headerlink" href="#5google" title="Permanent link">&para;</a></h3>
 <p><a href="https://developers.google.com/android/drivers">https://developers.google.com/android/drivers</a></p>
 <p><img alt="fws1" src="../../../img/fws/fws1.png" /></p>
-<p>上面源码下载的是android-13.0.0_r43所以复制build ID(TQ2A.230505.002)到驱动网站</p>
+<p>上面源码下载的是android-15.0.0_r3所以复制build ID(AP3A.241005.015.A2)到驱动网站</p>
 <p><img alt="fws2" src="../../../img/fws/fws2.png" /></p>
 <p>下载后放到aosp目录下并解压
 <div class="highlight"><pre><span></span><code>tar<span class="w"> </span>-zxvf<span class="w"> </span>google_devices-cheetah-td1a.220804.031-d59f7f42.tgz
