@@ -68,7 +68,7 @@ http://xrefandroid.com/
 
 进入目录aosp执行
 ```shell
-repo init -u git://mirrors.ustc.edu.cn/aosp/platform/manifest -b android-13.0.0_r43
+repo init -u git://mirrors.ustc.edu.cn/aosp/platform/manifest -b android-15.0.0_r3
 ```
 其中-b查看地址：
 
@@ -76,7 +76,7 @@ repo init -u git://mirrors.ustc.edu.cn/aosp/platform/manifest -b android-13.0.0_
 
 https://source.android.google.cn/docs/setup/reference/build-numbers?hl=zh-cn
 
-Pixel6: TQ2A.230505.002对应分支android-13.0.0_r43
+Pixel6: AP3A.241005.015.A2对应分支android-15.0.0_r3
 
 #### 添加交换内存
 1. zram
@@ -121,7 +121,7 @@ sudo swapon /swapfile
 ```
 
 #### <a id="original">使用传统同步代码</a>
-节省空间，编辑.repo/manifests.git/config
+在执行repo init xxx后为节省空间，编辑.repo/manifests.git/config
 
 在[remote "origin"]节点下添加
 ```
@@ -177,7 +177,7 @@ https://developers.google.com/android/drivers
 
 ![fws1](../../img/fws/fws1.png)
 
-上面源码下载的是android-13.0.0_r43所以复制build ID(TQ2A.230505.002)到驱动网站
+上面源码下载的是android-15.0.0_r3所以复制build ID(AP3A.241005.015.A2)到驱动网站
 
 ![fws2](../../img/fws/fws2.png)
 

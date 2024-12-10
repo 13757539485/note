@@ -187,3 +187,5 @@ Client端关闭
 ```kotlin
 NsdExtManager.stopClient()
 ```
+
+![multi-hub](../fws/wms/img/multi-hub.drawio.png)

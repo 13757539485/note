@@ -299,3 +299,7 @@ void updateDragSurfaceLocked(boolean keepHandling, float x, float y) {
 功能包括：保存图片，显示分享框，查询支持分享的应用，高德地图查询等
 
 [sharebar](./code/sharebar.zip)
+
+#### 流程图
+
+![drag](../fws/wms/img/drag.drawio.png)

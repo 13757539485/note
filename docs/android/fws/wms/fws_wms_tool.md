@@ -8,6 +8,7 @@ adb shell dumpsys activity containers > wms.txt
 adb shell dumpsys SurfaceFlinger > surface.txt
 ```
 ### Winscope
+官方介绍：https://source.android.google.cn/docs/core/graphics/tracing-win-transitions?hl=zh-cn#capture-traces-adb
 #### aosp14之前
 1.开发者选项-快捷设置开发者-Winscope跟踪
 
