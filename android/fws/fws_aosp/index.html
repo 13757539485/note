@@ -1755,8 +1755,36 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#aosp12" class="md-nav__link">
+    aosp12之前
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aosp12-14r29" class="md-nav__link">
+    aosp12-14r29
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#lunch" class="md-nav__link">
     添加lunch选项
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aosp14r29" class="md-nav__link">
+    aosp14r29之后
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aosp15" class="md-nav__link">
+    aosp15
   </a>
   
 </li>
@@ -2147,7 +2175,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../fws_wms_tool.md" class="md-nav__link">
+      <a href="../wms/fws_wms_tool/" class="md-nav__link">
         分析工具
       </a>
     </li>
@@ -2161,7 +2189,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../fws_log.md" class="md-nav__link">
+      <a href="../wms/fws_log/" class="md-nav__link">
         日志
       </a>
     </li>
@@ -3661,8 +3689,36 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#aosp12" class="md-nav__link">
+    aosp12之前
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aosp12-14r29" class="md-nav__link">
+    aosp12-14r29
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#lunch" class="md-nav__link">
     添加lunch选项
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aosp14r29" class="md-nav__link">
+    aosp14r29之后
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aosp15" class="md-nav__link">
+    aosp15
   </a>
   
 </li>
@@ -3832,6 +3888,7 @@ chmod<span class="w"> </span>+x<span class="w"> </span>~/bin/repo
 <p><del><a href="https://source.android.com/setup/start/build-numbers?hl=zh_cn(挂vpn">https://source.android.com/setup/start/build-numbers?hl=zh_cn(挂vpn</a>)</del></p>
 <p><a href="https://source.android.google.cn/docs/setup/reference/build-numbers?hl=zh-cn">https://source.android.google.cn/docs/setup/reference/build-numbers?hl=zh-cn</a></p>
 <p>Pixel6: AP3A.241005.015.A2对应分支android-15.0.0_r3</p>
+<p>aosp14最后一个版本：AP2A.240905.003.F1     android-14.0.0_r73</p>
 <h4 id="_1">添加交换内存<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h4>
 <ol>
 <li>zram</li>
@@ -3925,19 +3982,26 @@ swappiness值为0表示优先使用物理内存，值为100则优先使用swap�
 <p><img alt="fws3" src="../../../img/fws/fws3.png" /></p>
 <p>一般已经包含，可通过路径确认</p>
 <h3 id="7">7.源码编译<a class="headerlink" href="#7" title="Permanent link">&para;</a></h3>
-<p><div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">DISABLE_ARTIFACT_PATH_REQUIREMENTS</span><span class="o">=</span><span class="s2">&quot;true&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">DISABLE_ARTIFACT_PATH_REQUIREMENTS</span><span class="o">=</span><span class="s2">&quot;true&quot;</span>
 <span class="nb">source</span><span class="w"> </span>build/envsetup.sh
-lunch
 </code></pre></div>
-lunch后会列出编译选项</p>
-<p>如果是真机代号可以通过驱动界面查找，比如Pixel6 ("oriole")
+<h4 id="aosp12">aosp12之前<a class="headerlink" href="#aosp12" title="Permanent link">&para;</a></h4>
+<p>模拟器：
+<div class="highlight"><pre><span></span><code>lunch<span class="w"> </span>aosp_x86_64-eng
+</code></pre></div></p>
+<h4 id="aosp12-14r29">aosp12-14r29<a class="headerlink" href="#aosp12-14r29" title="Permanent link">&para;</a></h4>
+<p>lunch后会列出编译选项</p>
+<p>模拟器：
+<div class="highlight"><pre><span></span><code>lunch<span class="w"> </span>sdk_phone_x86_64
+</code></pre></div></p>
+<p>如果是真机<a href="https://source.android.google.cn/docs/setup/reference/build-numbers?hl=zh-cn#build-targets">代号</a>，比如Pixel6 ("oriole")
 <div class="highlight"><pre><span></span><code>lunch<span class="w"> </span>aosp_oriole-userdebug
 </code></pre></div>
 编译版本介绍</p>
 <ul>
 <li>user:无root权限</li>
 <li>userdebug:有root，需要通过su获取</li>
-<li>eng:有root，adbd超级权限</li>
+<li>eng:有root，adbd超级权限，编译更快，推荐开发使用</li>
 </ul>
 <h4 id="lunch">添加lunch选项<a class="headerlink" href="#lunch" title="Permanent link">&para;</a></h4>
 <p>对于模拟器必须sdk开头，比如lunch sdk_phone_x86_64-userdebug</p>
@@ -3949,7 +4013,41 @@ sdk_phone_x86_64-eng \
 sdk_x86_64-userdebug \
 sdk_phone_x86_64-userdebug
 </code></pre></div></p>
-<p>选择版本后执行编译命令：make -j(虚拟机配置的cpu核数)</p>
+<h4 id="aosp14r29">aosp14r29之后<a class="headerlink" href="#aosp14r29" title="Permanent link">&para;</a></h4>
+<p>模拟器：
+<div class="highlight"><pre><span></span><code>sdk_phone64_x86_64-ap2a-eng<span class="w"> </span>//手机
+sdk_car_x86_64-ap2a-userdebug<span class="w"> </span>//车机
+</code></pre></div></p>
+<p>Pixel6
+<div class="highlight"><pre><span></span><code>aosp_oriole-ap2a-eng
+</code></pre></div></p>
+<h4 id="aosp15">aosp15<a class="headerlink" href="#aosp15" title="Permanent link">&para;</a></h4>
+<p><div class="highlight"><pre><span></span><code>lunch<span class="w"> </span>product_name-release-build_variant
+</code></pre></div>
+- product_name：如 aosp_cf_x86_64_phone 或 aosp_husky，cf是指Cuttlefish 模拟器
+- release 设置为 trunk_staging
+- build_variant：user、userdebug、eng</p>
+<p>模拟器：
+<div class="highlight"><pre><span></span><code>lunch<span class="w"> </span>aosp_cf_x86_64_phone-trunk_staging-eng
+</code></pre></div>
+真机
+<div class="highlight"><pre><span></span><code>lunch<span class="w"> </span>aosp_oriole-trunk_staging-eng
+</code></pre></div>
+报错：
+<div class="highlight"><pre><span></span><code>cat: device/google/raviole-kernels/5.10/trunk-11969182/vendor_boot.modules.load: 没有那个文件或目录
+In file included from build/make/core/config.mk:381:
+In file included from build/make/core/envsetup.mk:368:
+In file included from build/make/core/board_config.mk:241:
+In file included from device/google/raviole/oriole/BoardConfig.mk:46:
+device/google/gs101/BoardConfig-common.mk:371: error: vendor_boot.modules.load not found or empty.
+</code></pre></div>
+解决：
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>device/google/raviole-kernels/5.10/
+git<span class="w"> </span>ch<span class="w"> </span>-b<span class="w"> </span>master
+git<span class="w"> </span>branch<span class="w"> </span>--set-upstream-to<span class="o">=</span>aosp/master<span class="w"> </span>master
+git<span class="w"> </span>pull
+</code></pre></div>
+选择版本后执行编译命令：make -j(虚拟机配置的cpu核数)</p>
 <h4 id="_6">编译以及命令相关<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h4>
 <p><a href="../fws_aosp_make/">fws_aosp_make</a></p>
 <h4 id="car-api">Car API相关<a class="headerlink" href="#car-api" title="Permanent link">&para;</a></h4>
