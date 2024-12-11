@@ -34,7 +34,7 @@ adb shell su root service call SurfaceFlinger 1025 i32 0
 ```shell
 adb pull /data/misc/wmtrace/layers_trace.winscope layers_trace.winscope
 ```
-#### aosp14/lineageos21
+#### aosp14/lineageos21/aosp15
 下载特定版本源码
 ```shell
 repo init -u https://mirrors.tuna.tsinghua.edu.cn/git/AOSP/platform/manifest -b android-14.0.0_r21
@@ -67,7 +67,7 @@ npm install
 ```
 构建
 ```shell
-npm run build:all
+npm run build:all //aosp15没有这个
 
 npm run build:prod
 ```
@@ -78,10 +78,11 @@ INFO:root:Downloading /aosp14/external/perfetto/buildtools/linux64/clang.tgz fro
 ```
 手动下载并重命名放到/aosp14/external/perfetto/buildtools/linux64/clang.tgz中，重新执行npm run build:prod
 
-连接超时问题：[终端无法连接vpn](../../../linux/ubuntu_install.md#linux_terminal)
+连接超时问题：[终端无法连接vpn](../../../linux/linux_software.md#linux_terminal)
 
 捕获跟踪记录
 ```shell
 python3 development/tools/winscope/src/adb/winscope_proxy.py
 ```
-#### aosp15
+
+参考博客：https://blog.csdn.net/ukynho/article/details/143023774

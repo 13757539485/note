@@ -78,6 +78,8 @@ https://source.android.google.cn/docs/setup/reference/build-numbers?hl=zh-cn
 
 Pixel6: AP3A.241005.015.A2对应分支android-15.0.0_r3
 
+aosp14最后一个版本：AP2A.240905.003.F1 	android-14.0.0_r73
+
 #### 添加交换内存
 1. zram
 
@@ -205,11 +207,21 @@ https://source.android.google.cn/docs/setup/build/building-kernels?hl=zh-cn#id-v
 ```shell
 export DISABLE_ARTIFACT_PATH_REQUIREMENTS="true"
 source build/envsetup.sh
-lunch
 ```
+#### aosp12之前
+模拟器：
+```shell
+lunch aosp_x86_64-eng
+```
+#### aosp12-14r29
 lunch后会列出编译选项
 
-如果是真机代号可以通过驱动界面查找，比如Pixel6 ("oriole")
+模拟器：
+```shell
+lunch sdk_phone_x86_64
+```
+
+如果是真机[代号](https://source.android.google.cn/docs/setup/reference/build-numbers?hl=zh-cn#build-targets)，比如Pixel6 ("oriole")
 ```shell
 lunch aosp_oriole-userdebug
 ```
@@ -217,7 +229,7 @@ lunch aosp_oriole-userdebug
 
 - user:无root权限
 - userdebug:有root，需要通过su获取
-- eng:有root，adbd超级权限
+- eng:有root，adbd超级权限，编译更快，推荐开发使用
 
 #### 添加lunch选项
 对于模拟器必须sdk开头，比如lunch sdk_phone_x86_64-userdebug
@@ -231,8 +243,50 @@ sdk_phone_x86_64-eng \
 sdk_x86_64-userdebug \
 sdk_phone_x86_64-userdebug
 ```
+#### aosp14r29之后
+模拟器：
+```shell
+sdk_phone64_x86_64-ap2a-eng //手机
+sdk_car_x86_64-ap2a-userdebug //车机
+```
 
- 选择版本后执行编译命令：make -j(虚拟机配置的cpu核数)
+Pixel6
+```shell
+aosp_oriole-ap2a-eng
+```
+#### aosp15
+```shell
+lunch product_name-release-build_variant
+```
+- product_name：如 aosp_cf_x86_64_phone 或 aosp_husky，cf是指Cuttlefish 模拟器
+- release 设置为 trunk_staging
+- build_variant：user、userdebug、eng
+
+模拟器：
+```shell
+lunch aosp_cf_x86_64_phone-trunk_staging-eng
+```
+真机
+```shell
+lunch aosp_oriole-trunk_staging-eng
+```
+报错：
+```
+cat: device/google/raviole-kernels/5.10/trunk-11969182/vendor_boot.modules.load: 没有那个文件或目录
+In file included from build/make/core/config.mk:381:
+In file included from build/make/core/envsetup.mk:368:
+In file included from build/make/core/board_config.mk:241:
+In file included from device/google/raviole/oriole/BoardConfig.mk:46:
+device/google/gs101/BoardConfig-common.mk:371: error: vendor_boot.modules.load not found or empty.
+```
+解决：
+```shell
+cd device/google/raviole-kernels/5.10/
+git ch -b master
+git branch --set-upstream-to=aosp/master master
+git pull
+```
+选择版本后执行编译命令：make -j(虚拟机配置的cpu核数)
 
 #### 编译以及命令相关
 

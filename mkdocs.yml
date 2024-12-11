@@ -90,8 +90,8 @@ nav:
               - 系统壁纸: android/fws/fws_wallpaper.md
               - WMS:
                 - 源码: android/fws/fws_wms.md
-                - 分析工具: android/fws/fws_wms_tool.md
-                - 日志: android/fws/fws_log.md
+                - 分析工具: android/fws/wms/fws_wms_tool.md
+                - 日志: android/fws/wms/fws_log.md
                 - 案例: android/fws/wms/fws_wms_case.md
            - AOSP源码:  
               - Handler: android/fws/fws_handler.md
