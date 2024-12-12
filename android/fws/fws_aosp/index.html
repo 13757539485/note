@@ -1766,12 +1766,18 @@
     aosp12-14r29
   </a>
   
-</li>
+    <nav class="md-nav" aria-label="aosp12-14r29">
+      <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#lunch" class="md-nav__link">
     添加lunch选项
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -1819,6 +1825,13 @@
           <li class="md-nav__item">
   <a href="#_7" class="md-nav__link">
     刷机编译的包
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wifi" class="md-nav__link">
+    wifi感叹号处理
   </a>
   
 </li>
@@ -3700,12 +3713,18 @@
     aosp12-14r29
   </a>
   
-</li>
+    <nav class="md-nav" aria-label="aosp12-14r29">
+      <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#lunch" class="md-nav__link">
     添加lunch选项
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -3753,6 +3772,13 @@
           <li class="md-nav__item">
   <a href="#_7" class="md-nav__link">
     刷机编译的包
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wifi" class="md-nav__link">
+    wifi感叹号处理
   </a>
   
 </li>
@@ -3882,13 +3908,14 @@ chmod<span class="w"> </span>+x<span class="w"> </span>~/bin/repo
 <p><del><a href="http://aospxref.com">http://aospxref.com</a></del></p>
 <p><a href="http://xrefandroid.com/">http://xrefandroid.com/</a></p>
 <p>进入目录aosp执行
-<div class="highlight"><pre><span></span><code>repo<span class="w"> </span>init<span class="w"> </span>-u<span class="w"> </span>git://mirrors.ustc.edu.cn/aosp/platform/manifest<span class="w"> </span>-b<span class="w"> </span>android-15.0.0_r3
+<div class="highlight"><pre><span></span><code>repo<span class="w"> </span>init<span class="w"> </span>-u<span class="w"> </span>https://mirrors.tuna.tsinghua.edu.cn/git/AOSP/platform/manifest<span class="w"> </span>-b<span class="w"> </span>android-15.0.0_r3
 </code></pre></div>
 其中-b查看地址：</p>
 <p><del><a href="https://source.android.com/setup/start/build-numbers?hl=zh_cn(挂vpn">https://source.android.com/setup/start/build-numbers?hl=zh_cn(挂vpn</a>)</del></p>
 <p><a href="https://source.android.google.cn/docs/setup/reference/build-numbers?hl=zh-cn">https://source.android.google.cn/docs/setup/reference/build-numbers?hl=zh-cn</a></p>
 <p>Pixel6: AP3A.241005.015.A2对应分支android-15.0.0_r3</p>
-<p>aosp14最后一个版本：AP2A.240905.003.F1     android-14.0.0_r73</p>
+<p>aosp14最后一个版本：AP2A.240905.003.F1 android-14.0.0_r73</p>
+<p>aosp14转折性版本：AP1A.240305.019.A1 android-14.0.0_r29</p>
 <h4 id="_1">添加交换内存<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h4>
 <ol>
 <li>zram</li>
@@ -4003,7 +4030,7 @@ swappiness值为0表示优先使用物理内存，值为100则优先使用swap�
 <li>userdebug:有root，需要通过su获取</li>
 <li>eng:有root，adbd超级权限，编译更快，推荐开发使用</li>
 </ul>
-<h4 id="lunch">添加lunch选项<a class="headerlink" href="#lunch" title="Permanent link">&para;</a></h4>
+<h5 id="lunch">添加lunch选项<a class="headerlink" href="#lunch" title="Permanent link">&para;</a></h5>
 <p>对于模拟器必须sdk开头，比如lunch sdk_phone_x86_64-userdebug</p>
 <p>打开build/make/target/product/AndroidProducts.mk
 <div class="highlight"><pre><span></span><code>COMMON_LUNCH_CHOICES := \
@@ -4079,8 +4106,8 @@ git<span class="w"> </span>pull
 fastboot<span class="w"> </span>--slot<span class="o">=</span>other<span class="w"> </span>flash<span class="w"> </span>bootloader<span class="w"> </span>bootloader.img
 </code></pre></div></p>
 <p><a href="../fw_aosp_error/#adb_error">报错问题见</a></p>
-<p>wifi感叹号处理
-<div class="highlight"><pre><span></span><code>adb<span class="w"> </span>shell<span class="w"> </span>settings<span class="w"> </span>delete<span class="w"> </span>global<span class="w"> </span>captive_portal_http_url
+<h4 id="wifi">wifi感叹号处理<a class="headerlink" href="#wifi" title="Permanent link">&para;</a></h4>
+<p><div class="highlight"><pre><span></span><code>adb<span class="w"> </span>shell<span class="w"> </span>settings<span class="w"> </span>delete<span class="w"> </span>global<span class="w"> </span>captive_portal_http_url
 adb<span class="w"> </span>shell<span class="w"> </span>settings<span class="w"> </span>delete<span class="w"> </span>global<span class="w"> </span>captive_portal_https_url
 adb<span class="w"> </span>shell<span class="w"> </span>settings<span class="w"> </span>put<span class="w"> </span>global<span class="w"> </span>captive_portal_http_url<span class="w"> </span>http://www.google.cn/generate_204
 adb<span class="w"> </span>shell<span class="w"> </span>settings<span class="w"> </span>put<span class="w"> </span>global<span class="w"> </span>captive_portal_https_url<span class="w"> </span>https://www.google.cn/generate_204

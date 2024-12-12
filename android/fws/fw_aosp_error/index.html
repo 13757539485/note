@@ -3375,6 +3375,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    分区不足
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -3440,6 +3447,15 @@ sudo<span class="w"> </span>vi<span class="w"> </span><span class="m">51</span>-
 fastboot相同解决</p>
 <p>Bus 001 Device 014: ID 18d1:4ee0 Google Inc. Nexus/Pixel Device (fastboot)
 SUBSYSTEM=="usb", ATTRS{idVendor}<mark>"18d1", ATTRS{idProduct}</mark>"4ee0",MODE="0666"</p>
+<h4 id="_2">分区不足<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h4>
+<p>Out of space? Out of inodes? The tree size of out/target/product/oriole/tmp7f1nizih is 4096 bytes (0 MB), with reserved space of 0 bytes (0 MB).
+The max image size for filesystem files is 11796480000 bytes (11250 MB), out of a total partition size of 11796480000 bytes (11250 MB).</p>
+<p>解决：
+<div class="highlight"><pre><span></span><code>device/google/raviole/oriole/BoardConfig.mk
+</code></pre></div>
+添加：
+<div class="highlight"><pre><span></span><code>BOARD_USERDATAIMAGE_FILE_SYSTEM_TYPE := ext4
+</code></pre></div></p>
 
 
 
