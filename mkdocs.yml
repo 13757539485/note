@@ -82,9 +82,6 @@ nav:
               - 拖拽模块: 
                 - 源码: android/fws/fws_drag.md
                 - 案例: android/fws/fws_drag_case.md
-              - 分屏模块: 
-                - 源码: android/fws/fws_split.md
-                - 案例: android/fws/fws_split_case.md
               - 系统动画: android/fws/fws_anim.md
               - 开机动画: android/fws/fws_boot.md
               - 系统壁纸: android/fws/fws_wallpaper.md
@@ -93,6 +90,11 @@ nav:
                 - 分析工具: android/fws/wms/fws_wms_tool.md
                 - 日志: android/fws/wms/fws_log.md
                 - 案例: android/fws/wms/fws_wms_case.md
+                - 分屏模块: 
+                  - 源码: android/fws/fws_split.md
+                  - 案例: android/fws/fws_split_case.md
+                - 自由窗口:
+                  - 源码: android/fws/wms/fws_freeform.md
            - AOSP源码:  
               - Handler: android/fws/fws_handler.md
               - IPC通信: android/fws/fws_process.md

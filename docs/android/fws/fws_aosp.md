@@ -68,7 +68,7 @@ http://xrefandroid.com/
 
 进入目录aosp执行
 ```shell
-repo init -u git://mirrors.ustc.edu.cn/aosp/platform/manifest -b android-15.0.0_r3
+repo init -u https://mirrors.tuna.tsinghua.edu.cn/git/AOSP/platform/manifest -b android-15.0.0_r3
 ```
 其中-b查看地址：
 
@@ -78,8 +78,9 @@ https://source.android.google.cn/docs/setup/reference/build-numbers?hl=zh-cn
 
 Pixel6: AP3A.241005.015.A2对应分支android-15.0.0_r3
 
-aosp14最后一个版本：AP2A.240905.003.F1 	android-14.0.0_r73
+aosp14最后一个版本：AP2A.240905.003.F1 android-14.0.0_r73
 
+aosp14转折性版本：AP1A.240305.019.A1 android-14.0.0_r29
 #### 添加交换内存
 1. zram
 
@@ -231,7 +232,7 @@ lunch aosp_oriole-userdebug
 - userdebug:有root，需要通过su获取
 - eng:有root，adbd超级权限，编译更快，推荐开发使用
 
-#### 添加lunch选项
+##### 添加lunch选项
 对于模拟器必须sdk开头，比如lunch sdk_phone_x86_64-userdebug
 
 打开build/make/target/product/AndroidProducts.mk
@@ -264,7 +265,7 @@ lunch product_name-release-build_variant
 
 模拟器：
 ```shell
-lunch aosp_cf_x86_64_phone-trunk_staging-eng
+lunch sdk_phone64_x86_64-trunk_staging-eng
 ```
 真机
 ```shell
@@ -288,6 +289,14 @@ git pull
 ```
 选择版本后执行编译命令：make -j(虚拟机配置的cpu核数)
 
+模拟器修改分辨率
+
+out/target/product/emu64x/config.ini，修改成
+```shell
+hw.lcd.density=420
+skin.name=1080x2400
+skin.path=1080x2400
+```
 #### 编译以及命令相关
 
 [fws_aosp_make](./fws_aosp_make.md)
@@ -339,7 +348,7 @@ fastboot --slot=other flash bootloader bootloader.img
 
 [报错问题见](./fw_aosp_error.md#adb_error)
 
-wifi感叹号处理
+#### wifi感叹号处理
 ```shell
 adb shell settings delete global captive_portal_http_url
 adb shell settings delete global captive_portal_https_url
@@ -437,9 +446,11 @@ export PATH=$PATH:$ANDROID_HOME/bin
 ```
 
 ### 13.源码仓库本地管理
-1.移动硬盘作为远程仓库
+1.移动硬盘/本地其他文件夹作为远程仓库
 
-挂载目录：/media/xxx/xxx/
+如果是移动硬盘，挂载目录：/media/xxx/xxx/
+
+如果是本地其他文件夹，目录：/xxx/xxx
 
 新建目录如aosp，初始化裸仓库
 ```bash

@@ -56,3 +56,16 @@ fastboot相同解决
 
 Bus 001 Device 014: ID 18d1:4ee0 Google Inc. Nexus/Pixel Device (fastboot)
 SUBSYSTEM=="usb", ATTRS{idVendor}=="18d1", ATTRS{idProduct}=="4ee0",MODE="0666"
+
+#### 分区不足
+Out of space? Out of inodes? The tree size of out/target/product/oriole/tmp7f1nizih is 4096 bytes (0 MB), with reserved space of 0 bytes (0 MB).
+The max image size for filesystem files is 11796480000 bytes (11250 MB), out of a total partition size of 11796480000 bytes (11250 MB).
+
+解决：
+```
+device/google/raviole/oriole/BoardConfig.mk
+```
+添加：
+```
+BOARD_USERDATAIMAGE_FILE_SYSTEM_TYPE := ext4
+```

@@ -66,7 +66,7 @@ repo sync -j20
 3. 初始化环境
 ```shell
 source build/envsetup.sh
-breakfast oriole
+breakfast oriole eng
 ```
 4. 安装pixel6相关配置
 
@@ -88,7 +88,7 @@ https://pan.baidu.com/s/1Uc2p3HWTfBzvjRAtUvD7Ew 提取码: 8888
 5. 编译源码
 ```shell
 croot
-brunch oriole
+brunch oriole eng
 ```
 lunch没有选项
 ```
@@ -98,3 +98,11 @@ build_build_var_cache
 对于20版本：lunch lineage_oriole-userdebug
 
 对于21版本：lunch lineage_oriole-ap2a-userdebug
+
+6. breakfast & brunch
+
+源码路径：
+
+vendor/lineage/build/envsetup.sh
+
+默认是运行userdebug版本
