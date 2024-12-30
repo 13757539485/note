@@ -3,142 +3,148 @@ site_url: https://13757539485.github.io/note/
 
 nav: 
 - Android系统:
-    - 学习笔记: 
-        - Java: 
-           - 基础: android/java/java_basic.md
-           - 虚拟机: android/java/java_jvm.md
-           - 泛型: android/java/java_genericity.md
-           - 反射: android/java/java_reflex.md
-        - Kotlin: 
-           - 入门: android/kotlin/kotlin_basic.md
-           - 函数: android/kotlin/kotlin_function.md
-           - 操作符与关键字: android/kotlin/kotlin_op.md
-           - 集合: android/kotlin/kotlin_collection.md
-           - 类: android/kotlin/kotlin_class.md
-           - 实战应用: android/kotlin/kotlin_code.md
-           - 原理: android/kotlin/kotlin_principle.md
-           - 协程: android/kotlin/kotlin_coroutine.md
-        - 数据结构: android/java/java_collection.md
-        - 设计模式: android/design_mode.md
-        - 通信相关: 
-           - 基础: android/im/base.md
-           - AIDL: android/im/aidl.md
-           - 广播: android/im/broadcast_receiver.md
-           - Service: android/im/service.md
-           - Socket: android/network/net_socket.md
-           - LocalSocket: android/im/localsocket.md
-           - Netty: android/im/netty.md
-           - 蓝牙: android/im/bluetooth.md
-           - nfc: android/im/nfc.md
-           - Mqtt: android/im/mqtt.md
-           - FlowBus: android/im/flow_bus.md
-        - 并发编程:
-           - 基础概念: android/java/java_base.md
-           - 线程: android/java/java_thread.md
-           - 线程安全: android/java/java_safe.md
-           - 锁: android/java/java_lock.md
-        - 网络编程: 
-           - 网络基础: android/network/net_base.md
-           - 抓包工具: android/network/net_charles.md
-           - TCP协议: android/network/net_tcp.md
-           - HTTP协议: android/network/net_http.md
-           - WebSocket协议: android/network/net_websocket.md
-        - 系统api:
-           - 系统亮度: android/system/brightness.md
-           - 媒体音量: android/system/volume.md
-           - Application: android/system/application.md
-           - Activity: android/system/activity.md
-        - 高级UI: 
-           - Jetpack:
-              - viewmodel: android/jetpack/viewmodel.md
-           - RecycleView:
-              - 基本使用: android/ui/recyclerview/ui_recyclerview.md
-              - 多选案例: android/ui/recyclerview/ui_stagger.md
-              - 源码解析: android/ui/recyclerview/ui_source_code.md
-           - View:
-              - View源码: android/android_ui.md
-              - View定制: android/ui/ui_view.md
-              - SeekBar: android/ui/seekbar.md
-              - ProgressBar: android/ui/progressbar.md
-              - TextView: android/ui/textview.md
-           - WebView: android/ui/ui_webview.md
-           - Camera: android/ui/ui_camera.md
-           - ConstraintLayout: android/ui/ui_constraintLayout.md
-           - 动画: 
-              - 动画方案: android/ui/anim/anim.md
-              - 基础: android/ui/ui_anim.md
-              - gif: android/github/gif.md
-              - lottie: android/github/lottie.md
-           - Bitmap: android/api/Bitmap.md
-           - 分屏适配: android/ui/ui_split.md
-        - Framework:
-           - AOSP开发:  
-              - 环境搭建: android/fws/fws_aosp.md
-              - 编译相关: android/fws/fws_aosp_make.md
-              - 小功能: android/fws/fws_mk_bp.md
-              - 传感器模块: 
-                - 源码: android/fws/fws_sensor.md
-                - 案例: android/fws/fws_sensor_case.md
-              - 拖拽模块: 
-                - 源码: android/fws/fws_drag.md
-                - 案例: android/fws/fws_drag_case.md
-              - 系统动画: android/fws/fws_anim.md
-              - 开机动画: android/fws/fws_boot.md
-              - 系统壁纸: android/fws/fws_wallpaper.md
-              - WMS:
-                - 源码: android/fws/fws_wms.md
-                - 分析工具: android/fws/wms/fws_wms_tool.md
-                - 日志: android/fws/wms/fws_log.md
-                - 案例: android/fws/wms/fws_wms_case.md
-                - 分屏模块: 
-                  - 源码: android/fws/fws_split.md
-                  - 案例: android/fws/fws_split_case.md
-                - 自由窗口:
-                  - 源码: android/fws/wms/fws_freeform.md
-           - AOSP源码:  
-              - Handler: android/fws/fws_handler.md
-              - IPC通信: android/fws/fws_process.md
-              - AMS/ATMS: android/fws/fws_ams.md
-              - PMS: android/fws/fws_pms.md
-              - Android启动流程: android/fws/fws_android_start.md
-              - App进程启动: android/fws/fws_app_start.md
-              - Android图形系统: android/fws/fws_surface.md
-           - RK3588J: android/fws/fws_rk.md
-           - LineageOS: android/fws/fws_lineage_os.md
-        - 性能优化: 
-           - 启动优化: android/performance/android_start.md
-           - 内存优化: 
-              - 基础知识: android/performance/android_memory_base.md
-              - 系统命令: android/performance/android_memory_commond.md
-              - 内存泄漏优化: android/performance/android_memory_leak.md
-              - 内存抖动优化: android/performance/android_memory_shake.md
-              - 内存溢出优化: android/performance/android_memory_oom.md
-              - 数据结构优化: android/performance/android_datastructure.md
-              - Bitmap优化: android/performance/android_bitmap.md
-           - 稳定性优化: 
-              - ANR监控: android/performance/android_anr.md
-              - Crash监控: android/performance/android_crash.md
-           - UI优化: android/performance/android_ui.md
-           - 网络优化: android/performance/android_network.md
-           - 瘦身优化: android/performance/android_apk_cut.md
-           - 储存优化: android/performance/android_storage.md
-           - 电池优化: android/performance/android_battery.md
-           - Mat工具: android/performance/android_mat.md
-           - LeakCanary: android/performance/android_leakcanary.md
-           - KOOM: android/performance/android_koom.md
-        - 插件化: android/android_hotfix.md
-        - 组件化:
-           - as配置: android/component/com_base.md
-        - 开源框架: android/android_github.md
-        - 开发模式: android/android_dev_mode.md
-        - Apk相关: android/android_build_apk.md
-        - Compose: android/android_compose.md
-        - AS相关: android/android_studio.md
-        - 常用网站: android/resource.md
-        # - NDK: android/android_ndk.md
-        - Flutter: android/android_flutter.md
-        - 面试题: android/android_interview.md
-        # - 小程序: android/android_wechat.md
+    - 基础知识:
+       - Java: 
+         - 基础: android/java/java_basic.md
+         - 虚拟机: android/java/java_jvm.md
+         - 泛型: android/java/java_genericity.md
+         - 反射: android/java/java_reflex.md
+       - 并发编程:
+         - 基础概念: android/java/java_base.md
+         - 线程: android/java/java_thread.md
+         - 线程安全: android/java/java_safe.md
+         - 锁: android/java/java_lock.md
+       - Kotlin: 
+         - 入门: android/kotlin/kotlin_basic.md
+         - 函数: android/kotlin/kotlin_function.md
+         - 操作符与关键字: android/kotlin/kotlin_op.md
+         - 集合: android/kotlin/kotlin_collection.md
+         - 类: android/kotlin/kotlin_class.md
+         - 实战应用: android/kotlin/kotlin_code.md
+         - 原理: android/kotlin/kotlin_principle.md
+         - 协程: android/kotlin/kotlin_coroutine.md
+       - 数据结构: android/java/java_collection.md
+       - 设计模式: android/design_mode.md
+       - 开发模式: android/android_dev_mode.md
+       - 插件化: android/android_hotfix.md
+       - 组件化:
+          - as配置: android/component/com_base.md
+       - Apk相关: android/android_build_apk.md
+       - AS相关: android/android_studio.md
+       - 常用网站: android/resource.md
+       - 面试题: android/android_interview.md
+    - 通信技术: 
+       - 基础: android/im/base.md
+       - AIDL: android/im/aidl.md
+       - 广播: android/im/broadcast_receiver.md
+       - Service: android/im/service.md
+       - Socket: android/network/net_socket.md
+       - LocalSocket: android/im/localsocket.md
+       - Netty: android/im/netty.md
+       - 蓝牙: android/im/bluetooth.md
+       - nfc: android/im/nfc.md
+       - Mqtt: android/im/mqtt.md
+       - FlowBus: android/im/flow_bus.md
+    - 网络编程: 
+       - 网络基础: android/network/net_base.md
+       - 抓包工具: android/network/net_charles.md
+       - TCP协议: android/network/net_tcp.md
+       - HTTP协议: android/network/net_http.md
+       - WebSocket协议: android/network/net_websocket.md
+    - 系统api:
+       - 系统亮度: android/system/brightness.md
+       - 媒体音量: android/system/volume.md
+       - Application: android/system/application.md
+       - Activity: android/system/activity.md
+       - Camera: android/ui/ui_camera.md
+    - 高级UI: 
+       - Jetpack:
+          - viewmodel: android/jetpack/viewmodel.md
+       - RecycleView:
+          - 基本使用: android/ui/recyclerview/ui_recyclerview.md
+          - 多选案例: android/ui/recyclerview/ui_stagger.md
+          - 源码解析: android/ui/recyclerview/ui_source_code.md
+       - View:
+          - View源码: android/android_ui.md
+          - View定制: android/ui/ui_view.md
+          - SeekBar: android/ui/seekbar.md
+          - ProgressBar: android/ui/progressbar.md
+          - TextView: android/ui/textview.md
+       - WebView: android/ui/ui_webview.md
+       - ConstraintLayout: android/ui/ui_constraintLayout.md
+       - 动画: 
+          - 动画方案: android/ui/anim/anim.md
+          - 基础: android/ui/ui_anim.md
+          - gif: android/github/gif.md
+          - lottie: android/github/lottie.md
+       - Bitmap: android/api/Bitmap.md
+       - 分屏适配: android/ui/ui_split.md
+    - AOSP开发:  
+       - 环境搭建: android/fws/fws_aosp.md
+       - 编译相关: android/fws/fws_aosp_make.md
+       - 源码阅读:  
+          - Handler: android/fws/fws_handler.md
+          - IPC通信: android/fws/fws_process.md
+          - AMS/ATMS: android/fws/fws_ams.md
+          - PMS: android/fws/fws_pms.md
+          - Android启动流程: android/fws/fws_android_start.md
+          - App进程启动: android/fws/fws_app_start.md
+          - Android图形系统: android/fws/fws_surface.md
+       - 模块开发:
+          - 传感器模块: 
+             - 源码: android/fws/fws_sensor.md
+             - 案例: android/fws/fws_sensor_case.md
+          - 拖拽模块: 
+             - 源码: android/fws/fws_drag.md
+             - 案例: android/fws/fws_drag_case.md
+          - 动画模块:
+             - 系统动画: android/fws/fws_anim.md
+             - 开机动画: android/fws/fws_boot.md
+          - 系统壁纸: android/fws/fws_wallpaper.md
+          - 分屏模块: 
+             - 源码: android/fws/fws_split.md
+             - 案例: android/fws/fws_split_case.md
+          - 窗口模块:
+             - wms源码: android/fws/fws_wms.md
+             - 分析工具: android/fws/wms/fws_wms_tool.md
+             - 日志: android/fws/wms/fws_log.md
+             - 黑屏案例: android/fws/wms/fws_wms_case.md
+             - 自由窗口:
+                - 源码: android/fws/wms/fws_freeform.md
+       - 其他功能: android/fws/fws_mk_bp.md
+       - RK3588J: android/fws/fws_rk.md
+       - LineageOS: android/fws/fws_lineage_os.md
+    - 性能优化: 
+      - 启动优化: android/performance/android_start.md
+      - 内存优化: 
+         - 基础知识: android/performance/android_memory_base.md
+         - 系统命令: android/performance/android_memory_commond.md
+         - 内存泄漏优化: android/performance/android_memory_leak.md
+         - 内存抖动优化: android/performance/android_memory_shake.md
+         - 内存溢出优化: android/performance/android_memory_oom.md
+         - 数据结构优化: android/performance/android_datastructure.md
+         - Bitmap优化: android/performance/android_bitmap.md
+      - 稳定性优化: 
+         - ANR监控: android/performance/android_anr.md
+         - Crash监控: android/performance/android_crash.md
+      - UI优化: android/performance/android_ui.md
+      - 网络优化: android/performance/android_network.md
+      - 瘦身优化: android/performance/android_apk_cut.md
+      - 储存优化: android/performance/android_storage.md
+      - 电池优化: android/performance/android_battery.md
+      - Mat工具: android/performance/android_mat.md
+      - LeakCanary: android/performance/android_leakcanary.md
+      - KOOM: android/performance/android_koom.md
+    - 开源框架: android/android_github.md
+    - 跨平台技术:
+       - Compose: android/android_compose.md  
+       - Flutter: 
+          - 环境配置: android/flutter/flutter_start.md
+          - 三方库: android/flutter/flutter_deps.md
+       - KMP&KMM:
+          - 环境配置: android/kmp/kmp_start.md
+   #- 小程序: android/android_wechat.md
+   #- NDK: android/android_ndk.md
     - 玩机家族:
         - OS大全: android/android_os.md
         - Root面具: android/android_root.md
