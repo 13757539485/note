@@ -3757,9 +3757,35 @@ fastboot<span class="w"> </span>flash<span class="w"> </span>vendor_boot<span cl
 <p><a href="https://wiki.lineageos.org/devices/oriole/build/">https://wiki.lineageos.org/devices/oriole/build/</a></p>
 <ol>
 <li>初始化仓库
-<div class="highlight"><pre><span></span><code>repo<span class="w"> </span>init<span class="w"> </span>-u<span class="w"> </span>https://mirrors4.tuna.tsinghua.edu.cn/git/lineageOS/LineageOS/android.git<span class="w"> </span>-b<span class="w"> </span>lineage-21.0<span class="w"> </span>--git-lfs
+<div class="highlight"><pre><span></span><code>repo<span class="w"> </span>init<span class="w"> </span>-u<span class="w"> </span>https://mirrors4.tuna.tsinghua.edu.cn/git/lineageOS/LineageOS/android.git<span class="w"> </span>-b<span class="w"> </span>lineage-22.1<span class="w"> </span>--git-lfs<span class="w"> </span>--no-clone-bundle
 </code></pre></div></li>
 <li>同步源码
+修改配置，打开.repo/manifests/default.xml
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;remote</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;github&quot;</span>
+<span class="w">           </span><span class="na">fetch=</span><span class="s">&quot;..&quot;</span>
+<span class="w">           </span><span class="na">review=</span><span class="s">&quot;review.lineageos.org&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="nt">&lt;remote</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;aosp&quot;</span>
+<span class="w">           </span><span class="na">fetch=</span><span class="s">&quot;https://android.googlesource.com&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+</code></pre></div>
+改成
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;remote</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;github&quot;</span>
+<span class="w">        </span><span class="na">fetch=</span><span class="s">&quot;https://github.com/&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+
+<span class="nt">&lt;remote</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;lineage&quot;</span>
+<span class="w">    </span><span class="na">fetch=</span><span class="s">&quot;https://mirrors.tuna.tsinghua.edu.cn/git/lineageOS/&quot;</span>
+<span class="w">    </span><span class="na">review=</span><span class="s">&quot;review.lineageos.org&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="nt">&lt;remote</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;aosp&quot;</span>
+<span class="w">    </span><span class="na">fetch=</span><span class="s">&quot;https://mirrors.tuna.tsinghua.edu.cn/git/AOSP&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+</code></pre></div>
+将
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;default</span><span class="w"> </span><span class="na">revision=</span><span class="s">&quot;...&quot;</span>
+<span class="w">        </span><span class="na">remote=</span><span class="s">&quot;github&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+</code></pre></div>
+改成
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;default</span><span class="w"> </span><span class="na">revision=</span><span class="s">&quot;...&quot;</span>
+<span class="w">           </span><span class="na">remote=</span><span class="s">&quot;lineage&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+</code></pre></div>
+开始同步
 <div class="highlight"><pre><span></span><code>repo<span class="w"> </span>sync<span class="w"> </span>-j20
 </code></pre></div></li>
 <li>初始化环境
@@ -3781,7 +3807,7 @@ breakfast<span class="w"> </span>oriole<span class="w"> </span>eng
 <ol>
 <li>编译源码
 <div class="highlight"><pre><span></span><code>croot
-brunch<span class="w"> </span>oriole<span class="w"> </span>eng
+brunch<span class="w"> </span>oriole
 </code></pre></div>
 lunch没有选项
 <div class="highlight"><pre><span></span><code>build_build_var_cache
@@ -3789,12 +3815,17 @@ lunch没有选项
 </ol>
 <p>对于20版本：lunch lineage_oriole-userdebug</p>
 <p>对于21版本：lunch lineage_oriole-ap2a-userdebug</p>
+<p>对于22版本：lunch lineage_oriole-ap4a-userdebug</p>
 <ol>
 <li>breakfast &amp; brunch</li>
 </ol>
 <p>源码路径：</p>
 <p>vendor/lineage/build/envsetup.sh</p>
 <p>默认是运行userdebug版本</p>
+<p>打印breakfast命令，修改envsetup.sh
+<div class="highlight"><pre><span></span><code>echo &quot;lunch target: lineage_$target-$aosp_target_release-$variant&quot;
+lunch lineage_$target-$aosp_target_release-$variant
+</code></pre></div></p>
 
 
 

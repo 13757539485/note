@@ -2374,6 +2374,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#wifi" class="md-nav__link">
+    去除wifi网络限制
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
     输入法内置
   </a>
@@ -2484,6 +2491,13 @@
         <li class="md-nav__item">
   <a href="#mkbp" class="md-nav__link">
     mk转bp
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vendor" class="md-nav__link">
+    vendor定制
   </a>
   
 </li>
@@ -3737,6 +3751,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#wifi" class="md-nav__link">
+    去除wifi网络限制
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
     输入法内置
   </a>
@@ -3851,6 +3872,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#vendor" class="md-nav__link">
+    vendor定制
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -3900,21 +3928,46 @@ PRODUCT_SYSTEM_SERVER_APPS += \
 </code></pre></div></p>
 <p>如果想编译到其他目录handheld_product.mk和handheld_system_ext.mk</p>
 <p>参考：<a href="https://blog.csdn.net/etrospect/article/details/128235015">https://blog.csdn.net/etrospect/article/details/128235015</a></p>
+<h4 id="wifi">去除wifi网络限制<a class="headerlink" href="#wifi" title="Permanent link">&para;</a></h4>
+<p>packages/modules/NetworkStack/src/com/android/server/connectivity/NetworkMonitor.java
+<div class="highlight"><pre><span></span><code>private static boolean getIsCaptivePortalCheckEnabled(@NonNull Context context,
+            @NonNull Dependencies dependencies) {
+    /*String symbol = CAPTIVE_PORTAL_MODE;
+    int defaultValue = CAPTIVE_PORTAL_MODE_PROMPT;
+    int mode = dependencies.getSetting(context, symbol, defaultValue);
+    return mode != CAPTIVE_PORTAL_MODE_IGNORE;*/
+    return false;
+}
+</code></pre></div></p>
 <h4 id="_1">输入法内置<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h4>
-<p>参考：<a href="https://www.jianshu.com/p/e782897c6ab8">https://www.jianshu.com/p/e782897c6ab8</a></p>
-<p>frameworks/base/services/core/java/com/android/server/InputMethodManagerService.java</p>
-<p>buildInputMethodListLocked方法增加以下代码(待确认)
-<div class="highlight"><pre><span></span><code><span class="c1">// 内置搜狗输入法</span>
-<span class="n">String</span><span class="w"> </span><span class="n">defaultIme</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Settings</span><span class="p">.</span><span class="na">Secure</span><span class="p">.</span><span class="na">getString</span><span class="p">(</span><span class="n">mContext</span><span class="p">.</span><span class="na">getContentResolver</span><span class="p">(),</span>
-<span class="w">        </span><span class="n">Settings</span><span class="p">.</span><span class="na">Secure</span><span class="p">.</span><span class="na">DEFAULT_INPUT_METHOD</span><span class="p">);</span>
-<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">defaultIme</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<p>参考：<a href="https://blog.csdn.net/li_5033/article/details/143714495">https://blog.csdn.net/li_5033/article/details/143714495</a></p>
+<p>添加QQ输入法为默认输入法为例</p>
+<p>添加配置：
+frameworks/base/packages/SettingsProvider/res/values/defaults.xml
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;string</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;enabled_input_methods&quot;</span><span class="w"> </span><span class="na">translatable=</span><span class="s">&quot;false&quot;</span><span class="nt">&gt;</span>com.android.inputmethod.latin/.LatinIME:com.tencent.qqpinyin/.QQPYInputMethodService<span class="nt">&lt;/string&gt;</span>
+<span class="nt">&lt;string</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;def_input_method&quot;</span><span class="w"> </span><span class="na">translatable=</span><span class="s">&quot;false&quot;</span><span class="nt">&gt;</span>com.tencent.qqpinyin/.QQPYInputMethodService<span class="nt">&lt;/string&gt;</span>
+</code></pre></div>
+frameworks/base/packages/SettingsProvider/src/com/android/providers/settings/DatabaseHelper.java
+<div class="highlight"><pre><span></span><code><span class="kd">private</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">loadSecureSettings</span><span class="p">(</span><span class="n">SQLiteDatabase</span><span class="w"> </span><span class="n">db</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">SQLiteStatement</span><span class="w"> </span><span class="n">stmt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span>
 <span class="w">    </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="n">Settings</span><span class="p">.</span><span class="na">Secure</span><span class="p">.</span><span class="na">putString</span><span class="p">(</span><span class="w"> </span><span class="n">mContext</span><span class="p">.</span><span class="na">getContentResolver</span><span class="p">(),</span>
-<span class="w">                </span><span class="n">Settings</span><span class="p">.</span><span class="na">Secure</span><span class="p">.</span><span class="na">DEFAULT_INPUT_METHOD</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;com.sohu.inputmethod.sogou/.SogouIME&quot;</span><span class="p">);</span>
-<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">Exception</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">//...</span>
+<span class="w">        </span><span class="n">loadStringSetting</span><span class="p">(</span><span class="n">stmt</span><span class="p">,</span><span class="w"> </span><span class="n">Settings</span><span class="p">.</span><span class="na">Secure</span><span class="p">.</span><span class="na">ENABLED_INPUT_METHODS</span><span class="p">,</span>
+<span class="w">                </span><span class="n">R</span><span class="p">.</span><span class="na">string</span><span class="p">.</span><span class="na">enabled_input_methods</span><span class="p">);</span>
+
+<span class="w">        </span><span class="n">loadStringSetting</span><span class="p">(</span><span class="n">stmt</span><span class="p">,</span><span class="w"> </span><span class="n">Settings</span><span class="p">.</span><span class="na">Secure</span><span class="p">.</span><span class="na">DEFAULT_INPUT_METHOD</span><span class="p">,</span>
+<span class="w">                </span><span class="n">R</span><span class="p">.</span><span class="na">string</span><span class="p">.</span><span class="na">def_input_method</span><span class="p">);</span>
+
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">finally</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">stmt</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="n">stmt</span><span class="p">.</span><span class="na">close</span><span class="p">();</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
-</code></pre></div></p>
+</code></pre></div>
+不确定stirng中添加的内容，先正常安装输入法，命令查看后再填写
+<div class="highlight"><pre><span></span><code>adb<span class="w"> </span>shell<span class="w"> </span>settings<span class="w"> </span>get<span class="w"> </span>secure<span class="w"> </span>default_input_method
+adb<span class="w"> </span>shell<span class="w"> </span>settings<span class="w"> </span>get<span class="w"> </span>secure<span class="w"> </span>enabled_input_methods
+</code></pre></div>
+frameworks/base/services/core/java/com/android/server/InputMethodManagerService.java</p>
 <ul>
 <li>百度：com.baidu.input/.ImeService</li>
 <li>讯飞：com.iflytek.inputmethod/.FlyIME</li>
@@ -4156,6 +4209,22 @@ LOCAL_MODULE_SUFFIX := $(COMMON_ANDROID_PACKAGE_SUFFIX)
 LOCAL_MODULE_PATH := $(TARGET_OUT_DATA_APPS)//重点这一句
 
 include $(BUILD_PREBUILT)
+</code></pre></div></p>
+<h3 id="vendor">vendor定制<a class="headerlink" href="#vendor" title="Permanent link">&para;</a></h3>
+<p>以oriole手机为例：</p>
+<p>aosp中：device/google/raviole/aosp_oriole.mk</p>
+<p>lineage中：device/google/raviole/lineage_oriole.mk</p>
+<p>添加引入
+<div class="highlight"><pre><span></span><code>$(call inherit-product-if-exists, vendor/hfc/hfc.mk)
+</code></pre></div>
+新建vendor/hfc/hfc.mk
+添加引入
+<div class="highlight"><pre><span></span><code>$(call inherit-product-if-exists, vendor/hfc/apps/apps.mk)
+</code></pre></div>
+新建apps文件夹，新建apps.mk
+<div class="highlight"><pre><span></span><code>PRODUCT_PACKAGES += \
+    QQInput \
+    SystemUIPlugin
 </code></pre></div></p>
 
 
