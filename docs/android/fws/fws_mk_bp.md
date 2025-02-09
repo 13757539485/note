@@ -38,24 +38,52 @@ PRODUCT_SYSTEM_SERVER_APPS += \
 
 参考：https://blog.csdn.net/etrospect/article/details/128235015
 
-#### 输入法内置
-参考：https://www.jianshu.com/p/e782897c6ab8
-
-frameworks/base/services/core/java/com/android/server/InputMethodManagerService.java
-
-buildInputMethodListLocked方法增加以下代码(待确认)
-```java
-// 内置搜狗输入法
-String defaultIme = Settings.Secure.getString(mContext.getContentResolver(),
-        Settings.Secure.DEFAULT_INPUT_METHOD);
-if (defaultIme == null) {
-    try {
-        Settings.Secure.putString( mContext.getContentResolver(),
-                Settings.Secure.DEFAULT_INPUT_METHOD, "com.sohu.inputmethod.sogou/.SogouIME");
-    } catch (Exception e) {
-    }
+#### 去除wifi网络限制
+packages/modules/NetworkStack/src/com/android/server/connectivity/NetworkMonitor.java
+```
+private static boolean getIsCaptivePortalCheckEnabled(@NonNull Context context,
+            @NonNull Dependencies dependencies) {
+    /*String symbol = CAPTIVE_PORTAL_MODE;
+    int defaultValue = CAPTIVE_PORTAL_MODE_PROMPT;
+    int mode = dependencies.getSetting(context, symbol, defaultValue);
+    return mode != CAPTIVE_PORTAL_MODE_IGNORE;*/
+    return false;
 }
 ```
+#### 输入法内置
+参考：https://blog.csdn.net/li_5033/article/details/143714495
+
+添加QQ输入法为默认输入法为例
+
+添加配置：
+frameworks/base/packages/SettingsProvider/res/values/defaults.xml
+```xml
+<string name="enabled_input_methods" translatable="false">com.android.inputmethod.latin/.LatinIME:com.tencent.qqpinyin/.QQPYInputMethodService</string>
+<string name="def_input_method" translatable="false">com.tencent.qqpinyin/.QQPYInputMethodService</string>
+```
+frameworks/base/packages/SettingsProvider/src/com/android/providers/settings/DatabaseHelper.java
+```java
+private void loadSecureSettings(SQLiteDatabase db) {
+    SQLiteStatement stmt = null;
+    try {
+        //...
+        loadStringSetting(stmt, Settings.Secure.ENABLED_INPUT_METHODS,
+                R.string.enabled_input_methods);
+
+        loadStringSetting(stmt, Settings.Secure.DEFAULT_INPUT_METHOD,
+                R.string.def_input_method);
+    
+    } finally {
+        if (stmt != null) stmt.close();
+    }
+}
+```                       
+不确定stirng中添加的内容，先正常安装输入法，命令查看后再填写
+```shell
+adb shell settings get secure default_input_method
+adb shell settings get secure enabled_input_methods
+``` 
+frameworks/base/services/core/java/com/android/server/InputMethodManagerService.java
 
 - 百度：com.baidu.input/.ImeService
 - 讯飞：com.iflytek.inputmethod/.FlyIME
@@ -358,4 +386,27 @@ LOCAL_MODULE_SUFFIX := $(COMMON_ANDROID_PACKAGE_SUFFIX)
 LOCAL_MODULE_PATH := $(TARGET_OUT_DATA_APPS)//重点这一句
 
 include $(BUILD_PREBUILT)
+```
+
+### vendor定制
+以oriole手机为例：
+
+aosp中：device/google/raviole/aosp_oriole.mk
+
+lineage中：device/google/raviole/lineage_oriole.mk
+
+添加引入
+```mk
+$(call inherit-product-if-exists, vendor/hfc/hfc.mk)
+```
+新建vendor/hfc/hfc.mk
+添加引入
+```mk
+$(call inherit-product-if-exists, vendor/hfc/apps/apps.mk)
+```
+新建apps文件夹，新建apps.mk
+```mk
+PRODUCT_PACKAGES += \
+	QQInput \
+	SystemUIPlugin
 ```

@@ -57,9 +57,39 @@ https://wiki.lineageos.org/devices/oriole/build/
 
 1. 初始化仓库
 ```shell
-repo init -u https://mirrors4.tuna.tsinghua.edu.cn/git/lineageOS/LineageOS/android.git -b lineage-21.0 --git-lfs
+repo init -u https://mirrors4.tuna.tsinghua.edu.cn/git/lineageOS/LineageOS/android.git -b lineage-22.1 --git-lfs --no-clone-bundle
 ```
 2. 同步源码
+修改配置，打开.repo/manifests/default.xml
+```xml
+<remote name="github"
+           fetch=".."
+           review="review.lineageos.org" />
+<remote name="aosp"
+           fetch="https://android.googlesource.com" />
+```
+改成
+```xml
+<remote name="github"
+        fetch="https://github.com/" />
+
+<remote name="lineage"
+    fetch="https://mirrors.tuna.tsinghua.edu.cn/git/lineageOS/"
+    review="review.lineageos.org" />
+<remote name="aosp"
+    fetch="https://mirrors.tuna.tsinghua.edu.cn/git/AOSP" />
+```
+将
+```xml
+<default revision="..."
+        remote="github" />
+```
+改成
+```xml
+<default revision="..."
+           remote="lineage" />
+```
+开始同步
 ```shell
 repo sync -j20
 ```
@@ -88,7 +118,7 @@ https://pan.baidu.com/s/1Uc2p3HWTfBzvjRAtUvD7Ew 提取码: 8888
 5. 编译源码
 ```shell
 croot
-brunch oriole eng
+brunch oriole
 ```
 lunch没有选项
 ```
@@ -99,6 +129,8 @@ build_build_var_cache
 
 对于21版本：lunch lineage_oriole-ap2a-userdebug
 
+对于22版本：lunch lineage_oriole-ap4a-userdebug
+
 6. breakfast & brunch
 
 源码路径：
@@ -106,3 +138,9 @@ build_build_var_cache
 vendor/lineage/build/envsetup.sh
 
 默认是运行userdebug版本
+
+打印breakfast命令，修改envsetup.sh
+```
+echo "lunch target: lineage_$target-$aosp_target_release-$variant"
+lunch lineage_$target-$aosp_target_release-$variant
+```

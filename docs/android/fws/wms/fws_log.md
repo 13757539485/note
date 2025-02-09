@@ -21,3 +21,7 @@
 adb logcat wm enable-text/disable-text tag
 
 其中tag查找源码ProtoLog.v(tag,...)获取
+
+搜索wm_on可过滤Activity回调，更全可以直接搜wm_
+
+dumpsys package xxx
