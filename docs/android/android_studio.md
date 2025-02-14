@@ -241,3 +241,7 @@ plugins {
     id 'org.jetbrains.kotlin.android' version '1.8.10' apply false
 }
 ```
+### 常见插件
+1. Legacy Layout Inspector: 布局查看
+
+2. YALI: 布局查看
