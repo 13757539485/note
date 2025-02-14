@@ -3228,6 +3228,140 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_6_4_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_1_6_4_7" id="__nav_1_6_4_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    SystemUI
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_1_6_4_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_6_4_7">
+            <span class="md-nav__icon md-icon"></span>
+            SystemUI
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../android/fws/systemui/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    源码分析
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_6_4_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_1_6_4_8" id="__nav_1_6_4_8_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Launcher3
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_1_6_4_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_6_4_8">
+            <span class="md-nav__icon md-icon"></span>
+            Launcher3
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../android/fws/launcher3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    源码分析
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -5014,6 +5148,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      配置多个远程仓库
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -5249,6 +5392,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      配置多个远程仓库
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -5434,6 +5586,21 @@ repo forall -c &#39;git reset --hard HEAD&#39; # 硬重置所有模块到HEAD
 repo forall -c &#39;git stash drop&#39; # 删除暂存区的改动（如果前面执行了stash
 </code></pre></div>
 <p>git push origin HEAD:refs/for/master</p>
+<h4 id="_8">配置多个远程仓库<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h4>
+<p>创建config文件，路径</p>
+<p>window：c盘/用户/用户名/.ssh/config</p>
+<p>linux: ~/.ssh/config</p>
+<p>写入内容
+<div class="highlight"><pre><span></span><code>Host github
+HostName github.com
+IdentityFile ~/.ssh/github_rsa
+User 13757539485
+Host gitlab
+HostName gitlab-rd0.maezia.com
+IdentityFile ~/.ssh/id_rsa
+User li.yu1
+</code></pre></div>
+项目配置user信息时使用git config --local user.name/user.email</p>
 
 
 
