@@ -111,6 +111,10 @@ nav:
              - 黑屏案例: android/fws/wms/fws_wms_case.md
              - 自由窗口:
                 - 源码: android/fws/wms/fws_freeform.md
+          - SystemUI:
+             - 源码分析: android/fws/systemui.md
+          - Launcher3:
+             - 源码分析: android/fws/launcher3.md
        - 其他功能: android/fws/fws_mk_bp.md
        - RK3588J: android/fws/fws_rk.md
        - LineageOS: android/fws/fws_lineage_os.md

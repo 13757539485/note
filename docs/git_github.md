@@ -229,3 +229,23 @@ repo forall -c 'git stash drop' # 删除暂存区的改动（如果前面执行�
 ```
 
 git push origin HEAD:refs/for/master
+
+#### 配置多个远程仓库
+创建config文件，路径
+
+window：c盘/用户/用户名/.ssh/config
+
+linux: ~/.ssh/config
+
+写入内容
+```
+Host github
+HostName github.com
+IdentityFile ~/.ssh/github_rsa
+User 13757539485
+Host gitlab
+HostName gitlab-rd0.maezia.com
+IdentityFile ~/.ssh/id_rsa
+User li.yu1
+```
+项目配置user信息时使用git config --local user.name/user.email
