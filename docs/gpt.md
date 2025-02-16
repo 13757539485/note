@@ -1,9 +1,9 @@
 ### 常用gpt
-deepseek：
+deepseek：https://chat.deepseek.com/coder
 
-chatgpt：
+chatgpt：https://chatgpt.com/
 
-gemini：
+gemini：https://gemini.google.com/app
 
 ### 本地部署deepseek
 

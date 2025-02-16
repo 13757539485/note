@@ -353,43 +353,6 @@ private WindowManager.LayoutParams getBarLayoutParamsForRotation(int rotation) {
 }
 ```
 
-### 下拉栏高斯模糊
-
-frameworks/base/packages/SystemUI/src/com/android/systemui/scrim/ScrimView.java
-
-禁止绘制，屏蔽onDraw代码即可，不然会绘制圆角背景
-
-修改最大模糊值
-
-frameworks/base/packages/SystemUI/res/values/dimens.xml
-```xml
-<dimen name="max_window_blur_radius">50px</dimen>
-```
-
-frameworks/base/packages/SystemUI/src/com/android/systemui/statusbar/BlurUtils.kt
-```kotlin
-fun applyBlur(viewRootImpl: ViewRootImpl?, radius: Int, opaque: Boolean) {
-    //...
-    createTransaction().use {
-        if (supportsBlursOnWindows()) {
-            //添加透明度模糊效果更佳
-            it.setAlpha(viewRootImpl.surfaceControl, 0.85F)
-            it.setBackgroundBlurRadius(viewRootImpl.surfaceControl, radius)
-            //...
-        }
-        it.setOpaque(viewRootImpl.surfaceControl, opaque)
-        it.apply()
-    }
-}
-```
-frameworks/base/packages/SystemUI/src/com/android/systemui/statusbar/phone/StatusBar.java
-
-屏蔽对ScrimView显示隐藏监听
-```kotlin
-mScrimController.setScrimVisibleListener(scrimsVisible -> {
-//   mNotificationShadeWindowController.setScrimsVisibility(scrimsVisible);
-});
-```
 mDisplayCutout = getRootWindowInsets().getDisplayCutout()
 Rect bounds = mDisplayCutout.getBoundingRectTop();
 

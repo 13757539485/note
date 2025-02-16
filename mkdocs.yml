@@ -113,6 +113,7 @@ nav:
                 - 源码: android/fws/wms/fws_freeform.md
           - SystemUI:
              - 源码分析: android/fws/systemui.md
+             - 案例: android/fws/systemui_code.md
           - Launcher3:
              - 源码分析: android/fws/launcher3.md
        - 其他功能: android/fws/fws_mk_bp.md
