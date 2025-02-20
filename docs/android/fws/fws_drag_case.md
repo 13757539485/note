@@ -31,11 +31,11 @@ level: classified
 ### 实战案例
 #### 关键点：触摸事件挂钩
 
-frameworks/base/core/java/android/view/View.java
+frameworks/base/core/java/android/view/ViewRootImpl.java
 
-在View源码中的dispatchTouchEvent方法挂钩子，接收触摸事件
+在View源码中的processPointerEvent方法挂钩子，接收触摸事件
 ```java
-public boolean dispatchTouchEvent(MotionEvent event) {
+private int processPointerEvent(QueuedInputEvent q) {
     HfcDragViewHelper.getInstance().dispatchHfcTouchEvent(this, event);
     //...
 }
@@ -52,9 +52,12 @@ public void dispatchHfcTouchEvent(View view, MotionEvent event) {
     switch (action) {
         case MotionEvent.ACTION_DOWN:
             // 记录按下时间和位置
+            view.getLocationInWindow(parentLocation);
             mDownTime = System.currentTimeMillis();
             mDownX = event.getX();
-            mDownY = event.getY();
+            mDownY = event.getY() + parentLocation[1];
+            Log.d(TAG_TOUCH, "down mDownX=" + mDownX + "," + mDownY + ",lx=" +
+                        parentLocation[0]+ ",ly=" + parentLocation[1]);
             break;
         case MotionEvent.ACTION_MOVE:
             // 判断是否移动距离超过长按忽略阈值
@@ -62,17 +65,21 @@ public void dispatchHfcTouchEvent(View view, MotionEvent event) {
             if (moveDistance > MOVE_IGNORE_THRESHOLD_DP * view.mContext.getResources().getDisplayMetrics().density) {
                 // 移动距离过大，取消长按检测
                 mDownTime = 0L;
+                Log.d(TAG_TOUCH, "move mDownTime=" + mDownTime);
             }
             break;
         case MotionEvent.ACTION_UP:
         case MotionEvent.ACTION_CANCEL:
             // 清除长按检测相关数据
             mDownTime = 0L;
+            Log.d(TAG_TOUCH, "cancel mDownTime=" + mDownTime);
             break;
     }
+    Log.d(TAG_TOUCH, "dispatchTouchEvent mDownTime=" + mDownTime + ",action=" + action + ",view=" + view);
     // 检查是否达到长按阈值
     if (mDownTime > 0 && System.currentTimeMillis() - mDownTime >= LONG_PRESS_THRESHOLD_MS) {
         // 处理长按事件
+        Log.d(TAG_TOUCH, "touch point(" + mDownX + "," + mDownY + ")");
         onLongPress(view);
         mDownTime = 0L; // 清除长按检测相关数据
     }
@@ -80,6 +87,7 @@ public void dispatchHfcTouchEvent(View view, MotionEvent event) {
 
 private void onLongPress(View view) {
     //拖拽逻辑
+    Log.e(TAG_TOUCH, "onLongPress: " + view + "," + view.mContext.getPackageName());
     dragView(view);
 }
 ```
@@ -114,26 +122,26 @@ public void dragView(View view) {
 ```
 frameworks/base/core/java/android/view/View.java
 
-其中hasdrag标志位在startDragAndDrop方法中
+在startDragAndDrop方法中处理相关逻辑
 ```java
-/**
- * @hide
- */
-protected boolean hasDrag;
-
 public final boolean startDragAndDrop(ClipData data, DragShadowBuilder shadowBuilder,
             Object myLocalState, int flags) {
     //...
+    if (HfcDragViewHelper.getInstance().hasDrag(this)) {
+        Log.e("HfcDragViewHelper", "already startDragAndDrop: " + this);
+        return false;
+    }
+
     if (data != null) {
         data.prepareToLeaveProcess((flags & View.DRAG_FLAG_GLOBAL) != 0);
     }
-    // add start
-    if (HfcDragViewHelper.getInstance().hasDrag(this)) {
-        hasDrag = true;
+        // add start
         HfcDragViewHelper.getInstance().dragStart(mContext, data);
     }
+    return token != null;
     //...
 ```
+问题：三方应用可能调用updateDragShadow替换拖拽视图后如何恢复视图？
 
 #### 关键点：拖拽中和拖拽结束处理
 
@@ -156,9 +164,7 @@ private void handleDragEvent(DragEvent event) {
 public void preHandleDragEvent(DragEvent event, String basePackageName) {
     if (DragEvent.ACTION_DROP == event.mAction) {
         if (mCurrentDragView != null) {
-            if (!"com.example.drop1".equals(basePackageName)) {
-                event.mClipData = null;//不允许自身应用拖拽接收
-            }
+            event.mClipData = null;//不允许自身应用拖拽接收
         }
     }
 }
@@ -170,7 +176,23 @@ public boolean handleDragEvent(DragEvent event, String basePackageName,
     return result;
 }
 ```
+frameworks/base/core/java/android/view/View.java
 
+处理event.mClipData = null场景可能导致三方应用异常
+```java
+final boolean callDragEventHandler(DragEvent event) {
+    final boolean result;
+
+    ListenerInfo li = mListenerInfo;
+    if (event.mClipData != null) {
+        //...
+    } else {
+        result = false;
+    }
+    //...
+    return result;
+}
+```
 具体源码工具类
 
 [HfcDragViewHelper](./code/fw/HfcDragViewHelper.java)
