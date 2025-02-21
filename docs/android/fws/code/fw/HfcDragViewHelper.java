@@ -168,8 +168,10 @@ public class HfcDragViewHelper {
     public void preHandleDragEvent(DragEvent event, String basePackageName) {
         if (DragEvent.ACTION_DROP == event.mAction) {
             if (mCurrentDragDropPkg != null && mCurrentDragDropPkg.equals(basePackageName)) {
-                event.mClipData = null;
-                Log.d(TAG, "drag clear data by self pkg=" + basePackageName);
+                if (mCurrentDragView != null) {
+                    event.mClipData.clear();//不允许自身应用拖拽接收
+                    Log.d(TAG, "drag clear data by self pkg=" + basePackageName);
+                }
             }
         }
     }
@@ -232,6 +234,10 @@ public class HfcDragViewHelper {
     public void dragEnd(ClipData clipData, IWindowSession windowSession){
         Log.e(TAG, "dragEnd: " + mCurrentDragDropPkg);
         showBar(mCurrentDragDropPkg, windowSession, false, clipData);
+        resetDragPkg();
+    }
+
+    public void resetDragPkg() {
         if (mCurrentDragDropPkg != null) {
             mCurrentDragDropPkg = null;
             Log.e(TAG, "Drag reset");

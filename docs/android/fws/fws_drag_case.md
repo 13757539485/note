@@ -93,7 +93,7 @@ private void onLongPress(View view) {
 ```
 #### 关键点：拖拽视图
 1. 判断应用是否设置拖拽startDragAndDrop，通过加hasDrag区分
-2. 避免应用不兼容，可以设置白名单PM_WRITE_LIST
+2. 避免应用不兼容，可以设置白名单EXCLUDE_PKG_LIST
 3. 对于简单如TextView和Imageview可以直接处理，其他暂时只能具体分析
 ```java
 public void dragView(View view) {
@@ -106,10 +106,10 @@ public void dragView(View view) {
         return;
     }
     String packageName = view.mContext.getPackageName();
-    if (!PM_WRITE_LIST.contains(packageName)) {
-        Log.e(TAG, "drag pkg is not in write list");
-        return;
-    }
+    if (EXCLUDE_PKG_LIST.contains(packageName)) {
+            Log.e(TAG, "current drag package is in exclude list");
+            return;
+        }
     if (view instanceof TextView) {
         CharSequence content = ((TextView) view).getText();
         drawText(view, content);
@@ -135,10 +135,21 @@ public final boolean startDragAndDrop(ClipData data, DragShadowBuilder shadowBui
     if (data != null) {
         data.prepareToLeaveProcess((flags & View.DRAG_FLAG_GLOBAL) != 0);
     }
+    //...
+    } catch (Exception e) {
+        Log.e(VIEW_LOG_TAG, "Unable to initiate a11y drag", e);
+        HfcDragViewHelper.getInstance().resetDragPkg();
+        return false;
+    }
         // add start
         HfcDragViewHelper.getInstance().dragStart(mContext, data);
     }
     return token != null;
+    catch (Exception e) {
+        Log.e(VIEW_LOG_TAG, "Unable to initiate drag", e);
+        HfcDragViewHelper.getInstance().resetDragPkg();
+        return false;
+    }
     //...
 ```
 问题：三方应用可能调用updateDragShadow替换拖拽视图后如何恢复视图？
@@ -164,7 +175,7 @@ private void handleDragEvent(DragEvent event) {
 public void preHandleDragEvent(DragEvent event, String basePackageName) {
     if (DragEvent.ACTION_DROP == event.mAction) {
         if (mCurrentDragView != null) {
-            event.mClipData = null;//不允许自身应用拖拽接收
+            event.mClipData.clear();//不允许自身应用拖拽接收
         }
     }
 }
@@ -176,21 +187,18 @@ public boolean handleDragEvent(DragEvent event, String basePackageName,
     return result;
 }
 ```
-frameworks/base/core/java/android/view/View.java
-
-处理event.mClipData = null场景可能导致三方应用异常
+frameworks/base/core/java/android/content/ClipData.java
 ```java
-final boolean callDragEventHandler(DragEvent event) {
-    final boolean result;
-
-    ListenerInfo li = mListenerInfo;
-    if (event.mClipData != null) {
-        //...
-    } else {
-        result = false;
+/**
+* @hide
+*/
+public void clear() {
+    if (mItems != null) {
+        mItems.clear();
+        if (mClipDescription != null) {
+            mClipDescription.clear();
+        }
     }
-    //...
-    return result;
 }
 ```
 具体源码工具类

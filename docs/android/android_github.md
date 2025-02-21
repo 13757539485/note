@@ -251,3 +251,34 @@ https://github.com/getActivity/XXPermissions
 https://github.com/gyf-dev/ImmersionBar
 
 ### [屏幕适配](./github/autosize.md)
+
+### palette
+取色工具
+
+gradle引用
+```
+implementation ("androidx.palette:palette:1.0.0")
+```
+
+- getLightVibrantColor()：获取最亮的鲜艳颜色
+- getMutedColor()：获取最柔和的颜色
+- getDarkMutedColor()：获取最暗的柔和颜色
+- getLightMutedColor()：获取最亮的柔和颜色
+- getDominantColor()：获取最主要的颜色
+- getVibrantColor()：获取最鲜艳的颜色
+- getDarkVibrantColor()：获取最暗的鲜艳颜色
+
+基本使用
+```kotlin
+Palette.from(bitmap).generate {
+    it?.let { palette ->
+        val dominantColor = palette.getDominantColor(Color.WHITE)
+        val mutedColor = palette.getMutedColor(Color.WHITE)
+        val darkVibrantColor = palette.getDarkVibrantColor(Color.WHITE)
+        val lightMutedColor = palette.getLightMutedColor(Color.WHITE)
+        val vibrantColor = palette.getVibrantColor(Color.WHITE)
+        val darkMutedColor = palette.getDarkMutedColor(Color.WHITE)
+        val lightVibrantColor = palette.getLightVibrantColor(Color.WHITE)
+    }
+}
+```

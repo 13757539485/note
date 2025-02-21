@@ -47,3 +47,20 @@ https://cherry-ai.com/download
 ollama pull bge-m3
 
 3.AnythingLLM
+
+
+https://github.com/infiniflow/ragflow
+
+
+sudo vi /etc/docker/daemon.json
+
+{
+    "registry-mirrors": [
+        "https://docker.1panel.live",
+        "https://hub.rat.dev"
+    ]
+}
+
+systemctl daemon-reload
+
+systemctl restart docker

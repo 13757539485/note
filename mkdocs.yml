@@ -178,6 +178,7 @@ nav:
 - 常见开发环境: 
     - python部署: python.md
     - git部署: git_github.md
+    - gpt部署: gpt.md
 - 其他学习: 
     - Excel: excel.md
     - Markdown: markdown.md
