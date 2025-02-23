@@ -38,16 +38,23 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 
+import javax.swing.text.View;
+
 /**
  * @hide
  */
 public class HfcDragViewHelper {
-    private static final String TAG = "HfcDragViewHelper";
+    private static final String TAG = "CariadDragHelper";
+    private static final String TAG_DRAW = "DragDraw";
+    private static final String TAG_TOUCH = "DragTouch";
+    private static final String TAG_FIND_VIEW = "DragFindView";
     private static final float MOVE_IGNORE_THRESHOLD_DP = 10.0f;
-    private static final long LONG_PRESS_THRESHOLD_MS = ViewConfiguration.getLongPressTimeout() + 50L;
+    private static final long LONG_PRESS_THRESHOLD_MS = ViewConfiguration.getLongPressTimeout() + 100L;
 
     private static final ArrayList<String> PM_WRITE_LIST = new ArrayList<>();
-    private View mCurrentDragView;
+    private static final ArrayList<String> EXCLUDE_PKG_LIST = new ArrayList<>();
+    // private View mCurrentDragView;
+    private String mCurrentDragDropPkg;
     private long mDownTime;
     private float mDownX;
     private float mDownY;
@@ -55,9 +62,16 @@ public class HfcDragViewHelper {
     private final Handler mMainHandler;
     private final Handler mThreadHandler;
 
+    private final Rect rect = new Rect();
+    private final int[] parentLocation = new int[2];
+    private final int[] childLocation = new int[2];
+
     private static final HfcDragViewHelper instance = new HfcDragViewHelper();
 
     private HfcDragViewHelper() {
+        EXCLUDE_PKG_LIST.add("com.android.systemui");
+        EXCLUDE_PKG_LIST.add("com.android.settings");
+        EXCLUDE_PKG_LIST.add("com.android.launcher3");
         PM_WRITE_LIST.add("com.tencent.mm"); // 微信
         PM_WRITE_LIST.add("com.autonavi.minimap");// 高德地图手机版
         PM_WRITE_LIST.add("com.autonavi.amapauto");// 高德地图车机版
@@ -77,20 +91,27 @@ public class HfcDragViewHelper {
 
     public void dispatchTouchEvent(View view, MotionEvent event) {
         if (view == null) {
-            Log.e(TAG, "dispatchTouchEvent view is null");
+            Log.e(TAG_TOUCH, "dispatchTouchEvent view is null");
+            return;
+        }
+        if (mCurrentDragDropPkg != null) {
+            Log.e(TAG_TOUCH, "already has drag view");
             return;
         }
         if (event == null) {
-            Log.e(TAG, "dispatchTouchEvent event is null");
+            Log.e(TAG_TOUCH, "dispatchTouchEvent event is null");
             return;
         }
         final int action = event.getAction();
         switch (action) {
             case MotionEvent.ACTION_DOWN:
                 // 记录按下时间和位置
+                view.getLocationInWindow(parentLocation);
                 mDownTime = System.currentTimeMillis();
                 mDownX = event.getX();
-                mDownY = event.getY();
+                mDownY = event.getY() + parentLocation[1];
+                Log.d(TAG_TOUCH, "down mDownX=" + mDownX + "," + mDownY + ",lx=" +
+                        parentLocation[0]+ ",ly=" + parentLocation[1]);
                 getTouchScaleAnim(view, true);
                 break;
             case MotionEvent.ACTION_MOVE:
@@ -99,26 +120,31 @@ public class HfcDragViewHelper {
                 if (moveDistance > MOVE_IGNORE_THRESHOLD_DP) {
                     // 移动距离过大，取消长按检测
                     mDownTime = 0L;
+                    Log.d(TAG_TOUCH, "move mDownTime=" + mDownTime);
                 }
                 break;
             case MotionEvent.ACTION_UP:
             case MotionEvent.ACTION_CANCEL:
                 // 清除长按检测相关数据
                 mDownTime = 0L;
+                mCurrentDragDropPkg = null;
+                Log.d(TAG_TOUCH, "cancel mDownTime=" + mDownTime);
                 getTouchScaleAnim(view, false);
                 break;
         }
+        Log.d(TAG_TOUCH, "dispatchTouchEvent mDownTime=" + mDownTime + ",action=" + action + ",view=" + view);
         // 检查是否达到长按阈值
         if (mDownTime > 0 && System.currentTimeMillis() - mDownTime >= LONG_PRESS_THRESHOLD_MS) {
             // 处理长按事件
+            Log.d(TAG_TOUCH, "touch point(" + mDownX + "," + mDownY + ")");
             onLongPress(view);
             mDownTime = 0L; // 清除长按检测相关数据
+            mCurrentDragDropPkg = null;
         }
     }
 
     private void onLongPress(View view) {
-        Log.e(TAG, "onLongPress: " + view + "," + view.mContext.getPackageName() + "," +
-                view.getAccessibilityClassName());
+        Log.e(TAG_TOUCH, "onLongPress: " + view + "," + view.mContext.getPackageName());
         dragView(view);
     }
 
@@ -141,9 +167,10 @@ public class HfcDragViewHelper {
 
     public void preHandleDragEvent(DragEvent event, String basePackageName) {
         if (DragEvent.ACTION_DROP == event.mAction) {
-            if (mCurrentDragView != null) {
-                if (!"com.example.drop1".equals(basePackageName)) {
-                    event.mClipData = null;//不允许自身应用拖拽时接收拖拽
+            if (mCurrentDragDropPkg != null && mCurrentDragDropPkg.equals(basePackageName)) {
+                if (mCurrentDragView != null) {
+                    event.mClipData.clear();//不允许自身应用拖拽接收
+                    Log.d(TAG, "drag clear data by self pkg=" + basePackageName);
                 }
             }
         }
@@ -160,14 +187,10 @@ public class HfcDragViewHelper {
         if (DragEvent.ACTION_DROP == event.mAction) {
             //判断是否是自身应用拖拽接收
             try {
-                result = windowSession.notifyDropStatus(oriResult, mCurrentDragView == null,
+                result = windowSession.notifyDropStatus(oriResult, mCurrentDragDropPkg == null,
                         window, event, basePackageName);
-                if (mCurrentDragView != null && mCurrentDragView.mContext != null) {
-                    if (checkPkg(mCurrentDragView.mContext.getPackageName(), basePackageName)) {
-                        if (!"com.example.drop1".equals(basePackageName)) {
-                            result = false;//影响松手动画
-                        }
-                    }
+                if (mCurrentDragDropPkg != null && mCurrentDragDropPkg.equals(basePackageName)) {
+                    result = false;
                 }
                 if (!oriResult && result) {
                     sendAllowDragApp(windowSession, event.mClipData, basePackageName);
@@ -182,7 +205,7 @@ public class HfcDragViewHelper {
             // share图标: share action size > 1
             // 不支持图标：
             try {
-                windowSession.notifyDropStatus(oriResult, mCurrentDragView == null,
+                windowSession.notifyDropStatus(oriResult, mCurrentDragDropPkg == null,
                         window, event, basePackageName);
             } catch (Exception e) {
                 Slog.e(TAG, "Unable to note VirtualDropResult");
@@ -209,26 +232,25 @@ public class HfcDragViewHelper {
     }
 
     public void dragEnd(ClipData clipData, IWindowSession windowSession){
-        if (mCurrentDragView != null) {
-            Log.e(TAG, "hasDrag reset false: " + mCurrentDragView);
-            showBar(mCurrentDragView.mContext, windowSession, false, clipData);
-            mCurrentDragView.hasDrag = false;
-            mCurrentDragView = null;
+        Log.e(TAG, "dragEnd: " + mCurrentDragDropPkg);
+        showBar(mCurrentDragDropPkg, windowSession, false, clipData);
+        resetDragPkg();
+    }
+
+    public void resetDragPkg() {
+        if (mCurrentDragDropPkg != null) {
+            mCurrentDragDropPkg = null;
+            Log.e(TAG, "Drag reset");
         }
     }
 
     public boolean hasDrag(View view) {
-        mCurrentDragView = view;
-        if (mCurrentDragView != null) {
-            Log.e(TAG, "hasDrag: " + mCurrentDragView);
-            if (!mCurrentDragView.hasDrag) {
-                mCurrentDragView.hasDrag = true;
-                return false;
-            } else {
-                return true;
-            }
+        String pkg = view.getContext().getPackageName();
+        if (mCurrentDragDropPkg == null) {
+            mCurrentDragDropPkg = pkg;
+            return false;
         }
-        return false;
+        return true;
     }
 
     private void showBar(Context context, IWindowSession session, boolean show, ClipData data) {
@@ -259,13 +281,13 @@ public class HfcDragViewHelper {
             Log.e(TAG, "drag view is null");
             return;
         }
-        if (view.hasDrag) {
-            Log.e(TAG, "already has drag view");
+        if (mCurrentDragDropPkg != null) {
+            Log.e(TAG_TOUCH, "already has drag view");
             return;
         }
         String packageName = view.mContext.getPackageName();
-        if (!PM_WRITE_LIST.contains(packageName)) {
-            Log.e(TAG, "drag pkg is not in write list");
+        if (EXCLUDE_PKG_LIST.contains(packageName)) {
+            Log.e(TAG, "current drag package is in exclude list");
             return;
         }
         if (view instanceof TextView) {
@@ -279,19 +301,92 @@ public class HfcDragViewHelper {
     }
 
     private void drawOther(View view) {
-        String packageName = view.mContext.getPackageName();
         try {
-            if ("com.tencent.mm".equals(packageName)) {
-                adapterWx(view);
-            } else if ("com.cariad.m2.app.gallery".equals(packageName)) {
-                adapterAlbum(view);
-            } else if ("com.sankuai.meituan".equals(packageName)) {
-                adapterMeituan(view);
-            } else {
-                Log.e(TAG, "drawOther not support type: " + view);
-            }
+            adapterApps(view);
         } catch (Exception e) {
             e.printStackTrace();
+        }
+    }
+
+    private void adapterApps(View view) {
+        String packageName = view.mContext.getPackageName();
+        if ("com.tencent.mm".equals(packageName)) {
+            adapterWx(view);
+        } else if ("com.cariad.m2.app.gallery".equals(packageName)) {
+            adapterAlbum(view);
+        } else if ("com.sankuai.meituan".equals(packageName)) {
+            adapterMeituan(view);
+        } else {
+            iterateView(view);
+        }
+    }
+
+    private boolean findTargetViewInViewGroup(ViewGroup group) {
+        Log.d(TAG_FIND_VIEW, "findTargetView group=" + group + ",child count=" + group.getChildCount());
+        // 获取group的屏幕位置，判断触摸点是否在group的区域
+        group.getLocationInWindow(childLocation);
+        rect.set(childLocation[0], childLocation[1], childLocation[0] + group.getWidth(),
+                childLocation[1] + group.getHeight());
+
+        // 如果触摸点不在group内，直接返回false，避免不必要的递归
+        if (!rect.contains((int) mDownX, (int) mDownY)) {
+            Log.d(TAG_FIND_VIEW, "findTargetView not in group");
+            return false;
+        }
+
+        for (int i = 0; i < group.getChildCount(); i++) {
+            View child = group.getChildAt(i);
+
+            // 如果子view是ViewGroup，递归查找
+            if (child instanceof ViewGroup) {
+                boolean result = findTargetViewInViewGroup((ViewGroup) child);
+                if (result) {
+                    Log.d(TAG_FIND_VIEW, "recursive find");
+                    return true;
+                }
+            } else {
+                // 获取子view的位置并检查触摸点是否在子view内
+                child.getLocationInWindow(childLocation);
+                rect.set(childLocation[0], childLocation[1], childLocation[0] + child.getWidth(), childLocation[1] + child.getHeight());
+                Log.d(TAG_FIND_VIEW, "rect=" + rect +
+                        ",childLocation:(" + childLocation[0] + "," + childLocation[1] + ")" +
+                        ",parentLocation:(" + parentLocation[0] + "," + parentLocation[1] + ")");
+                // 比较触摸点是否在子视图的范围内
+                if (rect.contains((int) mDownX, (int) mDownY)) {
+                    handleTouchedChild(child);
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    private void handleTouchedChild(View child) {
+        Log.d(TAG_FIND_VIEW, "Touched child view ID: " + child);
+        dealView(child);
+    }
+
+    private void dealView(View view) {
+        if (view instanceof TextView) {
+            CharSequence content = ((TextView) view).getText();
+            drawText(view, content);
+        } else if (view instanceof ImageView) {
+            drawImage(view);
+        } else {
+            Log.d(TAG_FIND_VIEW, "need extra deal: " + view);
+        }
+    }
+
+    private void iterateView(View view) {
+        ViewGroup rootContent = view.findViewById(android.R.id.content);
+        if (rootContent != null) {
+            Log.e(TAG_FIND_VIEW, "iterate from ContentView" + view);
+            findTargetViewInViewGroup(rootContent);
+        } else {
+            if (view instanceof ViewGroup) {
+                Log.e(TAG_FIND_VIEW, "iterate from root view" + view);
+                findTargetViewInViewGroup((ViewGroup) view);
+            }
         }
     }
 
@@ -307,7 +402,7 @@ public class HfcDragViewHelper {
                 getWindowSession(view).savaBitmap(bitmapPfd, new RemoteCallback(result -> {
                     if (result != null) {
                         Uri uri = result.getParcelable("drop_uri");
-                        Log.e(TAG, "drawBitmap uri: " + uri);
+                        Log.e(TAG_DRAW, "drawBitmap uri: " + uri);
                         ClipData.Item item = new ClipData.Item(uri);
                         ClipData data = new ClipData("image drag",
                                 new String[]{"image/jpeg"}, item);
@@ -338,7 +433,7 @@ public class HfcDragViewHelper {
                     }
                 }, mMainHandler));
             } catch (Exception e) {
-                Log.e(TAG, "drawBitmap error: " + e.getMessage());
+                Log.e(TAG_DRAW, "drawBitmap error: " + e.getMessage());
             }
         });
     }
@@ -350,7 +445,7 @@ public class HfcDragViewHelper {
         ByteArrayOutputStream stream = new ByteArrayOutputStream();
         bitmap.compress(Bitmap.CompressFormat.JPEG, 90, stream);
         byte[] byteArray = stream.toByteArray();
-        Log.e(TAG, "getBitmapPfd: " + byteArray.length + ",w=" +
+        Log.e(TAG_DRAW, "getBitmapPfd: " + byteArray.length + ",w=" +
                 bitmap.getWidth() + ",h=" + bitmap.getHeight());
         try {
             MemoryFile memoryFile = new MemoryFile("dragTemp", bitmap.getByteCount());
@@ -366,15 +461,15 @@ public class HfcDragViewHelper {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        Log.i(TAG, "getPfd() pfd:" + pfd);
+        Log.i(TAG_DRAW, "getPfd() pfd:" + pfd);
         return pfd;
     }
 
     private void drawImage(View view) {
         ImageView iv = (ImageView) view;
-        Log.e(TAG, "ImageView: " + view);
+        Log.e(TAG_DRAW, "ImageView: " + view);
         Drawable drawable = iv.getDrawable();
-        Log.e(TAG, "drawable: " + drawable);
+        Log.e(TAG_DRAW, "drawable: " + drawable);
         Bitmap bitmap;
         if (drawable instanceof BitmapDrawable) {
             bitmap = ((BitmapDrawable) drawable).getBitmap();
@@ -386,25 +481,25 @@ public class HfcDragViewHelper {
         }
     }
 
-    private Bitmap tryExtract(ImageView imageView) {
+    private Bitmap tryExtract(View view) {
         Bitmap bitmap = null;
         try {
-            imageView.setDrawingCacheEnabled(true);
-            imageView.buildDrawingCache();
-            if (imageView.getDrawingCache() != null) {
-                bitmap = Bitmap.createBitmap(imageView.getDrawingCache());
+            view.setDrawingCacheEnabled(true);
+            view.buildDrawingCache();
+            if (view.getDrawingCache() != null) {
+                bitmap = Bitmap.createBitmap(view.getDrawingCache());
             }
-            imageView.setDrawingCacheEnabled(false);
+            view.setDrawingCacheEnabled(false);
         } catch (Exception e) {
             Log.e(TAG, "createBitmap second error: " + e.getMessage());
         }
 
         if (bitmap == null) {
             try {
-                bitmap = Bitmap.createBitmap(imageView.getWidth(), imageView.getHeight(),
+                bitmap = Bitmap.createBitmap(view.getWidth(), view.getHeight(),
                         Bitmap.Config.RGB_565);
                 Canvas canvas = new Canvas(bitmap);
-                imageView.draw(canvas);
+                view.draw(canvas);
             } catch (Exception e) {
                 Log.e(TAG, "createBitmap once error: " + e.getMessage());
             }
@@ -464,43 +559,44 @@ public class HfcDragViewHelper {
     }
 
     private void adapterWx(View view) {
-        Log.e(TAG, "adapterWx start: " + view);
+        Log.e(TAG_FIND_VIEW, "adapterWx start: " + view);
         if (checkIdName(view, "bkg") && view instanceof ViewGroup) {
             ViewGroup vg = (ViewGroup) view;
-            Log.e(TAG, "adapterWx bkg:" + vg + "," + vg.getChildCount());
+            Log.e(TAG_FIND_VIEW, "adapterWx bkg:" + vg + "," + vg.getChildCount());
             if (vg.getChildCount() > 0) {
                 View childAt = vg.getChildAt(0);
-                Log.e(TAG, "adapterWx count:" + childAt);
+                Log.e(TAG_FIND_VIEW, "adapterWx count:" + childAt);
                 if (childAt instanceof ViewGroup) {
                     // 微信聊天界面地址
-                    Log.e(TAG, "adapterWx childAt group: " + childAt);
+                    Log.e(TAG_FIND_VIEW, "adapterWx childAt group: " + childAt);
                     View vgf = ((ViewGroup) childAt).getChildAt(0);
-                    Log.e(TAG, "adapterWx vgl: " + vgf);
+                    Log.e(TAG_FIND_VIEW, "adapterWx vgl: " + vgf);
                     if (vgf instanceof ViewGroup) {
                         View vgl = ((ViewGroup) vgf).getChildAt(0);
-                        Log.e(TAG, "adapterWx vgf: " + vgf);
+                        Log.e(TAG_FIND_VIEW, "adapterWx vgf: " + vgf);
                         if (vgl instanceof ViewGroup) {
                             if (((ViewGroup) vgl).getChildCount() > 1) {
                                 StringBuilder address = new StringBuilder();
                                 View vglv1 = ((ViewGroup) vgl).getChildAt(0);
-                                Log.e(TAG, "adapterWx vgflv1: " + vglv1);
+                                Log.e(TAG_FIND_VIEW, "adapterWx vgflv1: " + vglv1);
                                 if (checkIdName(vglv1, "bp8") && vglv1 instanceof TextView) {
                                     address.append(((TextView) vglv1).getText());
                                 }
                                 View vglv2 = ((ViewGroup) vgl).getChildAt(1);
-                                Log.e(TAG, "adapterWx vgflv2: " + vglv2);
+                                Log.e(TAG_FIND_VIEW, "adapterWx vgflv2: " + vglv2);
                                 if (checkIdName(vglv2, "bp6") && vglv2 instanceof TextView) {
                                     address.append(((TextView) vglv2).getText());
                                 }
-                                Log.e(TAG, "adapterWx address: " + address);
+                                Log.e(TAG_FIND_VIEW, "adapterWx address: " + address);
                                 view.startDragAndDrop(ClipData.newPlainText("drag text", address),
                                         new View.DragShadowBuilder(view), null, View.DRAG_FLAG_GLOBAL);
 //                                drawText(view, address);
+                                return;
                             }
                         }
                     }
                 } else {
-                    Log.e(TAG, "adapterWx childAt: " + childAt);
+                    Log.e(TAG_FIND_VIEW, "adapterWx childAt: " + childAt);
                     // 微信聊天界面图片
                     if (checkIdName(childAt, "bkm") && childAt instanceof ImageView) {
                         drawImage(childAt);
@@ -512,7 +608,7 @@ public class HfcDragViewHelper {
             // 表情和文本
             try {
                 Class<?> clazz = view.getClass();
-                Log.e(TAG, "adapterWx clazz: " + clazz);
+                Log.e(TAG_FIND_VIEW, "adapterWx clazz: " + clazz);
                 Field xField = clazz.getField("x");
 //                Field zField = clazz.getField("z");
                 CharSequence xValue = (CharSequence) xField.get(view);
@@ -524,6 +620,7 @@ public class HfcDragViewHelper {
                     CharSequence textContent = textView.getText();
                     printLog("", "TextView的text内容: " + textContent);
                 }*/
+                return;
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -537,16 +634,17 @@ public class HfcDragViewHelper {
                         && childAt instanceof ImageView) {
                     Drawable drawable = ((ImageView) childAt).getDrawable();
                     Class<?> clazz = drawable.getClass();
-                    Log.e(TAG, "adapterWx childAt---drawable: " + drawable);
+                    Log.e(TAG_FIND_VIEW, "adapterWx childAt---drawable: " + drawable);
                     if ("com.tencent.mm.plugin.gif.u".equals(clazz.getName())) {
                         try {
                             Field sField = clazz.getField("s");
                             Bitmap bitmap = (Bitmap) sField.get(drawable);
                             Field rField = clazz.getField("r");
                             Bitmap[] bitmaps = (Bitmap[]) rField.get(drawable);
-                            Log.e(TAG,
+                            Log.e(TAG_FIND_VIEW,
                                     "adapterWx childAt---bitmap: " + bitmap + "," + bitmaps.length);
                             drawBitmap(view, bitmap);
+                            return;
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
@@ -568,46 +666,50 @@ public class HfcDragViewHelper {
                             Field iField = clazz.getField("i");
                             Bitmap bitmap = (Bitmap) iField.get(drawable);
                             drawBitmap(view, bitmap);
+                            return;
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
                     }
                 }
             }
-        } else {
-            Log.e(TAG, "adapterWx other: " + view);
         }
+        iterateView(view);
     }
 
     private void adapterAlbum(View view) {
-        Log.e(TAG, "adapterAlbum：" + view);
+        Log.e(TAG_FIND_VIEW, "adapterAlbum：" + view);
         if (view instanceof ViewGroup) {
             ViewGroup vp = (ViewGroup) view;
-            Log.e(TAG, "adapterAlbum vp：" + vp);
+            Log.e(TAG_FIND_VIEW, "adapterAlbum vp：" + vp);
             if (vp.getChildCount() > 0) {
                 View child = vp.getChildAt(0);
-                Log.e(TAG, "adapterAlbum child：" + child);
+                Log.e(TAG_FIND_VIEW, "adapterAlbum child：" + child);
                 if (child instanceof ImageView) {
                     drawImage(child);
+                    return;
                 }
             }
         }
+        iterateView(view);
     }
 
     private void adapterMeituan(View view) {
-        Log.e(TAG, "adapterMeituan start: " + view);
+        Log.e(TAG_FIND_VIEW, "adapterMeituan start: " + view);
         if (checkViewName(view, "com.facebook.react.views.view.f") && view instanceof ViewGroup) {
             ViewGroup vg = (ViewGroup) view;
-            Log.e(TAG, "adapterMeituan bkg:" + vg + "," + vg.getChildCount());
+            Log.e(TAG_FIND_VIEW, "adapterMeituan bkg:" + vg + "," + vg.getChildCount());
             if (vg.getChildCount() > 3) {
                 View child = vg.getChildAt(3);
                 if (child instanceof TextView) {
                     CharSequence text = ((TextView) child).getText();
                     drawText(child, text);
-                    Log.e(TAG, "adapterMeituan text: " + text);
+                    Log.e(TAG_FIND_VIEW, "adapterMeituan text: " + text);
+                    return;
                 }
             }
         }
+        iterateView(view);
     }
 
     private static class ImageShadow extends View.DragShadowBuilder {
