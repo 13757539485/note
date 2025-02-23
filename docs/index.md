@@ -111,7 +111,7 @@ theme:
 ```
 ### 网页加密插件
 ```
-pip install mkdocs-encrypt-plugin
+sudo pip install mkdocs-encryptcontent-plugin
 ```
 [官方文档](https://github.com/unverbuggt/mkdocs-encryptcontent-plugin/blob/version3/README.md)
 

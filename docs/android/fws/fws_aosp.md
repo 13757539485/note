@@ -485,3 +485,4 @@ xxx	/media/xxx/xxx/aosp/ (push)
 ```
 git push --set-upstream xxx my-branch
 ```
+注意：添加目录时使用git add -f xxx

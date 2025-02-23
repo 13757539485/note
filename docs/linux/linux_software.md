@@ -37,3 +37,7 @@ git config --global --unset https.proxy
 ```
 
 浏览器某些网站打不开解决：clash选择规则模式
+
+clash-verge: clash for linux替代品
+
+https://github.com/clash-verge-rev/clash-verge-rev/releases

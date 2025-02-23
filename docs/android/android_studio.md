@@ -251,3 +251,12 @@ plugins {
 2. 关闭开发者模式，关闭usb调试
 3. 打开开发者模式，开启usb调试
 4. 插上数据线
+
+### 创建桌面快捷方式
+打开Android Studio列表界面->设置(齿轮图标)->Create Desktop Entry...
+
+创建成功后会在：/usr/share/applications/jetbrains-studio.desktop
+
+创建多个快捷方式：sudo mv jetbrains-studio.desktop asfp.desktop
+
+重复as创建即可
