@@ -49,7 +49,7 @@ public class HfcDragViewHelper {
     private static final String TAG_TOUCH = "DragTouch";
     private static final String TAG_FIND_VIEW = "DragFindView";
     private static final float MOVE_IGNORE_THRESHOLD_DP = 10.0f;
-    private static final long LONG_PRESS_THRESHOLD_MS = ViewConfiguration.getLongPressTimeout() + 100L;
+    private static final long LONG_PRESS_THRESHOLD_MS = ViewConfiguration.getLongPressTimeout() + 300L;
 
     private static final ArrayList<String> PM_WRITE_LIST = new ArrayList<>();
     private static final ArrayList<String> EXCLUDE_PKG_LIST = new ArrayList<>();
@@ -127,7 +127,6 @@ public class HfcDragViewHelper {
             case MotionEvent.ACTION_CANCEL:
                 // 清除长按检测相关数据
                 mDownTime = 0L;
-                mCurrentDragDropPkg = null;
                 Log.d(TAG_TOUCH, "cancel mDownTime=" + mDownTime);
                 getTouchScaleAnim(view, false);
                 break;
@@ -139,7 +138,6 @@ public class HfcDragViewHelper {
             Log.d(TAG_TOUCH, "touch point(" + mDownX + "," + mDownY + ")");
             onLongPress(view);
             mDownTime = 0L; // 清除长按检测相关数据
-            mCurrentDragDropPkg = null;
         }
     }
 
@@ -228,6 +226,7 @@ public class HfcDragViewHelper {
     }
 
     public void dragStart(IWindowSession session, Context context, ClipData data) {
+        mCurrentDragDropPkg = context.getPackageName();
         showBar(context, session, true, data);
     }
 
@@ -245,12 +244,8 @@ public class HfcDragViewHelper {
     }
 
     public boolean hasDrag(View view) {
-        String pkg = view.getContext().getPackageName();
-        if (mCurrentDragDropPkg == null) {
-            mCurrentDragDropPkg = pkg;
-            return false;
-        }
-        return true;
+        Log.d(TAG_DRAW, "hasDrag() called with: view = [" + view + "]");
+        return mCurrentDragDropPkg != null;
     }
 
     private void showBar(Context context, IWindowSession session, boolean show, ClipData data) {
@@ -267,13 +262,6 @@ public class HfcDragViewHelper {
                 Log.e(TAG, "showBar: " + e.getMessage());
             }
         }, 200);
-    }
-
-    private Intent getShareBarIntent() {
-        Intent intent = new Intent();
-        intent.setComponent(new ComponentName("com.cariad.m2.car_link_launcher",
-                "com.cariad.m2.sharebar.core.ShareReceiver"));
-        return intent;
     }
 
     private void dragView(View view) {

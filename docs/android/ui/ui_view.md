@@ -162,3 +162,12 @@ fun Context.px2dp(pxValue: Float): Int {
         ).toInt() else (pxValue / resources.displayMetrics.density).toInt()
 }
 ```
+
+### API接口
+setWillNotDraw(Boolean)
+
+ViewGroup默认不会调用onDraw，是因为构造方法中调用了setFlags(WILL_NOT_DRAW, DRAW_MASK);
+
+想要调用onDraw可以调用setWillNotDraw(false)
+
+接口作用：性能优化，自定义View时如果没有背景且不需要绘制时可调用setWillNotDraw(true)，ViewGroup默认开启
