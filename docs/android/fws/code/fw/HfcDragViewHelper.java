@@ -1,9 +1,7 @@
 package android.view;
 
 import android.content.ClipData;
-import android.content.ComponentName;
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Paint;
@@ -21,7 +19,6 @@ import android.os.ParcelFileDescriptor;
 import android.os.RemoteCallback;
 import android.os.RemoteException;
 import android.util.Log;
-import android.util.Slog;
 import android.view.animation.Animation;
 import android.view.animation.ScaleAnimation;
 import android.widget.FrameLayout;
@@ -34,11 +31,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.FileDescriptor;
 import java.io.IOException;
 import java.lang.reflect.Field;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
 import java.util.ArrayList;
-
-import javax.swing.text.View;
 
 /**
  * @hide
@@ -112,7 +105,7 @@ public class HfcDragViewHelper {
                 mDownY = event.getY() + parentLocation[1];
                 Log.d(TAG_TOUCH, "down mDownX=" + mDownX + "," + mDownY + ",lx=" +
                         parentLocation[0]+ ",ly=" + parentLocation[1]);
-                getTouchScaleAnim(view, true);
+//                getTouchScaleAnim(view, true);
                 break;
             case MotionEvent.ACTION_MOVE:
                 // 判断是否移动距离超过长按忽略阈值
@@ -128,7 +121,7 @@ public class HfcDragViewHelper {
                 // 清除长按检测相关数据
                 mDownTime = 0L;
                 Log.d(TAG_TOUCH, "cancel mDownTime=" + mDownTime);
-                getTouchScaleAnim(view, false);
+//                getTouchScaleAnim(view, false);
                 break;
         }
         Log.d(TAG_TOUCH, "dispatchTouchEvent mDownTime=" + mDownTime + ",action=" + action + ",view=" + view);
@@ -142,7 +135,7 @@ public class HfcDragViewHelper {
     }
 
     private void onLongPress(View view) {
-        Log.e(TAG_TOUCH, "onLongPress: " + view + "," + view.mContext.getPackageName());
+        Log.e(TAG_TOUCH, "onLongPress: " + view + "," + view.getContext().getPackageName());
         dragView(view);
     }
 
@@ -150,7 +143,7 @@ public class HfcDragViewHelper {
      * 添加全局按压动画，结合View添加属性控制(搜索mEnablePressedAnim)
      */
     private void getTouchScaleAnim(View view, boolean isDown) {
-        if (!view.mEnablePressedAnim) return;
+//        if (!view.mEnablePressedAnim) return;
         view.clearAnimation();
         float from = isDown ? 1.0f : 0.8f;
         float to = isDown ? 0.8f : 1.0f;
@@ -158,18 +151,15 @@ public class HfcDragViewHelper {
                 Animation.RELATIVE_TO_SELF, 0.5f,
                 Animation.RELATIVE_TO_SELF, 0.5f);
         scale.setDuration(200);
-//        scale.setInterpolator(new CariadSpringInterpolator(0.5, 5.0));
         scale.setFillAfter(true);
         view.startAnimation(scale);
     }
 
     public void preHandleDragEvent(DragEvent event, String basePackageName) {
-        if (DragEvent.ACTION_DROP == event.mAction) {
+        if (DragEvent.ACTION_DROP == event.getAction()) {
             if (mCurrentDragDropPkg != null && mCurrentDragDropPkg.equals(basePackageName)) {
-                if (mCurrentDragView != null) {
-                    event.mClipData.clear();//不允许自身应用拖拽接收
-                    Log.d(TAG, "drag clear data by self pkg=" + basePackageName);
-                }
+                event.getClipData().clear();//不允许自身应用拖拽接收
+                Log.d(TAG, "drag clear data by self pkg=" + basePackageName);
             }
         }
     }
@@ -182,7 +172,7 @@ public class HfcDragViewHelper {
             return false;
         }
         boolean result = false;
-        if (DragEvent.ACTION_DROP == event.mAction) {
+        if (DragEvent.ACTION_DROP == event.getAction()) {
             //判断是否是自身应用拖拽接收
             try {
                 result = windowSession.notifyDropStatus(oriResult, mCurrentDragDropPkg == null,
@@ -191,14 +181,14 @@ public class HfcDragViewHelper {
                     result = false;
                 }
                 if (!oriResult && result) {
-                    sendAllowDragApp(windowSession, event.mClipData, basePackageName);
+                    sendAllowDragApp(windowSession, event.getClipData(), basePackageName);
                     Log.e(TAG, "replace result to custom result:" + basePackageName);
                 }
                 Log.e(TAG, "action drop result:" + result);
             } catch (Exception e) {
-                Slog.e(TAG, "Unable to note trigShareOrShopIfNeed");
+                Log.e(TAG, "Unable to note trigShareOrShopIfNeed");
             }
-        } else if (DragEvent.ACTION_DRAG_LOCATION == event.mAction) {
+        } else if (DragEvent.ACTION_DRAG_LOCATION == event.getAction()) {
             // +图标: oriResult=true or share action size = 1
             // share图标: share action size > 1
             // 不支持图标：
@@ -206,10 +196,10 @@ public class HfcDragViewHelper {
                 windowSession.notifyDropStatus(oriResult, mCurrentDragDropPkg == null,
                         window, event, basePackageName);
             } catch (Exception e) {
-                Slog.e(TAG, "Unable to note VirtualDropResult");
+                Log.e(TAG, "Unable to note VirtualDropResult");
             }
-        } else if (DragEvent.ACTION_DRAG_ENDED == event.mAction) {
-            dragEnd(event.mClipData, windowSession);
+        } else if (DragEvent.ACTION_DRAG_ENDED == event.getAction()) {
+            dragEnd(event.getClipData(), windowSession);
         }
         return result;
     }
@@ -227,7 +217,7 @@ public class HfcDragViewHelper {
 
     public void dragStart(IWindowSession session, Context context, ClipData data) {
         mCurrentDragDropPkg = context.getPackageName();
-        showBar(context, session, true, data);
+        showBar(mCurrentDragDropPkg, session, true, data);
     }
 
     public void dragEnd(ClipData clipData, IWindowSession windowSession){
@@ -248,16 +238,16 @@ public class HfcDragViewHelper {
         return mCurrentDragDropPkg != null;
     }
 
-    private void showBar(Context context, IWindowSession session, boolean show, ClipData data) {
-        if (context == null || session == null) {
+    private void showBar(String pkg, IWindowSession session, boolean show, ClipData data) {
+        if (pkg == null || session == null) {
             Log.e(TAG, "showBar context or session is null");
             return;
         }
-        Log.e(TAG, "showBar: " + show + "," + context.getPackageName());
+        Log.e(TAG, "showBar: " + show + ",pkg=" + pkg);
         mMainHandler.postDelayed(() -> {
             try {
                 session.shareBarShowOrHide(show ? "action.sharebar.show" : "action.sharebar.hide",
-                        context.getPackageName(), data);
+                        pkg, data);
             } catch (RemoteException e) {
                 Log.e(TAG, "showBar: " + e.getMessage());
             }
@@ -273,7 +263,7 @@ public class HfcDragViewHelper {
             Log.e(TAG_TOUCH, "already has drag view");
             return;
         }
-        String packageName = view.mContext.getPackageName();
+        String packageName = view.getContext().getPackageName();
         if (EXCLUDE_PKG_LIST.contains(packageName)) {
             Log.e(TAG, "current drag package is in exclude list");
             return;
@@ -297,7 +287,7 @@ public class HfcDragViewHelper {
     }
 
     private void adapterApps(View view) {
-        String packageName = view.mContext.getPackageName();
+        String packageName = view.getContext().getPackageName();
         if ("com.tencent.mm".equals(packageName)) {
             adapterWx(view);
         } else if ("com.cariad.m2.app.gallery".equals(packageName)) {
@@ -407,7 +397,7 @@ public class HfcDragViewHelper {
                                 oriHeight = MAX_VALUE;
                             }
                         }
-                        ImageView tempView = new ImageView(view.mContext);
+                        ImageView tempView = new ImageView(view.getContext());
                         ViewGroup.LayoutParams imageViewLayoutParams = new ViewGroup.LayoutParams(
                                 oriWidth,
                                 oriHeight
@@ -497,7 +487,7 @@ public class HfcDragViewHelper {
 
     private void drawText(View view, CharSequence content) {
         String realText = content.toString();
-        TextView textView = new TextView(view.mContext);
+        TextView textView = new TextView(view.getContext());
         textView.setLayoutParams(new FrameLayout.LayoutParams(
                 FrameLayout.LayoutParams.WRAP_CONTENT,
                 FrameLayout.LayoutParams.WRAP_CONTENT,
@@ -517,7 +507,7 @@ public class HfcDragViewHelper {
         Rect bounds = new Rect();
         paint.getTextBounds(realText, 0, realText.length(), bounds);
 
-        FrameLayout vp = new FrameLayout(view.mContext);
+        FrameLayout vp = new FrameLayout(view.getContext());
         vp.setBackgroundResource(R.drawable.drag_text_bg);
         int textViewWidth = Math.min(bounds.width() + 42, 256);
         vp.setLayoutParams(new FrameLayout.LayoutParams(textViewWidth, TextShadow.HEIGHT, Gravity.CENTER));
