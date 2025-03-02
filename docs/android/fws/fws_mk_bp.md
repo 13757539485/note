@@ -1,43 +1,3 @@
-### 内置apk到系统
-编写mk文件，将gradle编译出来的apk重新前面打包成系统apk
-```mk
-LOCAL_PATH:=$(call my-dir)
-include $(CLEAR_VARS)
-LOCAL_SRC_FILES := build/outputs/apk/release/myapp-release.apk
-LOCAL_MODULE_CLASS := APPS
-#可以为user、eng、tests、optional，optional代表在任何版本下都编译
-LOCAL_MODULE_TAGS := optional
-#编译模块的名称
-LOCAL_MODULE := MyApp
-#可以为testkey、platform、shared、media、PRESIGNED（使用原签名），platform代表为系统应用
-LOCAL_CERTIFICATE := platform
-#不设置或者设置为false，安装位置为system/app，如果设置为true，则安装位置为system/priv-app
-LOCAL_PRIVILEGED_MODULE := false
-#module的后缀，可不设置
-LOCAL_MODULE_SUFFIX := $(COMMON_ANDROID_PACKAGE_SUFFIX)
-# 关闭预编译，不会生成OAT文件
-LOCAL_DEX_PREOPT := true
-LOCAL_PRODUCT_MODULE := false
-include $(BUILD_PREBUILT)
-```
-LOCAL_PRODUCT_MODULE为true产出目录在/product/，否则在/system/下
-
-系统应用白名单，编译镜像时包含自己的apk，最终编译成system/app/Myapp
-
-build/make/target/product/handheld_system.mk
-```mk
-PRODUCT_PACKAGES += \
-    MyApp \
-
-PRODUCT_SYSTEM_SERVER_APPS += \
-    MyApp \
-```
-
-如果想编译到其他目录handheld_product.mk和handheld_system_ext.mk
-
-
-参考：https://blog.csdn.net/etrospect/article/details/128235015
-
 #### 去除wifi网络限制
 packages/modules/NetworkStack/src/com/android/server/connectivity/NetworkMonitor.java
 ```
@@ -209,6 +169,11 @@ https://developer.android.google.cn/guide/app-compatibility/restrictions-non-sdk
 #### 解决方案
 为了允许三方应用调用或反射调用
 
+##### 直接方案
+frameworks/base/data/etc/hiddenapi-package-whitelist.xml
+
+添加应用包名即可
+
 ##### 临时方案
 ```shell
 adb shell settings put global hidden_api_policy 1
@@ -324,7 +289,7 @@ FlagWithInput("--whitelist ",
 PRODUCT_PROPERTY_OVERRIDES += \
        ro.surface_flinger.supports_background_blur=1
 
-### 导入jar或aar步骤
+### <a id="import_fws">导入jar或aar步骤</a>
 Android.bp中
 ```bp
 java_import {
@@ -349,64 +314,6 @@ java_library {
     //...
     static_libs: [
        "my_module_jar",
-       "my_module_aar",
     ],
 }
-```
-
-### mk转bp
-mk语法：https://blog.csdn.net/u012514113/article/details/124384430
-
-使用androidmk工具
-
-路径：out/host/linux-x86/bin/androidmk
-
-没有则执行
-```
-m -j blueprint_tools
-```
-
-mk转bp命令
-```
-androidmk /xxx/Android.mk > /xxx/Andoroid.bp
-```
-
-预装应用可卸载(待测试)
-```
-LOCAL_PATH := $(call my-dir)
-
-include $(CLEAR_VARS)
-
-LOCAL_MODULE := Test
-LOCAL_SRC_FILES := Test.apk
-LOCAL_MODULE_CLASS := APPS
-LOCAL_MODULE_TAGS := optional
-LOCAL_CERTIFICATE := platform
-LOCAL_MODULE_SUFFIX := $(COMMON_ANDROID_PACKAGE_SUFFIX)
-LOCAL_MODULE_PATH := $(TARGET_OUT_DATA_APPS)//重点这一句
-
-include $(BUILD_PREBUILT)
-```
-
-### vendor定制
-以oriole手机为例：
-
-aosp中：device/google/raviole/aosp_oriole.mk
-
-lineage中：device/google/raviole/lineage_oriole.mk
-
-添加引入
-```mk
-$(call inherit-product-if-exists, vendor/hfc/hfc.mk)
-```
-新建vendor/hfc/hfc.mk
-添加引入
-```mk
-$(call inherit-product-if-exists, vendor/hfc/apps/apps.mk)
-```
-新建apps文件夹，新建apps.mk
-```mk
-PRODUCT_PACKAGES += \
-	QQInput \
-	SystemUIPlugin
 ```

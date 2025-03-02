@@ -1,5 +1,5 @@
-### 最近多任务
-#### 定位界面
+## 最近多任务
+### 定位界面
 手机进入多任务界面，执行命令
 ```
 adb shell am stack list
@@ -9,7 +9,7 @@ adb shell am stack list
 adb shell dumpsys activity com.android.launcher3/com.android.launcher3.uioverrides.QuickstepLauncher
 ```
 
-#### TaskView创建流程
+### TaskView创建流程
 
 packages/apps/Launcher3/quickstep/src/com/android/launcher3/uioverrides/QuickstepLauncher.java
 
@@ -63,7 +63,7 @@ com.android.quickstep.RecentTasksList.lambda$getTasks$3(RecentTasksList.java:185
 com.android.quickstep.RecentTasksList.$r8$lambda$6-PS2E-VkARt1ElIEKmm9qge-Ok(Unknown Source:0)
 com.android.quickstep.RecentTasksList$$ExternalSyntheticLambda1.run(D8$$SyntheticClass:0)
 
-#### 数据获取流程
+### 数据获取流程
 
 上面获取TaskView会调用getTasks
 
@@ -83,9 +83,15 @@ com.android.systemui.SystemUIInitializer.init
 
 applyLoadPlan中获取到的TaskView进行数据bind
 
-#### 数据持久化
+### 数据持久化
 
-从atms中获取的task是保存在哪里的？
+从atms中获取的task是保存在哪里的？从getRecentTasks源码入手，ActivityTaskManager最终调用的是
+
+frameworks/base/services/core/java/com/android/server/wm/ActivityTaskManagerService.java
+
+中的getRecentTasks
+
+
 ```java
 public ParceledListSlice<ActivityManager.RecentTaskInfo> getRecentTasks(int maxNum, int flags,
     int userId) {
@@ -96,6 +102,8 @@ public ParceledListSlice<ActivityManager.RecentTaskInfo> getRecentTasks(int maxN
     }
 }
 ```
+frameworks/base/services/core/java/com/android/server/wm/RecentTasks.java
+
 userId默认为0,loadRecentTasksIfNeeded是还原数据操作
 ```java
 void loadRecentTasksIfNeeded(int userId) {
@@ -152,28 +160,97 @@ private ArrayList<ActivityManager.RecentTaskInfo> getRecentTasksImpl(int maxNum,
     return res;
 }
 ```
-增加和删除，添加堆栈
+### 增加和删除Task
+
+在frameworks/base/services/core/java/com/android/server/wm/RecentTasks.java
+
+添加堆栈调试
 ```java
 void add(Task task) {}
 void remove(Task task) {}
 ```
-缩略图获取最终调用的是
+
+### 缩略图获取
+
+最终调用的是
 
 packages/SystemUI/shared/src/com/android/systemui/shared/system/ActivityManagerWrapper.java
 
-的getTaskThumbnail方法
+的getTaskThumbnail方法，接着调用atms中的getTaskSnapshot，然后调用TaskSnapshotController
 
-最近多任务背景透明：
-```xml
-<item name="overviewScrimColor">#00000000</item>
+frameworks/base/services/core/java/com/android/server/wm/TaskSnapshotController.java
+```java
+TaskSnapshot getSnapshot(int taskId, int userId, boolean restoreFromDisk,
+            boolean isLowResolution) {
+    return mCache.getSnapshot(taskId, userId, restoreFromDisk, isLowResolution
+            && mPersistInfoProvider.enableLowResSnapshots());
+}
 ```
-导致卡片模糊：点击某个卡片再进recent界面复现
+frameworks/base/services/core/java/com/android/server/wm/TaskSnapshotCache.java
+```java
+TaskSnapshot getSnapshot(int taskId, int userId, boolean restoreFromDisk,
+            boolean isLowResolution) {
+    final TaskSnapshot snapshot = getSnapshot(taskId);//从缓存中获取
+    if (snapshot != null) {
+        return snapshot;
+    }
 
-卡片圆角
-```xml
-<dimen name="task_corner_radius_override">20dp</dimen>
+    if (!restoreFromDisk) {
+        return null;
+    }
+    return tryRestoreFromDisk(taskId, userId, isLowResolution);//从磁盘中获取
+}
 ```
-https://blog.csdn.net/a396604593/article/details/127965396
+磁盘目录：data/system_ce/0/snapshots/
 
-https://blog.csdn.net/u011897062/article/details/134787838
+保存3种文件
+1. taskId.jpg
+2. taskId.proto
+3. taskId_reduces.jpg(低分辨率)
 
+### 截图线程
+
+是在wms服务创建的时候启动的
+
+frameworks/base/services/core/java/com/android/server/wm/WindowManagerService.java
+```java
+public void systemReady() {
+    //...
+    mSnapshotController.systemReady();
+    //...
+}
+```
+具体线程名
+```java
+private final Thread mPersister = new Thread("TaskSnapshotPersister")
+```
+四循环，通过WriteQueueItem的write，由子类实现
+
+### 上滑手势
+packages/apps/Launcher3/quickstep/src/com/android/quickstep/TouchInteractionService.java
+```java
+
+注册全局触摸监听
+private void initInputMonitor(String reason) {
+    //...
+    mInputMonitorCompat = new InputMonitorCompat("swipe-up", mDeviceState.getDisplayId());
+    mInputEventReceiver = mInputMonitorCompat.getInputReceiver(Looper.getMainLooper(),
+            mMainChoreographer, this::onInputEvent);
+    //...
+}
+```
+可以使用adb shell dumpsys input查看到swipe-up
+```shell
+0: name='[Gesture Monitor] swipe-up', inputChannelToken=android.os.BinderProxy@a8797d6 displayId=0
+```
+具体事件处理逻辑在各个Consumer中，如上滑进入多任务是OverviewInputConsumer
+
+packages/apps/Launcher3/quickstep/src/com/android/quickstep/inputconsumers/OverviewInputConsumer.java
+
+全屏应用进入多任务走OtherActivityInputConsumer
+
+这个进入多任务应用不会调用onPause和onStop，launcher会调用onReStart,onStart，onResume
+
+https://blog.csdn.net/learnframework/article/details/123032419
+
+https://blog.csdn.net/learnframework/article/details/132567567?spm=1001.2014.3001.5501

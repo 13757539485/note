@@ -35,7 +35,7 @@
 |croot|回到aosp根目录|
 
 模块编译：make [module name]
-## 常见模块编译
+## <a id="name_mod">常见模块编译</a>
 |模块名|make方式命令|mmm方式命令|
 |--|--|--|
 |init|make init|mmm system/core/init|
@@ -53,44 +53,3 @@
 
 make framework(Android12之后使用make framework-minus-apex)
 或者直接mmm frameworks/base
-
-## 生成系统签名文件
-aosp源码路径：build/target/product/security/
-
-platform.pk8
-
-platform.x509.pem
-```shell
-openssl pkcs8 -in platform.pk8 -inform DER -outform PEM -out platform.pem -nocrypt
-```
-
-```shell
-openssl pkcs12 -export -in platform.x509.pem -inkey platform.pem -out platform.pk12 -name dev
-```
-
-```shell
-keytool -importkeystore -deststorepass 123456 -destkeystore platform.jks -srckeystore platform.pk12 -srcstoretype PKCS12 -srcstorepass 123456
-```
-
-build.gradle中添加
-```gradle
-signingConfigs {
-    config {
-        storeFile file("platform.jks")
-        storePassword '123456'
-        keyAlias 'dev'
-        keyPassword '123456'
-    }
-}
-
-buildTypes {
-    release {
-        proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-        signingConfig signingConfigs.config
-    }
-}
-```
-在Androidmanifest.xml添加
-```xml
-android:sharedUserId="android.uid.system"
-```

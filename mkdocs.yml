@@ -82,6 +82,9 @@ nav:
     - AOSP开发:  
        - 环境搭建: android/fws/fws_aosp.md
        - 编译相关: android/fws/fws_aosp_make.md
+       - 系统应用开发:
+          - 环境搭建: android/fws/app/environment.md
+          - 项目搭建: android/fws/app/system_app.md
        - 源码阅读:  
           - Handler: android/fws/fws_handler.md
           - IPC通信: android/fws/fws_process.md
@@ -182,6 +185,7 @@ nav:
 - 其他学习: 
     - Excel: excel.md
     - Markdown: markdown.md
+    - 其他记录: other.md
 theme: 
   name: material
   language: zh

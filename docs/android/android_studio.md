@@ -181,6 +181,22 @@ include(":local_aar:xxx_aa")
 ```kts
 implementation(project(":local_aar:xxx_aa"))
 ```
+#### 缺少gradle编译选项
+老版本：File -> Settings -> Experimental 选项，取消勾选 Do not build Gradle task list during Gradle sync 选项
+
+新版本：File -> Settings -> Experimental 选项，勾选  Configure all Gradle tasks during Gradle Sync (this can make Gradle Sync slower)选项
+
+再同步gradle即可，File -> Sync Project with Gradle Files 或者直接点图标按钮
+
+![gradle_sync](../img/android/gradle_sync.png)
+#### <a id="enable_idea">重新构建idea</a>
+File -> Settings -> Build,Execution,Deployment->Build Tools -> Gradle，勾选Generate *.iml files for modules imported from Gradle，开启后会生成如图显示
+
+![idea_modules](../img/android/idea_modules.png)
+
+### <a id="gradle_jar">gradle生成jar</a>
+gradle打包jar，sync->other->syncReleaseLibJars，生成目录build/intermediates/aar_main-jar/release/syncReleaseLibJars/class.jar
+
 ### gradle下载源
 
 https://mirrors.huaweicloud.com/repository/maven/
@@ -190,7 +206,7 @@ http://mirrors.cloud.tencent.com/gradle/
 替换：
 .gradle/wrapper/dists/
 
-### gradle签名
+### <a id="gradle_8.9">gradle签名</a>
 ```kts
 signingConfigs {
     create("keystore") {

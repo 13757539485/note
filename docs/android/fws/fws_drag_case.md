@@ -188,6 +188,7 @@ public boolean handleDragEvent(DragEvent event, String basePackageName,
 }
 ```
 frameworks/base/core/java/android/content/ClipData.java
+frameworks/base/core/java/android/content/ClipDescription.java
 ```java
 /**
 * @hide
@@ -199,6 +200,13 @@ public void clear() {
             mClipDescription.clear();
         }
     }
+}
+
+/**
+ * @hide
+ */
+public void clear() {
+    mMimeTypes.clear();
 }
 ```
 具体源码工具类
