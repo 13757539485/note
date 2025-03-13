@@ -1,16 +1,34 @@
-冷启动和热启动
+## app启动流程
+### 冷启动
+1.Launcher(或其他应用)进程
 
-startActivity
+launcher调用Activity:startActivity->startActivityyForResult->
 
-Instrumentation: execStartActivity->
-ActivityTaskManager.getService().startActivity
--> ServiceManager.getService(Context.ACTIVITY_TASK_SERVICE)
+Instrumentation:execStartActivity
 
-通过[AMS](./fws/fws_ams.md)启动流程可知在publishBinderService(Context.ACTIVITY_TASK_SERVICE, mService)会将atms添加到ServiceManager中
+Instrumentation从哪里来？由SystemServer在bindApplication时创建的
 
-ActivityTaskManagerService: startAcitivity->startActivityAsUser
+2.system_server进程
 
-ActivityStater: execute->executeRequest->startActivityUnchecked->startActivityInner
+通过binder调用atms的startActivity->startActivityAsUser
+
+ActivityStarter:execute->executeRequest创建ActivityRecord
+
+ActivityRecord创建会setState为INITIALIZING，生命周期相关
+
+->startActivityUnchecked这里有个doResume参数为true
+
+->startActivityInner调用setInitialState对mDoResume赋值
+
+->getLaunchRootTask
+
+RootWindowContainer:getLaunchRootTask
+
+TaskDisplayArea:getOrCreateRootTask
+
+Task:startActivityLocked
+
+ActivityRecord:showStartingWindow->addStartingWindow启动闪屏页相关SplashScreen
 
 RootWindowContainer: resumeFocusedTasksTopActivities
 
@@ -18,9 +36,144 @@ Task: resumeTopActivityUncheckedLocked->resumeTopActivityInnerLocked
 
 TaskFragment: resumeTopActivity
 
-ActivityTaskSupervisor: startSpecificActivity
+ActivityTaskSupervisor:startSpecificActivity
 
-如果进程已经存在：realStartActivityLocked([应用内启动](https://zhuanlan.zhihu.com/p/612833473))，否则交给atsm处理如下(桌面启动)
+如果next.attachedToProcess()则说明进程已经创建
+
+ActivityTaskSupervisor:realStartActivityLocked见热启动流程
+
+否则走atms:startProcessAsync
+
+ams:startProcess
+
+ProcessList: startProcessLocked->主要是创建newProcessRecordLocked，校验flag参数虚拟机相关，最终异步或同步都调用startProcess
+
+如果usesWebviewZygote则调用startWebView
+
+如果usesAppZygote则调用createAppZygoteForProcessIfNeeded
+
+其他走Process.start方法
+
+普通应用走usesAppZygote，创建AppZygote
+
+AppZygote: getProcess->connectToZygoteIfNeededLocked
+
+ZygoteProcess: startChildZygote创建LocalSocketAddress
+
+startViaZygote->zygoteSendArgsAndGetResult->attemptZygoteSendArgsAndGetResult
+
+返回ChildZygoteProcess对象mZygote
+
+ZygoteProcess: waitForConnectionToZygote传入mZygote的socket地址然后建立连接->connect
+
+->preloadApp
+
+接着getProcess最终返回的是mZygote对象->start->startViaZygote->zygoteSendArgsAndGetResult->attemptZygoteSendArgsAndGetResult
+
+zygote进程启动时main方法中会创建ZygoteServer
+
+3.zygote进程
+
+ZygoteServer: runSelectLoop->acceptCommandPeer等待接连->fillUsapPool
+
+Zygote:forkUsap->nativeForkApp返回childMain，pid是0则表示在子进程(就是fork出来的应用进程)
+
+ZygoteInit:zygoteInit
+
+RuntimeInit:applicationInit->findStaticMain反射调用ActivityThread的main
+
+创建ActivityThread对象调用attach方法
+
+如果是系统(SystemServer)调用则创建Instrumentation，创建Application调用onCreate
+
+如果不是系统调用则通过ams调用attachApplication(跨进程)，并传递IApplicationThread这个binder对象，这个对象是为了system_server进程方便能与这个应用进程通信
+
+4.system_server进程
+
+ams: attachApplication
+
+IApplicationThread: bindApplication->handleBindApplication主要是创建Instrumentation
+
+然后创建Application->makeApplication
+
+Instrumentation:newApplication
+
+Application:attach
+
+初始化ContentProvider->installContentProviders->installProvider->instantiateProvider通过反射创建ContentProvider
+
+ContentProvider:attachInfo->onCreate
+
+调用Application的onCreate方法callApplicationOnCreate
+
+Application:onCreate
+
+接着回到atms:attachApplication
+
+RootWindowContainer:attachApplication->startActivityForAttachedApplicationIfNeeded->realStartActivityLocked走热启动流程
+
+5.app进程
+
+### 热启动
+1.Launcher(或其他应用)进程阶段一致
+
+2.system_server进程
+
+走到TaskFragment: resumeTopActivity
+
+ActivityTaskSupervisor:startSpecificActivity->realStartActivityLocked
+
+创建ClientTransaction，添加addCallback:LaunchActivityItem
+
+设置请求setLifecycleStateRequest:ResumeActivityItem
+
+atms:scheduleTransaction
+
+ClientTransaction:schedule
+
+ApplicationThread:通过IApplicationThread这个binder对象->scheduleTransaction
+
+ActivityThread:scheduleTransaction通过Handler最终调用
+
+TransactionExecutor:execute->executeCallbacks即LauncherActivityItem
+
+LauncherActivityItem:execute->handleLaunchActivity
+
+ActivityThread:走[handleLaunchActivity](./fws_app_start.md#app_start_launch)流程
+
+回到TransactionExecutor:execute->executeLifecycleState->cycleToPath->performLifecycleSequence
+
+TransactionHandler:handleStartActivity
+
+接着ResumeActivityItem
+
+ResumeActivityItem:execute->handleResumeActivity
+
+ActivityThread:走[handleResumeActivity](./fws_app_start.md#app_start_resume)流程
+
+补充：冷启动中的热启动流程
+
+RootWindowContainer:realStartActivityLocked
+
+ClientTransaction:schedule
+
+## launcher启动流程
+SystemServer:main->run->startOtherServices
+
+ams:systemReady
+
+atms:startHomeOnAllDisplays
+
+RootWindowContainer:startHomeOnAllDisplays->startHomeOnDisplay->startHomeOnTaskDisplayArea
+
+ActivityStartController:startHomeActivity创建Task
+
+ActivityStarter:execute接着启动应用一样
+
+## 细节补充
+ServiceManager.getService(Context.ACTIVITY_TASK_SERVICE)
+
+通过[AMS](./fws/fws_ams.md)启动流程可知在publishBinderService(Context.ACTIVITY_TASK_SERVICE, mService)会将atms添加到ServiceManager中
 
 ActivityTaskManagerService: startProcessAsync
 ```java
@@ -32,33 +185,7 @@ mH.sendMessage(m);
 AMS在初始化的时候会在Lifecycle的onStart方法中调用start方法
 LocalServices.addService(ActivityManagerInternal.class, mInternal)，LocalService继承于ActivityManagerInternal
 
-LocalService：startProcess->startProcessLocked
-
-ProcessList: startProcessLocked->startProcess
-```java
-if (hostingRecord.usesAppZygote()) {
-    final AppZygote appZygote = createAppZygoteForProcessIfNeeded(app);
-    startResult = appZygote.getProcess().start(xxx);
- }
-```
-AppZygote: getProcess->connectToZygoteIfNeededLocked
-
-ZygoteProcess: startChildZygotestartViaZygote->zygoteSendArgsAndGetResult->attemptZygoteSendArgsAndGetResult
-
-ChildZygoteProcess: new
-
-ZygoteProcess: waitForConnectionToZygote->connect->preloadApp->start->startViaZygote->zygoteSendArgsAndGetResult->attemptZygoteSendArgsAndGetResult
-
-
-ZygoteServer: runSelectLoop->acceptCommandPeer
-
-ZygoteConnection: handleChildProc
-
-ZygoteInit: zygoteInit
-
-RuntimeInit: applicationInit->findStaticMain
-
-反射调用ActivityThread的main方法
+反射调用ActivityThread的main方法，attach传入的是false
 ```java
 Looper.prepareMainLooper();
 ActivityThread thread = new ActivityThread();
@@ -66,7 +193,7 @@ thread.attach(false, startSeq);
 Looper.loop();
 ```
 
-注意：在SystemServer中也会创建ActivityThread，createSystemContext方法中
+在SystemServer中也会创建ActivityThread，createSystemContext方法中，attach传入的是true
 ```java
 ActivityThread activityThread = ActivityThread.systemMain();
 
@@ -77,13 +204,8 @@ public static ActivityThread systemMain() {
     return thread;
 }
 ```
-attach参数不同，false情况下
-ams：attachApplication->attachApplicationLocked
 
-
-
-
-### <a id="app_start_n">普通app启动</a>
+### <a id="app_start_n">Activity生命周期流程</a>
 <a id="app_start_launch">handleLaunchActivity流程</a>
 ```java
 public Activity handleLaunchActivity(ActivityClientRecord r,
@@ -253,3 +375,17 @@ public void addView(View view, ViewGroup.LayoutParams params,
 }
 ```
 setView中通过IWindowSession(Binder)与wms交互
+
+
+## 总结
+1.onRestoreInstanceState是在onStart之后，onPostCreate之前调用
+
+2.DecorView在onCreate中调用setContentView，ViewRootImpl在onResume创建后WindowManager会调用addView中创建并添加
+
+3.PhoneWindow在attach中创建，在onCreate之前
+
+4.Provider在Application的onCreate之前创建
+
+5.onWindowFocusChanged在onResume之后调用
+
+6.onStart被调用表示Activity可见但不可交互，onResume表示可见并可以交互

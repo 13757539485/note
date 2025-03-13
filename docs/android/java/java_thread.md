@@ -223,7 +223,7 @@ run
 run
 run
 ```
-用户线程转成守护进程
+用户线程转成守护线程
 ```kotlin
 th.isDaemon = true
 输出结果：
