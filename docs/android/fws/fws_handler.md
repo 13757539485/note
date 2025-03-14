@@ -267,7 +267,7 @@ nextPollTimeoutMillis: 数值为0时会立即返回，-1不确定，具体时间
 
 唤醒在enqueueMessage方法中nativeWake
 
-### 消息屏障
+### <a id="handler_barrier">消息屏障</a>
 <font color="#dd0000">作用：为UI刷新“开绿灯”，提高优先级</font>
 
 消息分为：消息屏障，异步消息，同步消息

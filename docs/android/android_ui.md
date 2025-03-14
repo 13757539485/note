@@ -1,4 +1,5 @@
 ### UI更新相关
+#### 子线程更新UI
 onCreate、onResume中可以使用子线程更新ui
 ```xml
 <androidx.appcompat.widget.AppCompatTextView
@@ -109,7 +110,38 @@ void checkThread() {
     }
 }
 ```
-根据普通[handleLaunchActivity](../android/fws/fws_app_start.md#app_start_launch)可知ViewRootImpl创建是在onResume后，所以在onCreate中不会检查线程是否是UI线程
+根据普通[handleLaunchActivity](../android/fws/fws_app_start.md#app_start_launch)可知ViewRootImpl创建是在onResume后，所以在onCreate和onResume中不会检查线程是否是UI线程
+
+总结：
+1.onCreate、onResume中可以使用子线程更新UI
+
+2.在ViewRootImpl创建后除了TextView(某些场景下),其他View都不能在子线程更新UI
+
+3.TextView只能在宽度为固定值时可以在子线程更新文本，因为源码中对宽度进行判断如果mLayoutParams.width != LayoutParams.WRAP_CONTENT就不会触发requestLayout
+
+4.只要不触发requestLayout就不会触发主线程检测，所以自定义view可以只调用invalidate随意更新内容
+
+#### 自定义view相关
+
+自定义view一般可重写onMeasure,onLayout,onDraw,onSizeChanged,主要是后面2个
+
+自定义ViewGroup一般重写除了view的还有dispatchDraw,drawChild
+
+如果需要绘制内容则构造方法中调用setWillNotDraw(false)，否则不回调onDraw，如果有背景则不需要调用，ViewGroup默认开启不绘制内容
+
+测量方式
+
+MeasureSpec.getMode()获取测量模式
+
+MeasureSpec.getSize()获取测量大小
+
+mode共有三种情况：
+
+MeasureSpec.UNSPECIFIED(无限大), 
+
+MeasureSpec.EXACTLY(默认模式，精确值模式,具体数值或者match_parent)
+
+MeasureSpec.AT_MOST(wrap_content)
 
 ### DecorView、Window、View、ViewRootImpl
 
@@ -223,11 +255,66 @@ performDraw()
 
 View的invalidate()会调用onDraw，大致流程是invalidate会逐层找parent一直到DecorView即ViewRootImpl中的mView中，然后由ViewRootImpl分发给所有View，不会调用ViewRootImpl的invalidate，而是递归调用父View的invalidateChildInParent，然后触发ViewRootImpl的performTraversals，由于mLayoutRequested为false，onMeasure和onLayout不被调用，只调用onDraw，也会调用computeScroll方法
 
+#### 关系总结
+1. DecorView中有PhoneWindow的实例对象即mWindow
+2. ViewRootImpl中有DecorView的实例对象即mView
+2. ViewRootImpl通过IWindowSession与WMS通信
+3. wms通过IWidnow与PhoneWindow交互
+4. IWindow是通过IWindowSession传递的
+
 #### invalidate和postInvalidate
 postInvalidate可以在子线程中调用刷新，通过Handler切换线程最终调用invalidate
 
+用于内容变化，如颜色、文本、图形等
 #### requesstLayout
 会调用onMeasure和nLayout方法，不一定触发onDraw
+
+用于布局变化，如尺寸、位置
+
+#### onResume和view.post
+view的测量是在onResume之后执行的，所以无法获取宽高
+```java
+//Activity.onResume()
+public void onResume(){
+    super.onResume();
+    view.post();
+}
+//View.post
+public boolean post(Runnable action) {
+    final AttachInfo attachInfo = mAttachInfo;
+    if (attachInfo != null) {
+        return attachInfo.mHandler.post(action);
+    }
+    getRunQueue().post(action);
+    return true;
+}
+//ViewRootImplscheduleTraversals
+void scheduleTraversals() {
+    if (!mTraversalScheduled) {
+        mTraversalScheduled = true;
+        mTraversalBarrier = mHandler.getLooper().getQueue().postSyncBarrier();
+        mChoreographer.postCallback(
+                Choreographer.CALLBACK_TRAVERSAL, mTraversalRunnable, null);
+    }
+}
+//ViewRootImpl.performTraversals
+private void performTraversals() {
+    if (mFirst) {
+        host.dispatchAttachedToWindow(mAttachInfo, 0);
+    }
+    getRunQueue().executeActions(mAttachInfo.mHandler);
+    performMeasure(childWidthMeasureSpec, childHeightMeasureSpec);
+}
+void dispatchAttachedToWindow(AttachInfo info, int visibility) {
+    if (mRunQueue != null) {
+        mRunQueue.executeActions(info.mHandler);
+        mRunQueue = null;
+    }
+}
+```
+1.当view调用post的时候由于mAttachInfo此时为null，初始化是在ViewRootImpl的构造方法中，此时ViewRootImpl还没被创建，因为是在onResume之后才会被创建，则会将post的Runnable添加到getRunQueue中
+
+2.当ViewRootImpl被创建并开始走view绘制流程后到performTraversals，此时会将mAttachInfo赋值给View(host)，正常来说就会让Handler执行executeActions，但是在执行scheduleTraversals时会发送[消息屏障原理](./fws/fws_handler.md#handler_barrier)，导致mTraversalRunnable是最先执行的，post的Runnable需要排队，mTraversalRunnable执行的就是performTraversals整个view绘制流程
 
 #### View的滑动
 1. scrollTo和scrollBy
