@@ -1,4 +1,14 @@
 ### AppCompatSeekBar
+### 常见属性
+```xml
+android:duplicateParentState="true"
+```
+用来控制按下效果显示隐藏，true为隐藏
+
+```xml
+android:splitTrack="false"
+```
+用来解决thumb背景透明问题，false为不透明，默认true
 #### 竖向SeekBar
 自定义属性：
 ```xml

@@ -146,7 +146,7 @@ MeasureSpec.AT_MOST(wrap_content)
 ### DecorView、Window、View、ViewRootImpl
 
 #### Window
-Android中管理View的工具，装载View的实体，activity和dialog依赖于window，window的唯一实现类是PhoneWindow，在Activity的attach方法中创建，attach方法在[handleResumeActivity](../android/fws/fws_app_start.md#app_start_resume)调用
+Android中管理View的工具，装载View的实体，activity和dialog依赖于window，window的唯一实现类是PhoneWindow，在Activity的attach方法中创建，attach方法在[handleLaunchActivity](../android/fws/fws_app_start.md#app_start_launch)调用
 
 #### DecorView
 
@@ -243,7 +243,7 @@ public <T extends View> T findViewById(@IdRes int id) {
 ```
 总结：setContentView的View最终存放到mContentParent中，mContentParent是通过DecorView通过id(com.android.internal.R.id.content)获得
 
-### ViewRootImpl
+#### ViewRootImpl
 桥接View和Wms，内部属性mView就是DecorView，绑定过程看[handleResumeActivity](../android/fws/fws_app_start.md#app_start_resume)过程中WindowManagerGlobal调用addView方法
 
 performTraversals方法中重要的测量、布局、绘制步骤(View的绘制流程)
@@ -258,10 +258,15 @@ View的invalidate()会调用onDraw，大致流程是invalidate会逐层找parent
 #### 关系总结
 1. DecorView中有PhoneWindow的实例对象即mWindow
 2. ViewRootImpl中有DecorView的实例对象即mView
-2. ViewRootImpl通过IWindowSession与WMS通信
-3. wms通过IWidnow与PhoneWindow交互
-4. IWindow是通过IWindowSession传递的
+3. ViewRootImpl通过IWindowSession与WMS通信
+4. wms通过IWidnow与PhoneWindow交互
+5. IWindow是通过IWindowSession传递的
+6. DecorView包含title和contentParent(android.R.id.content)
+7. contentParent是添加app的布局
 
+![view_cs](../img/android/view_cs.png)
+
+### View
 #### invalidate和postInvalidate
 postInvalidate可以在子线程中调用刷新，通过Handler切换线程最终调用invalidate
 
