@@ -333,17 +333,41 @@ void dispatchAttachedToWindow(AttachInfo info, int visibility) {
 2. onInterceptTouchEvent：事件拦截，viewgroup专属
 3. onTouchEvent：处理事件
 
-FrameLayout包含View1和view2
 
-down事件：
+ViewGroup
+    -ViewGroup1
+        -View1
 
-f(dis)->f(intercept=true)->f(onTouch)
+触摸v1位置，默认情况
+```
+down/move/up:vp(dis)->vp(intercept=false)->vp1(dis)->vp1(intercept=false)->v1(dis)->v1(onTouch)
+```
+触摸v1位置，不同dispatcchTouchEvent情况
+```
+down/move/up:vp(dis=true)
 
-f(dis)->f(intercept=false)->v2(dis)->v2(onTouch)->v1(dis)->v1(onTouch)->f(onTouch)
+down:vp(dis=false)
 
-f(dis=true)->f(dis)
+down/move/up:vp(dis=super)->vp(intercept=false)->vp1(dis=true)
 
-f(dis=false)
+```
+触摸v1位置，不同onInterceptTouchEvent情况
+```
+down:vp(dis)->vp(intercept=true)->vp(onTouch)
+move:vp(dis)->vp(onTouch)
+up:vp(dis)->vp(onTouch)
+
+down:vp(dis)->vp(intercept=false)->vp1(dis)->vp1(intercept=true)->vp1(onTouch)
+move:vp(dis)->vp(intercept=false)->vp1(dis)->vp1(onTouch)
+up:vp(dis)->vp(intercept=false)->vp1(dis)->vp1(onTouch)
+```
+
+总结
+1. 调用顺序：dispatcchTouchEvent->onInterceptTouchEvent->onTouchEvent
+2. onInterceptTouchEvent返回true直接调用自身onTouchEvent，false或默认继续子view分发(dispatcchTouchEvent)
+3. dispatcchTouchEvent返回true/false直接结束，一般需要调用super，ViewGroup里面有逻辑
+4. onTouchEvent返回true表示消费事件，false才会继续找下一个view
+5. 事件分发是倒序的，后添加的view优先分发事件
 
 #### 事件冲突
 1. 内部拦截法
@@ -373,10 +397,42 @@ v2(dis)->v2(onTouchEvent = true)
 
 v2(dis)->v2(onTouchEvent = super.onTouchEvent)->onClick
 
-总结：
-1. 设置setOnTouchListener后onClick肯定不会调用
-2. onTouchEvent调用由onTouch的返回值决定，false调用
-3. onClick调用由onTouchEvent的返回值决定，调用super.onTouchEvent且是在UP事件后
+```java
+if (li != null && li.mOnTouchListener != null
+        && (mViewFlags & ENABLED_MASK) == ENABLED
+        && li.mOnTouchListener.onTouch(this, event)) {
+    result = true;
+}
 
+if (!result && onTouchEvent(event)) {
+    result = true;
+}
+
+//onClick是在onTouchEvent中处理的
+```
+总结：
+1. onClick是在onTouchEvent中处理的，所以设置setOnTouchListener后onClick可能不会调用，由onTouch的返回值决定，false调用
+3. onClick调用前提：setOnTouchListener的返回false，且onTouchEvent调用super.onTouchEvent，触发时机在UP事件后
+```java
+public boolean onTouchEvent(MotionEvent event) {
+    //...
+    case MotionEvent.ACTION_UP:
+        if (!post(mPerformClick)) {
+            performClickInternal();
+        }
+    //...
+}
+public boolean performClick() {
+    //...
+if (li != null && li.mOnClickListener != null) {
+        playSoundEffect(SoundEffectConstants.CLICK);
+        li.mOnClickListener.onClick(this);
+        result = true;
+    } else {
+        result = false;
+    }
+    //...
+}
+```
 设计模式：[责任链模式](./design_mode.md#chain)
 
