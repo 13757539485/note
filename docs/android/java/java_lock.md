@@ -1,4 +1,4 @@
-### 锁的分类
+### <a id="java_lock">锁的分类</a>
 #### 乐观锁vs悲观锁
 乐观锁：不加锁更新数据时会判断是否被修改，如被修改会发送自旋(可理解为死循环)，java.util.concurret.atomic包下的原子变量类，基于CAS实现
 
@@ -47,7 +47,7 @@ ReentrantLock默认是非公平锁，ReentrantLock(true)为公平锁，分别对
 #### 自旋锁
 尝试获取锁的线程不会立即阻塞，采取循环的方式获取锁，减少线程上下文切换的消耗，缺点是消耗cpu
 
-### sleep和wait的区别
+### <a id="sleep_wait">sleep和wait的区别</a>
 Thread.Sleep(0)的作⽤，触发操作系统⽴刻重新进⾏⼀次CPU竞争
 
 1、sleep是Thread的静态⽅法，wait是Object的⽅法，任何对象实例都能调⽤。

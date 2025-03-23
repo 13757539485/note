@@ -26,6 +26,7 @@ public class MyClass {
 ```java
 @Target({ElementType.TYPE, ElementType.FIELD, ElementType.METHOD})
 ```
+
 * ElementType.ANNOTATION_TYPE 可以应用于注解类型。
 * ElementType.CONSTRUCTOR 可以应用于构造函数。
 * ElementType.FIELD 可以应用于字段或属性。
@@ -34,6 +35,7 @@ public class MyClass {
 * ElementType.PACKAGE 可以应用于包声明。
 * ElementType.PARAMETER 可以应用于方法的参数。
 * ElementType.TYPE 可以应用于类的任何元素。
+
 #### @Retention
 * RetentionPolicy.SOURCE仅保留在源级别中，并被编译器忽略
 * RetentionPolicy.CLASS在编译时由编译器保留，但 Java 虚拟机(JVM)会忽略
@@ -53,7 +55,7 @@ CLASS：
 1.AspectJ、热修复Roubust
 
 RUNTIME：
-一般结合反射技术
+一般结合反射技术，如Retrofit
 
 TypeVariable  
   	泛型类型变量。可以泛型上下限等信息；

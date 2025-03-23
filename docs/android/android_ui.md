@@ -328,7 +328,7 @@ void dispatchAttachedToWindow(AttachInfo info, int visibility) {
 4. 调用layout修改值
 5. Scroller+invalidate+重写computeScroll
 
-### 事件分发机制
+### <a id="view_dispatch">事件分发机制</a>
 1. dispatcchTouchEvent：事件分发逻辑，返回值super和直接true、false效果是不同的
 2. onInterceptTouchEvent：事件拦截，viewgroup专属
 3. onTouchEvent：处理事件

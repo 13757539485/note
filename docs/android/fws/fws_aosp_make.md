@@ -53,3 +53,37 @@
 
 make framework(Android12之后使用make framework-minus-apex)
 或者直接mmm frameworks/base
+
+## ninja
+### 配置环境
+```shell
+ln -sf out/combined-***.ninja build.ninja
+```
+如oriole设备
+```shell
+ln -sf out/combined-aosp_oriole.ninja build.ninja
+```
+保证ninja命令存在
+```shell
+cp prebuilts/build-tools/linux-x86/bin/ninja out/host/linux-x86/bin/
+```
+### 编译
+整编
+```shell
+ninja
+```
+单编和make一样，如
+```shell
+ninja services
+```
+### 常见问题
+1. 缺少so库，如缺少libjemalloc5.so
+```shell
+sudo cp prebuilts/build-tools/linux-x86/lib64/libjemalloc5.so /usr/lib/
+```
+2. Android.bp修改
+```shell
+rm -rf out/soong/.temp
+m soong
+ninja -f out/build-***.ninja
+```

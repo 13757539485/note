@@ -1,4 +1,5 @@
 ### <a id="vendor">vendor(厂商源码)定制</a>
+#### 定制拓展app
 以oriole手机为例：
 
 aosp中：device/google/raviole/aosp_oriole.mk
@@ -20,7 +21,21 @@ PRODUCT_PACKAGES += \
 	QQInput \
 	SystemUIPlugin
 ```
+#### 定制overlay
+### 添加包名白名单
+用于在framework.jar中添加自己的包名代码
 
+路径：build/soong/scripts/check_boot_jars/package_allowed_list.txt
+
+如：新增com.hfc.framework
+```txt
+# framework.jar
+javax\.microedition\.khronos\.opengles
+javax\.microedition\.khronos\.egl
+
+android
+com.hfc.framework
+```
 ### <a id="vendor_app">内置apk到系统</a>
 编写mk文件，将gradle编译出来的apk重新前面打包成系统apk
 ```mk

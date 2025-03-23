@@ -49,7 +49,7 @@ public static void main(String[] args) throws InterruptedException {
 终⽌线程:TERMINATED
 ```
 
-### 启动线程的方式
+### <a id="thread_start">启动线程的方式</a>
 两种方式，Thread源码中明确指出
 
 方式一：

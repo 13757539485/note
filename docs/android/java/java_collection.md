@@ -22,7 +22,7 @@ java中所有数据结构都是基于数组和链表实现
 
 散列表：Hash
 
-### ArrayList解析
+### <a id="arraylist">ArrayList解析</a>
 
 使用不同构造方法的区别
 ```java
@@ -144,7 +144,7 @@ long oneSize = itemSize - listSize;
 double intMaxSize = oneSize * Integer.MAX_VALUE * 1.0 / 1024 / 1024 / 1024;
 System.out.println(oneSize + "," + intMaxSize);
 ```
-## HashMap
+## <a id="hashmap">HashMap</a>
 构造方法
 ```java
 static final float DEFAULT_LOAD_FACTOR = 0.75f;
@@ -204,7 +204,7 @@ final V putVal(int hash, K key, V value, boolean onlyIfAbsent,
                 if ((e = p.next) == null) {
                     p.next = newNode(hash, key, value, null);
                     if (binCount >= TREEIFY_THRESHOLD - 1)
-                        treeifyBin(tab, hash);//如果链表吃馕都超过8个就转成红黑树保存
+                        treeifyBin(tab, hash);//如果链表数量都超过8个就转成红黑树保存
                     break;
                 }
                 //...
@@ -235,6 +235,31 @@ Node<K,V>[] newTab = (Node<K,V>[])new Node[newCap];//初始化长度为16的数�
 ```
 下次扩容看threshold大小，默认是0.75*16=12，即当容量为12时会进行一次扩容
 
+转化红黑树的前提：数组中的元素链表长度大于8且数组本身长度>64
+
+为什么是8而不是TREEIFY_THRESHOLD - 1=7，因为binCount是从0开始的
+```java
+final void treeifyBin(Node<K,V>[] tab, int hash) {
+    int n, index; Node<K,V> e;
+    if (tab == null || (n = tab.length) < MIN_TREEIFY_CAPACITY)//64
+        resize();
+    else if ((e = tab[index = (n - 1) & hash]) != null) {
+        TreeNode<K,V> hd = null, tl = null;
+        do {
+            TreeNode<K,V> p = replacementTreeNode(e, null);
+            if (tl == null)
+                hd = p;
+            else {
+                p.prev = tl;
+                tl.next = p;
+            }
+            tl = p;
+        } while ((e = e.next) != null);
+        if ((tab[index] = hd) != null)
+            hd.treeify(tab);
+    }
+}
+```
 自定义首次扩容大小流程(扩容针对的是数组，并非容量大小，容量=size)
 
 调用两个参数构造方法
@@ -285,7 +310,7 @@ public static int growSize(int currentSize) {
 ```
 ## ConcurrentHashMap
 
-## LinkedHashMap
+## <a id="linkedhashmap">LinkedHashMap</a>
 继承于HashMap
 ```kotlin
 val map = object : LinkedHashMap<String, String>() {
@@ -294,7 +319,7 @@ val map = object : LinkedHashMap<String, String>() {
     }
 }
 ```
-限制map大小，FIFO淘汰机制，上面超过3个后会从第0个开始移除
+限制map大小，FIFO淘汰机制，上面超过3个后会从第0个开始移除，此方法是在父类HashMap中的afterNodeInsertion里面调用的
 
 ## 算法
 ### 二分查找

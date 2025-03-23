@@ -109,3 +109,10 @@ compileOptions {
 
 framework：只能引用jar，无法引用aar
 
+### 保活
+在application节点下添加
+```xml
+android:persistent="true"
+```
+<font color="#dd0000">注：</font>
+添加完后没法使用as运行项目，修改后push并重启设备生效

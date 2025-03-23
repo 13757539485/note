@@ -18,7 +18,7 @@
 7. all
 
 #### ProtoLog
-adb logcat wm enable-text/disable-text tag
+adb shell wm enable-text/disable-text tag
 
 其中tag查找源码ProtoLog.v(tag,...)获取
 

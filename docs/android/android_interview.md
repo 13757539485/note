@@ -1,67 +1,3 @@
-### Java方面
-#### Java基础部分
-
-抽象类与接口的区别？
-
-分别讲讲 final，static，synchronized
-
-请简述一下String、StringBuffer和StringBuilder
-
-“equals”与“==”、“hashCode”的区别和使用场景？
-
-Java 中深拷贝与浅拷贝的区别？
-
-谈谈Error和Exception的区别？
-
-什么是反射机制？反射机制的应用场景有哪些？
-
-谈谈如何重写equals()方法？为什么还要重写hashCode()？
-
-谈谈你对Java泛型中类型擦除的理解，并说说其局限性？ -String为什么要设计成不可变的？
-
-说说你对Java注解的理解？
-#### Java集合
-
-谈谈List,Set,Map的区别？
-
-谈谈ArrayList和LinkedList的区别？
-
-请说一下HashMap与HashTable的区别
-
-谈一谈ArrayList的扩容机制？
-
-HashMap 的实现原理？
-
-请简述 LinkedHashMap 的工作原理和使用方式？
-
-谈谈对于ConcurrentHashMap的理解?
-#### Java多线程
-
-Java 中使用多线程的方式有哪些？
-
-说一下线程的几种状态？
-
-如何实现多线程中的同步？
-
-谈谈线程死锁，如何有效的避免线程死锁？
-
-谈谈线程阻塞的原因？
-
-请谈谈 Thread 中 run() 与 start() 的区别？
-
-synchronized和volatile关键字的区别？
-
-如何保证线程安全？
-
-谈谈ThreadLocal用法和原理？
-
-java线程中notify 和 notifyAll有什么区别？
-
-什么是线程池？如何创建一个线程池？
-
-谈一谈java线程常见的几种锁？
-
-谈一谈线程sleep()和wait()的区别？
 #### Java虚拟机
 
 谈一谈JAVA垃圾回收机制？
@@ -76,26 +12,14 @@ JVM、Dalvik、ART三者的原理和区别？
 
 JMM是什么？它存在哪些问题？该如何解决？
 
-### Android方面
 #### 四大组件
-
-Activity 与 Fragment 之间常见的几种通信方式？
-
-LaunchMode 的应用场景？
 
 对于 Context，你了解多少?
 
 IntentFilter是什么？有哪些使用场景？
 
-谈一谈startService和bindService的区别，生命周期以及使用场景？
-
-Service如何进行保活？
-
 简单介绍下ContentProvider是如何实现数据共享的？
 
-说下切换横竖屏时Activity的生命周期?
-
-Intent传输数据的大小有限制吗？如何解决？
 #### Android 异步任务和消息机制
 
 HandlerThread 的使用场景和用法？
@@ -143,9 +67,7 @@ MMAP的内存映射原理了解吗
 
 Binder机制是如何跨进程的
 
-说说四大组件的通信机制
-
-为什么Intent不能传递大数据
+说说四大组件的通信机制 
 
 #### Handler
 

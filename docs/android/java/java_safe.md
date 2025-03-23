@@ -105,11 +105,11 @@ i++;
 既然synchronized保证了有序性那为啥还需要volatile?
 
 synchronized只能保证让闭包里代码同一时间只有一个线程执行，当线程A执行INSTANCE = new Singleton()时，分为开辟空间创建对象、调用构造方法、赋值给INSTANCE三步，由于虚拟机指令重排机制导致后面两步可能顺序颠倒，所以当线程B走到if (INSTANCE == null) {时不为null
-### synchronized vs volatile
+### <a id="synchronized_volatile">synchronized vs volatile
 
 |   | synchronized  | volatile  |
 |  ----  | ----  | ----  |
-| 使用  | 变量、方法、类、同步代码块等 | 变量 |
+| 使用  | 变量、方法、同步代码块 | 变量 |
 | 线程阻塞  | 可能会 | 不会 |
 | 性能  | 有锁，略低 | 优于前者 |
 | 保证  | 有序、可见、原子 | 有序、可见 |
@@ -219,7 +219,15 @@ CountDownLatch：当A模块完成才能继续BC模块
 ### transient关键字
 使成员变量不被序列化，被static修饰的成员变量无效，需要实现Serializable接⼝，如果实现Externalizable接⼝则也无效，需要自行在readExternal方法里处理(手动设置null)
 
-### 线程池
+### <a id="thread_pool">线程池</a>
+
+线程池是一种多线程处理形式，它通过预先创建一组线程并将其放入池中，以便在需要时重用这些线程来执行任务。线程池的主要优势包括：
+
+- ​降低资源消耗：通过复用线程，避免频繁创建和销毁线程的开销。
+- ​提高响应速度：任务到达时可以立即执行，无需等待新线程的创建。
+- ​控制并发量：通过限制线程池的大小，防止系统资源耗尽。
+- ​提供管理能力：可以设定任务队列、超时策略、拒绝策略等
+
 ThreadPoolExecutor
 
 拒绝策略
@@ -238,7 +246,12 @@ ThreadPoolExecutor.DiscardOldestPolicy：拒绝后会抛弃任务队列
 实现RejectedExecutionHandler接口
 
 实现方式
-
+```java
+ExecutorService fixedThreadPool = Executors.newFixedThreadPool(int nThreads);
+ExecutorService singleThreadExecutor = Executors.newSingleThreadExecutor();
+ExecutorService cachedThreadPool = Executors.newCachedThreadPool();
+ScheduledExecutorService scheduledThreadPool = Executors.newScheduledThreadPool(int corePoolSize);
+```
 1. newSingleThreadExecutor：一个线程的线程池，存活时间无限，缓存到LinkedBlockingQueue，适合一个任务一个任务执行的场景
 2. newCachedThreadPool：缓存到SynchronousQueue是同步队列，适合执行很多短期异步的场景
 3. newFixedThreadPool: 创建可容纳固定数量的线程池，存活时间是无限，适合长期执行的场景

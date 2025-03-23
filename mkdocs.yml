@@ -6,6 +6,7 @@ nav:
     - 基础知识:
        - Java: 
          - 基础: android/java/java_basic.md
+         - 注解: android/java/java_annotation.md
          - 虚拟机: android/java/java_jvm.md
          - 泛型: android/java/java_genericity.md
          - 反射: android/java/java_reflex.md
@@ -32,7 +33,10 @@ nav:
        - Apk相关: android/android_build_apk.md
        - AS相关: android/android_studio.md
        - 常用网站: android/resource.md
-       - 面试题: android/android_interview.md
+       - 面试题: 
+          - java: android/interview/java_kotlin.md
+          - android基础: android/interview/android_base.md
+          - android进阶: android/android_interview.md
     - 通信技术: 
        - 基础: android/im/base.md
        - AIDL: android/im/aidl.md
