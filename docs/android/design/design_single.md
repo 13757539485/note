@@ -1,3 +1,35 @@
+### ​饿汉式
+```java
+public class EagerSingleton {
+    private static final EagerSingleton INSTANCE = new EagerSingleton();
+    private EagerSingleton() {}
+    public static EagerSingleton getInstance() {
+        return INSTANCE;
+    }
+}
+```
+### 懒汉式
+```java
+public class LazySingleton {
+    private static LazySingleton instance;
+    private LazySingleton() {}
+    public static synchronized LazySingleton getInstance() {
+        if (instance == null) {
+            instance = new LazySingleton();
+        }
+        return instance;
+    }
+}
+```
+### 枚举单例
+```java
+public enum EnumSingleton {
+    INSTANCE;
+    public void doSomething() {
+        // 方法实现
+    }
+}
+```
 ### <a id="lazy_instance">懒汉式(双重校验)</a>
 ```java
 public class Singleton {
@@ -16,7 +48,7 @@ public class Singleton {
     }
 }
 ```
-### 静态内部类单例
+### 静态内部类单例(推荐)
 ```java
 class Singleton {
     private Singleton() {

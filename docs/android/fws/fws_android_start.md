@@ -102,9 +102,12 @@ system_server就可以直接使用Zygote中的JNI 函数.共享库、常用的�
 死锁的原因：fork出的子进程并没有父进程的所有线程，锁是可以被复制的，锁需要所有者(线程)才能解锁
 
 ### Zygote 为什么不采用 Binder 机制进行 IPC 通信
+
 Binder是多线程的，Socket是单线程的
 
 unix程序设计准则：多线程中不允许使用fork
+
+补充：Zygote进程初始化时，Binder尚未被初始化
 
 ### 一键退出应用
 ```kotlin

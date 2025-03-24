@@ -276,3 +276,91 @@ android页面大小为4k，所以最终数值为1M-8k
 |代码维护|易于维护|维护成本较高，类结构变化需手动更新|
 |跨平台能力|支持跨Java平台|仅限Android平台|
 |安全性|反射可能带来安全隐患|更好地控制序列化过程，安全性较高|
+
+### 简单介绍下ContentProvider是如何实现数据共享的
+
+主要是基于​URI（统一资源标识符）​和​Binder机制来实现跨进程的数据共享
+
+​URI 标识数据：ContentProvider使用URI来唯一标识其管理的数据。
+
+URI 的格式通常为 content://<authority>/<path>，其中 <authority> 是 ContentProvider 的唯一标识符，<path> 指向具体的数据集或数据项。客户端应用通过URI找到对应的ContentProvider并进行数据操作。
+
+​Binder 机制：ContentProvider 的底层实现依赖于 Android 的 Binder 机制，这是一种高效的跨进程通信（IPC）机制。Binder 允许不同进程间的对象调用，使得ContentProvider能够安全地在不同应用之间传递数据和调用方法。
+
+​数据存储：虽然 ContentProvider 可以基于多种数据存储方式（如 SQLite 数据库、文件系统、网络等），但其核心接口和操作方法对开发者是透明的。开发者只需实现 ContentProvider 的抽象方法（如 query()、insert()、update()、delete() 等），而不需要关心底层数据存储的具体实现
+
+### IntentFilter是什么？有哪些使用场景
+
+IntentFilter通过定义Action、Category、Data等元素，描述组件能够处理的Intent类型和数据格式
+
+应用程序启动：隐式启动应用，如打开网页、电话等
+
+处理系统广播：监听系统广播，如网络改变，亮/灭屏
+
+实现分享功能：定义支持解析的MIME类型的文件，响应系统分享功能
+
+### Context的作用
+
+Application: 用于访问应用程序范围内的资源或在应用程序启动时初始化一些全局设置
+
+Activity: 启动新的 Activity、显示对话框、以及与用户界面相关的资源访问
+
+Service: 不能用于创建对话框或进行视图填充
+
+BroadcastReceiver: 生命周期仅限于接收过程，用于在接收到广播时执行一些短暂的操作
+
+​ContentProvider：不能用于创建对话框或进行视图填充
+
+### IntentService的应用场景和使用姿势
+
+后台数据处理：从网络下载数据、解析 JSON 文件、处理图像等
+
+批量任务执行：按顺序处理一系列用户请求、更新多个数据库记录等
+
+定期任务：定时更新数据、发送推送通知等
+
+任务队列管理：当发送多个 Intent 时，它们会按照到达的顺序依次执行
+
+onHandleIntent()获取数据
+
+### HandlerThread的使用场景和用法
+
+见[HandlerThread](../fws/fws_handler.md#HandlerThread)
+
+### Handler相关问题
+
+见[Handler](../fws/fws_handler.md)
+
+HandlerThread是什么？为什么它会存在？
+
+简述下 Handler 机制的总体原理？
+
+Looper 存在哪？如何可以保证线程独有？
+
+如何理解 ThreadLocal 的作用？
+
+主线程 Main Looper 和一般 Looper 的异同？
+
+Handler 或者说 Looper 如何切换线程？
+
+Looper 的 loop() 死循环为什么不卡死？
+
+Looper 的等待是如何能够准确唤醒的？
+
+Message 如何获取？为什么这么设计？
+
+### 谈谈你对 Activity.runOnUiThread 的理解
+runOnUiThread的实现基于Android的Handler机制。每个Activity都有一个与之关联的Handler对象（mHandler），该 Handler 绑定到主线程的 Looper。当调用 runOnUiThread 时，如果线程不在不线程则调用mHandler.post，否则直接调用传入Runnable的run方法
+```java
+public final void runOnUiThread(Runnable action) {
+    if (Thread.currentThread() != mUiThread) {
+        mHandler.post(action);
+    } else {
+        action.run();
+    }
+}
+```
+
+### 子线程能否更新UI
+
+见[子线程](../android_ui.md)
