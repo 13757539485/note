@@ -1263,7 +1263,7 @@
         
   
   <span class="md-ellipsis">
-    java
+    java/kotlin
     
   </span>
   
@@ -1303,11 +1303,55 @@
   
   
     <li class="md-nav__item">
-      <a href="../../android_interview/" class="md-nav__link">
+      <a href="../../interview/android_fws/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
     android进阶
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../interview/data_struct/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    数据结构算法
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../interview/other/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    其他
     
   </span>
   
@@ -5988,6 +6032,7 @@ frameworks/base/cmds/app_process/app_main.cpp
 <h3 id="zygote-binder-ipc">Zygote 为什么不采用 Binder 机制进行 IPC 通信<a class="headerlink" href="#zygote-binder-ipc" title="Permanent link">&para;</a></h3>
 <p>Binder是多线程的，Socket是单线程的</p>
 <p>unix程序设计准则：多线程中不允许使用fork</p>
+<p>补充：Zygote进程初始化时，Binder尚未被初始化</p>
 <h3 id="_1">一键退出应用<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="kd">val</span><span class="w"> </span><span class="nv">manager</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">getSystemService</span><span class="p">(</span><span class="n">Context</span><span class="p">.</span><span class="na">ACTIVITY_SERVICE</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">ActivityManager</span>
 <span class="n">manager</span><span class="p">.</span><span class="na">appTasks</span><span class="p">.</span><span class="na">forEach</span><span class="w"> </span><span class="p">{</span>
