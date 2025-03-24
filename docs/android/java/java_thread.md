@@ -81,7 +81,7 @@ API中的suspend、resume、stop不建议使用(已被标记过时)，容易引�
 
 isInterrupted：判断线程是否被中断
 
-interrupt()：实例方法用来打断线程，只是发出中断请求，并不会立即停止线程
+interrupt()：实例方法用来打断线程，只是发出中断请求，并不会立即停止线程，调用本地方法interrupt0()
 
 interrupted()：static方法，判断线程是否被中断
 
@@ -109,19 +109,9 @@ class PrimeThread : Thread() {
 
 #### interrupted和isInterrupted⽅法的区别
 ```java
-public static boolean interrupted() {
-    Thread t = currentThread();
-    boolean interrupted = t.interrupted;
-    if (interrupted) {
-        t.interrupted = false;
-        clearInterruptEvent();
-    }
+public static native boolean interrupted();
 
-    return interrupted;
-}
-public boolean isInterrupted() {
-    return this.interrupted;
-}
+public native boolean isInterrupted();
 ```
 sleep、join方法会抛出InterruptedException，抛出后会将isInterrupted设置成true，开发者可以通过捕获异常来重新中断
 

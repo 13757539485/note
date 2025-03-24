@@ -105,6 +105,9 @@ i++;
 既然synchronized保证了有序性那为啥还需要volatile?
 
 synchronized只能保证让闭包里代码同一时间只有一个线程执行，当线程A执行INSTANCE = new Singleton()时，分为开辟空间创建对象、调用构造方法、赋值给INSTANCE三步，由于虚拟机指令重排机制导致后面两步可能顺序颠倒，所以当线程B走到if (INSTANCE == null) {时不为null
+
+虽然也synchronized有内存屏障但synchronized防止同步块内外的指令重排序
+
 ### <a id="synchronized_volatile">synchronized vs volatile
 
 |   | synchronized  | volatile  |

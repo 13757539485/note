@@ -215,72 +215,6 @@ Java 1.5 引入泛型时，需要保证旧版本非泛型代码仍能运行，�
 
 见[注解使用](../java/java_annotation.md)
 
-### 谈谈List,Set,Map的区别
-
-List：有序的集合，允许重复元素，主要实现类​ArrayList和​LinkedList
-
-Set：不保证顺序(LinkedHashSet和TreeSet除外)，不允许重复元素，主要实现类​HashSet、LinkedHashSet和TreeSet
-
-Map：键值对，key不允许重复，value允许重复，不保证顺序(LinkedHashMap和TreeMap除外)，主要实现类HashMap、LinkedHashMap和TreeMap
-
-### 各个集合的时间复杂度
-
-|特性|ArrayList|LinkedList|HashSet|LinkedHashSet|TreeSet|HashMap|LinkedHashMap|TreeMap|
-|--|--|--|--|--|--|--|--|--|
-|​插入|O(1)|O(1)|O(1)|O(1)|O(log n)|O(1)|O(1)|O(log n)|
-|​删除|O(n)|O(1)|O(1)|O(1)|O(log n)|O(1)|O(1)|O(log n)|
-|​查找|O(1)|O(n)|O(1)|O(1)|O(log n)|O(1)|O(1)|O(log n)|
-|​访问元素|O(1)|O(n)|不支持|不支持|不支持|不支持|不支持|不支持|
-|​有序性|插入顺序|插入顺序|无序|插入顺序|自然顺序或自定义|无序|插入顺序|然顺序或自定义|
-
-### 谈谈ArrayList和LinkedList的区别
-
-​ArrayList：
-
-- 基于动态数组实现，支持快速随机访问。
-- 插入和删除操作在列表中间位置时效率较低。
-
-​LinkedList：
-
-- 基于双向链表实现，插入和删除操作效率高。
-- 随机访问效率较低。
-
-### 请说一下HashMap与HashTable的区别
-
-HashMap：非线程安全，key/value允许null值，初始容量为16，每次扩容为2倍
-
-​HashTable：线程安全(synchronized)，不允许null值，初始容量为11，每次扩容为原来的2n+1
-
-### 谈一谈ArrayList的扩容机制
-
-见[ArrayList](../java/java_collection.md#arraylist)
-
-### HashMap的实现原理
-
-见[HashMap](../java/java_collection.md#hashmap)
-
-哈希表指的是
-
-- ​哈希桶数组（Node<K,V>[] table）​：这是存储键值对的核心数组，每个元素是一个链表的头节点
-- ​节点类（Node<K,V>）​：用于表示哈希表中的每个键值对，包含键、值、哈希码和指向下一个节点的引用
-- ​哈希函数（hash方法）​：用于计算键的哈希值，并将其映射到数组的索引位置
-
-### 请简述LinkedHashMap的工作原理和使用方式
-
-和HashMap类似不是线程安全的,除了哈希表维护了一个双向链表,LRU（最近最少使用）缓存，通过重写removeEldestEntry，见[LinkedHashMap](../java/java_collection.md#linkedhashmap)
-
-使用方式和HashMap相同
-
-### 谈谈对于ConcurrentHashMap的理解
-
-高性能、线程安全的哈希表实现，相比HashTable和Collections.synchronizedMap()，ConcurrentHashMap提供了更高的并发性能，允许多个线程同时读取和写入数据，而不会导致数据不一致或性能瓶颈
-
-​JDK 1.7：使用分段锁（Segment）机制，将数据分成多个段，每个段独立加锁，从而提高并发度。
-
-​JDK 1.8：移除了分段锁，采用 CAS + synchronized机制，直接使用Node<K,V>[] table结构，简化了数据结构并提高了性能
-
-扩容机制和HashMap相同，区别是HashMap扩容是单线程，它是多线程，并发扩容性能影响更少
-
 ### Java中使用多线程的方式有哪些
 
 [启动线程的方式](../java/java_thread.md#thread_start)
@@ -435,8 +369,6 @@ ART
 ​定义与作用：ART是Android 5.0（Lollipop）及更高版本中的默认运行时环境，取代了Dalvik虚拟机。ART通过预先编译（AOT）技术将字节码编译为本地机器码，进一步提高了应用的启动速度和运行效率。
 
 ​工作原理：ART在应用安装时就预先将字节码编译为机器码，改进了内存分配和垃圾回收机制，提供了更好的内存管理。
-
-
 
 在Android 8.0之前，ART会将dex文件优化并编译成odex文件，odex文件包含了经过AOT编译后的代码以及dex的完整内容
 

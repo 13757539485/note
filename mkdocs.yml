@@ -34,9 +34,11 @@ nav:
        - AS相关: android/android_studio.md
        - 常用网站: android/resource.md
        - 面试题: 
-          - java: android/interview/java_kotlin.md
+          - java/kotlin: android/interview/java_kotlin.md
           - android基础: android/interview/android_base.md
-          - android进阶: android/android_interview.md
+          - android进阶: android/interview/android_fws.md
+          - 数据结构算法: android/interview/data_struct.md
+          - 其他: android/interview/other.md
     - 通信技术: 
        - 基础: android/im/base.md
        - AIDL: android/im/aidl.md

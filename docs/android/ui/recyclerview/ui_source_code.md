@@ -177,7 +177,7 @@ onLayoutChildren->fill走onTouchEvent分析的流程
 ### 总结
 |缓存结构|容器类型|容量限制|缓存用途|是否回调createView|是否回调bindView
 |--|--|--|--|--|--|
-|mChangedScrap/<br>mAttachedScrap|ArrayList|无，一般为屏幕内总的可见列表项数|临时存放仍在当前屏幕可见、但被标记为「移除」或「重用」的列表项|否|否
+|mChangedScrap/<br>mAttachedScrap|ArrayList|无，一般为屏幕内总的可见列表项数|临时存放仍在当前屏幕可见、但被标记为「移除」或「重用」的列表项|否|是/否
 |mCachedViews|ArrayList|默认为2|存放已被移出屏幕、但有可能很快重新进入屏幕的列表项|否|否
 |mViewCacheExtension|开发者自己定义|无|提供额外的可由开发人员自由控制的缓存层级|否|否
 |RecycledViewPool(mScrap)|SparseArray|每种itemType默认为5|按不同的itemType分别存放超出mCachedViews限制的、被移出屏幕的列表项|否|是
@@ -298,7 +298,7 @@ ViewHolder getChangedScrapViewForPosition(int position) {
     return null;
 }
 ```
-通过position来获取缓存，满足条件还会通过id来获取(解决数据错乱，原因：重新从网络获取数据时同一个position数据变了，此缓存不会重新触发onBindViewHolder)
+通过position来获取缓存，满足条件还会通过id来获取(解决数据错乱，原因：重新从网络获取数据时同一个position数据变了，此缓存会重新触发onBindViewHolder)
 
 ##### 开启通过id获取缓存
 ```kotlin
