@@ -107,8 +107,6 @@ Binder是多线程的，Socket是单线程的
 
 unix程序设计准则：多线程中不允许使用fork
 
-补充：Zygote进程初始化时，Binder尚未被初始化
-
 ### 一键退出应用
 ```kotlin
 val manager = getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager
