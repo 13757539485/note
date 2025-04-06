@@ -51,6 +51,7 @@ nav:
        - nfc: android/im/nfc.md
        - Mqtt: android/im/mqtt.md
        - FlowBus: android/im/flow_bus.md
+       - Nsd: android/im/nsdmanager.md
     - 网络编程: 
        - 网络基础: android/network/net_base.md
        - 抓包工具: android/network/net_charles.md
@@ -110,16 +111,19 @@ nav:
              - 系统动画: android/fws/fws_anim.md
              - 开机动画: android/fws/fws_boot.md
           - 系统壁纸: android/fws/fws_wallpaper.md
-          - 分屏模块: 
+          - 分屏模块:
              - 源码: android/fws/fws_split.md
              - 案例: android/fws/fws_split_case.md
+          - 自由窗口:
+             - 源码: android/fws/wms/fws_freeform.md
           - 窗口模块:
              - wms源码: android/fws/fws_wms.md
+             - Window层级: android/fws/wms/fws_window_layer.md
+             - 窗口树: android/fws/wms/fws_window_tree.md
+             - SurfaceFlinger层级: android/fws/wms/surfaceflinger.md
              - 分析工具: android/fws/wms/fws_wms_tool.md
              - 日志: android/fws/wms/fws_log.md
              - 黑屏案例: android/fws/wms/fws_wms_case.md
-             - 自由窗口:
-                - 源码: android/fws/wms/fws_freeform.md
           - SystemUI:
              - 源码分析: android/fws/systemui.md
              - 案例: android/fws/systemui_code.md
@@ -128,6 +132,8 @@ nav:
        - 其他功能: android/fws/fws_mk_bp.md
        - RK3588J: android/fws/fws_rk.md
        - LineageOS: android/fws/fws_lineage_os.md
+       - 车载:
+          - CarLauncher: android/fws/car/carlauncher.md
     - 性能优化: 
       - 启动优化: android/performance/android_start.md
       - 内存优化: 

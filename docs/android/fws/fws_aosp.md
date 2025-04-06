@@ -436,6 +436,24 @@ https://dl.google.com/android/asfp/asfp-2023.2.1.19-linux.deb
 
 https://juejin.cn/post/7316927971095576630
 
+#### 无可调试进程解决
+frameworks/base/core/java/com/android/internal/os/Zygote.java
+```java
+static void applyDebuggerSystemProperty(ZygoteArguments args) {
+	if (Build.IS_ENG || (Build.IS_USERDEBUG && ENABLE_JDWP)) {
+		args.mRuntimeFlags |= Zygote.DEBUG_ENABLE_JDWP;
+		args.mRuntimeFlags |= Zygote.DEBUG_ENABLE_PTRACE;
+	}
+	if (Build.IS_ENG || (Build.IS_USERDEBUG && ENABLE_PTRACE)) {
+		args.mRuntimeFlags |= Zygote.DEBUG_ENABLE_PTRACE;
+	}
+}
+```
+ENABLE_JDWP或ENABLE_PTRACE设置成1即可，需重启
+```shell
+setprop persist.debug.ptrace.enabled 1
+setprop persist.debug.dalvik.vm.jdwp.enabled 1
+```
 ### 12.AIDEGen导入源码
 配置as路径
 

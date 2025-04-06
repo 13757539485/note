@@ -1,4 +1,4 @@
-### 窗口层级数
+### Window层级数
 0-36共37层
 
 https://juejin.cn/post/7301955975338131495
@@ -265,7 +265,7 @@ private DisplayArea createArea(DisplayArea<DisplayArea> parent,
     }
 }
 ```
-除了APPLICATION和INPUT都是Leaf:x:x
+除了APPLICATION和INPUT都是Leaf\:x\:x
 
 APPLICATION名字为DefaultTaskDisplayArea
 
@@ -289,10 +289,187 @@ https://juejin.cn/post/7229587772217491511
 
 ![wms_layer](./img/wms_layer.drawio.png)
 
-### SurfaceFlinger
-命令
 
-```shell
-adb shell dumpsys SurfaceFlinger > surface.txt
+### WindowState
+```java
+WindowState(WindowManagerService service, Session s, IWindow c, WindowToken token,
+            WindowState parentWindow, int appOp, WindowManager.LayoutParams a, int viewVisibility,
+            int ownerId, int showUserId, boolean ownerCanAddInternalSystemWindow) {
+    super(service);
+    mTmpTransaction = service.mTransactionFactory.get();
+    mSession = s;
+    mClient = c;
+    mAppOp = appOp;
+    mToken = token;
+    mDisplayContent = token.mDisplayContent;
+    mActivityRecord = mToken.asActivityRecord();
+    mOwnerUid = ownerId;
+    mShowUserId = showUserId;
+    mOwnerCanAddInternalSystemWindow = ownerCanAddInternalSystemWindow;
+    mWindowId = new WindowId(this);
+    mAttrs.copyFrom(a);
+    mLastSurfaceInsets.set(mAttrs.surfaceInsets);
+    mViewVisibility = viewVisibility;
+    mPolicy = mWmService.mPolicy;
+    mContext = mWmService.mContext;
+    mForceSeamlesslyRotate = token.mRoundedCornerOverlay;
+    mLastReportedActivityWindowInfo = Flags.activityWindowInfoFlag() && mActivityRecord != null
+            ? new ActivityWindowInfo()
+            : null;
+    mInputWindowHandle = new InputWindowHandleWrapper(new InputWindowHandle(
+            mActivityRecord != null
+                    ? mActivityRecord.getInputApplicationHandle(false /* update */) : null,
+            getDisplayId()));
+    mInputWindowHandle.setFocusable(false);
+    mInputWindowHandle.setOwnerPid(s.mPid);
+    mInputWindowHandle.setOwnerUid(s.mUid);
+    mInputWindowHandle.setName(getName());
+    mInputWindowHandle.setPackageName(mAttrs.packageName);
+    mInputWindowHandle.setLayoutParamsType(mAttrs.type);
+    if (!surfaceTrustedOverlay()) {
+        mInputWindowHandle.setTrustedOverlay(isWindowTrustedOverlay());
+    }
+    //子窗口处理：1000-1999
+    if (mAttrs.type >= FIRST_SUB_WINDOW && mAttrs.type <= LAST_SUB_WINDOW) {
+        mBaseLayer = mPolicy.getWindowLayerLw(parentWindow)
+                * TYPE_LAYER_MULTIPLIER + TYPE_LAYER_OFFSET;
+        mSubLayer = mPolicy.getSubWindowLayerFromTypeLw(a.type);
+        mIsChildWindow = true;
+
+        mLayoutAttached = mAttrs.type !=
+                WindowManager.LayoutParams.TYPE_APPLICATION_ATTACHED_DIALOG;
+        mIsImWindow = parentWindow.mAttrs.type == TYPE_INPUT_METHOD
+                || parentWindow.mAttrs.type == TYPE_INPUT_METHOD_DIALOG;
+        mIsWallpaper = parentWindow.mAttrs.type == TYPE_WALLPAPER;
+    } else {
+        mBaseLayer = mPolicy.getWindowLayerLw(this)
+                * TYPE_LAYER_MULTIPLIER + TYPE_LAYER_OFFSET;
+        mSubLayer = 0;
+        mIsChildWindow = false;
+        mLayoutAttached = false;
+        mIsImWindow = mAttrs.type == TYPE_INPUT_METHOD
+                || mAttrs.type == TYPE_INPUT_METHOD_DIALOG;
+        mIsWallpaper = mAttrs.type == TYPE_WALLPAPER;
+    }
+    mIsFloatingLayer = mIsImWindow || mIsWallpaper;
+    //...
+    mWinAnimator = new WindowStateAnimator(this);
+    //...
+    if (mIsChildWindow) {
+        ProtoLog.v(WM_DEBUG_ADD_REMOVE, "Adding %s to %s", this, parentWindow);
+        parentWindow.addChild(this, sWindowSubLayerComparator);
+    }
+}
 ```
-### winscope
+getWindowLayerLw最终调用的是getWindowLayerFromTypeLw
+```java
+default int getWindowLayerFromTypeLw(int type, boolean canAddInternalSystemWindow,
+            boolean roundedCornerOverlay) {
+    // 第36层
+    if (roundedCornerOverlay && canAddInternalSystemWindow) {
+        return getMaxWindowLayer();
+    }
+    // 1-99：属于第2层
+    if (type >= FIRST_APPLICATION_WINDOW && type <= LAST_APPLICATION_WINDOW) {
+        return APPLICATION_LAYER;
+    }
+    // 2000-2999：返回不同层
+    switch (type) {
+        case TYPE_WALLPAPER:
+            // wallpaper is at the bottom, though the window manager may move it.
+            return  1;
+        case TYPE_PRESENTATION:
+        case TYPE_PRIVATE_PRESENTATION:
+        case TYPE_DOCK_DIVIDER:
+        case TYPE_QS_DIALOG:
+        case TYPE_PHONE:
+            return  3;
+        case TYPE_SEARCH_BAR:
+            return  4;
+        case TYPE_INPUT_CONSUMER:
+            return  5;
+        case TYPE_SYSTEM_DIALOG:
+            return  6;
+        case TYPE_TOAST:
+            // toasts and the plugged-in battery thing
+            return  7;
+        case TYPE_PRIORITY_PHONE:
+            // SIM errors and unlock.  Not sure if this really should be in a high layer.
+            return  8;
+        case TYPE_SYSTEM_ALERT:
+            // like the ANR / app crashed dialogs
+            // Type is deprecated for non-system apps. For system apps, this type should be
+            // in a higher layer than TYPE_APPLICATION_OVERLAY.
+            return  canAddInternalSystemWindow ? 12 : 9;
+        case TYPE_APPLICATION_OVERLAY:
+            return  11;
+        case TYPE_INPUT_METHOD:
+            // on-screen keyboards and other such input method user interfaces go here.
+            return  13;
+        case TYPE_INPUT_METHOD_DIALOG:
+            // on-screen keyboards and other such input method user interfaces go here.
+            return  14;
+        case TYPE_STATUS_BAR:
+            return  15;
+        case TYPE_STATUS_BAR_ADDITIONAL:
+            return  16;
+        case TYPE_NOTIFICATION_SHADE:
+            return  17;
+        case TYPE_STATUS_BAR_SUB_PANEL:
+            return  18;
+        case TYPE_KEYGUARD_DIALOG:
+            return  19;
+        case TYPE_VOICE_INTERACTION_STARTING:
+            return  20;
+        case TYPE_VOICE_INTERACTION:
+            // voice interaction layer should show above the lock screen.
+            return  21;
+        case TYPE_VOLUME_OVERLAY:
+            // the on-screen volume indicator and controller shown when the user
+            // changes the device volume
+            return  22;
+        case TYPE_SYSTEM_OVERLAY:
+            // the on-screen volume indicator and controller shown when the user
+            // changes the device volume
+            return  canAddInternalSystemWindow ? 23 : 10;
+        case TYPE_NAVIGATION_BAR:
+            // the navigation bar, if available, shows atop most things
+            return  24;
+        case TYPE_NAVIGATION_BAR_PANEL:
+            // some panels (e.g. search) need to show on top of the navigation bar
+            return  25;
+        case TYPE_SCREENSHOT:
+            // screenshot selection layer shouldn't go above system error, but it should cover
+            // navigation bars at the very least.
+            return  26;
+        case TYPE_SYSTEM_ERROR:
+            // system-level error dialogs
+            return  canAddInternalSystemWindow ? 27 : 9;
+        case TYPE_MAGNIFICATION_OVERLAY:
+            // used to highlight the magnified portion of a display
+            return  28;
+        case TYPE_DISPLAY_OVERLAY:
+            // used to simulate secondary display devices
+            return  29;
+        case TYPE_DRAG:
+            // the drag layer: input for drag-and-drop is associated with this window,
+            // which sits above all other focusable windows
+            return  30;
+        case TYPE_ACCESSIBILITY_OVERLAY:
+            // overlay put by accessibility services to intercept user interaction
+            return  31;
+        case TYPE_ACCESSIBILITY_MAGNIFICATION_OVERLAY:
+            return 32;
+        case TYPE_SECURE_SYSTEM_OVERLAY:
+            return  33;
+        case TYPE_BOOT_PROGRESS:
+            return  34;
+        case TYPE_POINTER:
+            // the (mouse) pointer layer
+            return  35;
+        default:
+            Slog.e("WindowManager", "Unknown window type: " + type);
+            return 3;
+    }
+}
+```
