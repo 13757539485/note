@@ -1,4 +1,4 @@
-
+## ANR
 ### ANR类型
 |类型|产生条件|logcat关键字|
 |--|--|--|
@@ -183,3 +183,98 @@ handler.postDelayed({
 }, 3000)
 ```
 [ANRWatchDog-java版本](ANRWatchDog.java)
+
+### <a id="focus_anr_away">分析手段</a>
+过滤anr日志
+```
+adb logcat -b events |grep anr
+```
+#### 分类
+Input dispatching timed out (%s)
+
+Application does not have a focused window
+
+产生条件：窗口没有焦点，发生key事件
+
+复现场景：在Activity的onCreate中添加代码，返回键触发anr(或者其他key事件)
+```kotlin
+window.attributes = window.attributes.also {
+    it.flags = WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE
+}
+```
+焦点窗口查看
+
+**方式一**
+
+adb shell dumpsys input(主要)
+
+搜索Input Dispatcher State
+```
+Input Dispatcher State:
+  DispatchEnabled: true
+  DispatchFrozen: false
+  InputFilterEnabled: false
+  FocusedDisplayId: 0
+  FocusedApplications:
+    displayId=0, name='ActivityRecord{f0c9060 u0 com.android.launcher3/.uioverrides.QuickstepLauncher t208}', dispatchingTimeout=5000ms
+  FocusedWindows:
+    displayId=0, name='fc51d49 NotificationShade'
+```
+FocusedWindows不为null说明能正常派发key事件
+
+搜索ANR
+```
+Input Dispatcher State at time of last ANR:
+  ANR:
+    Time: 2025-04-07 20:17:01
+    Reason: ActivityRecord{713c197 u0 com.hfc.test/.TestActivity t257} does not have a focused window
+    Window: ActivityRecord{713c197 u0 com.hfc.test/.TestActivity t257}
+  DispatchEnabled: true
+  DispatchFrozen: false
+  InputFilterEnabled: false
+  FocusedDisplayId: 0
+  FocusedApplications:
+    displayId=0, name='ActivityRecord{713c197 u0 com.hfc.test/.TestActivity t257}', dispatchingTimeout=5000ms
+  FocusedWindows: <none>
+```
+FocusedWindows为空导致
+
+查看焦点切换
+```
+adb logcat -b events |grep input_focus
+```
+**方式二**
+
+adb shell dumpsys window
+
+搜索dumpsys window displays，可以看到mCurrentFocus和mFocusedApp
+```
+mCurrentFocus=Window{5a1af43 u0 com.android.launcher3/com.android.launcher3.uioverrides.QuickstepLauncher}
+mFocusedApp=ActivityRecord{f0c9060 u0 com.android.launcher3/.uioverrides.QuickstepLauncher t208}
+```
+mCurrentFocus和mFocusedApp不一定是相同的，比如下拉状态栏时
+```
+mCurrentFocus=Window{fc51d49 u0 NotificationShade}
+mFocusedApp=ActivityRecord{f0c9060 u0 com.android.launcher3/.uioverrides.QuickstepLauncher t208}
+```
+
+搜索dumpsys window lastanr可以查看最近一次anr信息，比如
+```
+WINDOW MANAGER LAST ANR (dumpsys window lastanr)
+  ANR time: 2025年4月7日 20:17:01
+  Application at fault: ActivityRecord{713c197 u0 com.hfc.test/.TestActivity
+  Reason: Input dispatching timed out (Application does not have a focused window).
+
+  Display #0 currentFocus=null focusedApp=ActivityRecord{713c197 u0 com.hfc.test/.TestActivity t257}
+```
+明显看到currentFocus(焦点窗口)为null
+
+分析步骤
+
+1.adb logcat -s InputDispatcher(查看时间点，比较准确)
+
+2.adb logcat -b events |grep anr(主要查看时间和类型,时间点不太准确SystemServer打印的)
+
+3.adb logcat -b events |grep input_focus
+
+通过2查看大概时间，再通过1查看准确时间，查看3的情况request、leaving和entering结合wms中ProtoLog，在结合dumpsys窗口信息(比如焦点窗口是否有了，窗口绘制状态)

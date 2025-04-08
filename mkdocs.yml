@@ -121,6 +121,8 @@ nav:
              - Window层级: android/fws/wms/fws_window_layer.md
              - 窗口树: android/fws/wms/fws_window_tree.md
              - SurfaceFlinger层级: android/fws/wms/surfaceflinger.md
+             - 窗口动画: android/fws/wms/window_anim.md
+             - 窗口焦点: android/fws/wms/fws_window_focus.md
              - 分析工具: android/fws/wms/fws_wms_tool.md
              - 日志: android/fws/wms/fws_log.md
              - 黑屏案例: android/fws/wms/fws_wms_case.md

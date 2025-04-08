@@ -7,6 +7,10 @@ adb shell dumpsys activity containers > wms.txt
 ```shell
 adb shell dumpsys SurfaceFlinger > surface.txt
 ```
+#### 分析窗口
+```shell
+adb shell dumpsys window windows > window.txt
+```
 ### Winscope
 官方介绍：https://source.android.google.cn/docs/core/graphics/tracing-win-transitions?hl=zh-cn#capture-traces-adb
 #### aosp14之前
@@ -94,3 +98,35 @@ python3 development/tools/winscope/src/adb/winscope_proxy.py
 使用eng版本，主要是确保packages/apps/Traceur/被编译进去，具体引用在build/make/target/product/handheld_system.mk
 
 参考博客：https://blog.csdn.net/ukynho/article/details/143023774
+
+### 实战
+#### 窗口显示分析
+只保留Settings应用，并打开然后执行命令
+```shell
+adb shell dumpsys window windows > window.txt
+```
+使用notepad--软件打开, 搜索Window #
+
+![dump_windows](./img/dump_windows.png)
+
+查看Settings窗口显示情况
+```
+WindowStateAnimator{81637df com.android.settings/com.android.settings.Settings}:
+      mSurface=Surface(name=com.android.settings/com.android.settings.Settings)/@0xbf5ec2c
+      Surface: shown=true      mDrawState=HAS_DRAWN       mLastHidden=false
+```
+先看mDrawState是否为HAS_DRAWN，在看shown是否为true，依据是[窗口显示源码分析](fws_window_add.md#window_layout)
+
+再看看壁纸
+```
+WindowStateAnimator{64f8b87 com.android.systemui.wallpapers.ImageWallpaper}:
+      mSurface=Surface(name=com.android.systemui.wallpapers.ImageWallpaper)/@0xdcbbab4
+      Surface: shown=false      mDrawState=HAS_DRAWN       mLastHidden=true
+```
+壁纸虽然mDrawState为HAS_DRAWN，但shown为false，所以是已绘制没显示状态
+
+桌面是没有绘制
+```
+WindowStateAnimator{bb326f5 com.android.launcher3/com.android.launcher3.uioverrides.QuickstepLauncher}:
+      mDrawState=NO_SURFACE       mLastHidden=true
+```

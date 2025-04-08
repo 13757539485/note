@@ -18,7 +18,11 @@
 7. all
 
 #### ProtoLog
-adb shell wm enable-text/disable-text tag
+adb shell wm logging enable-text/disable-text tag
+
+在状态栏相关时aosp14以后使用
+
+adb shell dumpsys activity service SystemUIService WMShell protolog enable-text/disable-text tag
 
 其中tag查找源码ProtoLog.v(tag,...)获取
 
