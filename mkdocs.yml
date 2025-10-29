@@ -136,6 +136,8 @@ nav:
        - LineageOS: android/fws/fws_lineage_os.md
        - 车载:
           - CarLauncher: android/fws/car/carlauncher.md
+          - 多屏案例: android/fws/car/multi_display_case.md
+          - 分屏案例: android/fws/car/multi_window_case.md
     - 性能优化: 
       - 启动优化: android/performance/android_start.md
       - 内存优化: 

@@ -285,7 +285,7 @@ ActivityView没有引用WindowManager-Shell，即多屏操作不依赖SystemUI
 
 挂载方式不同
 
-ActivityView是创建虚拟屏幕(DisplayContent)挂载到SurfaceView上
+ActivityView是创建虚拟屏幕(DisplayContent)挂载到SurfaceView上的mRootSurfaceControl下
 
 TaskView是直接将Task挂载到SurfaceView
 

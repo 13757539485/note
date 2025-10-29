@@ -190,9 +190,11 @@ t.remove(leash);
 //...
 ```
 ### 桌面启动应用动画
-共5个动画
+共5个动画, 1个远程动画和4个本地动画
 
 adb shell wm logging enable-text WM_DEBUG_REMOTE_ANIMATIONS WM_DEBUG_ANIM WM_DEBUG_APP_TRANSITIONS_ANIM WM_DEBUG_APP_TRANSITIONS WM_DEBUG_STARTING_WINDOW WM_DEBUG_STATES WM_SHOW_SURFACE_ALLOC
+
+壁纸动画、桌面图标到窗口动画(远程动画)、闪屏页动画(显示和隐藏WindowStateAnimator)、应用自身WindowState被添加的动画(WindowStateAnimator)
 
 ### 远程动画
 AppTransitionController: handleAppTransitionReady
@@ -361,3 +363,18 @@ getFactory().onAnimationStart调用的是AppLaunchAnimationRunner里面的onAnim
 图标是View，窗口是传递过来的SurfaceControl(leash)
 
 动画结束后通过AnimationResult的runnable跨进程通知SystemServer
+
+### Activity切换动画
+RootWindowContainer: performSurfacePlacementNoTrace->checkAppTransitionReady
+```java
+if (curDisplay.mAppTransition.isReady()) {
+    curDisplay.mAppTransitionController.handleAppTransitionReady();
+    if (DEBUG_LAYOUT_REPEATS) {
+        surfacePlacer.debugLayoutRepeats("after handleAppTransitionReady",
+                curDisplay.pendingLayoutChanges);
+    //...
+}
+```
+其中isReady是通过启动Activity流程中会调用prepareAppTransition
+
+### 壁纸动画(远程动画)

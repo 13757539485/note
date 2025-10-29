@@ -5,7 +5,7 @@
 
 [源码相关](./wms/surfaceflinger.md)
 
-### 窗口添加app层
+### 窗口添加流程
 
 [源码相关](./wms/fws_window_add.md)
 
@@ -17,9 +17,7 @@
 
 ### 窗口动画
 
-### Activity切换动画
-
-### 远程动画
+[源码相关](./wms/window_anim.md)
 
 ### 窗口焦点
 
