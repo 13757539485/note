@@ -198,6 +198,15 @@ plugins:
 ```
 主页默认为index.md
 
+### 报错
+1.执行mkdocs gh-deploy报错ModuleNotFoundError: No module named 'mkdocs.utils.yaml'
+
+解决方案：升级版本
+```
+pip install --upgrade pip
+pip install --upgrade mkdocs
+pip install --upgrade mkdocs-material
+```
 更多学习：
 
 https://zhuanlan.zhihu.com/p/613038183

@@ -268,4 +268,4 @@ plugins:
   - encryptcontent:
         password_file: 'passwords.yml'
 
-copyright: Copyright &copy; 2024 俞梨 # 左下角的版权声明
+copyright: Copyright &copy; 2025 俞梨 # 左下角的版权声明
