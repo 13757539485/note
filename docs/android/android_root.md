@@ -1,4 +1,42 @@
-### KernelSU
+## Root
+### Magisk方式
+https://github.com/topjohnwu/Magisk/releases
+下载最新的Magisk_xxx.apk
+```shell
+adb install Magisk_xxx.apk
+```
+获取设备的boot.img，从刷机包或者源码编译中获取，或者直接从手机中提取
+
+从手机中提取
+
+查看boot分区路径
+```shell
+adb shell "ls -la /dev/block/by-name/ |grep boot"
+```
+![boot](../img/boot.png)
+
+由于手机是双分区的，所以需要确定当前使用的是a分区还是b分区
+```shell
+adb shell "getprop ro.boot.slot_suffix"
+```
+输出结果为：_b
+```shell
+adb root
+adb shell "dd if=/dev/block/sda21 of=/sdcard/boot.img"
+```
+打开Magisk，在Magisk行点安装，选择并修补一个文件，选择boot.img文件开始，完成后根据路径(storage/emulated/0/Download)将生成的magisk_patched-xxx.img导出到电脑
+```shell
+adb pull /sdcard/Download/magisk_patched-xxx.img boot.img
+```
+将boot.img刷入到手机
+```shell
+adb reboot bootloader
+fastboot flash boot boot.img
+fastboot reboot
+```
+再次打开Magisk看到以下底部按钮可点击即为成功root
+![root_success](../img/root_success.png)
+### KernelSU方式
 项目官网：https://github.com/tiann/KernelSU
 
 下载最新的Magisk安装包
