@@ -84,7 +84,11 @@ fastboot flash boot new-boot.img
 安装 KernelSU_xxx-release.apk (https://github.com/tiann/KernelSU/releases/tag/v0.9.0)
 
 ### LSPosed
-LSPosed框架: https://github.com/LSPosed/LSPosed
+LSPosed框架: 
+
+https://github.com/LSPosed/LSPosed
+
+https://github.com/JingMatrix/LSPosed/
 
 Magisk面具root安装: LSPosed-v1.9.2-7024-riru-release.zip
 
