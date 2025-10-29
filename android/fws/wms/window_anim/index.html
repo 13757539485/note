@@ -3733,6 +3733,24 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#activity" class="md-nav__link">
+    <span class="md-ellipsis">
+      Activity切换动画
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      壁纸动画(远程动画)
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -4123,6 +4141,50 @@
   
   <span class="md-ellipsis">
     CarLauncher
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../car/multi_display_case/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    [Protected] 多屏案例
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../car/multi_window_case/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    [Protected] 分屏案例
     
   </span>
   
@@ -6007,6 +6069,24 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#activity" class="md-nav__link">
+    <span class="md-ellipsis">
+      Activity切换动画
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      壁纸动画(远程动画)
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -6185,8 +6265,9 @@ SurfaceAnimator: removeLeash，重新挂载回WindowToken并移除leash图层
 <span class="c1">//...</span>
 </code></pre></div></p>
 <h3 id="_5">桌面启动应用动画<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
-<p>共5个动画</p>
+<p>共5个动画, 1个远程动画和4个本地动画</p>
 <p>adb shell wm logging enable-text WM_DEBUG_REMOTE_ANIMATIONS WM_DEBUG_ANIM WM_DEBUG_APP_TRANSITIONS_ANIM WM_DEBUG_APP_TRANSITIONS WM_DEBUG_STARTING_WINDOW WM_DEBUG_STATES WM_SHOW_SURFACE_ALLOC</p>
+<p>壁纸动画、桌面图标到窗口动画(远程动画)、闪屏页动画(显示和隐藏WindowStateAnimator)、应用自身WindowState被添加的动画(WindowStateAnimator)</p>
 <h3 id="_6">远程动画<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
 <p>AppTransitionController: handleAppTransitionReady</p>
 <p>WindowContainer: applyAnimationUnchecked-&gt;getAnimationAdapter
@@ -6330,6 +6411,18 @@ getFactory().onAnimationStart调用的是AppLaunchAnimationRunner里面的onAnim
 <p>任务中心：composeRecentsLaunchAnimator</p>
 <p>图标是View，窗口是传递过来的SurfaceControl(leash)</p>
 <p>动画结束后通过AnimationResult的runnable跨进程通知SystemServer</p>
+<h3 id="activity">Activity切换动画<a class="headerlink" href="#activity" title="Permanent link">&para;</a></h3>
+<p>RootWindowContainer: performSurfacePlacementNoTrace-&gt;checkAppTransitionReady
+<div class="highlight"><pre><span></span><code><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">curDisplay</span><span class="p">.</span><span class="na">mAppTransition</span><span class="p">.</span><span class="na">isReady</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">curDisplay</span><span class="p">.</span><span class="na">mAppTransitionController</span><span class="p">.</span><span class="na">handleAppTransitionReady</span><span class="p">();</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">DEBUG_LAYOUT_REPEATS</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">surfacePlacer</span><span class="p">.</span><span class="na">debugLayoutRepeats</span><span class="p">(</span><span class="s">&quot;after handleAppTransitionReady&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="n">curDisplay</span><span class="p">.</span><span class="na">pendingLayoutChanges</span><span class="p">);</span>
+<span class="w">    </span><span class="c1">//...</span>
+<span class="p">}</span>
+</code></pre></div>
+其中isReady是通过启动Activity流程中会调用prepareAppTransition</p>
+<h3 id="_7">壁纸动画(远程动画)<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
 
 
 
@@ -6359,7 +6452,7 @@ getFactory().onAnimationStart调用的是AppLaunchAnimationRunner里面的onAnim
       <div class="md-copyright">
   
     <div class="md-copyright__highlight">
-      Copyright &copy; 2024 俞梨
+      Copyright &copy; 2025 俞梨
     </div>
   
   
